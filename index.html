@@ -1,0 +1,53 @@
+---
+layout: default
+title: "Home"
+---
+
+<div class="text-center">
+  <h1 class="mb-4">Billy Meier Social Post Generator</h1>
+  <p class="mb-4">Click the button below to generate a random social media post.</p>
+
+  <!-- Generate Post Button -->
+  <button id="generateBtn" class="btn btn-primary mb-4">Generate Post</button>
+
+  <!-- Generated Post Content Container -->
+  <div id="postDisplay" class="mb-4">
+    <!-- Random post content will be injected here -->
+  </div>
+
+  <!-- Two Square Card Buttons with Icons and Shadows -->
+  <div class="d-flex justify-content-center gap-4 mt-4">
+    <p class="mb-4"> AI-created content, freely shared. Open-source for creators and truth seekers.</p>
+  </div>
+</div>
+
+<script>
+  // JavaScript to fetch and display a random post from output.json
+  document.getElementById('generateBtn').addEventListener('click', function() {
+    fetch('/posts/output.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then(posts => {
+        if (!Array.isArray(posts) || posts.length === 0) {
+          throw new Error('Posts JSON is empty or not an array.');
+        }
+        // Pick a random post
+        const randomIndex = Math.floor(Math.random() * posts.length);
+        const post = posts[randomIndex];
+        // Build the HTML for the post
+        const postContent = `
+          <h3>Report #${post.report_number}</h3>
+          <p><em>Date: ${post.report_date}</em></p>
+          <p>${post.post}</p>
+        `;
+        document.getElementById('postDisplay').innerHTML = postContent;
+      })
+      .catch(error => {
+        document.getElementById('postDisplay').innerHTML = `<p class="text-danger">Error: ${error.message}</p>`;
+      });
+  });
+</script>

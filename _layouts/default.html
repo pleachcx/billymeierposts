@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <!-- Bootstrap CSS (via CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons CSS (optional, if needed elsewhere) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    /* Global background image and overlay */
+    body {
+      background: url('https://www.futureofmankind.co.uk/w/images/f/f3/F_0174_rgb.jpg') no-repeat center center fixed;
+      background-size: cover;
+      background-color: #000; /* Fallback color */
+      position: relative;
+      margin: 0;
+      padding: 0;
+    }
+    /* Global overlay on the background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(128, 128, 128, 0.5); /* 50% transparent grey overlay */
+      z-index: -1; /* Behind all content */
+    }
+    /* Ensure container content appears above the overlay */
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+    /* Styling for the generated post container with its own overlay */
+    #postDisplay {
+      position: relative;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8); /* Light background for readability */
+      border-radius: 5px;
+    }
+    /* Pseudo-element for a subtle overlay on #postDisplay */
+    #postDisplay::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2); /* 20% transparent black overlay */
+      z-index: -1; /* Behind the content of #postDisplay */
+      border-radius: 5px;
+    }
+    /* Optional: Styling for square card buttons */
+    .card.card-square {
+      width: 150px;
+      height: 150px;
+      cursor: pointer;
+    }
+    /* Force navbar nav-link text to be bright white */
+    .navbar-dark .navbar-nav .nav-link {
+      color: #fff !important;
+    }
+    .navbar-dark .navbar-nav .nav-link:hover,
+    .navbar-dark .navbar-nav .nav-link:focus {
+      color: #fff !important;
+    }
+    /* Override the navbar toggler icon to use a bright white stroke */
+    .navbar-dark .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+<body>
+  <!-- Transparent Navbar with hamburger at the top right -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: transparent; position: relative; z-index: 1000;">
+    <div class="container">
+      <!-- Hamburger button, pushed to the right with ms-auto -->
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collapsible menu -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/social.html">Social Media Posts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/shortSummaries/short_summaries.html">Contact Report Short Summaries</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Page Content -->
+  <div class="container my-4">
+    {{ content }}
+  </div>
+  
+  <!-- Bootstrap JS Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

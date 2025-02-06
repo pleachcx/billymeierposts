@@ -24,7 +24,7 @@ title: "Home"
 <script>
   // JavaScript to fetch and display a random post from output.json
   document.getElementById('generateBtn').addEventListener('click', function() {
-    fetch('/posts/output.json')
+    fetch('{{ site.baseurl }}/posts/output.json')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok: ' + response.statusText);

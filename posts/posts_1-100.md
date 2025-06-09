@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Reports 1–100"
+---
+
 **643 report_number:5 report_date:1975-02-16**
 **Headline:** \"The Cosmic Warning: Earth's Past and Future in the Stars 🌍✨\"  
 

@@ -1,0 +1,68 @@
+[
+  {
+    "event_id": "who-h5n1-japan-poultry-2004-01-12",
+    "disease_key": "avian_influenza",
+    "event_type": "poultry_outbreak_reported",
+    "event_title": "WHO noted H5N1 avian-influenza outbreaks in poultry in Japan",
+    "event_start_date": "2004-01-12",
+    "location_name": "Japan",
+    "target_keywords": ["Japan"],
+    "source_name": "WHO Disease Outbreak News",
+    "source_url": "https://www.who.int/emergencies/disease-outbreak-news/item/2004_02_04-en"
+  },
+  {
+    "event_id": "who-h5n1-human-cases-2006-06-30",
+    "disease_key": "avian_influenza",
+    "event_type": "human_cases_reported",
+    "event_title": "WHO published epidemiology of confirmed human H5N1 cases",
+    "event_start_date": "2006-06-30",
+    "location_name": "Global",
+    "target_keywords": ["Global", "World"],
+    "source_name": "WHO Weekly Epidemiological Record",
+    "source_url": "https://www.who.int/publications/i/item/who-wer-8126-249-257"
+  },
+  {
+    "event_id": "uk-h5n1-suffolk-2007-02-02",
+    "disease_key": "avian_influenza",
+    "event_type": "poultry_outbreak_reported",
+    "event_title": "H5N1 confirmed at a turkey farm in Holton, Suffolk, England",
+    "event_start_date": "2007-02-02",
+    "location_name": "Holton, Suffolk, England",
+    "target_keywords": ["England", "Suffolk", "Holton"],
+    "source_name": "UK Government",
+    "source_url": "https://assets.publishing.service.gov.uk/media/5a790871e5274a3864fd5da2/WorkingwiththeMediaIncidentAvianInfluenza_H5N1_outbreakatBernardMatthewssiteinHoltonSuffolkinFebruary2007.pdf"
+  },
+  {
+    "event_id": "who-covid-wuhan-2019-12-31",
+    "disease_key": "covid19",
+    "event_type": "outbreak_reported",
+    "event_title": "WHO timeline records the first Wuhan pneumonia alerts",
+    "event_start_date": "2019-12-31",
+    "location_name": "Wuhan, China",
+    "target_keywords": ["China", "Wuhan"],
+    "source_name": "WHO COVID-19 Timeline",
+    "source_url": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/events-as-they-happen"
+  },
+  {
+    "event_id": "who-covid-first-don-2020-01-05",
+    "disease_key": "covid19",
+    "event_type": "outbreak_reported",
+    "event_title": "WHO issued its first Disease Outbreak News report on the Wuhan cluster",
+    "event_start_date": "2020-01-05",
+    "location_name": "Wuhan, China",
+    "target_keywords": ["China", "Wuhan"],
+    "source_name": "WHO Disease Outbreak News",
+    "source_url": "https://www.who.int/emergencies/disease-outbreak-news/item/2020-DON229"
+  },
+  {
+    "event_id": "who-covid-pandemic-2020-03-11",
+    "disease_key": "covid19",
+    "event_type": "pandemic_declared",
+    "event_title": "WHO characterized COVID-19 as a pandemic",
+    "event_start_date": "2020-03-11",
+    "location_name": "Global",
+    "target_keywords": ["Global", "World"],
+    "source_name": "WHO Director-General remarks",
+    "source_url": "https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020"
+  }
+]

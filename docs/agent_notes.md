@@ -40,3 +40,8 @@
 - Keep manual final-review rules in `data/earthquake_final_adjudications.json` keyed by `report_number:candidate_seq`; require every unresolved earthquake row to be covered before Stage 7 runs.
 - The Stage 7 script uses regular psycopg2 cursors; convert fetched tuples to dicts from `cur.description` before treating them like mapping rows.
 - Refresh the Stage 5 export after Stage 7 so `summary.json`, `predictions.csv`, and `unresolved.csv` carry `final_status`, `final_reason`, and `stage7_run_key`.
+- Start the epidemic family with a narrow named-disease slice before attempting the full cohort; current curated files are `data/epidemic_prediction_overrides.json` and `data/epidemic_official_events.json`.
+- Use `python3 scripts/build_epidemic_event_ledger.py --stage2-run-key stage2-20260310T232950Z` for the first epidemic Stage 3 slice; live run is `stage3-epidemic-20260311T030220Z`.
+- Use `python3 scripts/score_epidemic_matches.py --stage2-run-key stage2-20260310T232950Z --stage3-run-key stage3-epidemic-20260311T030220Z` for the first epidemic Stage 4 slice; live run is `stage4-epidemic-20260311T030227Z`.
+- The initial epidemic named-disease slice currently covers `369/12`, `401/10`, `441/1`, and `729/12` and scored `1 exact_hit`, `1 near_hit`, `2 similar_only`.
+- Keep the epidemic slice source-backed and narrow; bird-flu and COVID predictions can use WHO/UK government sources, while AIDS/Corona-origin claims need separate rulebooks later.

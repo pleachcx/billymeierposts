@@ -1,0 +1,13 @@
+{
+  "448:6": {
+    "scoped_family": "storm",
+    "expected_event_type": "town_destroyed_by_tornado",
+    "actor_name": "Greensburg, Kansas",
+    "target_name": "Greensburg, Kansas",
+    "target_keywords": ["Greensburg", "Kansas", "tornado"],
+    "jurisdiction": "Kansas, United States",
+    "window_start": "2007-05-01",
+    "window_end": "2007-05-10",
+    "notes": "Prediction scoped to Greensburg, Kansas being devastated by a tornado at the beginning of May 2007."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "448:6": {
+    "probability_key": "greensburg_tornado_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "1950-01-01",
+    "calibration_end": "2007-05-04",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat destruction of a named town by a tornado as a one-off location-specific event across the modern tornado record."
+  }
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "event_id": "us-ks-greensburg-tornado-2007-05-04",
+    "event_type": "town_destroyed_by_tornado",
+    "actor_name": "Greensburg, Kansas",
+    "jurisdiction": "Kansas, United States",
+    "target_keywords": ["Greensburg", "Kansas", "tornado"],
+    "event_title": "Greensburg tornado devastated the town",
+    "event_start_date": "2007-05-04",
+    "location_name": "Greensburg, Kansas",
+    "source_name": "National Weather Service Dodge City",
+    "source_url": "https://www.weather.gov/ddc/events",
+    "source_excerpt": "A destructive tornado hit Greensburg, Kansas on May 4, 2007, causing extensive damage, including 90% of Greensburg."
+  }
+]

@@ -1,0 +1,6 @@
+event_family_final,prediction_count,family_counts,match_status_counts,combined_observed_probability,top_priority_rank,top_report_number,top_candidate_seq
+aviation_space,1,"{""aviation_space"": 1}","{""exact_hit"": 1}","{""count"": 1, ""ln_sum"": -6.074196, ""log10_sum"": -2.63799}",18,459,7
+earthquake,49,"{""earthquake"": 49}","{""exact_hit"": 29, ""near_hit"": 14, ""similar_only"": 6}","{""count"": 49, ""ln_sum"": -221.889297, ""log10_sum"": -96.365297}",1,465,6
+epidemic,5,"{""epidemic"": 5}","{""exact_hit"": 3, ""similar_only"": 2}","{""count"": 5, ""ln_sum"": -12.392523, ""log10_sum"": -5.382005}",20,453,14
+politics_election,11,"{""politics_election"": 11}","{""exact_hit"": 11}","{""count"": 11, ""ln_sum"": -41.391611, ""log10_sum"": -17.976148}",6,459,5
+storm,1,"{""storm"": 1}","{""exact_hit"": 1}","{""count"": 1, ""ln_sum"": -7.647213, ""log10_sum"": -3.321143}",7,448,6

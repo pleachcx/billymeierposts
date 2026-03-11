@@ -18,7 +18,7 @@
     "included_in_statistics": 28,
     "permanently_unresolved": 1
   },
-  "generated_at": "2026-03-11T03:48:08.529252+00:00",
+  "generated_at": "2026-03-11T04:57:14.602391+00:00",
   "observed_event_before_publication_count": 5,
   "prediction_summary": {
     "combined_exact_hit_probability": {
@@ -52,6 +52,12 @@
       "similar_only": 2,
       "unresolved": 4
     }
+  },
+  "public_date_status_counts": {
+    "event_precedes_publication": 5,
+    "no_public_date_evidence": 22,
+    "pending": 4,
+    "public_date_ok": 1
   },
   "run_keys": {
     "stage2_run_key": "stage2-20260310T232950Z",

@@ -164,6 +164,8 @@ def load_predictions(cur, runs: RunSet) -> list[dict[str, Any]]:
             p.earliest_provable_public_date,
             p.public_date_basis,
             p.provenance_score,
+            p.public_date_status,
+            p.public_date_reason,
             p.claim_normalized,
             p.source_quote,
             p.target_name,
@@ -467,6 +469,7 @@ def main() -> int:
             "final_status_counts": dict(Counter(row["final_status"] for row in predictions)),
             "earliest_public_date_populated_count": sum(1 for row in predictions if row["earliest_provable_public_date"] is not None),
             "observed_event_before_publication_count": sum(1 for row in predictions if row["observed_event_before_publication"] is True),
+            "public_date_status_counts": dict(Counter(row["public_date_status"] for row in predictions)),
             "unresolved_prediction_count": len(unresolved_rows),
         }
 
@@ -496,6 +499,8 @@ def main() -> int:
                 "earliest_provable_public_date",
                 "public_date_basis",
                 "provenance_score",
+                "public_date_status",
+                "public_date_reason",
                 "claim_normalized",
                 "source_quote",
                 "target_name",

@@ -144,6 +144,8 @@ def load_predictions(cur, runs: RunSet) -> list[dict[str, Any]]:
             p.earliest_provable_public_date,
             p.public_date_basis,
             p.provenance_score,
+            p.public_date_status,
+            p.public_date_reason,
             p.claim_normalized,
             p.source_quote,
             p.time_window_start,
@@ -272,6 +274,7 @@ def main() -> int:
             "named_target_count": sum(1 for row in predictions if row["target_name"]),
             "earliest_public_date_populated_count": sum(1 for row in predictions if row["earliest_provable_public_date"] is not None),
             "observed_event_before_publication_count": sum(1 for row in predictions if row["observed_event_before_publication"] is True),
+            "public_date_status_counts": dict(Counter(row["public_date_status"] for row in predictions)),
             "probability_ready_count": sum(1 for row in predictions if row["observed_probability_under_null"] is not None),
             "combined_observed_probability": aggregate_probabilities(
                 [row["observed_probability_under_null"] for row in predictions if row["observed_probability_under_null"] is not None]
@@ -297,6 +300,8 @@ def main() -> int:
                 "earliest_provable_public_date",
                 "public_date_basis",
                 "provenance_score",
+                "public_date_status",
+                "public_date_reason",
                 "claim_normalized",
                 "source_quote",
                 "time_window_start",

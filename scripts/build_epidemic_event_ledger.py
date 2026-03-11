@@ -15,7 +15,7 @@ import psycopg2
 from psycopg2.extras import Json, execute_values
 
 
-SCRIPT_VERSION = "stage3_epidemic_official_catalog_v1"
+SCRIPT_VERSION = "stage3_epidemic_official_catalog_v2"
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -228,12 +228,18 @@ def build_ledger_rows(
         window_start = parse_iso_date(override.get("window_start")) or prediction.time_window_start
         window_end = parse_iso_date(override.get("window_end")) or prediction.time_window_end
 
-        matched_any = False
+        matched_disease_event = False
+        matched_post_claim_event = False
         for event in events:
             if event["disease_key"] != disease_key:
                 continue
-            matched_any = True
+            matched_disease_event = True
             event_date = parse_iso_date(event["event_start_date"])
+            if event_date is None:
+                continue
+            if prediction.claimed_contact_date and event_date < prediction.claimed_contact_date:
+                continue
+            matched_post_claim_event = True
             exact_target = target_matches(event.get("target_keywords", []), target_keywords)
             exact_band, near_band, log_only_band, delta_days = classify_bands(
                 event_date,
@@ -280,8 +286,10 @@ def build_ledger_rows(
                 )
             )
 
-        if not matched_any:
+        if not matched_disease_event:
             skipped.append({"prediction_id": prediction.prediction_id, "reason": "no_catalog_events_for_disease"})
+        elif not matched_post_claim_event:
+            skipped.append({"prediction_id": prediction.prediction_id, "reason": "no_post_claim_catalog_events"})
 
     return rows, skipped
 

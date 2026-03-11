@@ -56,3 +56,5 @@
 - Assign epidemic Stage 5 probabilities with `python3 scripts/assign_epidemic_probabilities.py --stage4-run-key stage4-epidemic-20260311T030720Z`; latest run is `stage5-epidemic-20260311T031534Z`.
 - The epidemic Stage 5 model is provisional and catalog-scoped: it uses smoothed disease-specific rates from `data/epidemic_official_events.json`, not a complete historical surveillance dataset.
 - Refresh the epidemic export after Stage 5 so `summary.json` and `predictions.csv` carry `p_*`, `probability_model_version`, and the combined observed log-probability summary.
+- Exclude official epidemic events dated before `claimed_contact_date` when building Stage 3 ledger rows; otherwise Stage 4 can award backward-looking `similar_only` matches.
+- Temporal-guardrail epidemic reruns are `stage3-epidemic-20260311T032248Z`, `stage4-epidemic-20260311T032302Z`, `stage5-epidemic-20260311T032413Z`, and `stage7-epidemic-final-20260311T032413Z`; the current five-row slice scores `2 exact_hit`, `2 similar_only`, `1 miss` with export log10 sum `-3.677292`.

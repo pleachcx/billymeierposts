@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-03-11T03:05:46.732951+00:00",
+  "match_status_counts": {
+    "exact_hit": 1,
+    "near_hit": 1,
+    "similar_only": 2
+  },
+  "named_target_count": 2,
+  "run_keys": {
+    "stage2_run_key": "stage2-20260310T232950Z",
+    "stage3_run_key": "stage3-epidemic-20260311T030535Z",
+    "stage4_run_key": "stage4-epidemic-20260311T030539Z"
+  },
+  "scoped_prediction_count": 4,
+  "script_version": "epidemic_export_v1",
+  "significant_count": 2
+}

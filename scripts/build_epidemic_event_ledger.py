@@ -272,6 +272,8 @@ def build_ledger_rows(
                             "expected_event_type": expected_type,
                             "target_name": override.get("target_name"),
                             "target_keywords": target_keywords,
+                            "effective_window_start": window_start.isoformat() if window_start else None,
+                            "effective_window_end": window_end.isoformat() if window_end else None,
                             "official_event": event,
                         }
                     ),

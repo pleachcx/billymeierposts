@@ -1,3 +1,29 @@
 # Agent Notes
 
 - No prior .codex notes were found for this repository.
+- Use `contact_reports.english_content` as the fresh extraction corpus; ignore legacy `predictions` JSON when planning the audit pipeline.
+- Add new audit tables with a `prediction_audit_` prefix instead of mutating legacy JSON columns on `contact_reports`.
+- Keep one row per extracted future claim in `prediction_audit_predictions`; store run/version metadata separately in `prediction_audit_runs`.
+- Validate new schema with `psql "$DatabaseURL" -v ON_ERROR_STOP=1 -f sql/20260311_prediction_audit_schema.sql` and catalog queries for tables, constraints, and indexes.
+- Seed Stage 1 with `python3 scripts/parse_contact_report_predictions.py`; current full-corpus baseline is run `stage1-20260310T225611Z` with `6200` candidates across `873` reports.
+- Keep Stage 1 recall-oriented but add disqualifiers for conversational future tense (`I will tell you`, `we will meet`) before inserting rows.
+- Add `last_stage2_run_id`, `stage2_reviewed_at`, and `stage2_meta` to prediction rows so rerun provenance is queryable per row.
+- Run Stage 2 with `python3 scripts/review_prediction_candidates.py --parse-run-key stage1-20260310T225611Z --only-pending`; initial full pass is `stage2-20260310T230558Z`.
+- Expect initial Stage 2 to be conservative on duplicates; first run produced `226` significant, `1031` eligible, and `0` duplicate collapses.
+- Build the first Stage 3 ledger family-by-family; earthquakes now use `python3 scripts/build_earthquake_event_ledger.py --stage2-run-key stage2-20260310T230558Z`.
+- Prefer a local location override map for batch target resolution instead of a public geocoder; current file is `data/earthquake_location_overrides.json`.
+- Bound the first earthquake ledger run to rows with normalized time windows and skip compound multi-event claims explicitly; live run `stage3-earthquake-20260310T231544Z` inserted `281` USGS candidate events from `17` resolved predictions.
+- Represent compound multi-event predictions explicitly with `prediction_audit_bundles` plus child linkage columns on prediction rows; do not skip them as unmodelled edge cases.
+- Full bundle-aware reruns are `stage1-20260310T232924Z` and `stage2-20260310T232950Z`; they produced `22` bundle rows and `5` fully significant bundles.
+- Rerun the earthquake ledger after bundle extraction changes; `stage3-earthquake-20260310T233040Z` resolved `23` predictions, skipped only `1` remaining compound row, and inserted `284` USGS candidate events.
+- Score earthquake Stage 4 with `python3 scripts/score_earthquake_matches.py --stage2-run-key stage2-20260310T232950Z --stage3-run-key stage3-earthquake-20260310T233040Z`; live run is `stage4-earthquake-20260310T234614Z`.
+- Current earthquake Stage 4 outcome counts are `14 exact_hit`, `4 near_hit`, `2 similar_only`, `3 miss`, `9 unresolved` across `32` scoped predictions.
+- Bundle-level Stage 4 rollups now live on `prediction_audit_bundles`; current full parse run has `1 exact_hit` bundle, `7 unresolved`, and `14 unreviewed` pending other families.
+- Assign earthquake Stage 5 probabilities with `python3 scripts/assign_earthquake_probabilities.py --stage2-run-key stage2-20260310T232950Z --stage4-run-key stage4-earthquake-20260310T234614Z`; live run is `stage5-earthquake-20260310T235515Z`.
+- Store mutually exclusive per-row outcome probabilities that sum to 1: `p_exact_under_null`, `p_near_under_null`, `p_similar_under_null`, `p_miss_under_null`.
+- Keep Poisson rate inputs in `probability_meta` (`event_counts`, `annual_rates`, `lambda`, `window_days`) so downstream Python can recompute or combine probabilities without reverse engineering the model.
+- Rebuild-safe earthquake Stage 3 needs explicit match-status selection; use `--match-statuses all` after new target overrides because the default `unreviewed` filter skips already-scored rows.
+- Keep `Loyalty Islands` in `data/earthquake_location_overrides.json`; the override moved one earthquake row from unresolved to `near_hit` on rerun.
+- Latest full earthquake reruns are `stage3-earthquake-20260311T005707Z`, `stage4-earthquake-20260311T005940Z`, and `stage5-earthquake-20260311T005944Z`.
+- Export earthquake artifacts with `python3 scripts/export_earthquake_analysis.py --stage5-run-key stage5-earthquake-20260311T005944Z`; current outputs land in `data/exports/earthquake/stage5-earthquake-20260311T005944Z/`.
+- Use export summaries in log space for combination work; current earthquake observed-outcome aggregate is `log10_sum = -35.740008` across `24` probability-ready rows.

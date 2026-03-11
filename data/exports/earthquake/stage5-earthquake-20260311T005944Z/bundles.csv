@@ -1,0 +1,7 @@
+bundle_key,report_number,claimed_contact_date,bundle_kind,bundle_significant,bundle_match_status,component_count,earthquake_child_count,probability_ready_child_count,child_status_counts,child_combined_observed_probability_log10,child_combined_observed_probability_scientific,child_prediction_ids
+run:6:report:197:bundle:63478:63771,136,1980-10-14,compound_multi_event,False,unreviewed,2,1,1,"{""near_hit"": 1}",-2.001131,9.973981e-3,[6998]
+run:6:report:444:bundle:15420:15570,383,2005-03-17,compound_multi_event,True,near_hit,2,2,2,"{""near_hit"": 2}",-2.311587,4.879920e-3,"[9313, 9314]"
+run:6:report:444:bundle:661:865,383,2005-03-17,compound_multi_event,True,exact_hit,2,2,2,"{""exact_hit"": 2}",-2.729613,1.863747e-3,"[9290, 9291]"
+run:6:report:462:bundle:3567:3724,401,2005-10-15,compound_multi_event,True,unreviewed,2,1,1,"{""exact_hit"": 1}",-1.59951,2.514723e-2,[9411]
+run:6:report:463:bundle:2532:2758,402,2005-10-29,compound_multi_event,True,unreviewed,2,1,1,"{""near_hit"": 1}",-1.876895,1.327714e-2,[9434]
+run:6:report:497:bundle:1539:1805,436,2006-10-15,compound_multi_event,True,unreviewed,2,1,1,"{""exact_hit"": 1}",-2.154824,7.001258e-3,[9545]

@@ -1,0 +1,261 @@
+{
+  "Afghanistan": {
+    "aliases": ["Afghanistan"],
+    "lat": 33.9391,
+    "lon": 67.71,
+    "target_type": "country",
+    "radius_km": 500
+  },
+  "Aegean Sea": {
+    "aliases": ["Aegean Sea", "Aegean"],
+    "lat": 38.7,
+    "lon": 25.0,
+    "target_type": "region",
+    "radius_km": 300
+  },
+  "Agadir": {
+    "aliases": ["Agadir"],
+    "lat": 30.4278,
+    "lon": -9.5981,
+    "target_type": "point",
+    "radius_km": 75
+  },
+  "Al Asnam": {
+    "aliases": ["Al Asnam", "Chlef"],
+    "lat": 36.1653,
+    "lon": 1.3345,
+    "target_type": "point",
+    "radius_km": 75
+  },
+  "Alaska": {
+    "aliases": ["Alaska"],
+    "lat": 64.2008,
+    "lon": -149.4937,
+    "target_type": "region",
+    "radius_km": 1200
+  },
+  "Albania": {
+    "aliases": ["Albania"],
+    "lat": 41.1533,
+    "lon": 20.1683,
+    "target_type": "country",
+    "radius_km": 180
+  },
+  "America": {
+    "aliases": ["America", "United States"],
+    "lat": 39.8283,
+    "lon": -98.5795,
+    "target_type": "country",
+    "radius_km": 2000
+  },
+  "Bingol": {
+    "aliases": ["Bingol", "Bingol"],
+    "lat": 38.8854,
+    "lon": 40.4987,
+    "target_type": "point",
+    "radius_km": 75
+  },
+  "California": {
+    "aliases": ["California", "San Andreas Fault"],
+    "lat": 36.7783,
+    "lon": -119.4179,
+    "target_type": "region",
+    "radius_km": 700
+  },
+  "Chile": {
+    "aliases": ["Chile"],
+    "lat": -35.6751,
+    "lon": -71.543,
+    "target_type": "country",
+    "radius_km": 1500
+  },
+  "China": {
+    "aliases": ["China", "Sichuan"],
+    "lat": 35.8617,
+    "lon": 104.1954,
+    "target_type": "country",
+    "radius_km": 1400
+  },
+  "Eastern Siberia": {
+    "aliases": ["Eastern Siberia"],
+    "lat": 63.0,
+    "lon": 129.0,
+    "target_type": "region",
+    "radius_km": 1600
+  },
+  "El Salvador": {
+    "aliases": ["El Salvador"],
+    "lat": 13.7942,
+    "lon": -88.8965,
+    "target_type": "country",
+    "radius_km": 180
+  },
+  "France": {
+    "aliases": ["France", "Nice"],
+    "lat": 46.2276,
+    "lon": 2.2137,
+    "target_type": "country",
+    "radius_km": 650
+  },
+  "Georgia": {
+    "aliases": ["Georgia"],
+    "lat": 42.3154,
+    "lon": 43.3569,
+    "target_type": "country",
+    "radius_km": 250
+  },
+  "Greece": {
+    "aliases": ["Greece", "Rhodes", "Zakynthos", "Zákynthos", "Ionian Sea"],
+    "lat": 39.0742,
+    "lon": 21.8243,
+    "target_type": "country",
+    "radius_km": 350
+  },
+  "Iberian Peninsula": {
+    "aliases": ["Iberian Peninsula"],
+    "lat": 40.2,
+    "lon": -4.0,
+    "target_type": "region",
+    "radius_km": 800
+  },
+  "India": {
+    "aliases": ["India"],
+    "lat": 20.5937,
+    "lon": 78.9629,
+    "target_type": "country",
+    "radius_km": 900
+  },
+  "Indonesia": {
+    "aliases": ["Indonesia"],
+    "lat": -2.5489,
+    "lon": 118.0149,
+    "target_type": "country",
+    "radius_km": 1500
+  },
+  "Iran": {
+    "aliases": ["Iran", "Kerman", "Tehran"],
+    "lat": 32.4279,
+    "lon": 53.688,
+    "target_type": "country",
+    "radius_km": 900
+  },
+  "Italy": {
+    "aliases": ["Italy", "southern Italy", "Vesuvius", "Puglia"],
+    "lat": 41.8719,
+    "lon": 12.5674,
+    "target_type": "country",
+    "radius_km": 700
+  },
+  "Japan": {
+    "aliases": ["Japan", "Ibaraki", "Kuril Islands", "Nagaoka"],
+    "lat": 36.2048,
+    "lon": 138.2529,
+    "target_type": "country",
+    "radius_km": 1200
+  },
+  "Los Angeles": {
+    "aliases": ["Los Angeles"],
+    "lat": 34.0522,
+    "lon": -118.2437,
+    "target_type": "point",
+    "radius_km": 75
+  },
+  "Loyalty Islands": {
+    "aliases": ["Loyalty Islands"],
+    "lat": -21.5,
+    "lon": 167.5,
+    "target_type": "region",
+    "radius_km": 250
+  },
+  "Morocco": {
+    "aliases": ["Morocco"],
+    "lat": 31.7917,
+    "lon": -7.0926,
+    "target_type": "country",
+    "radius_km": 500
+  },
+  "New Zealand": {
+    "aliases": ["New Zealand"],
+    "lat": -40.9006,
+    "lon": 174.886,
+    "target_type": "country",
+    "radius_km": 700
+  },
+  "Pakistan": {
+    "aliases": ["Pakistan"],
+    "lat": 30.3753,
+    "lon": 69.3451,
+    "target_type": "country",
+    "radius_km": 500
+  },
+  "Portland": {
+    "aliases": ["Portland"],
+    "lat": 45.5152,
+    "lon": -122.6784,
+    "target_type": "point",
+    "radius_km": 75
+  },
+  "Romania": {
+    "aliases": ["Romania"],
+    "lat": 45.9432,
+    "lon": 24.9668,
+    "target_type": "country",
+    "radius_km": 300
+  },
+  "Sanaa": {
+    "aliases": ["Sanaa", "Sana'a"],
+    "lat": 15.3694,
+    "lon": 44.191,
+    "target_type": "point",
+    "radius_km": 75
+  },
+  "Simelue Island": {
+    "aliases": ["Simelue Island", "Simeulue Island"],
+    "lat": 2.6167,
+    "lon": 96.0833,
+    "target_type": "point",
+    "radius_km": 120
+  },
+  "South Africa": {
+    "aliases": ["South Africa"],
+    "lat": -30.5595,
+    "lon": 22.9375,
+    "target_type": "country",
+    "radius_km": 900
+  },
+  "Southeast Asia": {
+    "aliases": ["Southeast Asia"],
+    "lat": 10.0,
+    "lon": 105.0,
+    "target_type": "region",
+    "radius_km": 2000
+  },
+  "Sumatra": {
+    "aliases": ["Sumatra", "Nias"],
+    "lat": -0.5897,
+    "lon": 101.3431,
+    "target_type": "region",
+    "radius_km": 650
+  },
+  "Switzerland": {
+    "aliases": ["Switzerland", "Thusis", "Grisons", "Rhine region"],
+    "lat": 46.8182,
+    "lon": 8.2275,
+    "target_type": "country",
+    "radius_km": 200
+  },
+  "Tehran": {
+    "aliases": ["Tehran"],
+    "lat": 35.6892,
+    "lon": 51.389,
+    "target_type": "point",
+    "radius_km": 100
+  },
+  "Turkey": {
+    "aliases": ["Turkey"],
+    "lat": 38.9637,
+    "lon": 35.2433,
+    "target_type": "country",
+    "radius_km": 600
+  }
+}

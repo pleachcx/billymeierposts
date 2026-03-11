@@ -29,6 +29,8 @@ class RunSet:
     stage3_run_key: str | None
     stage4_run_id: int
     stage4_run_key: str
+    stage7_run_id: int | None
+    stage7_run_key: str | None
 
 
 def parse_args() -> argparse.Namespace:
@@ -82,6 +84,21 @@ def resolve_run_set(cur, args: argparse.Namespace) -> RunSet:
     stage3_run_key = stage4_filter.get("stage3_run_key")
     stage3 = fetch_run(cur, "stage3_event_ledger", stage3_run_key) if stage3_run_key else None
 
+    cur.execute(
+        """
+        SELECT id, run_key
+        FROM public.prediction_audit_runs
+        WHERE stage = 'stage7_final_adjudication'
+          AND status = 'completed'
+          AND source_filter->>'stage4_run_key' = %s
+          AND source_filter->>'family' = 'epidemic'
+        ORDER BY created_at DESC
+        LIMIT 1
+        """,
+        (stage4["run_key"],),
+    )
+    stage7 = cur.fetchone()
+
     return RunSet(
         stage2_run_id=stage2["id"],
         stage2_run_key=stage2["run_key"],
@@ -89,6 +106,8 @@ def resolve_run_set(cur, args: argparse.Namespace) -> RunSet:
         stage3_run_key=stage3["run_key"] if stage3 else None,
         stage4_run_id=stage4["id"],
         stage4_run_key=stage4["run_key"],
+        stage7_run_id=stage7["id"] if stage7 else None,
+        stage7_run_key=stage7["run_key"] if stage7 else None,
     )
 
 
@@ -109,6 +128,9 @@ def load_predictions(cur, runs: RunSet) -> list[dict[str, Any]]:
             p.target_name,
             p.target_type,
             p.match_status,
+            p.final_status,
+            p.final_reason,
+            p.final_meta,
             mr.rationale AS review_rationale,
             mr.review_meta,
             el.external_event_id,
@@ -168,9 +190,11 @@ def main() -> int:
                 "stage2_run_key": runs.stage2_run_key,
                 "stage3_run_key": runs.stage3_run_key,
                 "stage4_run_key": runs.stage4_run_key,
+                "stage7_run_key": runs.stage7_run_key,
             },
             "scoped_prediction_count": len(predictions),
             "match_status_counts": dict(Counter(row["match_status"] for row in predictions)),
+            "final_status_counts": dict(Counter(row["final_status"] for row in predictions)),
             "significant_count": sum(1 for row in predictions if row["significant"]),
             "named_target_count": sum(1 for row in predictions if row["target_name"]),
         }
@@ -200,6 +224,9 @@ def main() -> int:
                 "target_name",
                 "target_type",
                 "match_status",
+                "final_status",
+                "final_reason",
+                "final_meta",
                 "review_rationale",
                 "review_meta",
                 "external_event_id",

@@ -50,3 +50,6 @@
 - The epidemic export should track the latest Stage 4 run only; discard superseded intermediate artifact directories instead of committing every transient rerun.
 - Expanding the first epidemic slice with `453/14` uses the 2007 Surrey foot-and-mouth outbreak; latest runs are `stage3-epidemic-20260311T030713Z` and `stage4-epidemic-20260311T030720Z`.
 - The expanded epidemic named-disease slice now covers `5` rows and scores `2 exact_hit`, `1 near_hit`, `2 similar_only`.
+- Finalize the epidemic named-disease slice with `python3 scripts/finalize_epidemic_predictions.py --stage4-run-key stage4-epidemic-20260311T030720Z`; latest run is `stage7-epidemic-final-20260311T031120Z`.
+- The current finalized epidemic named-disease cohort is simple: all `5` scoped rows are `included_in_statistics`, so no manual epidemic adjudication rules were needed yet.
+- Refresh `data/exports/epidemic/stage4-epidemic-20260311T030720Z/` after epidemic Stage 7 so the CSV carries `final_status`, `final_reason`, and `stage7_run_key`.

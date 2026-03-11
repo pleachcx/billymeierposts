@@ -109,6 +109,17 @@
     "window_end": "2002-12-31",
     "notes": "Prediction scoped to Switzerland's firm entry into the United Nations shortly after the turn of the millennium."
   },
+  "436:11": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "house_majority_lost",
+    "actor_name": "Republican Party",
+    "target_name": "U.S. House majority",
+    "target_keywords": [],
+    "jurisdiction": "United States",
+    "window_start": "2006-11-07",
+    "window_end": "2006-11-07",
+    "notes": "Prediction scoped to Republicans losing the U.S. House majority in the November 2006 House elections."
+  },
   "448:7": {
     "scoped_family": "politics_election",
     "expected_event_type": "state_resignation_announced",

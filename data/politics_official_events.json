@@ -91,6 +91,19 @@
     "source_excerpt": "By unanimous decision, Switzerland became the 190th United Nations Member State this afternoon."
   },
   {
+    "event_id": "us-house-majority-flip-2006-11-07",
+    "event_type": "house_majority_lost",
+    "actor_name": "Republican Party",
+    "jurisdiction": "United States",
+    "target_keywords": [],
+    "event_title": "Republicans lost the U.S. House majority in the 2006 elections",
+    "event_start_date": "2006-11-07",
+    "location_name": "United States",
+    "source_name": "U.S. House of Representatives History, Art & Archives",
+    "source_url": "https://history.house.gov/Congressional-Overview/Profiles/110th/",
+    "source_excerpt": "The 2006 elections produced Democratic congressional majorities for the first time in 12 years."
+  },
+  {
     "event_id": "au-national-apology-2008-02-13",
     "event_type": "formal_apology_delivered",
     "actor_name": "Kevin Rudd",

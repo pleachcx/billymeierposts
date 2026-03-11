@@ -99,6 +99,16 @@
     "similar_horizon_days": 365,
     "notes": "Treat Switzerland's UN entry as a one-off jurisdiction-specific membership event over the post-prediction accession process."
   },
+  "436:11": {
+    "probability_key": "house_majority_flip_2006_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "2006-10-15",
+    "calibration_end": "2006-11-07",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat the 2006 House majority flip as a one-off party-control event during the final stretch of the midterm election campaign."
+  },
   "448:7": {
     "probability_key": "tony_blair_resignation_announcement_window",
     "model": "actor_risk_window_single_event_v1",

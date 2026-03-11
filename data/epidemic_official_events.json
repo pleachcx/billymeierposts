@@ -86,5 +86,16 @@
     "target_keywords": ["USA", "United States", "United States of America"],
     "source_name": "CDC Museum COVID-19 Timeline",
     "source_url": "https://www.cdc.gov/museum/timeline/covid19.html"
+  },
+  {
+    "event_id": "who-euro-italy-sharpest-increase-2020-03-06",
+    "disease_key": "covid19",
+    "event_type": "regional_severe_outbreak_reported",
+    "event_title": "WHO Europe reported that Italy had the sharpest increase in COVID-19 cases in the region",
+    "event_start_date": "2020-03-06",
+    "location_name": "Italy",
+    "target_keywords": ["Italy", "Northern Italy"],
+    "source_name": "WHO Europe",
+    "source_url": "https://www.who.int/europe/news/item/06-03-2020-statement-at-ministerial-briefings-on-covid-19"
   }
 ]

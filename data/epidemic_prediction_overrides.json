@@ -52,5 +52,14 @@
     "window_start": "2020-11-15",
     "window_end": "2021-02-28",
     "notes": "Prediction interpreted as the United States crossing roughly 500,000 reported COVID-19 deaths within a 'soon' horizon after the 15 November 2020 contact."
+  },
+  "732:13": {
+    "disease_key": "covid19",
+    "expected_event_type": "regional_severe_outbreak_reported",
+    "target_name": "Italy",
+    "target_keywords": ["Italy", "Northern Italy"],
+    "window_start": "2020-03-02",
+    "window_end": "2020-03-15",
+    "notes": "Prediction scoped to the first severe European COVID-19 regional impact being centered in Italy within the immediate post-contact window; the broader Europe clause remains unscored here."
   }
 }

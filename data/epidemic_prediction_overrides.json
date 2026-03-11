@@ -1,4 +1,13 @@
 {
+  "215:69": {
+    "disease_key": "ebola",
+    "expected_event_type": "major_fatal_outbreak_reported",
+    "target_name": "Africa",
+    "target_keywords": ["Africa", "Zaire", "Kikwit", "Democratic Republic of the Congo", "DRC"],
+    "window_start": "1987-02-28",
+    "window_end": "1995-05-31",
+    "notes": "Prediction interpreted as a later major fatal Ebola outbreak becoming publicly established after the 1987 contact."
+  },
   "341:15": {
     "disease_key": "sars",
     "expected_event_type": "pathogen_confirmed",
@@ -7,6 +16,15 @@
     "window_start": "2003-04-02",
     "window_end": "2003-04-30",
     "notes": "Prediction interpreted as public confirmation that the Guangdong SARS lung disease was caused by a coronavirus."
+  },
+  "364:17": {
+    "disease_key": "west_nile",
+    "expected_event_type": "deaths_reported",
+    "target_name": "United States",
+    "target_keywords": ["USA", "United States", "United States of America"],
+    "window_start": "2004-08-13",
+    "window_end": "2004-12-31",
+    "notes": "Prediction interpreted as the 2004 U.S. West Nile season again causing a substantial fatality burden."
   },
   "369:12": {
     "disease_key": "avian_influenza",
@@ -43,6 +61,15 @@
     "window_start": "2007-08-01",
     "window_end": "2007-08-05",
     "notes": "Prediction interpreted as the early-August 2007 foot-and-mouth outbreak in England."
+  },
+  "383:32": {
+    "disease_key": "h2n2_samples",
+    "expected_event_type": "distribution_disclosed",
+    "target_name": "Global",
+    "target_keywords": ["Global", "World", "United States"],
+    "window_start": "2005-03-17",
+    "window_end": "2005-04-30",
+    "notes": "Prediction interpreted as public disclosure that a U.S.-linked lab proficiency program sent live H2N2 samples to thousands of laboratories worldwide."
   },
   "729:12": {
     "disease_key": "covid19",

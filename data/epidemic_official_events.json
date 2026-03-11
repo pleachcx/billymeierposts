@@ -1,5 +1,16 @@
 [
   {
+    "event_id": "cdc-ebola-kikwit-1995-05-26",
+    "disease_key": "ebola",
+    "event_type": "major_fatal_outbreak_reported",
+    "event_title": "CDC reported the major Ebola outbreak in Kikwit, Zaire with over 100 deaths",
+    "event_start_date": "1995-05-26",
+    "location_name": "Kikwit, Zaire",
+    "target_keywords": ["Africa", "Zaire", "Kikwit", "Democratic Republic of the Congo", "DRC"],
+    "source_name": "CDC MMWR",
+    "source_url": "https://www.cdc.gov/mmwr/preview/mmwrhtml/00037149.htm"
+  },
+  {
     "event_id": "who-sars-coronavirus-confirmed-2003-04-16",
     "disease_key": "sars",
     "event_type": "pathogen_confirmed",
@@ -53,6 +64,28 @@
     "target_keywords": ["England", "Surrey"],
     "source_name": "UK Government",
     "source_url": "https://assets.publishing.service.gov.uk/media/681b79b53f1c73824ee3e54b/AUK_2007.pdf"
+  },
+  {
+    "event_id": "cdc-west-nile-us-fatalities-2004-10-19",
+    "disease_key": "west_nile",
+    "event_type": "deaths_reported",
+    "event_title": "CDC reported substantial U.S. West Nile virus fatalities during the 2004 season",
+    "event_start_date": "2004-10-19",
+    "location_name": "United States",
+    "target_keywords": ["USA", "United States", "United States of America"],
+    "source_name": "CDC MMWR",
+    "source_url": "https://www.cdc.gov/mmwr/preview/mmwrhtml/mm5341a4.htm"
+  },
+  {
+    "event_id": "cdc-h2n2-samples-disclosed-2005-04-14",
+    "disease_key": "h2n2_samples",
+    "event_type": "distribution_disclosed",
+    "event_title": "CDC and WHO recommended destruction of H2N2 proficiency-testing samples sent to laboratories worldwide",
+    "event_start_date": "2005-04-14",
+    "location_name": "Global",
+    "target_keywords": ["Global", "World", "United States"],
+    "source_name": "CDC Health Alert Network",
+    "source_url": "https://stacks.cdc.gov/view/cdc/25138"
   },
   {
     "event_id": "who-covid-wuhan-2019-12-31",

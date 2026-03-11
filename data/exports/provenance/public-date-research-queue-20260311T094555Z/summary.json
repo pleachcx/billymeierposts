@@ -1,0 +1,116 @@
+{
+  "generated_at": "2026-03-11T09:45:55.134516+00:00",
+  "queue_summary": {
+    "combined_observed_probability": {
+      "count": 41,
+      "ln_sum": -167.756834,
+      "log10_sum": -72.855867
+    },
+    "family_counts": {
+      "aviation_space": 1,
+      "earthquake": 30,
+      "epidemic": 5,
+      "politics_election": 5
+    },
+    "match_status_counts": {
+      "exact_hit": 27,
+      "near_hit": 10,
+      "similar_only": 4
+    },
+    "prediction_count": 41
+  },
+  "script_version": "public_date_research_queue_v1",
+  "stage2_run_key": "stage2-20260311T093233Z",
+  "top_rows": [
+    {
+      "candidate_seq": 6,
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 1,
+      "publication_lag_days_vs_event": -4438,
+      "report_number": 465,
+      "surprisal_log10": 3.80975
+    },
+    {
+      "candidate_seq": 88,
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 2,
+      "publication_lag_days_vs_event": -9663,
+      "report_number": 136,
+      "surprisal_log10": 3.587924
+    },
+    {
+      "candidate_seq": 5,
+      "event_family_final": "politics_election",
+      "match_status": "exact_hit",
+      "priority_rank": 3,
+      "publication_lag_days_vs_event": -4509,
+      "report_number": 459,
+      "surprisal_log10": 3.501812
+    },
+    {
+      "candidate_seq": 3,
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 4,
+      "publication_lag_days_vs_event": -356,
+      "report_number": 442,
+      "surprisal_log10": 3.28695
+    },
+    {
+      "candidate_seq": 23,
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 5,
+      "publication_lag_days_vs_event": -5286,
+      "report_number": 246,
+      "surprisal_log10": 3.173041
+    },
+    {
+      "candidate_seq": 4,
+      "event_family_final": "politics_election",
+      "match_status": "exact_hit",
+      "priority_rank": 6,
+      "publication_lag_days_vs_event": -4513,
+      "report_number": 459,
+      "surprisal_log10": 2.971044
+    },
+    {
+      "candidate_seq": 18,
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 7,
+      "publication_lag_days_vs_event": -1361,
+      "report_number": 453,
+      "surprisal_log10": 2.944662
+    },
+    {
+      "candidate_seq": 89,
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 8,
+      "publication_lag_days_vs_event": -9663,
+      "report_number": 136,
+      "surprisal_log10": 2.719051
+    },
+    {
+      "candidate_seq": 7,
+      "event_family_final": "aviation_space",
+      "match_status": "exact_hit",
+      "priority_rank": 9,
+      "publication_lag_days_vs_event": -4506,
+      "report_number": 459,
+      "surprisal_log10": 2.63799
+    },
+    {
+      "candidate_seq": 14,
+      "event_family_final": "epidemic",
+      "match_status": "exact_hit",
+      "priority_rank": 10,
+      "publication_lag_days_vs_event": -1374,
+      "report_number": 453,
+      "surprisal_log10": 2.38739
+    }
+  ]
+}

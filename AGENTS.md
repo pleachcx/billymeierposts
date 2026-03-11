@@ -6,9 +6,13 @@
 - Keep notes short, imperative, and actionable; include root cause, effective fix, and preventive checks when relevant.
 - Promote repeated stable notes from `/docs/agent_notes.md` into permanent repository docs when appropriate.
 
-## Root Cause And Git Policy
+## Workflow
+- Keep repo commited before and after you commence work on a work bundle
+- Agents can push, but not merge
+- Don't create branches with explicit approval previous branch has been merged
+
+## DB
+- DB is accessible via env vars
+
+## Root Cause 
 - Fix root causes first; do not ship bandaid or temporary-only patches as the final solution.
-- You may create commits when explicitly instructed.
-- You may `git push` upstream when explicitly instructed.
-- You may open a pull request when explicitly instructed.
-- Never merge branches or pull requests yourself; a human must perform merges.

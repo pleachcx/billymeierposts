@@ -34,3 +34,4 @@
 - Scope Stage 6 bundle rollups to the same time-windowed cohort as Stage 3/4/5; otherwise bundle counts drift above the exported earthquake set.
 - Latest earthquake bundle rollup run is `stage6-bundle-rollup-20260311T010947Z`; scoped bundle results are `3 exact_hit` and `3 near_hit`, all probability-ready.
 - Latest earthquake export after Stage 6 is `data/exports/earthquake/stage5-earthquake-20260311T010829Z/`; current observed-outcome aggregate is `log10_sum = -39.491954` across `28` probability-ready rows.
+- Only sweep unrelated repo dirt into a commit when the user explicitly asks for a full-repo commit; otherwise keep prediction-audit bundles isolated.

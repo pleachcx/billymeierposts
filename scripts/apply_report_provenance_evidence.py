@@ -108,13 +108,75 @@ def fetch_report_map(cur, report_numbers: list[int]) -> dict[int, dict[str, Any]
     return {row["report_number"]: dict(row) for row in cur.fetchall()}
 
 
+def fetch_existing_evidence_keys(cur, report_numbers: list[int]) -> set[tuple[Any, ...]]:
+    cur.execute(
+        """
+        SELECT
+            report_number,
+            evidence_kind,
+            evidence_public_date,
+            COALESCE(source_label, '') AS source_label_norm,
+            COALESCE(source_path, '') AS source_path_norm,
+            COALESCE(source_url, '') AS source_url_norm,
+            COALESCE(language, '') AS language_norm,
+            COALESCE(edition_or_translation, '') AS edition_or_translation_norm,
+            COALESCE(translator, '') AS translator_norm,
+            COALESCE(source_hash, '') AS source_hash_norm,
+            COALESCE(notes, '') AS notes_norm
+        FROM public.prediction_audit_report_provenance
+        WHERE report_number = ANY(%s)
+        """,
+        (report_numbers,),
+    )
+    keys: set[tuple[Any, ...]] = set()
+    for row in cur.fetchall():
+        if isinstance(row, dict):
+            keys.add(
+                (
+                    row["report_number"],
+                    row["evidence_kind"],
+                    row["evidence_public_date"],
+                    row["source_label_norm"],
+                    row["source_path_norm"],
+                    row["source_url_norm"],
+                    row["language_norm"],
+                    row["edition_or_translation_norm"],
+                    row["translator_norm"],
+                    row["source_hash_norm"],
+                    row["notes_norm"],
+                )
+            )
+        else:
+            keys.add(tuple(row))
+    return keys
+
+
+def evidence_key(item: dict[str, Any]) -> tuple[Any, ...]:
+    return (
+        int(item["report_number"]),
+        item["evidence_kind"],
+        parse_iso_date(item.get("evidence_public_date")),
+        item.get("source_label") or "",
+        item.get("source_path") or "",
+        item.get("source_url") or "",
+        item.get("language") or "",
+        item.get("edition_or_translation") or "",
+        item.get("translator") or "",
+        item.get("source_hash") or "",
+        item.get("notes") or "",
+    )
+
+
 def build_insert_rows(
     evidence_rows: list[dict[str, Any]],
     report_map: dict[int, dict[str, Any]],
     run_id: int,
+    existing_keys: set[tuple[Any, ...]],
 ) -> list[tuple[Any, ...]]:
     rows: list[tuple[Any, ...]] = []
     for item in evidence_rows:
+        if evidence_key(item) in existing_keys:
+            continue
         report_number = int(item["report_number"])
         report = report_map.get(report_number)
         if not report:
@@ -268,6 +330,7 @@ def main() -> int:
     try:
         with conn.cursor() as cur:
             report_map = fetch_report_map(cur, report_numbers)
+            existing_keys = fetch_existing_evidence_keys(cur, report_numbers)
             if not args.dry_run:
                 run_id = insert_run(
                     cur,
@@ -281,7 +344,7 @@ def main() -> int:
                 )
                 conn.commit()
 
-        insert_rows = build_insert_rows(evidence_rows, report_map, run_id or 0)
+        insert_rows = build_insert_rows(evidence_rows, report_map, run_id or 0, existing_keys)
 
         if not args.dry_run and run_id is not None:
             with conn.cursor() as cur:

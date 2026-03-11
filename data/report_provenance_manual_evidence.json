@@ -265,6 +265,17 @@
   },
   {
     "report_number": 757,
+    "evidence_kind": "publication_snapshot",
+    "evidence_quality": 2,
+    "evidence_public_date": "2021-02-06",
+    "source_label": "FIGU official German PDF metadata for Contact Report 757",
+    "source_url": "https://www.figu.org/files/figu_kontaktberichte/figu_kontaktbericht_757.pdf",
+    "language": "german",
+    "edition_or_translation": "official FIGU German PDF",
+    "notes": "Official FIGU PDF is publicly downloadable; pdfinfo reports CreationDate and ModDate as Saturday, 6th February 2021 AEDT, which predates the matched 2021-02-21 COVID milestone event."
+  },
+  {
+    "report_number": 757,
     "evidence_kind": "manual_source_link",
     "evidence_quality": 1,
     "evidence_public_date": "2023-02-07",
@@ -273,6 +284,17 @@
     "language": "english",
     "edition_or_translation": "authorised but unofficial English translation",
     "notes": "Future Of Mankind page lists 'Date of original translation: Tuesday, 7th February 2023'."
+  },
+  {
+    "report_number": 829,
+    "evidence_kind": "publication_snapshot",
+    "evidence_quality": 2,
+    "evidence_public_date": "2023-01-02",
+    "source_label": "FIGU official German PDF metadata for Contact Report 829",
+    "source_url": "https://www.figu.org/files/figu_kontaktberichte/figu_kontaktbericht_829.pdf",
+    "language": "german",
+    "edition_or_translation": "official FIGU German PDF",
+    "notes": "Official FIGU PDF is publicly downloadable; pdfinfo reports CreationDate and ModDate as Monday, 2nd January 2023 AEDT, improving the public date over the later English translation page but still postdating the matched 2022-12-31 event."
   },
   {
     "report_number": 829,

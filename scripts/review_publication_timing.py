@@ -13,15 +13,16 @@ from typing import Any
 import psycopg2
 from psycopg2.extras import Json, RealDictCursor, execute_batch
 
+from provenance_export_helpers import resolve_stage2_run
 
-SCRIPT_VERSION = "stage8_publication_adjudication_v1"
-REVIEWER = "script:stage8_publication_adjudication_v1"
+SCRIPT_VERSION = "stage8_publication_adjudication_v2"
+REVIEWER = "script:stage8_publication_adjudication_v2"
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Review publication-date timing against observed events for the included scored cohort.")
     parser.add_argument("--dsn-env", default="DatabaseURL", help="Environment variable containing the PostgreSQL DSN.")
-    parser.add_argument("--stage2-run-key", default="stage2-20260310T232950Z", help="Stage 2 run key to scope predictions.")
+    parser.add_argument("--stage2-run-key", help="Stage 2 run key to scope predictions. Defaults to the latest completed Stage 2 run.")
     parser.add_argument("--run-key", help="Unique Stage 8 run key. Defaults to a timestamped key.")
     parser.add_argument("--notes", default="", help="Free-form run notes.")
     parser.add_argument("--dry-run", action="store_true", help="Compute adjudications without writing DB changes.")
@@ -30,22 +31,6 @@ def parse_args() -> argparse.Namespace:
 
 def generate_run_key() -> str:
     return "stage8-publication-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-
-
-def fetch_stage2_run(cur, run_key: str) -> dict[str, Any]:
-    cur.execute(
-        """
-        SELECT id, run_key
-        FROM public.prediction_audit_runs
-        WHERE stage = 'stage2_eligibility' AND run_key = %s
-        """,
-        (run_key,),
-    )
-    row = cur.fetchone()
-    if not row:
-        raise RuntimeError(f"Missing Stage 2 run {run_key}.")
-    return row
-
 
 def insert_run(cur, run_key: str, source_filter: dict[str, Any], notes: str | None) -> int:
     cur.execute(
@@ -230,7 +215,7 @@ def main() -> int:
 
     try:
         with conn.cursor() as cur:
-            stage2 = fetch_stage2_run(cur, args.stage2_run_key)
+            stage2 = resolve_stage2_run(cur, args.stage2_run_key)
             predictions = fetch_predictions(cur, stage2["id"])
 
             if not args.dry_run:

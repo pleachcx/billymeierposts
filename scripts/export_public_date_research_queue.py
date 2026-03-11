@@ -16,8 +16,13 @@ from typing import Any
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
+from provenance_export_helpers import (
+    annotate_predictions_with_provenance,
+    fetch_report_provenance_rows,
+    resolve_stage2_run,
+)
 
-SCRIPT_VERSION = "public_date_research_queue_v1"
+SCRIPT_VERSION = "public_date_research_queue_v2"
 OUTPUT_ROOT = Path("data") / "exports" / "provenance"
 OBSERVED_PROBABILITY_FIELD = {
     "exact_hit": "p_exact_under_null",
@@ -30,7 +35,7 @@ OBSERVED_PROBABILITY_FIELD = {
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Export a ranked public-date research queue for publication conflicts.")
     parser.add_argument("--dsn-env", default="DatabaseURL", help="Environment variable containing the PostgreSQL DSN.")
-    parser.add_argument("--stage2-run-key", default="stage2-20260310T232950Z", help="Stage 2 run key to scope predictions.")
+    parser.add_argument("--stage2-run-key", help="Stage 2 run key to scope predictions. Defaults to the latest completed Stage 2 run.")
     parser.add_argument("--output-dir", help="Output directory. Defaults to data/exports/provenance/public-date-research-queue-<timestamp>.")
     return parser.parse_args()
 
@@ -75,6 +80,9 @@ def summarize_rows(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "prediction_count": len(rows),
         "family_counts": dict(Counter(row["event_family_final"] for row in rows)),
         "match_status_counts": dict(Counter(row["match_status"] for row in rows)),
+        "current_public_source_tier_counts": dict(Counter(row["current_public_source_tier"] for row in rows)),
+        "best_available_source_tier_counts": dict(Counter(row["best_available_source_tier"] for row in rows)),
+        "conflict_gap_bucket_counts": dict(Counter(row["publication_conflict_gap_bucket"] for row in rows if row["publication_conflict_gap_bucket"])),
         "combined_observed_probability": aggregate_probabilities(rows),
     }
 
@@ -89,17 +97,7 @@ def main() -> int:
     conn = psycopg2.connect(dsn, cursor_factory=RealDictCursor)
     try:
         with conn.cursor() as cur:
-            cur.execute(
-                """
-                SELECT id
-                FROM public.prediction_audit_runs
-                WHERE stage = 'stage2_eligibility' AND run_key = %s
-                """,
-                (args.stage2_run_key,),
-            )
-            stage2 = cur.fetchone()
-            if not stage2:
-                raise RuntimeError(f"Missing Stage 2 run {args.stage2_run_key}.")
+            stage2 = resolve_stage2_run(cur, args.stage2_run_key)
 
             cur.execute(
                 """
@@ -135,6 +133,7 @@ def main() -> int:
                 (stage2["id"],),
             )
             rows = [dict(row) for row in cur.fetchall()]
+            provenance_rows = fetch_report_provenance_rows(cur, sorted({int(row["report_number"]) for row in rows}))
 
         for row in rows:
             row["observed_probability_under_null"] = observed_probability(row)
@@ -146,6 +145,7 @@ def main() -> int:
             else:
                 lag_days = None
             row["publication_lag_days_vs_event"] = lag_days
+        annotate_predictions_with_provenance(rows, provenance_rows)
 
         rows.sort(
             key=lambda row: (
@@ -167,7 +167,7 @@ def main() -> int:
         summary = {
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "script_version": SCRIPT_VERSION,
-            "stage2_run_key": args.stage2_run_key,
+            "stage2_run_key": stage2["run_key"],
             "queue_summary": summarize_rows(rows),
             "top_rows": [
                 {
@@ -178,6 +178,8 @@ def main() -> int:
                     "match_status": row["match_status"],
                     "surprisal_log10": row["surprisal_log10"],
                     "publication_lag_days_vs_event": row["publication_lag_days_vs_event"],
+                    "publication_conflict_gap_bucket": row["publication_conflict_gap_bucket"],
+                    "current_public_source_tier": row["current_public_source_tier"],
                 }
                 for row in rows[:10]
             ],
@@ -206,8 +208,22 @@ def main() -> int:
                 "claimed_contact_date",
                 "earliest_provable_public_date",
                 "publication_lag_days_vs_event",
+                "publication_lag_days_vs_primary_source",
+                "publication_conflict_gap_bucket",
                 "public_date_basis",
                 "provenance_score",
+                "current_public_evidence_kind",
+                "current_public_source_tier",
+                "current_public_source_bucket",
+                "current_public_source_label",
+                "current_public_source_url",
+                "best_available_source_tier",
+                "best_available_source_bucket",
+                "best_available_source_label",
+                "best_available_source_url",
+                "earliest_primary_source_date",
+                "earliest_mirror_source_date",
+                "earliest_secondary_source_date",
                 "public_date_reason",
                 "event_start_date",
                 "event_title",

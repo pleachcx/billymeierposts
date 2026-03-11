@@ -15,15 +15,20 @@ from typing import Any
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
+from provenance_export_helpers import (
+    annotate_predictions_with_provenance,
+    fetch_report_provenance_rows,
+    resolve_stage2_run,
+)
 
-SCRIPT_VERSION = "publication_timing_audit_v1"
+SCRIPT_VERSION = "publication_timing_audit_v2"
 OUTPUT_ROOT = Path("data") / "exports" / "provenance"
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Export a cross-family audit of event timing versus earliest provable public dates.")
     parser.add_argument("--dsn-env", default="DatabaseURL", help="Environment variable containing the PostgreSQL DSN.")
-    parser.add_argument("--stage2-run-key", default="stage2-20260310T232950Z", help="Stage 2 run key to scope predictions.")
+    parser.add_argument("--stage2-run-key", help="Stage 2 run key to scope predictions. Defaults to the latest completed Stage 2 run.")
     parser.add_argument("--output-dir", help="Output directory. Defaults to data/exports/provenance/publication-timing-audit-<timestamp>.")
     return parser.parse_args()
 
@@ -54,17 +59,7 @@ def main() -> int:
     conn = psycopg2.connect(dsn, cursor_factory=RealDictCursor)
     try:
         with conn.cursor() as cur:
-            cur.execute(
-                """
-                SELECT id
-                FROM public.prediction_audit_runs
-                WHERE stage = 'stage2_eligibility' AND run_key = %s
-                """,
-                (args.stage2_run_key,),
-            )
-            stage2 = cur.fetchone()
-            if not stage2:
-                raise RuntimeError(f"Missing Stage 2 run {args.stage2_run_key}.")
+            stage2 = resolve_stage2_run(cur, args.stage2_run_key)
 
             cur.execute(
                 """
@@ -98,15 +93,17 @@ def main() -> int:
                 (stage2["id"],),
             )
             rows = [dict(row) for row in cur.fetchall()]
+            provenance_rows = fetch_report_provenance_rows(cur, sorted({int(row["report_number"]) for row in rows}))
 
         for row in rows:
             lag = row.get("publication_lag_days_vs_event")
             row["observed_event_before_publication"] = lag is not None and lag < 0
+        annotate_predictions_with_provenance(rows, provenance_rows)
 
         summary = {
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "script_version": SCRIPT_VERSION,
-            "stage2_run_key": args.stage2_run_key,
+            "stage2_run_key": stage2["run_key"],
             "included_scored_prediction_count": len(rows),
             "family_counts": dict(Counter(row["event_family_final"] for row in rows)),
             "match_status_counts": dict(Counter(row["match_status"] for row in rows)),
@@ -116,6 +113,10 @@ def main() -> int:
             "observed_event_before_publication_by_family": dict(
                 Counter(row["event_family_final"] for row in rows if row["observed_event_before_publication"])
             ),
+            "current_public_source_tier_counts": dict(Counter(row["current_public_source_tier"] for row in rows)),
+            "best_available_source_tier_counts": dict(Counter(row["best_available_source_tier"] for row in rows)),
+            "current_public_source_bucket_counts": dict(Counter(row["current_public_source_bucket"] for row in rows)),
+            "conflict_gap_bucket_counts": dict(Counter(row["publication_conflict_gap_bucket"] for row in rows if row["publication_conflict_gap_bucket"])),
         }
 
         default_dir = OUTPUT_ROOT / ("publication-timing-audit-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
@@ -140,7 +141,21 @@ def main() -> int:
             "final_status",
             "event_start_date",
             "publication_lag_days_vs_event",
+            "publication_lag_days_vs_primary_source",
+            "publication_conflict_gap_bucket",
             "observed_event_before_publication",
+            "current_public_evidence_kind",
+            "current_public_source_tier",
+            "current_public_source_bucket",
+            "current_public_source_label",
+            "current_public_source_url",
+            "best_available_source_tier",
+            "best_available_source_bucket",
+            "best_available_source_label",
+            "best_available_source_url",
+            "earliest_primary_source_date",
+            "earliest_mirror_source_date",
+            "earliest_secondary_source_date",
             "event_title",
             "claim_normalized",
         ]

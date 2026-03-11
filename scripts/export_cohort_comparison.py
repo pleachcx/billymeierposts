@@ -16,8 +16,13 @@ from typing import Any
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
+from provenance_export_helpers import (
+    annotate_predictions_with_provenance,
+    fetch_report_provenance_rows,
+    resolve_stage2_run,
+)
 
-SCRIPT_VERSION = "cohort_comparison_v2"
+SCRIPT_VERSION = "cohort_comparison_v3"
 OUTPUT_ROOT = Path("data") / "exports" / "provenance"
 OBSERVED_PROBABILITY_FIELD = {
     "exact_hit": "p_exact_under_null",
@@ -30,7 +35,7 @@ OBSERVED_PROBABILITY_FIELD = {
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Export claimed-date vs public-date cohort comparisons.")
     parser.add_argument("--dsn-env", default="DatabaseURL", help="Environment variable containing the PostgreSQL DSN.")
-    parser.add_argument("--stage2-run-key", default="stage2-20260310T232950Z", help="Stage 2 run key to scope predictions.")
+    parser.add_argument("--stage2-run-key", help="Stage 2 run key to scope predictions. Defaults to the latest completed Stage 2 run.")
     parser.add_argument("--output-dir", help="Output directory. Defaults to data/exports/provenance/cohort-comparison-<timestamp>.")
     return parser.parse_args()
 
@@ -76,6 +81,9 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "family_counts": dict(Counter(row["event_family_final"] for row in rows)),
         "match_status_counts": dict(Counter(row["match_status"] for row in rows)),
         "public_date_status_counts": dict(Counter(row["public_date_status"] for row in rows)),
+        "current_public_source_tier_counts": dict(Counter(row["current_public_source_tier"] for row in rows)),
+        "best_available_source_tier_counts": dict(Counter(row["best_available_source_tier"] for row in rows)),
+        "current_public_source_bucket_counts": dict(Counter(row["current_public_source_bucket"] for row in rows)),
         "combined_observed_probability": aggregate_probabilities(rows),
     }
 
@@ -98,17 +106,7 @@ def main() -> int:
     conn = psycopg2.connect(dsn, cursor_factory=RealDictCursor)
     try:
         with conn.cursor() as cur:
-            cur.execute(
-                """
-                SELECT id
-                FROM public.prediction_audit_runs
-                WHERE stage = 'stage2_eligibility' AND run_key = %s
-                """,
-                (args.stage2_run_key,),
-            )
-            stage2 = cur.fetchone()
-            if not stage2:
-                raise RuntimeError(f"Missing Stage 2 run {args.stage2_run_key}.")
+            stage2 = resolve_stage2_run(cur, args.stage2_run_key)
 
             cur.execute(
                 """
@@ -136,21 +134,30 @@ def main() -> int:
                 (stage2["id"],),
             )
             rows = [dict(row) for row in cur.fetchall()]
+            provenance_rows = fetch_report_provenance_rows(cur, sorted({int(row["report_number"]) for row in rows}))
 
         for row in rows:
             row["observed_probability_under_null"] = observed_probability(row)
+        annotate_predictions_with_provenance(rows, provenance_rows)
 
         cohorts = {
             "claimed_date_baseline": rows,
             "public_date_not_disproven": [row for row in rows if row["public_date_status"] != "event_precedes_publication"],
             "public_date_strict_clean": [row for row in rows if row["public_date_status"] == "public_date_ok"],
             "public_date_excluded": [row for row in rows if row["public_date_status"] == "event_precedes_publication"],
+            "public_date_currently_unrescued": [row for row in rows if row["public_date_status"] == "event_precedes_publication"],
+            "public_date_primary_supported_clean": [
+                row for row in rows if row["public_date_status"] == "public_date_ok" and row["best_available_source_bucket"] == "primary_official"
+            ],
+            "public_date_mirror_supported_clean": [
+                row for row in rows if row["public_date_status"] == "public_date_ok" and row["best_available_source_bucket"] == "mirror"
+            ],
         }
 
         summary = {
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "script_version": SCRIPT_VERSION,
-            "stage2_run_key": args.stage2_run_key,
+            "stage2_run_key": stage2["run_key"],
             "cohorts": {name: summarize(cohort_rows) for name, cohort_rows in cohorts.items()},
             "cohorts_by_family": {name: summarize_by_family(cohort_rows) for name, cohort_rows in cohorts.items()},
         }
@@ -175,6 +182,12 @@ def main() -> int:
                     "claimed_contact_date",
                     "earliest_provable_public_date",
                     "public_date_basis",
+                    "current_public_source_tier",
+                    "current_public_source_bucket",
+                    "best_available_source_tier",
+                    "best_available_source_bucket",
+                    "earliest_primary_source_date",
+                    "earliest_mirror_source_date",
                     "observed_probability_under_null",
                     "claim_normalized",
                 ],

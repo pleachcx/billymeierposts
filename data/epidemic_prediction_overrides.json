@@ -26,6 +26,15 @@
     "window_end": "2007-02-09",
     "notes": "Prediction tied to the report's stated horizon through 9 February 2007."
   },
+  "453:14": {
+    "disease_key": "foot_and_mouth",
+    "expected_event_type": "animal_outbreak_reported",
+    "target_name": "England",
+    "target_keywords": ["England", "Surrey"],
+    "window_start": "2007-08-01",
+    "window_end": "2007-08-05",
+    "notes": "Prediction interpreted as the early-August 2007 foot-and-mouth outbreak in England."
+  },
   "729:12": {
     "disease_key": "covid19",
     "expected_event_type": "pandemic_declared",

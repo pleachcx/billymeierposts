@@ -33,6 +33,17 @@
     "source_url": "https://assets.publishing.service.gov.uk/media/5a790871e5274a3864fd5da2/WorkingwiththeMediaIncidentAvianInfluenza_H5N1_outbreakatBernardMatthewssiteinHoltonSuffolkinFebruary2007.pdf"
   },
   {
+    "event_id": "uk-fmd-surrey-2007-08-03",
+    "disease_key": "foot_and_mouth",
+    "event_type": "animal_outbreak_reported",
+    "event_title": "Foot-and-mouth disease confirmed in Surrey, England",
+    "event_start_date": "2007-08-03",
+    "location_name": "Surrey, England",
+    "target_keywords": ["England", "Surrey"],
+    "source_name": "UK Government",
+    "source_url": "https://assets.publishing.service.gov.uk/media/681b79b53f1c73824ee3e54b/AUK_2007.pdf"
+  },
+  {
     "event_id": "who-covid-wuhan-2019-12-31",
     "disease_key": "covid19",
     "event_type": "outbreak_reported",

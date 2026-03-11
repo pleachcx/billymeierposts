@@ -47,3 +47,6 @@
 - Keep the epidemic slice source-backed and narrow; bird-flu and COVID predictions can use WHO/UK government sources, while AIDS/Corona-origin claims need separate rulebooks later.
 - Export the epidemic named-disease slice with `python3 scripts/export_epidemic_analysis.py --stage4-run-key stage4-epidemic-20260311T030539Z`; current artifacts land in `data/exports/epidemic/stage4-epidemic-20260311T030539Z/`.
 - Persist effective override windows in epidemic ledger `raw_event` metadata so the export can show the real Stage 3 window even when the Stage 2 row lacks normalized dates.
+- The epidemic export should track the latest Stage 4 run only; discard superseded intermediate artifact directories instead of committing every transient rerun.
+- Expanding the first epidemic slice with `453/14` uses the 2007 Surrey foot-and-mouth outbreak; latest runs are `stage3-epidemic-20260311T030713Z` and `stage4-epidemic-20260311T030720Z`.
+- The expanded epidemic named-disease slice now covers `5` rows and scores `2 exact_hit`, `1 near_hit`, `2 similar_only`.

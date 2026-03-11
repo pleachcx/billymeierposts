@@ -129,8 +129,9 @@ CONSEQUENTIAL_PATTERN = re.compile(
     r"""
     \b(
         assassination|assassinated|attack|catastrophe|collapse|crash|death|destroy|destruction|
-        earthquake|epidemic|eruption|famine|flood|hurricane|kill|losses|pandemic|poison|
-        referendum|storm|terror|tuberculosis|virus|war
+        earthquake|epidemic|eruption|explode|exploded|famine|fall\ to\ earth|flood|hurricane|
+        hydrazine|kill|losses|pandemic|poison|referendum|satellite|shot\ down|storm|terror|
+        toxic|tuberculosis|virus|war
     )\b
     """,
     re.IGNORECASE | re.VERBOSE,
@@ -139,7 +140,7 @@ MECHANISM_PATTERN = re.compile(
     r"""
     \b(
         by\ poison|heart\ attack|voting\ period|conclave|magnitude|richter|due\ to|as\ a\ result\ of|
-        carried\ out|spread|sweep\ the\ planet
+        carried\ out|exploded|fuel\ content|rocket|shot\ down|spread|sweep\ the\ planet|toxic\ fuel
     )\b
     """,
     re.IGNORECASE | re.VERBOSE,

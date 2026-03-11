@@ -1,0 +1,13 @@
+{
+  "459:7": {
+    "scoped_family": "aviation_space",
+    "expected_event_type": "satellite_intercept_executed",
+    "actor_name": "United States Navy",
+    "target_name": "USA-193",
+    "target_keywords": ["USA-193", "US Navy", "spy satellite", "hydrazine"],
+    "jurisdiction": "United States",
+    "window_start": "2008-02-20",
+    "window_end": "2008-02-20",
+    "notes": "Prediction scoped to the USA-193 anti-satellite intercept and breakup by a US Navy missile during the February 2008 deorbit hazard window."
+  }
+}

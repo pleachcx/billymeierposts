@@ -1,0 +1,15 @@
+[
+  {
+    "event_id": "us-usa193-intercept-2008-02-20",
+    "event_type": "satellite_intercept_executed",
+    "actor_name": "United States Navy",
+    "jurisdiction": "United States",
+    "target_keywords": ["USA-193", "US Navy", "spy satellite", "hydrazine"],
+    "event_title": "USA-193 satellite intercept",
+    "event_start_date": "2008-02-20",
+    "location_name": "Northwest of Hawaii",
+    "source_name": "Naval Sea Systems Command",
+    "source_url": "https://www.navsea.navy.mil/Home/Warfare-Centers/NSWC-Dahlgren/Who-We-Are/History/Blogs/Satellite-Shootdown/",
+    "source_excerpt": "At approximately 10:26 p.m. EST, CG 70 fired the modified SM-3. The missile intercepted the satellite."
+  }
+]

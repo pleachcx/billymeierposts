@@ -1,0 +1,12 @@
+{
+  "459:7": {
+    "probability_key": "usa193_intercept_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "2006-12-14",
+    "calibration_end": "2008-02-20",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat the intercept as a one-off actor-specific military-space action over the interval from USA-193 launch to the actual intercept."
+  }
+}

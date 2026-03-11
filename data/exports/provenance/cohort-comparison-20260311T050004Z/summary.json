@@ -1,0 +1,70 @@
+{
+  "cohorts": {
+    "claimed_date_baseline": {
+      "combined_observed_probability": {
+        "count": 35,
+        "ln_sum": -106.356437,
+        "log10_sum": -46.190014
+      },
+      "family_counts": {
+        "earthquake": 28,
+        "epidemic": 7
+      },
+      "match_status_counts": {
+        "exact_hit": 19,
+        "miss": 5,
+        "near_hit": 7,
+        "similar_only": 4
+      },
+      "prediction_count": 35,
+      "public_date_status_counts": {
+        "event_precedes_publication": 9,
+        "no_public_date_evidence": 24,
+        "public_date_ok": 2
+      }
+    },
+    "public_date_not_disproven": {
+      "combined_observed_probability": {
+        "count": 26,
+        "ln_sum": -72.501214,
+        "log10_sum": -31.486877
+      },
+      "family_counts": {
+        "earthquake": 23,
+        "epidemic": 3
+      },
+      "match_status_counts": {
+        "exact_hit": 12,
+        "miss": 5,
+        "near_hit": 6,
+        "similar_only": 3
+      },
+      "prediction_count": 26,
+      "public_date_status_counts": {
+        "no_public_date_evidence": 24,
+        "public_date_ok": 2
+      }
+    },
+    "public_date_strict_clean": {
+      "combined_observed_probability": {
+        "count": 2,
+        "ln_sum": -0.569708,
+        "log10_sum": -0.247421
+      },
+      "family_counts": {
+        "earthquake": 1,
+        "epidemic": 1
+      },
+      "match_status_counts": {
+        "miss": 2
+      },
+      "prediction_count": 2,
+      "public_date_status_counts": {
+        "public_date_ok": 2
+      }
+    }
+  },
+  "generated_at": "2026-03-11T05:00:04.944038+00:00",
+  "script_version": "cohort_comparison_v1",
+  "stage2_run_key": "stage2-20260310T232950Z"
+}

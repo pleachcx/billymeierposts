@@ -70,3 +70,5 @@
 - Add Stage 8 publication adjudication with `sql/20260311_prediction_audit_public_date_reviews.sql` and `python3 scripts/review_publication_timing.py`; latest run is `stage8-publication-20260311T045630Z`.
 - Current Stage 8 status counts are `24 no_public_date_evidence`, `9 event_precedes_publication`, and `2 public_date_ok` across the `35` included scored rows; keep this separate from `final_status` so claimed-date and public-date analyses can coexist.
 - Refresh `export_publication_timing_audit.py`, `export_epidemic_analysis.py`, and `export_earthquake_analysis.py` after Stage 8 so the CSVs and summaries carry `public_date_status`, `public_date_reason`, and publication timing conflict counts.
+- Use `python3 scripts/export_cohort_comparison.py --stage2-run-key stage2-20260310T232950Z` to quantify the effect of public-date evidence on the statistical set; latest export is `data/exports/provenance/cohort-comparison-20260311T050004Z/`.
+- Current cohort sizes are `35` for the claimed-date baseline, `26` for the public-date-not-disproven cohort, and `2` for the strict public-date-clean cohort; keep all three views available for later Python aggregation.

@@ -1,5 +1,16 @@
 [
   {
+    "event_id": "who-sars-coronavirus-confirmed-2003-04-16",
+    "disease_key": "sars",
+    "event_type": "pathogen_confirmed",
+    "event_title": "WHO announced that a new coronavirus is the cause of SARS",
+    "event_start_date": "2003-04-16",
+    "location_name": "China",
+    "target_keywords": ["China", "Guangdong", "SARS"],
+    "source_name": "WHO Disease Outbreak News",
+    "source_url": "https://www.who.int/emergencies/disease-outbreak-news/item/2003_04_16-en"
+  },
+  {
     "event_id": "who-h5n1-japan-poultry-2004-01-12",
     "disease_key": "avian_influenza",
     "event_type": "poultry_outbreak_reported",

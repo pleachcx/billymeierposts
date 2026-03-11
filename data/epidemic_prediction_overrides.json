@@ -1,4 +1,13 @@
 {
+  "341:15": {
+    "disease_key": "sars",
+    "expected_event_type": "pathogen_confirmed",
+    "target_name": "Guangdong, China",
+    "target_keywords": ["China", "Guangdong", "SARS"],
+    "window_start": "2003-04-02",
+    "window_end": "2003-04-30",
+    "notes": "Prediction interpreted as public confirmation that the Guangdong SARS lung disease was caused by a coronavirus."
+  },
   "369:12": {
     "disease_key": "avian_influenza",
     "expected_event_type": "human_cases_reported",

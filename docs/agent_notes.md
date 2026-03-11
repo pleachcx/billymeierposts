@@ -79,3 +79,6 @@
 - Export the public-date-conflict set explicitly as `public_date_excluded.csv`; the latest cohort comparison export now carries `30` excluded scored rows with combined observed log10 probability `-45.915355`.
 - Add `cohort_family_summary.csv` to the cohort comparison export so downstream Python can read per-family claimed-vs-clean-vs-excluded aggregates without rebuilding subsets.
 - Refresh family summaries after provenance cohort changes; earthquake and epidemic exports now expose `public_date_cohort_summary` alongside their existing claimed-date totals.
+- Rank Stage 8 publication conflicts by `surprisal_log10` before doing more source research; use `python3 scripts/export_public_date_research_queue.py --stage2-run-key stage2-20260310T232950Z`.
+- Latest public-date research queue export is `data/exports/provenance/public-date-research-queue-20260311T061417Z/`; current queue has `30` conflicts with combined observed log10 probability `-45.915355`.
+- Top rescue targets by statistical weight are earthquake `465/6`, `442/3`, `246/20`, `401/11`, `436/3`, `136/159`, and epidemic `453/14`, `732/13`.

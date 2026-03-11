@@ -1,0 +1,114 @@
+{
+  "generated_at": "2026-03-11T06:14:17.991590+00:00",
+  "queue_summary": {
+    "combined_observed_probability": {
+      "count": 30,
+      "ln_sum": -105.724012,
+      "log10_sum": -45.915355
+    },
+    "family_counts": {
+      "earthquake": 24,
+      "epidemic": 6
+    },
+    "match_status_counts": {
+      "exact_hit": 19,
+      "near_hit": 7,
+      "similar_only": 4
+    },
+    "prediction_count": 30
+  },
+  "script_version": "public_date_research_queue_v1",
+  "stage2_run_key": "stage2-20260310T232950Z",
+  "top_rows": [
+    {
+      "candidate_seq": 6,
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 1,
+      "publication_lag_days_vs_event": -4438,
+      "report_number": 465,
+      "surprisal_log10": 3.80975
+    },
+    {
+      "candidate_seq": 3,
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 2,
+      "publication_lag_days_vs_event": -4842,
+      "report_number": 442,
+      "surprisal_log10": 3.28695
+    },
+    {
+      "candidate_seq": 20,
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 3,
+      "publication_lag_days_vs_event": -9595,
+      "report_number": 246,
+      "surprisal_log10": 3.173041
+    },
+    {
+      "candidate_seq": 14,
+      "event_family_final": "epidemic",
+      "match_status": "exact_hit",
+      "priority_rank": 4,
+      "publication_lag_days_vs_event": -5347,
+      "report_number": 453,
+      "surprisal_log10": 2.38739
+    },
+    {
+      "candidate_seq": 11,
+      "event_family_final": "earthquake",
+      "match_status": "near_hit",
+      "priority_rank": 5,
+      "publication_lag_days_vs_event": -5273,
+      "report_number": 401,
+      "surprisal_log10": 2.190371
+    },
+    {
+      "candidate_seq": 3,
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 6,
+      "publication_lag_days_vs_event": -4946,
+      "report_number": 436,
+      "surprisal_log10": 2.154824
+    },
+    {
+      "candidate_seq": 159,
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 7,
+      "publication_lag_days_vs_event": -10109,
+      "report_number": 136,
+      "surprisal_log10": 2.02174
+    },
+    {
+      "candidate_seq": 49,
+      "event_family_final": "earthquake",
+      "match_status": "near_hit",
+      "priority_rank": 8,
+      "publication_lag_days_vs_event": -10295,
+      "report_number": 136,
+      "surprisal_log10": 2.001131
+    },
+    {
+      "candidate_seq": 1,
+      "event_family_final": "earthquake",
+      "match_status": "similar_only",
+      "priority_rank": 9,
+      "publication_lag_days_vs_event": -4399,
+      "report_number": 467,
+      "surprisal_log10": 1.963903
+    },
+    {
+      "candidate_seq": 13,
+      "event_family_final": "epidemic",
+      "match_status": "exact_hit",
+      "priority_rank": 10,
+      "publication_lag_days_vs_event": -489,
+      "report_number": 732,
+      "surprisal_log10": 1.941836
+    }
+  ]
+}

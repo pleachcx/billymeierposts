@@ -1,0 +1,32 @@
+{
+  "459:4": {
+    "probability_key": "kevin_rudd_indigenous_apology_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "2007-12-03",
+    "calibration_end": "2010-06-24",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat the apology as a one-off actor-specific government action that could have landed on any day of Kevin Rudd's first prime-ministerial term."
+  },
+  "459:5": {
+    "probability_key": "kosovo_independence_declaration_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1999-06-10",
+    "calibration_end": "2008-02-17",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat the declaration as a one-off jurisdiction-specific statehood event within the post-war Kosovo status process."
+  },
+  "459:6": {
+    "probability_key": "fidel_castro_resignation_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "2006-07-31",
+    "calibration_end": "2008-02-19",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat the resignation announcement as a one-off actor-specific transition event within the interval between Fidel Castro's provisional power transfer and his formal resignation message."
+  }
+}

@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import math
 import os
 import sys
 from collections import Counter
@@ -17,7 +18,7 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 
 
-SCRIPT_VERSION = "politics_export_v1"
+SCRIPT_VERSION = "politics_export_v2"
 OUTPUT_ROOT = Path("data") / "exports" / "politics"
 
 
@@ -29,6 +30,8 @@ class RunSet:
     stage3_run_key: str | None
     stage4_run_id: int
     stage4_run_key: str
+    stage5_run_id: int | None
+    stage5_run_key: str | None
     stage7_run_id: int | None
     stage7_run_key: str | None
 
@@ -86,6 +89,21 @@ def resolve_run_set(cur, args: argparse.Namespace) -> RunSet:
         """
         SELECT id, run_key
         FROM public.prediction_audit_runs
+        WHERE stage = 'stage5_probability_model'
+          AND status = 'completed'
+          AND source_filter->>'stage4_run_key' = %s
+          AND source_filter->>'family' = 'politics_election'
+        ORDER BY created_at DESC
+        LIMIT 1
+        """,
+        (stage4["run_key"],),
+    )
+    stage5 = cur.fetchone()
+
+    cur.execute(
+        """
+        SELECT id, run_key
+        FROM public.prediction_audit_runs
         WHERE stage = 'stage7_final_adjudication'
           AND status = 'completed'
           AND source_filter->>'stage4_run_key' = %s
@@ -104,6 +122,8 @@ def resolve_run_set(cur, args: argparse.Namespace) -> RunSet:
         stage3_run_key=stage3["run_key"] if stage3 else None,
         stage4_run_id=stage4["id"],
         stage4_run_key=stage4["run_key"],
+        stage5_run_id=stage5["id"] if stage5 else None,
+        stage5_run_key=stage5["run_key"] if stage5 else None,
         stage7_run_id=stage7["id"] if stage7 else None,
         stage7_run_key=stage7["run_key"] if stage7 else None,
     )
@@ -132,6 +152,13 @@ def load_predictions(cur, runs: RunSet) -> list[dict[str, Any]]:
             p.target_name,
             p.target_type,
             p.match_status,
+            p.p_exact_under_null,
+            p.p_near_under_null,
+            p.p_similar_under_null,
+            p.p_miss_under_null,
+            p.probability_model_version,
+            p.probability_notes,
+            p.probability_meta,
             p.final_status,
             p.final_reason,
             mr.rationale AS review_rationale,
@@ -154,6 +181,53 @@ def load_predictions(cur, runs: RunSet) -> list[dict[str, Any]]:
         (runs.stage4_run_id,),
     )
     return [dict(row) for row in cur.fetchall()]
+
+
+def observed_probability(row: dict[str, Any]) -> float | None:
+    if row["match_status"] == "exact_hit":
+        value = row.get("p_exact_under_null")
+    elif row["match_status"] == "near_hit":
+        value = row.get("p_near_under_null")
+    elif row["match_status"] == "similar_only":
+        value = row.get("p_similar_under_null")
+    elif row["match_status"] == "miss":
+        value = row.get("p_miss_under_null")
+    else:
+        value = None
+    return float(value) if value is not None else None
+
+
+def aggregate_probabilities(values: list[float]) -> dict[str, Any]:
+    if not values:
+        return {"count": 0, "log10_sum": None, "ln_sum": None}
+    positive = [value for value in values if value > 0]
+    return {
+        "count": len(values),
+        "log10_sum": round(sum(math.log10(value) for value in positive), 6),
+        "ln_sum": round(sum(math.log(value) for value in positive), 6),
+    }
+
+
+def summarize_cohort(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    return {
+        "prediction_count": len(rows),
+        "match_status_counts": dict(Counter(row["match_status"] for row in rows)),
+        "public_date_status_counts": dict(Counter(row["public_date_status"] for row in rows)),
+        "probability_ready_count": sum(1 for row in rows if row["observed_probability_under_null"] is not None),
+        "combined_observed_probability": aggregate_probabilities(
+            [row["observed_probability_under_null"] for row in rows if row["observed_probability_under_null"] is not None]
+        ),
+    }
+
+
+def summarize_public_date_cohorts(predictions: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    cohorts = {
+        "claimed_date_baseline": predictions,
+        "public_date_not_disproven": [row for row in predictions if row["public_date_status"] != "event_precedes_publication"],
+        "public_date_strict_clean": [row for row in predictions if row["public_date_status"] == "public_date_ok"],
+        "public_date_excluded": [row for row in predictions if row["public_date_status"] == "event_precedes_publication"],
+    }
+    return {name: summarize_cohort(rows) for name, rows in cohorts.items()}
 
 
 def annotate_publication_timing(row: dict[str, Any]) -> None:
@@ -199,6 +273,7 @@ def main() -> int:
 
         for prediction in predictions:
             annotate_publication_timing(prediction)
+            prediction["observed_probability_under_null"] = observed_probability(prediction)
 
         summary = {
             "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -207,6 +282,7 @@ def main() -> int:
                 "stage2_run_key": runs.stage2_run_key,
                 "stage3_run_key": runs.stage3_run_key,
                 "stage4_run_key": runs.stage4_run_key,
+                "stage5_run_key": runs.stage5_run_key,
                 "stage7_run_key": runs.stage7_run_key,
             },
             "scoped_prediction_count": len(predictions),
@@ -215,6 +291,11 @@ def main() -> int:
             "earliest_public_date_populated_count": sum(1 for row in predictions if row["earliest_provable_public_date"] is not None),
             "observed_event_before_publication_count": sum(1 for row in predictions if row["observed_event_before_publication"] is True),
             "public_date_status_counts": dict(Counter(row["public_date_status"] for row in predictions)),
+            "probability_ready_count": sum(1 for row in predictions if row["observed_probability_under_null"] is not None),
+            "combined_observed_probability": aggregate_probabilities(
+                [row["observed_probability_under_null"] for row in predictions if row["observed_probability_under_null"] is not None]
+            ),
+            "public_date_cohort_summary": summarize_public_date_cohorts(predictions),
         }
 
         output_dir = Path(args.output_dir) if args.output_dir else OUTPUT_ROOT / runs.stage4_run_key
@@ -245,6 +326,14 @@ def main() -> int:
                 "target_name",
                 "target_type",
                 "match_status",
+                "p_exact_under_null",
+                "p_near_under_null",
+                "p_similar_under_null",
+                "p_miss_under_null",
+                "observed_probability_under_null",
+                "probability_model_version",
+                "probability_notes",
+                "probability_meta",
                 "final_status",
                 "final_reason",
                 "observed_event_before_publication",

@@ -8,7 +8,7 @@ import math
 import os
 import re
 import sys
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
@@ -57,8 +57,8 @@ class PredictionRow:
     candidate_seq: int
     claim_normalized: str
     claimed_contact_date: date
-    time_window_start: date
-    time_window_end: date
+    time_window_start: date | None
+    time_window_end: date | None
     target_name: str | None
     target_type: str | None
     target_lat: float | None
@@ -241,9 +241,7 @@ def fetch_predictions(
           AND p.event_family_final = 'earthquake'
           {label_clause}
           {status_clause}
-          AND p.time_window_start IS NOT NULL
-          AND p.time_window_end IS NOT NULL
-        ORDER BY p.time_window_start, p.report_number, p.candidate_seq
+        ORDER BY COALESCE(p.time_window_start, p.claimed_contact_date), p.report_number, p.candidate_seq
     """
     params: list[Any] = [stage2_run_id]
     if match_statuses:
@@ -290,6 +288,48 @@ def load_prediction_overrides(path: str) -> dict[str, dict[str, Any]]:
         return {}
     with open(path, "r", encoding="utf-8") as handle:
         return json.load(handle)
+
+
+def apply_prediction_override(
+    prediction: PredictionRow,
+    prediction_overrides: dict[str, dict[str, Any]],
+) -> tuple[PredictionRow, dict[str, Any] | None]:
+    key = f"{prediction.report_number}:{prediction.candidate_seq}"
+    override = prediction_overrides.get(key)
+    if not override:
+        return prediction, None
+
+    changed_fields: dict[str, str] = {}
+    time_window_start = prediction.time_window_start
+    time_window_end = prediction.time_window_end
+
+    if override.get("window_start"):
+        parsed = date.fromisoformat(override["window_start"])
+        if time_window_start != parsed:
+            time_window_start = parsed
+            changed_fields["time_window_start"] = parsed.isoformat()
+
+    if override.get("window_end"):
+        parsed = date.fromisoformat(override["window_end"])
+        if time_window_end != parsed:
+            time_window_end = parsed
+            changed_fields["time_window_end"] = parsed.isoformat()
+
+    if not changed_fields:
+        return prediction, None
+
+    return (
+        replace(
+            prediction,
+            time_window_start=time_window_start,
+            time_window_end=time_window_end,
+        ),
+        {
+            "override_key": key,
+            "script_version": SCRIPT_VERSION,
+            "changed_fields": changed_fields,
+        },
+    )
 
 
 def build_alias_lookup(overrides: dict[str, dict[str, Any]]) -> list[tuple[str, str]]:
@@ -577,6 +617,24 @@ def persist_target_resolution(cur, prediction_id: int, target: ResolvedTarget) -
     )
 
 
+def persist_time_window_override(cur, prediction_id: int, prediction: PredictionRow, override_meta: dict[str, Any]) -> None:
+    cur.execute(
+        """
+        UPDATE public.prediction_audit_predictions
+        SET time_window_start = %s,
+            time_window_end = %s,
+            stage2_meta = COALESCE(stage2_meta, '{}'::jsonb) || %s::jsonb
+        WHERE id = %s
+        """,
+        (
+            prediction.time_window_start,
+            prediction.time_window_end,
+            json.dumps({"earthquake_time_window_override": override_meta}),
+            prediction_id,
+        ),
+    )
+
+
 def persist_event_rows(cur, rows: list[tuple[Any, ...]]) -> None:
     if not rows:
         return
@@ -664,6 +722,23 @@ def main() -> int:
 
         for prediction in predictions:
             processed += 1
+            prediction, override_meta = apply_prediction_override(prediction, prediction_overrides)
+            if prediction.time_window_start is None or prediction.time_window_end is None:
+                unresolved += 1
+                unresolved_rows.append(
+                    {
+                        "prediction_id": prediction.prediction_id,
+                        "report_number": prediction.report_number,
+                        "reason": "missing_time_window",
+                    }
+                )
+                continue
+
+            if override_meta and not args.dry_run:
+                with conn.cursor() as cur:
+                    persist_time_window_override(cur, prediction.prediction_id, prediction, override_meta)
+                conn.commit()
+
             if is_compound_claim(prediction, alias_lookup):
                 compound_skipped += 1
                 unresolved_rows.append(

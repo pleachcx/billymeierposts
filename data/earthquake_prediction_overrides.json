@@ -79,5 +79,38 @@
     "radius_km": 220.0,
     "resolution_source": "prediction_override_peru_coast_context",
     "notes": "The claim explicitly places the seaquake off the coast of Peru and names the Pisco-area cities most affected."
+  },
+  "400:7": {
+    "target_name": "Muzaffarabad / Kashmir Region, Pakistan",
+    "target_type": "region",
+    "lat": 34.3700,
+    "lon": 73.4700,
+    "radius_km": 220.0,
+    "window_start": "2005-10-08",
+    "window_end": "2005-10-08",
+    "resolution_source": "prediction_override_kashmir_october_2005",
+    "notes": "The claim names Pakistan and the exact date 8 October for a magnitude 7.6 earthquake, matching the Kashmir/Muzaffarabad mainshock."
+  },
+  "402:5": {
+    "target_name": "Mönthal / Laufenburg Rhine Region, Switzerland",
+    "target_type": "region",
+    "lat": 47.5500,
+    "lon": 8.1700,
+    "radius_km": 80.0,
+    "window_start": "2005-11-12",
+    "window_end": "2005-11-12",
+    "resolution_source": "prediction_override_monthal_laufenburg_november_2005",
+    "notes": "The claim names the Mönthal and Laufenburg Rhine area in Switzerland and the evening of 12 November."
+  },
+  "402:6": {
+    "target_name": "Tarapaca / Northern Chile",
+    "target_type": "region",
+    "lat": -19.8000,
+    "lon": -69.2000,
+    "radius_km": 250.0,
+    "window_start": "2005-11-17",
+    "window_end": "2005-11-18",
+    "resolution_source": "prediction_override_northern_chile_november_2005",
+    "notes": "The claim names Chile and the 17th/18th of November for a magnitude 6.9 earthquake, matching the northern Chile event window."
   }
 }

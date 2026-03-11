@@ -1,0 +1,38 @@
+{
+  "238:182": {
+    "target_name": "Tokyo",
+    "target_type": "region",
+    "lat": 35.6762,
+    "lon": 139.6503,
+    "radius_km": 120.0,
+    "resolution_source": "prediction_override_tokyo_context",
+    "notes": "Contact report context explicitly frames the 1992-02-02 quake as one of the impending quakes in Tokyo."
+  },
+  "238:199": {
+    "target_name": "Erzincan Province, Turkey",
+    "target_type": "region",
+    "lat": 39.7497,
+    "lon": 39.4914,
+    "radius_km": 180.0,
+    "resolution_source": "prediction_override_erzincan_context",
+    "notes": "Immediately preceding report context discusses the earthquake in Turkey and named cities in Erzincan province."
+  },
+  "242:1": {
+    "target_name": "Grisons-Rhine Region, Switzerland",
+    "target_type": "region",
+    "lat": 46.8182,
+    "lon": 8.2275,
+    "radius_km": 140.0,
+    "resolution_source": "prediction_override_grisons_context",
+    "notes": "Question context explicitly scopes the smaller quake prediction to the Grisons region and Rhine region in Switzerland."
+  },
+  "519:3": {
+    "target_name": "Onagawa Coast, Japan",
+    "target_type": "region",
+    "lat": 38.4457,
+    "lon": 141.4440,
+    "radius_km": 180.0,
+    "resolution_source": "prediction_override_onagawa_context",
+    "notes": "The immediately preceding sentence places the seaquake sequence near Onagawa in northern Japan."
+  }
+}

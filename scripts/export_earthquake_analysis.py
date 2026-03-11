@@ -38,6 +38,8 @@ class RunSet:
     stage4_run_key: str
     stage5_run_id: int
     stage5_run_key: str
+    stage6_run_id: int | None
+    stage6_run_key: str | None
 
 
 def parse_args() -> argparse.Namespace:
@@ -95,6 +97,21 @@ def resolve_run_set(cur, args: argparse.Namespace) -> RunSet:
     stage3_run_key = stage4_filter.get("stage3_run_key")
     stage3 = fetch_run(cur, "stage3_event_ledger", stage3_run_key) if stage3_run_key else None
 
+    cur.execute(
+        """
+        SELECT id, run_key
+        FROM public.prediction_audit_runs
+        WHERE stage = 'stage6_bundle_probability_rollup'
+          AND status = 'completed'
+          AND source_filter->>'stage5_run_key' = %s
+          AND source_filter->>'event_family' = 'earthquake'
+        ORDER BY created_at DESC
+        LIMIT 1
+        """,
+        (stage5["run_key"],),
+    )
+    stage6 = cur.fetchone()
+
     return RunSet(
         stage2_run_id=stage2["id"],
         stage2_run_key=stage2["run_key"],
@@ -104,6 +121,8 @@ def resolve_run_set(cur, args: argparse.Namespace) -> RunSet:
         stage4_run_key=stage4["run_key"],
         stage5_run_id=stage5["id"],
         stage5_run_key=stage5["run_key"],
+        stage6_run_id=stage6["id"] if stage6 else None,
+        stage6_run_key=stage6["run_key"] if stage6 else None,
     )
 
 
@@ -202,6 +221,41 @@ def load_bundles(cur, bundle_keys: list[str]) -> dict[str, dict[str, Any]]:
     return {row["bundle_key"]: dict(row) for row in cur.fetchall()}
 
 
+def load_bundle_rollups(cur, runs: RunSet) -> dict[str, dict[str, Any]]:
+    if runs.stage6_run_id is None:
+        return {}
+    cur.execute(
+        """
+        SELECT
+            b.bundle_key,
+            r.scoped_prediction_count,
+            r.probability_ready_count,
+            r.scoped_match_status,
+            r.scoped_status_counts,
+            r.p_observed_under_null,
+            r.observed_log10_under_null,
+            r.p_all_exact_under_null,
+            r.all_exact_log10_under_null,
+            r.p_all_near_or_better_under_null,
+            r.all_near_or_better_log10_under_null,
+            r.p_all_similar_or_better_under_null,
+            r.all_similar_or_better_log10_under_null,
+            r.p_all_miss_under_null,
+            r.all_miss_log10_under_null,
+            r.rollup_model_version,
+            r.rollup_notes,
+            r.rollup_meta
+        FROM public.prediction_audit_bundle_rollups r
+        JOIN public.prediction_audit_bundles b ON b.id = r.bundle_id
+        WHERE r.rollup_run_id = %s
+          AND r.event_family = 'earthquake'
+        ORDER BY b.report_number, b.bundle_seq
+        """,
+        (runs.stage6_run_id,),
+    )
+    return {row["bundle_key"]: dict(row) for row in cur.fetchall()}
+
+
 def observed_probability(prediction: dict[str, Any]) -> float | None:
     field_name = OBSERVED_PROBABILITY_FIELD.get(prediction["match_status"])
     if not field_name:
@@ -263,7 +317,11 @@ def summarize_predictions(predictions: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
-def build_bundle_rows(predictions: list[dict[str, Any]], bundle_lookup: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
+def build_bundle_rows(
+    predictions: list[dict[str, Any]],
+    bundle_lookup: dict[str, dict[str, Any]],
+    bundle_rollup_lookup: dict[str, dict[str, Any]],
+) -> list[dict[str, Any]]:
     grouped: dict[str, list[dict[str, Any]]] = {}
     for prediction in predictions:
         bundle_key = prediction.get("bundle_key")
@@ -273,6 +331,7 @@ def build_bundle_rows(predictions: list[dict[str, Any]], bundle_lookup: dict[str
     rows: list[dict[str, Any]] = []
     for bundle_key, children in sorted(grouped.items(), key=lambda item: (item[1][0]["report_number"], item[0])):
         bundle = bundle_lookup.get(bundle_key, {})
+        rollup = bundle_rollup_lookup.get(bundle_key, {})
         child_status_counts = Counter(child["match_status"] for child in children)
         child_probabilities = [child["observed_probability_under_null"] for child in children if child["observed_probability_under_null"] is not None]
         rows.append(
@@ -285,10 +344,24 @@ def build_bundle_rows(predictions: list[dict[str, Any]], bundle_lookup: dict[str
                 "bundle_match_status": bundle.get("bundle_match_status"),
                 "component_count": bundle.get("component_count", len(children)),
                 "earthquake_child_count": len(children),
-                "child_status_counts": dict(child_status_counts),
-                "probability_ready_child_count": len(child_probabilities),
-                "child_combined_observed_probability_log10": aggregate_probabilities(child_probabilities)["log10_sum"],
+                "child_status_counts": rollup.get("scoped_status_counts", dict(child_status_counts)),
+                "probability_ready_child_count": rollup.get("probability_ready_count", len(child_probabilities)),
+                "scoped_match_status": rollup.get("scoped_match_status"),
+                "child_combined_observed_probability": rollup.get("p_observed_under_null"),
+                "child_combined_observed_probability_log10": rollup.get(
+                    "observed_log10_under_null",
+                    aggregate_probabilities(child_probabilities)["log10_sum"],
+                ),
                 "child_combined_observed_probability_scientific": aggregate_probabilities(child_probabilities)["scientific_notation"],
+                "child_all_exact_probability": rollup.get("p_all_exact_under_null"),
+                "child_all_exact_probability_log10": rollup.get("all_exact_log10_under_null"),
+                "child_all_near_or_better_probability": rollup.get("p_all_near_or_better_under_null"),
+                "child_all_near_or_better_probability_log10": rollup.get("all_near_or_better_log10_under_null"),
+                "child_all_similar_or_better_probability": rollup.get("p_all_similar_or_better_under_null"),
+                "child_all_similar_or_better_probability_log10": rollup.get("all_similar_or_better_log10_under_null"),
+                "child_all_miss_probability": rollup.get("p_all_miss_under_null"),
+                "child_all_miss_probability_log10": rollup.get("all_miss_log10_under_null"),
+                "rollup_model_version": rollup.get("rollup_model_version"),
                 "child_prediction_ids": [child["prediction_id"] for child in children],
             }
         )
@@ -331,8 +404,9 @@ def main() -> int:
 
             bundle_keys = sorted({prediction["bundle_key"] for prediction in predictions if prediction.get("bundle_key")})
             bundle_lookup = load_bundles(cur, bundle_keys)
+            bundle_rollup_lookup = load_bundle_rollups(cur, runs)
 
-        bundle_rows = build_bundle_rows(predictions, bundle_lookup)
+        bundle_rows = build_bundle_rows(predictions, bundle_lookup, bundle_rollup_lookup)
         unresolved_rows = [row for row in predictions if row["match_status"] == "unresolved"]
         summary = {
             "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -342,11 +416,13 @@ def main() -> int:
                 "stage3_run_key": runs.stage3_run_key,
                 "stage4_run_key": runs.stage4_run_key,
                 "stage5_run_key": runs.stage5_run_key,
+                "stage6_run_key": runs.stage6_run_key,
             },
             "prediction_summary": summarize_predictions(predictions),
             "bundle_summary": {
                 "bundle_count": len(bundle_rows),
                 "bundle_status_counts": dict(Counter(row["bundle_match_status"] for row in bundle_rows)),
+                "scoped_bundle_status_counts": dict(Counter(row["scoped_match_status"] for row in bundle_rows if row.get("scoped_match_status"))),
                 "combined_probability_ready_bundle_count": sum(1 for row in bundle_rows if row["probability_ready_child_count"] == row["earthquake_child_count"]),
             },
             "unresolved_prediction_count": len(unresolved_rows),
@@ -424,9 +500,20 @@ def main() -> int:
                 "component_count",
                 "earthquake_child_count",
                 "probability_ready_child_count",
+                "scoped_match_status",
                 "child_status_counts",
+                "child_combined_observed_probability",
                 "child_combined_observed_probability_log10",
                 "child_combined_observed_probability_scientific",
+                "child_all_exact_probability",
+                "child_all_exact_probability_log10",
+                "child_all_near_or_better_probability",
+                "child_all_near_or_better_probability_log10",
+                "child_all_similar_or_better_probability",
+                "child_all_similar_or_better_probability_log10",
+                "child_all_miss_probability",
+                "child_all_miss_probability_log10",
+                "rollup_model_version",
                 "child_prediction_ids",
             ],
         )

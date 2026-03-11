@@ -27,3 +27,10 @@
 - Latest full earthquake reruns are `stage3-earthquake-20260311T005707Z`, `stage4-earthquake-20260311T005940Z`, and `stage5-earthquake-20260311T005944Z`.
 - Export earthquake artifacts with `python3 scripts/export_earthquake_analysis.py --stage5-run-key stage5-earthquake-20260311T005944Z`; current outputs land in `data/exports/earthquake/stage5-earthquake-20260311T005944Z/`.
 - Use export summaries in log space for combination work; current earthquake observed-outcome aggregate is `log10_sum = -35.740008` across `24` probability-ready rows.
+- Use `data/earthquake_prediction_overrides.json` for context-backed target fixes keyed by `report_number:candidate_seq`; current overrides resolved Tokyo, Erzincan, Grisons-Rhine, and Onagawa earthquake rows without changing Stage 1 parsing.
+- Latest earthquake reruns after prediction overrides are `stage3-earthquake-20260311T010726Z`, `stage4-earthquake-20260311T010820Z`, and `stage5-earthquake-20260311T010829Z`; scoped results are `15 exact_hit`, `7 near_hit`, `2 similar_only`, `4 miss`, `4 unresolved`.
+- Remaining earthquake unresolveds are now the hard cases only: reports `235/14`, `383/23`, `400/16`, and `779/483`.
+- Bundle probabilities now live in `public.prediction_audit_bundle_rollups`; apply `sql/20260311_prediction_audit_bundle_probability_rollups.sql` before running `python3 scripts/rollup_bundle_probabilities.py`.
+- Scope Stage 6 bundle rollups to the same time-windowed cohort as Stage 3/4/5; otherwise bundle counts drift above the exported earthquake set.
+- Latest earthquake bundle rollup run is `stage6-bundle-rollup-20260311T010947Z`; scoped bundle results are `3 exact_hit` and `3 near_hit`, all probability-ready.
+- Latest earthquake export after Stage 6 is `data/exports/earthquake/stage5-earthquake-20260311T010829Z/`; current observed-outcome aggregate is `log10_sum = -39.491954` across `28` probability-ready rows.

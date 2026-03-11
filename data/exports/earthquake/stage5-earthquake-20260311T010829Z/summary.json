@@ -1,0 +1,58 @@
+{
+  "bundle_summary": {
+    "bundle_count": 6,
+    "bundle_status_counts": {
+      "exact_hit": 1,
+      "near_hit": 1,
+      "unreviewed": 4
+    },
+    "combined_probability_ready_bundle_count": 6,
+    "scoped_bundle_status_counts": {
+      "exact_hit": 3,
+      "near_hit": 3
+    }
+  },
+  "generated_at": "2026-03-11T01:10:27.521192+00:00",
+  "prediction_summary": {
+    "combined_exact_hit_probability": {
+      "count": 15,
+      "ln_sum": -56.752919,
+      "log10_sum": -24.647479,
+      "scientific_notation": "2.251752e-25"
+    },
+    "combined_hit_probability": {
+      "count": 24,
+      "ln_sum": -90.847157,
+      "log10_sum": -39.454419,
+      "scientific_notation": "3.512214e-40"
+    },
+    "combined_observed_probability": {
+      "count": 28,
+      "ln_sum": -90.933586,
+      "log10_sum": -39.491954,
+      "scientific_notation": "3.221406e-40"
+    },
+    "probability_ready_count": 28,
+    "scoped_prediction_count": 32,
+    "stage2_label_counts": {
+      "eligible_prediction": 1,
+      "significant_prediction": 31
+    },
+    "status_counts": {
+      "exact_hit": 15,
+      "miss": 4,
+      "near_hit": 7,
+      "similar_only": 2,
+      "unresolved": 4
+    }
+  },
+  "run_keys": {
+    "stage2_run_key": "stage2-20260310T232950Z",
+    "stage3_run_key": "stage3-earthquake-20260311T010726Z",
+    "stage4_run_key": "stage4-earthquake-20260311T010820Z",
+    "stage5_run_key": "stage5-earthquake-20260311T010829Z",
+    "stage6_run_key": "stage6-bundle-rollup-20260311T010947Z"
+  },
+  "script_version": "earthquake_export_v1",
+  "unresolved_prediction_count": 4
+}

@@ -101,6 +101,11 @@ def parse_args() -> argparse.Namespace:
         default=str(REPO_ROOT / "data" / "earthquake_location_overrides.json"),
         help="Path to the local earthquake location override JSON.",
     )
+    parser.add_argument(
+        "--prediction-overrides-path",
+        default=str(REPO_ROOT / "data" / "earthquake_prediction_overrides.json"),
+        help="Path to the per-prediction earthquake target override JSON.",
+    )
     return parser.parse_args()
 
 
@@ -280,6 +285,13 @@ def load_overrides(path: str) -> dict[str, dict[str, Any]]:
         return json.load(handle)
 
 
+def load_prediction_overrides(path: str) -> dict[str, dict[str, Any]]:
+    if not os.path.exists(path):
+        return {}
+    with open(path, "r", encoding="utf-8") as handle:
+        return json.load(handle)
+
+
 def build_alias_lookup(overrides: dict[str, dict[str, Any]]) -> list[tuple[str, str]]:
     alias_pairs: list[tuple[str, str]] = []
     for canonical_name, payload in overrides.items():
@@ -290,7 +302,24 @@ def build_alias_lookup(overrides: dict[str, dict[str, Any]]) -> list[tuple[str, 
     return alias_pairs
 
 
-def resolve_target(prediction: PredictionRow, overrides: dict[str, dict[str, Any]], alias_lookup: list[tuple[str, str]]) -> ResolvedTarget | None:
+def resolve_target(
+    prediction: PredictionRow,
+    overrides: dict[str, dict[str, Any]],
+    alias_lookup: list[tuple[str, str]],
+    prediction_overrides: dict[str, dict[str, Any]],
+) -> ResolvedTarget | None:
+    prediction_key = f"{prediction.report_number}:{prediction.candidate_seq}"
+    override = prediction_overrides.get(prediction_key)
+    if override:
+        return ResolvedTarget(
+            canonical_name=override["target_name"],
+            lat=float(override["lat"]),
+            lon=float(override["lon"]),
+            target_type=override.get("target_type", "region"),
+            radius_km=float(override.get("radius_km", 100.0)),
+            resolution_source=override.get("resolution_source", "prediction_override"),
+        )
+
     if prediction.target_lat is not None and prediction.target_lon is not None:
         return ResolvedTarget(
             canonical_name=prediction.target_name or "manual_coordinates",
@@ -592,6 +621,7 @@ def main() -> int:
         return 2
 
     overrides = load_overrides(args.overrides_path)
+    prediction_overrides = load_prediction_overrides(args.prediction_overrides_path)
     alias_lookup = build_alias_lookup(overrides)
     match_statuses = parse_match_statuses(args.match_statuses)
     run_key = args.run_key or generate_run_key()
@@ -615,6 +645,7 @@ def main() -> int:
                         "match_statuses": match_statuses or ["all"],
                         "limit": args.limit,
                         "overrides_path": args.overrides_path,
+                        "prediction_overrides_path": args.prediction_overrides_path,
                         "family": "earthquake",
                     },
                     args.notes,
@@ -644,7 +675,7 @@ def main() -> int:
                 )
                 continue
 
-            target = resolve_target(prediction, overrides, alias_lookup)
+            target = resolve_target(prediction, overrides, alias_lookup, prediction_overrides)
             if not target:
                 unresolved += 1
                 unresolved_rows.append(

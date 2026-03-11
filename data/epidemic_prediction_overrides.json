@@ -8,6 +8,15 @@
     "window_end": "1995-05-31",
     "notes": "Prediction interpreted as a later major fatal Ebola outbreak becoming publicly established after the 1987 contact."
   },
+  "251:34": {
+    "disease_key": "avian_influenza_asia",
+    "expected_event_type": "duck_poultry_transmission_risk_confirmed",
+    "target_name": "Asia",
+    "target_keywords": ["Asia", "China", "Thailand", "Viet Nam", "Vietnam", "duck", "poultry"],
+    "window_start": "1995-02-03",
+    "window_end": "2004-10-29",
+    "notes": "Prediction interpreted as later official confirmation that H5N1 transmission in Asia involved ducks or waterfowl infecting poultry populations."
+  },
   "341:15": {
     "disease_key": "sars",
     "expected_event_type": "pathogen_confirmed",

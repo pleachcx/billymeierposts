@@ -11,6 +11,17 @@
     "source_url": "https://www.cdc.gov/mmwr/preview/mmwrhtml/00037149.htm"
   },
   {
+    "event_id": "who-h5n1-duck-role-asia-2004-10-29",
+    "disease_key": "avian_influenza_asia",
+    "event_type": "duck_poultry_transmission_risk_confirmed",
+    "event_title": "WHO reported the altered role of domestic ducks in transmitting H5N1 to poultry in Asia",
+    "event_start_date": "2004-10-29",
+    "location_name": "Asia",
+    "target_keywords": ["Asia", "China", "Thailand", "Viet Nam", "Vietnam", "duck", "poultry"],
+    "source_name": "WHO Disease Outbreak News",
+    "source_url": "https://www.who.int/emergencies/disease-outbreak-news/item/2004_10_29-en"
+  },
+  {
     "event_id": "who-sars-coronavirus-confirmed-2003-04-16",
     "disease_key": "sars",
     "event_type": "pathogen_confirmed",

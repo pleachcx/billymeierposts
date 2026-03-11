@@ -1,0 +1,16 @@
+[
+  {
+    "event_id": "au-national-apology-2008-02-13",
+    "event_type": "formal_apology_delivered",
+    "actor_name": "Kevin Rudd",
+    "jurisdiction": "Australia",
+    "target_keywords": ["Aboriginal", "Indigenous", "Stolen Generations"],
+    "event_title": "Apology to Australia's Indigenous Peoples",
+    "event_start_date": "2008-02-13",
+    "location_name": "Parliament House, Canberra",
+    "source_name": "Parliament of Australia",
+    "source_url": "https://www.aph.gov.au/Visit_Parliament/Art/Icons/Apology_to_Australias_Indigenous_Peoples",
+    "source_excerpt": "On 13 February 2008, Prime Minister Kevin Rudd offered a formal apology to Australia’s Indigenous peoples, particularly the Stolen Generations, on behalf of the nation at Australian Parliament House.",
+    "secondary_source_url": "https://pmtranscripts.pmc.gov.au/release/transcript-15758"
+  }
+]

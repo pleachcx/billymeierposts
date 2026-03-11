@@ -1,0 +1,22 @@
+{
+  "earliest_public_date_populated_count": 0,
+  "final_status_counts": {
+    "included_in_statistics": 1
+  },
+  "generated_at": "2026-03-11T06:48:01.092643+00:00",
+  "match_status_counts": {
+    "exact_hit": 1
+  },
+  "observed_event_before_publication_count": 0,
+  "public_date_status_counts": {
+    "no_public_date_evidence": 1
+  },
+  "run_keys": {
+    "stage2_run_key": "stage2-20260310T232950Z",
+    "stage3_run_key": "stage3-politics-20260311T064617Z",
+    "stage4_run_key": "stage4-politics-20260311T064706Z",
+    "stage7_run_key": "stage7-politics-final-20260311T064722Z"
+  },
+  "scoped_prediction_count": 1,
+  "script_version": "politics_export_v1"
+}

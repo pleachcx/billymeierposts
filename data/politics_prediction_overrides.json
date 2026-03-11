@@ -1,0 +1,13 @@
+{
+  "459:4": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "formal_apology_delivered",
+    "actor_name": "Kevin Rudd",
+    "target_name": "Australia's Indigenous peoples",
+    "target_keywords": ["Aboriginal", "Indigenous", "Stolen Generations"],
+    "jurisdiction": "Australia",
+    "window_start": "2008-02-13",
+    "window_end": "2008-02-13",
+    "notes": "Prediction scoped to Kevin Rudd's formal national apology to Australia's Indigenous peoples on the exact named day."
+  }
+}

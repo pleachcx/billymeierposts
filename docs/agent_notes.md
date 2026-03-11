@@ -82,3 +82,9 @@
 - Rank Stage 8 publication conflicts by `surprisal_log10` before doing more source research; use `python3 scripts/export_public_date_research_queue.py --stage2-run-key stage2-20260310T232950Z`.
 - Latest public-date research queue export is `data/exports/provenance/public-date-research-queue-20260311T061417Z/`; current queue has `30` conflicts with combined observed log10 probability `-45.915355`.
 - Top rescue targets by statistical weight are earthquake `465/6`, `442/3`, `246/20`, `401/11`, `436/3`, `136/159`, and epidemic `453/14`, `732/13`.
+- Use override-driven family slices when Stage 2 leaves a measurable claim unclassified; the Kevin Rudd apology row `459/4` was lifted into a scoped `politics_election` slice without rerunning the entire corpus.
+- Politics Stage 3/4/7 runs for the Kevin Rudd apology slice are `stage3-politics-20260311T064617Z`, `stage4-politics-20260311T064706Z`, and `stage7-politics-final-20260311T064722Z`; current result is `1 exact_hit`, `1 included_in_statistics`.
+- Politics export lives at `data/exports/politics/stage4-politics-20260311T064706Z/`; the row currently has `no_public_date_evidence` and no probability model yet.
+- Latest provenance seed after adding the politics slice is `stage0-provenance-20260311T064722Z`; latest Stage 8 run is `stage8-publication-20260311T064744Z`.
+- Cross-family publication timing export is now `data/exports/provenance/publication-timing-audit-20260311T064801Z/` with `36` included scored rows: `30 event_precedes_publication`, `5 public_date_ok`, and `1 no_public_date_evidence`.
+- Latest cohort comparison export is `data/exports/provenance/cohort-comparison-20260311T064801Z/`; current baseline cohort is `36` rows and the public-date-not-disproven cohort is `6` rows including `1` politics exact hit without public-date evidence.

@@ -9,5 +9,27 @@
     "window_start": "2008-02-13",
     "window_end": "2008-02-13",
     "notes": "Prediction scoped to Kevin Rudd's formal national apology to Australia's Indigenous peoples on the exact named day."
+  },
+  "459:5": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "independence_declared",
+    "actor_name": "Kosovo",
+    "target_name": "Kosovo",
+    "target_keywords": ["Kosovo", "Serbia", "Russia"],
+    "jurisdiction": "Kosovo",
+    "window_start": "2008-02-17",
+    "window_end": "2008-02-17",
+    "notes": "Prediction scoped to Kosovo being declared independent on the named day; unrest language is treated as follow-on consequence rather than part of the scored event."
+  },
+  "459:6": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "state_resignation_announced",
+    "actor_name": "Fidel Castro",
+    "target_name": "Cuba",
+    "target_keywords": ["Cuba", "Consejo de Estado", "Comandante en Jefe"],
+    "jurisdiction": "Cuba",
+    "window_start": "2008-02-03",
+    "window_end": "2008-02-21",
+    "notes": "Prediction scoped to Fidel Castro's formal announcement that he would not continue as President of the Council of State and Commander in Chief."
   }
 }

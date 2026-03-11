@@ -12,5 +12,31 @@
     "source_url": "https://www.aph.gov.au/Visit_Parliament/Art/Icons/Apology_to_Australias_Indigenous_Peoples",
     "source_excerpt": "On 13 February 2008, Prime Minister Kevin Rudd offered a formal apology to Australia’s Indigenous peoples, particularly the Stolen Generations, on behalf of the nation at Australian Parliament House.",
     "secondary_source_url": "https://pmtranscripts.pmc.gov.au/release/transcript-15758"
+  },
+  {
+    "event_id": "xk-declaration-independence-2008-02-17",
+    "event_type": "independence_declared",
+    "actor_name": "Kosovo",
+    "jurisdiction": "Kosovo",
+    "target_keywords": ["Kosovo", "Serbia", "Russia"],
+    "event_title": "Kosovo Declaration of Independence",
+    "event_start_date": "2008-02-17",
+    "location_name": "Pristina, Kosovo",
+    "source_name": "Prime Minister of the Republic of Kosovo",
+    "source_url": "https://kryeministri.rks-gov.net/en/news/the-speech-of-kosovo-pm-hashim-thaci-given-in-the-un-security-council-on-21-april-2008/",
+    "source_excerpt": "On 17 February, the elected Members of Kosova Parliament proclaimed Kosova an independent state."
+  },
+  {
+    "event_id": "cu-castro-resignation-2008-02-19",
+    "event_type": "state_resignation_announced",
+    "actor_name": "Fidel Castro",
+    "jurisdiction": "Cuba",
+    "target_keywords": ["Cuba", "Consejo de Estado", "Comandante en Jefe"],
+    "event_title": "Mensaje del Comandante en Jefe",
+    "event_start_date": "2008-02-19",
+    "location_name": "Havana, Cuba",
+    "source_name": "Granma",
+    "source_url": "https://www.granma.cu/granmad/2008/02/19/nacional/artic03.html",
+    "source_excerpt": "No aspirare ni aceptare el cargo de Presidente del Consejo de Estado y Comandante en Jefe."
   }
 ]

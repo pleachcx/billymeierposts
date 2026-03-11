@@ -1,0 +1,26 @@
+{
+  "earliest_public_date_populated_count": 35,
+  "family_counts": {
+    "earthquake": 28,
+    "epidemic": 7
+  },
+  "generated_at": "2026-03-11T05:06:42.513953+00:00",
+  "included_scored_prediction_count": 35,
+  "match_status_counts": {
+    "exact_hit": 19,
+    "miss": 5,
+    "near_hit": 7,
+    "similar_only": 4
+  },
+  "observed_event_before_publication_by_family": {
+    "earthquake": 24,
+    "epidemic": 6
+  },
+  "observed_event_before_publication_count": 30,
+  "public_date_status_counts": {
+    "event_precedes_publication": 30,
+    "public_date_ok": 5
+  },
+  "script_version": "publication_timing_audit_v1",
+  "stage2_run_key": "stage2-20260310T232950Z"
+}

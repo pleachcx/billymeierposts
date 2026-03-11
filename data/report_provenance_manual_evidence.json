@@ -1,5 +1,60 @@
 [
   {
+    "report_number": 136,
+    "evidence_kind": "manual_source_link",
+    "evidence_quality": 1,
+    "evidence_public_date": "2009-04-01",
+    "source_label": "Future Of Mankind Contact Report 136 English translation page",
+    "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_136",
+    "language": "english",
+    "edition_or_translation": "official and authorised English translation",
+    "notes": "Future Of Mankind page lists 'Date of original translation: Wednesday, 1st April 2009'."
+  },
+  {
+    "report_number": 150,
+    "evidence_kind": "manual_source_link",
+    "evidence_quality": 1,
+    "evidence_public_date": "2021-12-30",
+    "source_label": "Future Of Mankind Contact Report 150 English translation page",
+    "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_150",
+    "language": "english",
+    "edition_or_translation": "official and authorised English translation",
+    "notes": "Future Of Mankind page lists 'Date of original translation: 30th December 2021'."
+  },
+  {
+    "report_number": 238,
+    "evidence_kind": "manual_source_link",
+    "evidence_quality": 1,
+    "evidence_public_date": "2019-10-14",
+    "source_label": "Future Of Mankind Contact Report 238 English translation page",
+    "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_238",
+    "language": "english",
+    "edition_or_translation": "official and authorised English translation",
+    "notes": "Future Of Mankind page lists 'Date of original translation: Monday, 14th October 2019'."
+  },
+  {
+    "report_number": 242,
+    "evidence_kind": "manual_source_link",
+    "evidence_quality": 1,
+    "evidence_public_date": "2018-08-12",
+    "source_label": "Future Of Mankind Contact Report 242 English translation page",
+    "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_242",
+    "language": "english",
+    "edition_or_translation": "official and authorised English translation",
+    "notes": "Future Of Mankind page lists 'Date of original translation: Sunday, 12th August 2018'."
+  },
+  {
+    "report_number": 246,
+    "evidence_kind": "manual_source_link",
+    "evidence_quality": 1,
+    "evidence_public_date": "2019-10-19",
+    "source_label": "Future Of Mankind Contact Report 246 English translation page",
+    "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_246",
+    "language": "english",
+    "edition_or_translation": "official and authorised English translation",
+    "notes": "Future Of Mankind page lists 'Date of original translation: Saturday, 19th October 2019'."
+  },
+  {
     "report_number": 367,
     "evidence_kind": "manual_source_link",
     "evidence_quality": 1,
@@ -9,6 +64,39 @@
     "language": "english",
     "edition_or_translation": "official and authorised English translation",
     "notes": "Future Of Mankind page lists 'Date of original translation: Tuesday, 11th February 2020'."
+  },
+  {
+    "report_number": 369,
+    "evidence_kind": "manual_source_link",
+    "evidence_quality": 1,
+    "evidence_public_date": "2020-02-12",
+    "source_label": "Future Of Mankind Contact Report 369 English translation page",
+    "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_369",
+    "language": "english",
+    "edition_or_translation": "official and authorised English translation",
+    "notes": "Future Of Mankind page lists 'Date of original translation: Wednesday, 12th February 2020'."
+  },
+  {
+    "report_number": 383,
+    "evidence_kind": "manual_source_link",
+    "evidence_quality": 1,
+    "evidence_public_date": "2020-02-27",
+    "source_label": "Future Of Mankind Contact Report 383 English translation page",
+    "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_383",
+    "language": "english",
+    "edition_or_translation": "official and authorised English translation",
+    "notes": "Future Of Mankind page lists 'Date of original translation: Thursday, 27th February 2020'."
+  },
+  {
+    "report_number": 401,
+    "evidence_kind": "manual_source_link",
+    "evidence_quality": 1,
+    "evidence_public_date": "2020-03-26",
+    "source_label": "Future Of Mankind Contact Report 401 English translation page",
+    "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_401",
+    "language": "english",
+    "edition_or_translation": "official and authorised English translation",
+    "notes": "Future Of Mankind page lists 'Date of original translation: Thursday, 26th March 2020'."
   },
   {
     "report_number": 402,
@@ -64,6 +152,61 @@
     "language": "english",
     "edition_or_translation": "official and authorised English translation",
     "notes": "Future Of Mankind page lists 'Date of original translation: Thursday, 24th March 2022'."
+  },
+  {
+    "report_number": 465,
+    "evidence_kind": "manual_source_link",
+    "evidence_quality": 1,
+    "evidence_public_date": "2020-07-06",
+    "source_label": "Future Of Mankind Contact Report 465 English translation page",
+    "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_465",
+    "language": "english",
+    "edition_or_translation": "official and authorised English translation",
+    "notes": "Future Of Mankind page lists 'Date of original translation: Monday, 6th July 2020'."
+  },
+  {
+    "report_number": 467,
+    "evidence_kind": "manual_source_link",
+    "evidence_quality": 1,
+    "evidence_public_date": "2020-07-07",
+    "source_label": "Future Of Mankind Contact Report 467 English translation page",
+    "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_467",
+    "language": "english",
+    "edition_or_translation": "official and authorised English translation",
+    "notes": "Future Of Mankind page lists 'Date of original translation: Tesday, 7th July 2020'."
+  },
+  {
+    "report_number": 519,
+    "evidence_kind": "manual_source_link",
+    "evidence_quality": 1,
+    "evidence_public_date": "2020-12-09",
+    "source_label": "Future Of Mankind Contact Report 519 English translation page",
+    "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_519",
+    "language": "english",
+    "edition_or_translation": "official and authorised English translation",
+    "notes": "Future Of Mankind page lists 'Date of original translation: Wednesday, 9th December 2020'."
+  },
+  {
+    "report_number": 683,
+    "evidence_kind": "manual_source_link",
+    "evidence_quality": 1,
+    "evidence_public_date": "2021-01-02",
+    "source_label": "Future Of Mankind Contact Report 683 English translation page",
+    "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_683",
+    "language": "english",
+    "edition_or_translation": "official and authorised English translation",
+    "notes": "Future Of Mankind page lists 'Date of original translation: Saturday, 2nd January 2021'."
+  },
+  {
+    "report_number": 725,
+    "evidence_kind": "manual_source_link",
+    "evidence_quality": 1,
+    "evidence_public_date": "2021-06-17",
+    "source_label": "Future Of Mankind Contact Report 725 English translation page",
+    "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_725",
+    "language": "english",
+    "edition_or_translation": "authorised but unofficial English translation",
+    "notes": "Future Of Mankind page lists 'Date of original translation: Thursday, 17th June 2021'."
   },
   {
     "report_number": 729,

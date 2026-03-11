@@ -43,5 +43,14 @@
     "window_start": "2020-01-02",
     "window_end": "2022-01-02",
     "notes": "Prediction interpreted as WHO-level pandemic recognition for the coronavirus outbreak."
+  },
+  "757:1": {
+    "disease_key": "covid19",
+    "expected_event_type": "death_threshold_crossed",
+    "target_name": "United States",
+    "target_keywords": ["USA", "United States", "United States of America"],
+    "window_start": "2020-11-15",
+    "window_end": "2021-02-28",
+    "notes": "Prediction interpreted as the United States crossing roughly 500,000 reported COVID-19 deaths within a 'soon' horizon after the 15 November 2020 contact."
   }
 }

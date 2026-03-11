@@ -75,5 +75,16 @@
     "target_keywords": ["Global", "World"],
     "source_name": "WHO Director-General remarks",
     "source_url": "https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020"
+  },
+  {
+    "event_id": "cdc-us-covid-deaths-500k-2021-02-21",
+    "disease_key": "covid19",
+    "event_type": "death_threshold_crossed",
+    "event_title": "The United States surpassed 500,000 reported COVID-19 deaths",
+    "event_start_date": "2021-02-21",
+    "location_name": "United States",
+    "target_keywords": ["USA", "United States", "United States of America"],
+    "source_name": "CDC Museum COVID-19 Timeline",
+    "source_url": "https://www.cdc.gov/museum/timeline/covid19.html"
   }
 ]

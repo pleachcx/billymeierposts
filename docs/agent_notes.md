@@ -58,3 +58,5 @@
 - Refresh the epidemic export after Stage 5 so `summary.json` and `predictions.csv` carry `p_*`, `probability_model_version`, and the combined observed log-probability summary.
 - Exclude official epidemic events dated before `claimed_contact_date` when building Stage 3 ledger rows; otherwise Stage 4 can award backward-looking `similar_only` matches.
 - Temporal-guardrail epidemic reruns are `stage3-epidemic-20260311T032248Z`, `stage4-epidemic-20260311T032302Z`, `stage5-epidemic-20260311T032413Z`, and `stage7-epidemic-final-20260311T032413Z`; the current five-row slice scores `2 exact_hit`, `2 similar_only`, `1 miss` with export log10 sum `-3.677292`.
+- Extend the epidemic named-disease slice with `757/1` as a `covid19` `death_threshold_crossed` row using the CDC timeline date `2021-02-21` for the United States surpassing 500,000 reported deaths.
+- Latest expanded epidemic runs are `stage3-epidemic-20260311T032741Z`, `stage4-epidemic-20260311T032753Z`, `stage5-epidemic-20260311T032809Z`, and `stage7-epidemic-final-20260311T032809Z`; the six-row slice now scores `3 exact_hit`, `2 similar_only`, `1 miss` with export log10 sum `-4.756224`.

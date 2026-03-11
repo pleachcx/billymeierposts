@@ -220,6 +220,17 @@
     "notes": "Future Of Mankind page lists 'Date of original translation: Monday, 19th October 2020'."
   },
   {
+    "report_number": 663,
+    "evidence_kind": "publication_snapshot",
+    "evidence_quality": 2,
+    "evidence_public_date": "2022-10-21",
+    "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 15",
+    "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-15/",
+    "language": "german",
+    "edition_or_translation": "official FIGU shop product page",
+    "notes": "The FIGU shop product page linked from Future Of Mankind exposes article:published_time/datePublished as 2022-10-21T14:20:53+01:00; this is official-source support for Block 15 but still postdates the matched event."
+  },
+  {
     "report_number": 683,
     "evidence_kind": "manual_source_link",
     "evidence_quality": 1,
@@ -229,6 +240,17 @@
     "language": "english",
     "edition_or_translation": "official and authorised English translation",
     "notes": "Future Of Mankind page lists 'Date of original translation: Saturday, 2nd January 2021'."
+  },
+  {
+    "report_number": 725,
+    "evidence_kind": "publication_snapshot",
+    "evidence_quality": 2,
+    "evidence_public_date": "2022-10-21",
+    "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 18",
+    "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-18/",
+    "language": "german",
+    "edition_or_translation": "official FIGU shop product page",
+    "notes": "The canonical FIGU shop Block 18 page exposes article:published_time/datePublished as 2022-10-21T14:29:41+01:00; Future Of Mankind's linked Source slug omits the second 't' in kontaktberichte."
   },
   {
     "report_number": 725,
@@ -243,6 +265,17 @@
   },
   {
     "report_number": 729,
+    "evidence_kind": "publication_snapshot",
+    "evidence_quality": 2,
+    "evidence_public_date": "2022-10-21",
+    "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 18",
+    "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-18/",
+    "language": "german",
+    "edition_or_translation": "official FIGU shop product page",
+    "notes": "The canonical FIGU shop Block 18 page exposes article:published_time/datePublished as 2022-10-21T14:29:41+01:00; Future Of Mankind's linked Source slug omits the second 't' in kontaktberichte."
+  },
+  {
+    "report_number": 729,
     "evidence_kind": "manual_source_link",
     "evidence_quality": 1,
     "evidence_public_date": "2021-06-28",
@@ -251,6 +284,17 @@
     "language": "english",
     "edition_or_translation": "authorised but unofficial English translation",
     "notes": "Future Of Mankind page lists 'Date of original translation: Monday, 28th June 2021'."
+  },
+  {
+    "report_number": 732,
+    "evidence_kind": "publication_snapshot",
+    "evidence_quality": 2,
+    "evidence_public_date": "2022-10-21",
+    "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 18",
+    "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-18/",
+    "language": "german",
+    "edition_or_translation": "official FIGU shop product page",
+    "notes": "The canonical FIGU shop Block 18 page exposes article:published_time/datePublished as 2022-10-21T14:29:41+01:00; Future Of Mankind's linked Source slug omits the second 't' in kontaktberichte."
   },
   {
     "report_number": 732,

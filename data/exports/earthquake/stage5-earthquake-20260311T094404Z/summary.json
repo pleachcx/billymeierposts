@@ -12,14 +12,14 @@
       "near_hit": 4
     }
   },
-  "earliest_public_date_populated_count": 36,
+  "earliest_public_date_populated_count": 44,
   "final_status_counts": {
     "excluded_from_statistics": 2,
     "included_in_statistics": 42,
     "permanently_unresolved": 2
   },
-  "generated_at": "2026-03-11T09:45:55.185125+00:00",
-  "observed_event_before_publication_count": 30,
+  "generated_at": "2026-03-11T09:48:45.625828+00:00",
+  "observed_event_before_publication_count": 37,
   "prediction_summary": {
     "combined_exact_hit_probability": {
       "count": 21,
@@ -88,64 +88,61 @@
     },
     "public_date_excluded": {
       "combined_exact_hit_probability": {
-        "count": 18,
-        "ln_sum": -79.785999,
-        "log10_sum": -34.650619,
-        "scientific_notation": "2.235533e-35"
+        "count": 21,
+        "ln_sum": -94.005629,
+        "log10_sum": -40.826126,
+        "scientific_notation": "1.492362e-41"
       },
       "combined_hit_probability": {
-        "count": 30,
-        "ln_sum": -124.451411,
-        "log10_sum": -54.048561,
-        "scientific_notation": "8.942089e-55"
+        "count": 37,
+        "ln_sum": -153.738337,
+        "log10_sum": -66.767711,
+        "scientific_notation": "1.707217e-67"
       },
       "combined_observed_probability": {
-        "count": 30,
-        "ln_sum": -124.451411,
-        "log10_sum": -54.048561,
-        "scientific_notation": "8.942089e-55"
+        "count": 37,
+        "ln_sum": -153.738337,
+        "log10_sum": -66.767711,
+        "scientific_notation": "1.707217e-67"
       },
-      "probability_ready_count": 30,
-      "scoped_prediction_count": 30,
+      "probability_ready_count": 37,
+      "scoped_prediction_count": 37,
       "stage2_label_counts": {
-        "significant_prediction": 30
+        "significant_prediction": 37
       },
       "status_counts": {
-        "exact_hit": 18,
-        "near_hit": 10,
-        "similar_only": 2
+        "exact_hit": 21,
+        "near_hit": 12,
+        "similar_only": 4
       }
     },
     "public_date_not_disproven": {
       "combined_exact_hit_probability": {
-        "count": 3,
-        "ln_sum": -14.21963,
-        "log10_sum": -6.175507,
-        "scientific_notation": "6.675645e-7"
+        "count": 0,
+        "ln_sum": null,
+        "log10_sum": null,
+        "scientific_notation": null
       },
       "combined_hit_probability": {
-        "count": 7,
-        "ln_sum": -29.286926,
-        "log10_sum": -12.71915,
-        "scientific_notation": "1.909193e-13"
+        "count": 0,
+        "ln_sum": null,
+        "log10_sum": null,
+        "scientific_notation": null
       },
       "combined_observed_probability": {
-        "count": 12,
-        "ln_sum": -29.373406,
-        "log10_sum": -12.756708,
-        "scientific_notation": "1.751023e-13"
+        "count": 5,
+        "ln_sum": -0.08648,
+        "log10_sum": -0.037558,
+        "scientific_notation": "9.171536e-1"
       },
-      "probability_ready_count": 12,
-      "scoped_prediction_count": 12,
+      "probability_ready_count": 5,
+      "scoped_prediction_count": 5,
       "stage2_label_counts": {
         "eligible_prediction": 1,
-        "significant_prediction": 11
+        "significant_prediction": 4
       },
       "status_counts": {
-        "exact_hit": 3,
-        "miss": 5,
-        "near_hit": 2,
-        "similar_only": 2
+        "miss": 5
       }
     },
     "public_date_strict_clean": {
@@ -179,8 +176,7 @@
     }
   },
   "public_date_status_counts": {
-    "event_precedes_publication": 30,
-    "no_public_date_evidence": 7,
+    "event_precedes_publication": 37,
     "pending": 4,
     "public_date_ok": 5
   },

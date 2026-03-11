@@ -76,3 +76,6 @@
 - Latest provenance import after the expanded manual evidence file is `stage0-provenance-20260311T050628Z`; latest Stage 8 run is `stage8-publication-20260311T050642Z`.
 - After the expanded evidence batch, all `35` included scored rows now have a recorded public date; current Stage 8 counts are `30 event_precedes_publication` and `5 public_date_ok`, with no remaining `no_public_date_evidence` rows in the included scored cohort.
 - Latest cohort comparison export is `data/exports/provenance/cohort-comparison-20260311T050642Z/`; current cohort sizes are `35` claimed-date baseline, `5` public-date-not-disproven, and `5` strict public-date-clean because every evidence-backed row is now either clean or a conflict.
+- Export the public-date-conflict set explicitly as `public_date_excluded.csv`; the latest cohort comparison export now carries `30` excluded scored rows with combined observed log10 probability `-45.915355`.
+- Add `cohort_family_summary.csv` to the cohort comparison export so downstream Python can read per-family claimed-vs-clean-vs-excluded aggregates without rebuilding subsets.
+- Refresh family summaries after provenance cohort changes; earthquake and epidemic exports now expose `public_date_cohort_summary` alongside their existing claimed-date totals.

@@ -17,7 +17,7 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 
 
-SCRIPT_VERSION = "cohort_comparison_v1"
+SCRIPT_VERSION = "cohort_comparison_v2"
 OUTPUT_ROOT = Path("data") / "exports" / "provenance"
 OBSERVED_PROBABILITY_FIELD = {
     "exact_hit": "p_exact_under_null",
@@ -80,6 +80,14 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def summarize_by_family(rows: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    families = sorted({row["event_family_final"] for row in rows})
+    return {
+        family: summarize([row for row in rows if row["event_family_final"] == family])
+        for family in families
+    }
+
+
 def main() -> int:
     args = parse_args()
     dsn = os.environ.get(args.dsn_env)
@@ -136,6 +144,7 @@ def main() -> int:
             "claimed_date_baseline": rows,
             "public_date_not_disproven": [row for row in rows if row["public_date_status"] != "event_precedes_publication"],
             "public_date_strict_clean": [row for row in rows if row["public_date_status"] == "public_date_ok"],
+            "public_date_excluded": [row for row in rows if row["public_date_status"] == "event_precedes_publication"],
         }
 
         summary = {
@@ -143,6 +152,7 @@ def main() -> int:
             "script_version": SCRIPT_VERSION,
             "stage2_run_key": args.stage2_run_key,
             "cohorts": {name: summarize(cohort_rows) for name, cohort_rows in cohorts.items()},
+            "cohorts_by_family": {name: summarize_by_family(cohort_rows) for name, cohort_rows in cohorts.items()},
         }
 
         output_dir = Path(args.output_dir) if args.output_dir else OUTPUT_ROOT / ("cohort-comparison-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
@@ -169,6 +179,34 @@ def main() -> int:
                     "claim_normalized",
                 ],
             )
+
+        family_rows: list[dict[str, Any]] = []
+        for cohort_name, family_summary in summary["cohorts_by_family"].items():
+            for family, values in family_summary.items():
+                family_rows.append(
+                    {
+                        "cohort_name": cohort_name,
+                        "event_family_final": family,
+                        "prediction_count": values["prediction_count"],
+                        "family_counts": values["family_counts"],
+                        "match_status_counts": values["match_status_counts"],
+                        "public_date_status_counts": values["public_date_status_counts"],
+                        "combined_observed_probability": values["combined_observed_probability"],
+                    }
+                )
+        write_csv(
+            output_dir / "cohort_family_summary.csv",
+            family_rows,
+            [
+                "cohort_name",
+                "event_family_final",
+                "prediction_count",
+                "family_counts",
+                "match_status_counts",
+                "public_date_status_counts",
+                "combined_observed_probability",
+            ],
+        )
 
         print(
             json.dumps(

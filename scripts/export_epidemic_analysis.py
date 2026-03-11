@@ -18,7 +18,7 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 
 
-SCRIPT_VERSION = "epidemic_export_v1"
+SCRIPT_VERSION = "epidemic_export_v2"
 OUTPUT_ROOT = Path("data") / "exports" / "epidemic"
 
 
@@ -210,6 +210,28 @@ def aggregate_probabilities(values: list[float]) -> dict[str, Any]:
     }
 
 
+def summarize_cohort(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    return {
+        "prediction_count": len(rows),
+        "match_status_counts": dict(Counter(row["match_status"] for row in rows)),
+        "public_date_status_counts": dict(Counter(row["public_date_status"] for row in rows)),
+        "probability_ready_count": sum(1 for row in rows if row["observed_probability_under_null"] is not None),
+        "combined_observed_probability": aggregate_probabilities(
+            [row["observed_probability_under_null"] for row in rows if row["observed_probability_under_null"] is not None]
+        ),
+    }
+
+
+def summarize_public_date_cohorts(predictions: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    cohorts = {
+        "claimed_date_baseline": predictions,
+        "public_date_not_disproven": [row for row in predictions if row["public_date_status"] != "event_precedes_publication"],
+        "public_date_strict_clean": [row for row in predictions if row["public_date_status"] == "public_date_ok"],
+        "public_date_excluded": [row for row in predictions if row["public_date_status"] == "event_precedes_publication"],
+    }
+    return {name: summarize_cohort(rows) for name, rows in cohorts.items()}
+
+
 def annotate_publication_timing(row: dict[str, Any]) -> None:
     public_date = row.get("earliest_provable_public_date")
     event_date = row.get("event_start_date")
@@ -278,6 +300,13 @@ def main() -> int:
             "probability_ready_count": sum(1 for row in predictions if row["observed_probability_under_null"] is not None),
             "combined_observed_probability": aggregate_probabilities(
                 [row["observed_probability_under_null"] for row in predictions if row["observed_probability_under_null"] is not None]
+            ),
+            "public_date_cohort_summary": summarize_public_date_cohorts(
+                [
+                    row
+                    for row in predictions
+                    if row["final_status"] == "included_in_statistics" and row["match_status"] in {"exact_hit", "near_hit", "similar_only", "miss"}
+                ]
             ),
         }
 

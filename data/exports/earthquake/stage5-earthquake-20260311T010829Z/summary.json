@@ -18,7 +18,7 @@
     "included_in_statistics": 28,
     "permanently_unresolved": 1
   },
-  "generated_at": "2026-03-11T05:07:13.475387+00:00",
+  "generated_at": "2026-03-11T05:53:51.805332+00:00",
   "observed_event_before_publication_count": 24,
   "prediction_summary": {
     "combined_exact_hit_probability": {
@@ -53,6 +53,128 @@
       "unresolved": 4
     }
   },
+  "public_date_cohort_summary": {
+    "claimed_date_baseline": {
+      "combined_exact_hit_probability": {
+        "count": 15,
+        "ln_sum": -56.752919,
+        "log10_sum": -24.647479,
+        "scientific_notation": "2.251752e-25"
+      },
+      "combined_hit_probability": {
+        "count": 24,
+        "ln_sum": -90.847157,
+        "log10_sum": -39.454419,
+        "scientific_notation": "3.512214e-40"
+      },
+      "combined_observed_probability": {
+        "count": 28,
+        "ln_sum": -90.933586,
+        "log10_sum": -39.491954,
+        "scientific_notation": "3.221406e-40"
+      },
+      "probability_ready_count": 28,
+      "scoped_prediction_count": 28,
+      "stage2_label_counts": {
+        "eligible_prediction": 1,
+        "significant_prediction": 27
+      },
+      "status_counts": {
+        "exact_hit": 15,
+        "miss": 4,
+        "near_hit": 7,
+        "similar_only": 2
+      }
+    },
+    "public_date_excluded": {
+      "combined_exact_hit_probability": {
+        "count": 15,
+        "ln_sum": -56.752919,
+        "log10_sum": -24.647479,
+        "scientific_notation": "2.251752e-25"
+      },
+      "combined_hit_probability": {
+        "count": 24,
+        "ln_sum": -90.847157,
+        "log10_sum": -39.454419,
+        "scientific_notation": "3.512214e-40"
+      },
+      "combined_observed_probability": {
+        "count": 24,
+        "ln_sum": -90.847157,
+        "log10_sum": -39.454419,
+        "scientific_notation": "3.512214e-40"
+      },
+      "probability_ready_count": 24,
+      "scoped_prediction_count": 24,
+      "stage2_label_counts": {
+        "significant_prediction": 24
+      },
+      "status_counts": {
+        "exact_hit": 15,
+        "near_hit": 7,
+        "similar_only": 2
+      }
+    },
+    "public_date_not_disproven": {
+      "combined_exact_hit_probability": {
+        "count": 0,
+        "ln_sum": null,
+        "log10_sum": null,
+        "scientific_notation": null
+      },
+      "combined_hit_probability": {
+        "count": 0,
+        "ln_sum": null,
+        "log10_sum": null,
+        "scientific_notation": null
+      },
+      "combined_observed_probability": {
+        "count": 4,
+        "ln_sum": -0.086429,
+        "log10_sum": -0.037535,
+        "scientific_notation": "9.172010e-1"
+      },
+      "probability_ready_count": 4,
+      "scoped_prediction_count": 4,
+      "stage2_label_counts": {
+        "eligible_prediction": 1,
+        "significant_prediction": 3
+      },
+      "status_counts": {
+        "miss": 4
+      }
+    },
+    "public_date_strict_clean": {
+      "combined_exact_hit_probability": {
+        "count": 0,
+        "ln_sum": null,
+        "log10_sum": null,
+        "scientific_notation": null
+      },
+      "combined_hit_probability": {
+        "count": 0,
+        "ln_sum": null,
+        "log10_sum": null,
+        "scientific_notation": null
+      },
+      "combined_observed_probability": {
+        "count": 4,
+        "ln_sum": -0.086429,
+        "log10_sum": -0.037535,
+        "scientific_notation": "9.172010e-1"
+      },
+      "probability_ready_count": 4,
+      "scoped_prediction_count": 4,
+      "stage2_label_counts": {
+        "eligible_prediction": 1,
+        "significant_prediction": 3
+      },
+      "status_counts": {
+        "miss": 4
+      }
+    }
+  },
   "public_date_status_counts": {
     "event_precedes_publication": 24,
     "pending": 4,
@@ -66,6 +188,6 @@
     "stage6_run_key": "stage6-bundle-rollup-20260311T010947Z",
     "stage7_run_key": "stage7-earthquake-final-20260311T024920Z"
   },
-  "script_version": "earthquake_export_v1",
+  "script_version": "earthquake_export_v2",
   "unresolved_prediction_count": 4
 }

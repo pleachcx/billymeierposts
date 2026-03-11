@@ -12,7 +12,12 @@
       "near_hit": 3
     }
   },
-  "generated_at": "2026-03-11T01:10:27.521192+00:00",
+  "final_status_counts": {
+    "excluded_from_statistics": 3,
+    "included_in_statistics": 28,
+    "permanently_unresolved": 1
+  },
+  "generated_at": "2026-03-11T02:49:25.626940+00:00",
   "prediction_summary": {
     "combined_exact_hit_probability": {
       "count": 15,
@@ -51,7 +56,8 @@
     "stage3_run_key": "stage3-earthquake-20260311T010726Z",
     "stage4_run_key": "stage4-earthquake-20260311T010820Z",
     "stage5_run_key": "stage5-earthquake-20260311T010829Z",
-    "stage6_run_key": "stage6-bundle-rollup-20260311T010947Z"
+    "stage6_run_key": "stage6-bundle-rollup-20260311T010947Z",
+    "stage7_run_key": "stage7-earthquake-final-20260311T024920Z"
   },
   "script_version": "earthquake_export_v1",
   "unresolved_prediction_count": 4

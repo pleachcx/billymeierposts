@@ -40,6 +40,8 @@ class RunSet:
     stage5_run_key: str
     stage6_run_id: int | None
     stage6_run_key: str | None
+    stage7_run_id: int | None
+    stage7_run_key: str | None
 
 
 def parse_args() -> argparse.Namespace:
@@ -112,6 +114,21 @@ def resolve_run_set(cur, args: argparse.Namespace) -> RunSet:
     )
     stage6 = cur.fetchone()
 
+    cur.execute(
+        """
+        SELECT id, run_key
+        FROM public.prediction_audit_runs
+        WHERE stage = 'stage7_final_adjudication'
+          AND status = 'completed'
+          AND source_filter->>'stage5_run_key' = %s
+          AND source_filter->>'family' = 'earthquake'
+        ORDER BY created_at DESC
+        LIMIT 1
+        """,
+        (stage5["run_key"],),
+    )
+    stage7 = cur.fetchone()
+
     return RunSet(
         stage2_run_id=stage2["id"],
         stage2_run_key=stage2["run_key"],
@@ -123,6 +140,8 @@ def resolve_run_set(cur, args: argparse.Namespace) -> RunSet:
         stage5_run_key=stage5["run_key"],
         stage6_run_id=stage6["id"] if stage6 else None,
         stage6_run_key=stage6["run_key"] if stage6 else None,
+        stage7_run_id=stage7["id"] if stage7 else None,
+        stage7_run_key=stage7["run_key"] if stage7 else None,
     )
 
 
@@ -163,6 +182,9 @@ def load_predictions(cur, runs: RunSet) -> list[dict[str, Any]]:
             p.probability_model_version,
             p.probability_notes,
             p.probability_meta,
+            p.final_status,
+            p.final_reason,
+            p.final_meta,
             mr.confidence AS review_confidence,
             mr.rationale AS review_rationale,
             mr.review_meta,
@@ -417,6 +439,7 @@ def main() -> int:
                 "stage4_run_key": runs.stage4_run_key,
                 "stage5_run_key": runs.stage5_run_key,
                 "stage6_run_key": runs.stage6_run_key,
+                "stage7_run_key": runs.stage7_run_key,
             },
             "prediction_summary": summarize_predictions(predictions),
             "bundle_summary": {
@@ -425,6 +448,7 @@ def main() -> int:
                 "scoped_bundle_status_counts": dict(Counter(row["scoped_match_status"] for row in bundle_rows if row.get("scoped_match_status"))),
                 "combined_probability_ready_bundle_count": sum(1 for row in bundle_rows if row["probability_ready_child_count"] == row["earthquake_child_count"]),
             },
+            "final_status_counts": dict(Counter(row["final_status"] for row in predictions)),
             "unresolved_prediction_count": len(unresolved_rows),
         }
 
@@ -484,6 +508,9 @@ def main() -> int:
                 "probability_model_version",
                 "probability_notes",
                 "probability_meta",
+                "final_status",
+                "final_reason",
+                "final_meta",
                 "review_meta",
             ],
         )
@@ -531,6 +558,8 @@ def main() -> int:
                 "time_window_start",
                 "time_window_end",
                 "match_status",
+                "final_status",
+                "final_reason",
                 "probability_notes",
                 "review_rationale",
             ],

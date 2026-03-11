@@ -35,3 +35,8 @@
 - Latest earthquake bundle rollup run is `stage6-bundle-rollup-20260311T010947Z`; scoped bundle results are `3 exact_hit` and `3 near_hit`, all probability-ready.
 - Latest earthquake export after Stage 6 is `data/exports/earthquake/stage5-earthquake-20260311T010829Z/`; current observed-outcome aggregate is `log10_sum = -39.491954` across `28` probability-ready rows.
 - Only sweep unrelated repo dirt into a commit when the user explicitly asks for a full-repo commit; otherwise keep prediction-audit bundles isolated.
+- Finalize earthquake cohort membership with `sql/20260311_prediction_audit_final_reviews.sql` plus `python3 scripts/finalize_earthquake_predictions.py --stage5-run-key stage5-earthquake-20260311T010829Z`; latest final run is `stage7-earthquake-final-20260311T024920Z`.
+- Stage 7 currently yields `28 included_in_statistics`, `3 excluded_from_statistics`, and `1 permanently_unresolved` across the scoped earthquake cohort.
+- Keep manual final-review rules in `data/earthquake_final_adjudications.json` keyed by `report_number:candidate_seq`; require every unresolved earthquake row to be covered before Stage 7 runs.
+- The Stage 7 script uses regular psycopg2 cursors; convert fetched tuples to dicts from `cur.description` before treating them like mapping rows.
+- Refresh the Stage 5 export after Stage 7 so `summary.json`, `predictions.csv`, and `unresolved.csv` carry `final_status`, `final_reason`, and `stage7_run_key`.

@@ -161,6 +161,9 @@ def load_predictions(cur, runs: RunSet) -> list[dict[str, Any]]:
             p.stage2_label,
             p.significant,
             p.claimed_contact_date,
+            p.earliest_provable_public_date,
+            p.public_date_basis,
+            p.provenance_score,
             p.claim_normalized,
             p.source_quote,
             p.target_name,
@@ -311,6 +314,18 @@ def aggregate_probabilities(values: list[float]) -> dict[str, Any]:
     }
 
 
+def annotate_publication_timing(prediction: dict[str, Any]) -> None:
+    public_date = prediction.get("earliest_provable_public_date")
+    event_date = prediction.get("event_start_date")
+    if not public_date or not event_date:
+        prediction["observed_event_before_publication"] = None
+        prediction["publication_lag_days_vs_event"] = None
+        return
+    lag_days = (event_date - public_date).days
+    prediction["publication_lag_days_vs_event"] = lag_days
+    prediction["observed_event_before_publication"] = lag_days < 0
+
+
 def summarize_predictions(predictions: list[dict[str, Any]]) -> dict[str, Any]:
     status_counts = Counter(prediction["match_status"] for prediction in predictions)
     stage2_counts = Counter(prediction["stage2_label"] for prediction in predictions)
@@ -423,6 +438,7 @@ def main() -> int:
                 prediction["observed_probability_under_null"] = observed_probability(prediction)
                 probability = prediction["observed_probability_under_null"]
                 prediction["observed_probability_log10"] = round(math.log10(probability), 6) if probability and probability > 0 else None
+                annotate_publication_timing(prediction)
 
             bundle_keys = sorted({prediction["bundle_key"] for prediction in predictions if prediction.get("bundle_key")})
             bundle_lookup = load_bundles(cur, bundle_keys)
@@ -449,6 +465,8 @@ def main() -> int:
                 "combined_probability_ready_bundle_count": sum(1 for row in bundle_rows if row["probability_ready_child_count"] == row["earthquake_child_count"]),
             },
             "final_status_counts": dict(Counter(row["final_status"] for row in predictions)),
+            "earliest_public_date_populated_count": sum(1 for row in predictions if row["earliest_provable_public_date"] is not None),
+            "observed_event_before_publication_count": sum(1 for row in predictions if row["observed_event_before_publication"] is True),
             "unresolved_prediction_count": len(unresolved_rows),
         }
 
@@ -475,6 +493,9 @@ def main() -> int:
                 "stage2_label",
                 "significant",
                 "claimed_contact_date",
+                "earliest_provable_public_date",
+                "public_date_basis",
+                "provenance_score",
                 "claim_normalized",
                 "source_quote",
                 "target_name",
@@ -505,6 +526,8 @@ def main() -> int:
                 "p_miss_under_null",
                 "observed_probability_under_null",
                 "observed_probability_log10",
+                "observed_event_before_publication",
+                "publication_lag_days_vs_event",
                 "probability_model_version",
                 "probability_notes",
                 "probability_meta",

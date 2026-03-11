@@ -1,0 +1,21 @@
+{
+  "current_public_date_counts": {
+    "claimed_only": 35,
+    "other_basis": 0,
+    "with_earliest_provable_public_date": 0
+  },
+  "generated_at": "2026-03-11T03:38:33.654105+00:00",
+  "prediction_count": 35,
+  "prediction_family_counts": {
+    "earthquake": 28,
+    "epidemic": 7
+  },
+  "provenance_score_counts": {
+    "1": 35
+  },
+  "report_count": 22,
+  "run_key": "stage0-provenance-20260311T033833Z",
+  "scope": "included",
+  "script_version": "stage0_provenance_claimed_date_seed_v1",
+  "stage2_run_key": "stage2-20260310T232950Z"
+}

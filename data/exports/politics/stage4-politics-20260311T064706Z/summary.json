@@ -1,15 +1,15 @@
 {
-  "earliest_public_date_populated_count": 0,
+  "earliest_public_date_populated_count": 1,
   "final_status_counts": {
     "included_in_statistics": 1
   },
-  "generated_at": "2026-03-11T06:48:01.092643+00:00",
+  "generated_at": "2026-03-11T06:59:01.093739+00:00",
   "match_status_counts": {
     "exact_hit": 1
   },
-  "observed_event_before_publication_count": 0,
+  "observed_event_before_publication_count": 1,
   "public_date_status_counts": {
-    "no_public_date_evidence": 1
+    "event_precedes_publication": 1
   },
   "run_keys": {
     "stage2_run_key": "stage2-20260310T232950Z",

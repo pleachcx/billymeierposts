@@ -88,3 +88,8 @@
 - Latest provenance seed after adding the politics slice is `stage0-provenance-20260311T064722Z`; latest Stage 8 run is `stage8-publication-20260311T064744Z`.
 - Cross-family publication timing export is now `data/exports/provenance/publication-timing-audit-20260311T064801Z/` with `36` included scored rows: `30 event_precedes_publication`, `5 public_date_ok`, and `1 no_public_date_evidence`.
 - Latest cohort comparison export is `data/exports/provenance/cohort-comparison-20260311T064801Z/`; current baseline cohort is `36` rows and the public-date-not-disproven cohort is `6` rows including `1` politics exact hit without public-date evidence.
+- Add report `459` manual provenance evidence from the Future Of Mankind page before treating the Kevin Rudd hit as even provisionally public-date-safe; the page lists `Date of original translation: Monday, 22nd June 2020`.
+- Latest manual provenance import after adding report `459` is `stage0-provenance-20260311T065818Z`; latest Stage 8 run is `stage8-publication-20260311T065836Z`.
+- Latest cross-family publication timing export is `data/exports/provenance/publication-timing-audit-20260311T065901Z/`; current included scored counts are `31 event_precedes_publication` and `5 public_date_ok`.
+- Latest cohort comparison export is `data/exports/provenance/cohort-comparison-20260311T065901Z/`; the public-date-not-disproven cohort is back down to `5` rows because politics `459/4` moved into `event_precedes_publication`.
+- Report `459` contains additional measurable claims about Kosovo, Fidel Castro, and the USA-193 satellite shootdown that Stage 1 failed to extract; fix the date-led future-statement parser gap before expanding the politics slice further.

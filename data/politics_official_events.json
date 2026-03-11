@@ -1,5 +1,18 @@
 [
   {
+    "event_id": "va-john-paul-i-death-1978-09-28",
+    "event_type": "pope_died",
+    "actor_name": "John Paul I",
+    "jurisdiction": "Vatican City",
+    "target_keywords": ["John Paul I", "Albino Luciani"],
+    "event_title": "Death of Pope John Paul I",
+    "event_start_date": "1978-09-28",
+    "location_name": "Vatican City",
+    "source_name": "Vatican",
+    "source_url": "https://www.vatican.va/content/john-paul-i/en.html",
+    "source_excerpt": "End Pontificate: 28.IX.1978."
+  },
+  {
     "event_id": "va-john-paul-i-election-1978-08-26",
     "event_type": "pope_elected",
     "actor_name": "The Conclave",
@@ -39,6 +52,45 @@
     "source_excerpt": "The Pope Emeritus, Benedict XVI, passed away today at 9:34 in the Mater Ecclesiae Monastery in the Vatican."
   },
   {
+    "event_id": "us-reagan-election-1980-11-04",
+    "event_type": "president_elected",
+    "actor_name": "Ronald Reagan",
+    "jurisdiction": "United States",
+    "target_keywords": [],
+    "event_title": "Election of Ronald Reagan as President of the United States",
+    "event_start_date": "1980-11-04",
+    "location_name": "United States",
+    "source_name": "Reagan Library",
+    "source_url": "https://www.reaganlibrary.gov/reagans/reagan-administration/reagan-presidency",
+    "source_excerpt": "Ronald Reagan was elected President of the United States on November 4, 1980."
+  },
+  {
+    "event_id": "us-haig-secretary-of-state-1981-01-22",
+    "event_type": "cabinet_secretary_appointed",
+    "actor_name": "Ronald Reagan",
+    "jurisdiction": "United States",
+    "target_keywords": ["Alexander Meigs Haig Jr.", "Alexander Haig", "Haig"],
+    "event_title": "Alexander Haig assumed office as U.S. Secretary of State",
+    "event_start_date": "1981-01-22",
+    "location_name": "Washington, D.C.",
+    "source_name": "Office of the Historian, U.S. Department of State",
+    "source_url": "https://history.state.gov/departmenthistory/people/haig-alexander-meigs",
+    "source_excerpt": "Alexander Meigs Haig, Jr. was appointed Secretary of State by President Ronald Reagan and assumed the office on January 22, 1981."
+  },
+  {
+    "event_id": "ch-un-membership-2002-09-10",
+    "event_type": "international_membership_joined",
+    "actor_name": "Switzerland",
+    "jurisdiction": "Switzerland",
+    "target_keywords": ["United Nations", "UN"],
+    "event_title": "Switzerland admitted as the 190th Member State of the United Nations",
+    "event_start_date": "2002-09-10",
+    "location_name": "United Nations Headquarters, New York",
+    "source_name": "United Nations Press",
+    "source_url": "https://press.un.org/en/2002/ga10041.doc.htm",
+    "source_excerpt": "By unanimous decision, Switzerland became the 190th United Nations Member State this afternoon."
+  },
+  {
     "event_id": "au-national-apology-2008-02-13",
     "event_type": "formal_apology_delivered",
     "actor_name": "Kevin Rudd",
@@ -51,6 +103,19 @@
     "source_url": "https://www.aph.gov.au/Visit_Parliament/Art/Icons/Apology_to_Australias_Indigenous_Peoples",
     "source_excerpt": "On 13 February 2008, Prime Minister Kevin Rudd offered a formal apology to Australia’s Indigenous peoples, particularly the Stolen Generations, on behalf of the nation at Australian Parliament House.",
     "secondary_source_url": "https://pmtranscripts.pmc.gov.au/release/transcript-15758"
+  },
+  {
+    "event_id": "uk-blair-resignation-announcement-2007-05-10",
+    "event_type": "state_resignation_announced",
+    "actor_name": "Tony Blair",
+    "jurisdiction": "United Kingdom",
+    "target_keywords": [],
+    "event_title": "Tony Blair announced his resignation timetable",
+    "event_start_date": "2007-05-10",
+    "location_name": "Trimdon, County Durham",
+    "source_name": "UK Government",
+    "source_url": "https://assets.publishing.service.gov.uk/media/5a8057d0e5274a2e8ab4f99d/The_Report_of_the_Iraq_Inquiry_-_Volume_VIII.pdf",
+    "source_excerpt": "On 10 May, Mr Blair announced that he was standing down as Leader of the Labour Party and would be resigning as Prime Minister on 27 June."
   },
   {
     "event_id": "xk-declaration-independence-2008-02-17",

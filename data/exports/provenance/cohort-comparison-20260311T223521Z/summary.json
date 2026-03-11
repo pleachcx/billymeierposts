@@ -1,0 +1,732 @@
+{
+  "cohorts": {
+    "claimed_date_baseline": {
+      "best_available_source_tier_counts": {
+        "mirror_revision_timestamp": 6,
+        "mirror_translation_page": 2,
+        "official_figu_original": 64
+      },
+      "combined_observed_probability": {
+        "count": 72,
+        "ln_sum": -281.665621,
+        "log10_sum": -122.325825
+      },
+      "current_public_source_bucket_counts": {
+        "mirror": 72
+      },
+      "current_public_source_tier_counts": {
+        "mirror_revision_timestamp": 43,
+        "mirror_translation_page": 29
+      },
+      "family_counts": {
+        "aviation_space": 1,
+        "earthquake": 54,
+        "epidemic": 7,
+        "politics_election": 10
+      },
+      "match_status_counts": {
+        "exact_hit": 44,
+        "miss": 6,
+        "near_hit": 14,
+        "similar_only": 8
+      },
+      "prediction_count": 72,
+      "public_date_status_counts": {
+        "event_precedes_publication": 65,
+        "public_date_ok": 7
+      }
+    },
+    "public_date_currently_unrescued": {
+      "best_available_source_tier_counts": {
+        "mirror_revision_timestamp": 6,
+        "mirror_translation_page": 2,
+        "official_figu_original": 57
+      },
+      "combined_observed_probability": {
+        "count": 65,
+        "ln_sum": -278.548813,
+        "log10_sum": -120.972213
+      },
+      "current_public_source_bucket_counts": {
+        "mirror": 65
+      },
+      "current_public_source_tier_counts": {
+        "mirror_revision_timestamp": 40,
+        "mirror_translation_page": 25
+      },
+      "family_counts": {
+        "aviation_space": 1,
+        "earthquake": 49,
+        "epidemic": 5,
+        "politics_election": 10
+      },
+      "match_status_counts": {
+        "exact_hit": 43,
+        "near_hit": 14,
+        "similar_only": 8
+      },
+      "prediction_count": 65,
+      "public_date_status_counts": {
+        "event_precedes_publication": 65
+      }
+    },
+    "public_date_excluded": {
+      "best_available_source_tier_counts": {
+        "mirror_revision_timestamp": 6,
+        "mirror_translation_page": 2,
+        "official_figu_original": 57
+      },
+      "combined_observed_probability": {
+        "count": 65,
+        "ln_sum": -278.548813,
+        "log10_sum": -120.972213
+      },
+      "current_public_source_bucket_counts": {
+        "mirror": 65
+      },
+      "current_public_source_tier_counts": {
+        "mirror_revision_timestamp": 40,
+        "mirror_translation_page": 25
+      },
+      "family_counts": {
+        "aviation_space": 1,
+        "earthquake": 49,
+        "epidemic": 5,
+        "politics_election": 10
+      },
+      "match_status_counts": {
+        "exact_hit": 43,
+        "near_hit": 14,
+        "similar_only": 8
+      },
+      "prediction_count": 65,
+      "public_date_status_counts": {
+        "event_precedes_publication": 65
+      }
+    },
+    "public_date_mirror_supported_clean": {
+      "best_available_source_tier_counts": {},
+      "combined_observed_probability": {
+        "count": 0,
+        "ln_sum": null,
+        "log10_sum": null
+      },
+      "current_public_source_bucket_counts": {},
+      "current_public_source_tier_counts": {},
+      "family_counts": {},
+      "match_status_counts": {},
+      "prediction_count": 0,
+      "public_date_status_counts": {}
+    },
+    "public_date_not_disproven": {
+      "best_available_source_tier_counts": {
+        "official_figu_original": 7
+      },
+      "combined_observed_probability": {
+        "count": 7,
+        "ln_sum": -3.116808,
+        "log10_sum": -1.353612
+      },
+      "current_public_source_bucket_counts": {
+        "mirror": 7
+      },
+      "current_public_source_tier_counts": {
+        "mirror_revision_timestamp": 3,
+        "mirror_translation_page": 4
+      },
+      "family_counts": {
+        "earthquake": 5,
+        "epidemic": 2
+      },
+      "match_status_counts": {
+        "exact_hit": 1,
+        "miss": 6
+      },
+      "prediction_count": 7,
+      "public_date_status_counts": {
+        "public_date_ok": 7
+      }
+    },
+    "public_date_primary_supported_clean": {
+      "best_available_source_tier_counts": {
+        "official_figu_original": 7
+      },
+      "combined_observed_probability": {
+        "count": 7,
+        "ln_sum": -3.116808,
+        "log10_sum": -1.353612
+      },
+      "current_public_source_bucket_counts": {
+        "mirror": 7
+      },
+      "current_public_source_tier_counts": {
+        "mirror_revision_timestamp": 3,
+        "mirror_translation_page": 4
+      },
+      "family_counts": {
+        "earthquake": 5,
+        "epidemic": 2
+      },
+      "match_status_counts": {
+        "exact_hit": 1,
+        "miss": 6
+      },
+      "prediction_count": 7,
+      "public_date_status_counts": {
+        "public_date_ok": 7
+      }
+    },
+    "public_date_strict_clean": {
+      "best_available_source_tier_counts": {
+        "official_figu_original": 7
+      },
+      "combined_observed_probability": {
+        "count": 7,
+        "ln_sum": -3.116808,
+        "log10_sum": -1.353612
+      },
+      "current_public_source_bucket_counts": {
+        "mirror": 7
+      },
+      "current_public_source_tier_counts": {
+        "mirror_revision_timestamp": 3,
+        "mirror_translation_page": 4
+      },
+      "family_counts": {
+        "earthquake": 5,
+        "epidemic": 2
+      },
+      "match_status_counts": {
+        "exact_hit": 1,
+        "miss": 6
+      },
+      "prediction_count": 7,
+      "public_date_status_counts": {
+        "public_date_ok": 7
+      }
+    }
+  },
+  "cohorts_by_family": {
+    "claimed_date_baseline": {
+      "aviation_space": {
+        "best_available_source_tier_counts": {
+          "official_figu_original": 1
+        },
+        "combined_observed_probability": {
+          "count": 1,
+          "ln_sum": -6.074196,
+          "log10_sum": -2.63799
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 1
+        },
+        "current_public_source_tier_counts": {
+          "mirror_translation_page": 1
+        },
+        "family_counts": {
+          "aviation_space": 1
+        },
+        "match_status_counts": {
+          "exact_hit": 1
+        },
+        "prediction_count": 1,
+        "public_date_status_counts": {
+          "event_precedes_publication": 1
+        }
+      },
+      "earthquake": {
+        "best_available_source_tier_counts": {
+          "mirror_revision_timestamp": 4,
+          "mirror_translation_page": 2,
+          "official_figu_original": 48
+        },
+        "combined_observed_probability": {
+          "count": 54,
+          "ln_sum": -221.975778,
+          "log10_sum": -96.402855
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 54
+        },
+        "current_public_source_tier_counts": {
+          "mirror_revision_timestamp": 34,
+          "mirror_translation_page": 20
+        },
+        "family_counts": {
+          "earthquake": 54
+        },
+        "match_status_counts": {
+          "exact_hit": 29,
+          "miss": 5,
+          "near_hit": 14,
+          "similar_only": 6
+        },
+        "prediction_count": 54,
+        "public_date_status_counts": {
+          "event_precedes_publication": 49,
+          "public_date_ok": 5
+        }
+      },
+      "epidemic": {
+        "best_available_source_tier_counts": {
+          "official_figu_original": 7
+        },
+        "combined_observed_probability": {
+          "count": 7,
+          "ln_sum": -15.422851,
+          "log10_sum": -6.698059
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 7
+        },
+        "current_public_source_tier_counts": {
+          "mirror_revision_timestamp": 4,
+          "mirror_translation_page": 3
+        },
+        "family_counts": {
+          "epidemic": 7
+        },
+        "match_status_counts": {
+          "exact_hit": 4,
+          "miss": 1,
+          "similar_only": 2
+        },
+        "prediction_count": 7,
+        "public_date_status_counts": {
+          "event_precedes_publication": 5,
+          "public_date_ok": 2
+        }
+      },
+      "politics_election": {
+        "best_available_source_tier_counts": {
+          "mirror_revision_timestamp": 2,
+          "official_figu_original": 8
+        },
+        "combined_observed_probability": {
+          "count": 10,
+          "ln_sum": -38.192796,
+          "log10_sum": -16.586921
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 10
+        },
+        "current_public_source_tier_counts": {
+          "mirror_revision_timestamp": 5,
+          "mirror_translation_page": 5
+        },
+        "family_counts": {
+          "politics_election": 10
+        },
+        "match_status_counts": {
+          "exact_hit": 10
+        },
+        "prediction_count": 10,
+        "public_date_status_counts": {
+          "event_precedes_publication": 10
+        }
+      }
+    },
+    "public_date_currently_unrescued": {
+      "aviation_space": {
+        "best_available_source_tier_counts": {
+          "official_figu_original": 1
+        },
+        "combined_observed_probability": {
+          "count": 1,
+          "ln_sum": -6.074196,
+          "log10_sum": -2.63799
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 1
+        },
+        "current_public_source_tier_counts": {
+          "mirror_translation_page": 1
+        },
+        "family_counts": {
+          "aviation_space": 1
+        },
+        "match_status_counts": {
+          "exact_hit": 1
+        },
+        "prediction_count": 1,
+        "public_date_status_counts": {
+          "event_precedes_publication": 1
+        }
+      },
+      "earthquake": {
+        "best_available_source_tier_counts": {
+          "mirror_revision_timestamp": 4,
+          "mirror_translation_page": 2,
+          "official_figu_original": 43
+        },
+        "combined_observed_probability": {
+          "count": 49,
+          "ln_sum": -221.889297,
+          "log10_sum": -96.365297
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 49
+        },
+        "current_public_source_tier_counts": {
+          "mirror_revision_timestamp": 33,
+          "mirror_translation_page": 16
+        },
+        "family_counts": {
+          "earthquake": 49
+        },
+        "match_status_counts": {
+          "exact_hit": 29,
+          "near_hit": 14,
+          "similar_only": 6
+        },
+        "prediction_count": 49,
+        "public_date_status_counts": {
+          "event_precedes_publication": 49
+        }
+      },
+      "epidemic": {
+        "best_available_source_tier_counts": {
+          "official_figu_original": 5
+        },
+        "combined_observed_probability": {
+          "count": 5,
+          "ln_sum": -12.392523,
+          "log10_sum": -5.382005
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 5
+        },
+        "current_public_source_tier_counts": {
+          "mirror_revision_timestamp": 2,
+          "mirror_translation_page": 3
+        },
+        "family_counts": {
+          "epidemic": 5
+        },
+        "match_status_counts": {
+          "exact_hit": 3,
+          "similar_only": 2
+        },
+        "prediction_count": 5,
+        "public_date_status_counts": {
+          "event_precedes_publication": 5
+        }
+      },
+      "politics_election": {
+        "best_available_source_tier_counts": {
+          "mirror_revision_timestamp": 2,
+          "official_figu_original": 8
+        },
+        "combined_observed_probability": {
+          "count": 10,
+          "ln_sum": -38.192796,
+          "log10_sum": -16.586921
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 10
+        },
+        "current_public_source_tier_counts": {
+          "mirror_revision_timestamp": 5,
+          "mirror_translation_page": 5
+        },
+        "family_counts": {
+          "politics_election": 10
+        },
+        "match_status_counts": {
+          "exact_hit": 10
+        },
+        "prediction_count": 10,
+        "public_date_status_counts": {
+          "event_precedes_publication": 10
+        }
+      }
+    },
+    "public_date_excluded": {
+      "aviation_space": {
+        "best_available_source_tier_counts": {
+          "official_figu_original": 1
+        },
+        "combined_observed_probability": {
+          "count": 1,
+          "ln_sum": -6.074196,
+          "log10_sum": -2.63799
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 1
+        },
+        "current_public_source_tier_counts": {
+          "mirror_translation_page": 1
+        },
+        "family_counts": {
+          "aviation_space": 1
+        },
+        "match_status_counts": {
+          "exact_hit": 1
+        },
+        "prediction_count": 1,
+        "public_date_status_counts": {
+          "event_precedes_publication": 1
+        }
+      },
+      "earthquake": {
+        "best_available_source_tier_counts": {
+          "mirror_revision_timestamp": 4,
+          "mirror_translation_page": 2,
+          "official_figu_original": 43
+        },
+        "combined_observed_probability": {
+          "count": 49,
+          "ln_sum": -221.889297,
+          "log10_sum": -96.365297
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 49
+        },
+        "current_public_source_tier_counts": {
+          "mirror_revision_timestamp": 33,
+          "mirror_translation_page": 16
+        },
+        "family_counts": {
+          "earthquake": 49
+        },
+        "match_status_counts": {
+          "exact_hit": 29,
+          "near_hit": 14,
+          "similar_only": 6
+        },
+        "prediction_count": 49,
+        "public_date_status_counts": {
+          "event_precedes_publication": 49
+        }
+      },
+      "epidemic": {
+        "best_available_source_tier_counts": {
+          "official_figu_original": 5
+        },
+        "combined_observed_probability": {
+          "count": 5,
+          "ln_sum": -12.392523,
+          "log10_sum": -5.382005
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 5
+        },
+        "current_public_source_tier_counts": {
+          "mirror_revision_timestamp": 2,
+          "mirror_translation_page": 3
+        },
+        "family_counts": {
+          "epidemic": 5
+        },
+        "match_status_counts": {
+          "exact_hit": 3,
+          "similar_only": 2
+        },
+        "prediction_count": 5,
+        "public_date_status_counts": {
+          "event_precedes_publication": 5
+        }
+      },
+      "politics_election": {
+        "best_available_source_tier_counts": {
+          "mirror_revision_timestamp": 2,
+          "official_figu_original": 8
+        },
+        "combined_observed_probability": {
+          "count": 10,
+          "ln_sum": -38.192796,
+          "log10_sum": -16.586921
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 10
+        },
+        "current_public_source_tier_counts": {
+          "mirror_revision_timestamp": 5,
+          "mirror_translation_page": 5
+        },
+        "family_counts": {
+          "politics_election": 10
+        },
+        "match_status_counts": {
+          "exact_hit": 10
+        },
+        "prediction_count": 10,
+        "public_date_status_counts": {
+          "event_precedes_publication": 10
+        }
+      }
+    },
+    "public_date_mirror_supported_clean": {},
+    "public_date_not_disproven": {
+      "earthquake": {
+        "best_available_source_tier_counts": {
+          "official_figu_original": 5
+        },
+        "combined_observed_probability": {
+          "count": 5,
+          "ln_sum": -0.08648,
+          "log10_sum": -0.037558
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 5
+        },
+        "current_public_source_tier_counts": {
+          "mirror_revision_timestamp": 1,
+          "mirror_translation_page": 4
+        },
+        "family_counts": {
+          "earthquake": 5
+        },
+        "match_status_counts": {
+          "miss": 5
+        },
+        "prediction_count": 5,
+        "public_date_status_counts": {
+          "public_date_ok": 5
+        }
+      },
+      "epidemic": {
+        "best_available_source_tier_counts": {
+          "official_figu_original": 2
+        },
+        "combined_observed_probability": {
+          "count": 2,
+          "ln_sum": -3.030327,
+          "log10_sum": -1.316054
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 2
+        },
+        "current_public_source_tier_counts": {
+          "mirror_revision_timestamp": 2
+        },
+        "family_counts": {
+          "epidemic": 2
+        },
+        "match_status_counts": {
+          "exact_hit": 1,
+          "miss": 1
+        },
+        "prediction_count": 2,
+        "public_date_status_counts": {
+          "public_date_ok": 2
+        }
+      }
+    },
+    "public_date_primary_supported_clean": {
+      "earthquake": {
+        "best_available_source_tier_counts": {
+          "official_figu_original": 5
+        },
+        "combined_observed_probability": {
+          "count": 5,
+          "ln_sum": -0.08648,
+          "log10_sum": -0.037558
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 5
+        },
+        "current_public_source_tier_counts": {
+          "mirror_revision_timestamp": 1,
+          "mirror_translation_page": 4
+        },
+        "family_counts": {
+          "earthquake": 5
+        },
+        "match_status_counts": {
+          "miss": 5
+        },
+        "prediction_count": 5,
+        "public_date_status_counts": {
+          "public_date_ok": 5
+        }
+      },
+      "epidemic": {
+        "best_available_source_tier_counts": {
+          "official_figu_original": 2
+        },
+        "combined_observed_probability": {
+          "count": 2,
+          "ln_sum": -3.030327,
+          "log10_sum": -1.316054
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 2
+        },
+        "current_public_source_tier_counts": {
+          "mirror_revision_timestamp": 2
+        },
+        "family_counts": {
+          "epidemic": 2
+        },
+        "match_status_counts": {
+          "exact_hit": 1,
+          "miss": 1
+        },
+        "prediction_count": 2,
+        "public_date_status_counts": {
+          "public_date_ok": 2
+        }
+      }
+    },
+    "public_date_strict_clean": {
+      "earthquake": {
+        "best_available_source_tier_counts": {
+          "official_figu_original": 5
+        },
+        "combined_observed_probability": {
+          "count": 5,
+          "ln_sum": -0.08648,
+          "log10_sum": -0.037558
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 5
+        },
+        "current_public_source_tier_counts": {
+          "mirror_revision_timestamp": 1,
+          "mirror_translation_page": 4
+        },
+        "family_counts": {
+          "earthquake": 5
+        },
+        "match_status_counts": {
+          "miss": 5
+        },
+        "prediction_count": 5,
+        "public_date_status_counts": {
+          "public_date_ok": 5
+        }
+      },
+      "epidemic": {
+        "best_available_source_tier_counts": {
+          "official_figu_original": 2
+        },
+        "combined_observed_probability": {
+          "count": 2,
+          "ln_sum": -3.030327,
+          "log10_sum": -1.316054
+        },
+        "current_public_source_bucket_counts": {
+          "mirror": 2
+        },
+        "current_public_source_tier_counts": {
+          "mirror_revision_timestamp": 2
+        },
+        "family_counts": {
+          "epidemic": 2
+        },
+        "match_status_counts": {
+          "exact_hit": 1,
+          "miss": 1
+        },
+        "prediction_count": 2,
+        "public_date_status_counts": {
+          "public_date_ok": 2
+        }
+      }
+    }
+  },
+  "generated_at": "2026-03-11T22:35:21.235084+00:00",
+  "script_version": "cohort_comparison_v3",
+  "stage2_run_key": "stage2-20260311T093233Z"
+}

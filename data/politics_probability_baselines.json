@@ -1,4 +1,14 @@
 {
+  "113:11": {
+    "probability_key": "john_paul_i_death_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1978-08-26",
+    "calibration_end": "1978-09-28",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat John Paul I's death as a one-off actor-specific event during the short pontificate that began with his election."
+  },
   "113:7": {
     "probability_key": "john_paul_i_election_window",
     "model": "actor_risk_window_single_event_v1",
@@ -58,5 +68,45 @@
     "near_expansion_days": 7,
     "similar_horizon_days": 365,
     "notes": "Treat the resignation announcement as a one-off actor-specific transition event within the interval between Fidel Castro's provisional power transfer and his formal resignation message."
+  },
+  "136:16": {
+    "probability_key": "reagan_election_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1980-07-16",
+    "calibration_end": "1980-11-04",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Reagan's election as a one-off actor-specific event during the general-election period after he secured the Republican nomination."
+  },
+  "136:52": {
+    "probability_key": "haig_secretary_of_state_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1980-11-04",
+    "calibration_end": "1981-01-22",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Reagan's selection of Alexander Haig as a one-off cabinet-appointment event during the transition between the 1980 election and Haig's assumption of office."
+  },
+  "217:3": {
+    "probability_key": "switzerland_un_membership_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1987-05-08",
+    "calibration_end": "2002-09-10",
+    "event_count": 1,
+    "near_expansion_days": 30,
+    "similar_horizon_days": 365,
+    "notes": "Treat Switzerland's UN entry as a one-off jurisdiction-specific membership event over the post-prediction accession process."
+  },
+  "448:7": {
+    "probability_key": "tony_blair_resignation_announcement_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "2007-04-27",
+    "calibration_end": "2007-05-10",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Blair's resignation announcement as a one-off actor-specific transition event during the final two weeks before the 10 May 2007 announcement."
   }
 }

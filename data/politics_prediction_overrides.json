@@ -1,4 +1,15 @@
 {
+  "113:11": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "pope_died",
+    "actor_name": "John Paul I",
+    "target_name": "John Paul I",
+    "target_keywords": ["John Paul I", "Albino Luciani"],
+    "jurisdiction": "Vatican City",
+    "window_start": "1978-09-28",
+    "window_end": "1978-09-28",
+    "notes": "Prediction scoped to the death of Pope John Paul I on the exact named day."
+  },
   "113:7": {
     "scoped_family": "politics_election",
     "expected_event_type": "pope_elected",
@@ -64,5 +75,49 @@
     "window_start": "2008-02-03",
     "window_end": "2008-02-21",
     "notes": "Prediction scoped to Fidel Castro's formal announcement that he would not continue as President of the Council of State and Commander in Chief."
+  },
+  "136:16": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "president_elected",
+    "actor_name": "Ronald Reagan",
+    "target_name": "United States Presidency",
+    "target_keywords": [],
+    "jurisdiction": "United States",
+    "window_start": "1980-11-04",
+    "window_end": "1980-11-04",
+    "notes": "Prediction scoped to Ronald Reagan becoming the next President of the United States through the 1980 election result."
+  },
+  "136:52": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "cabinet_secretary_appointed",
+    "actor_name": "Ronald Reagan",
+    "target_name": "Alexander Meigs Haig Jr.",
+    "target_keywords": ["Alexander Meigs Haig Jr.", "Alexander Haig", "Haig"],
+    "jurisdiction": "United States",
+    "window_start": "1981-01-01",
+    "window_end": "1981-01-31",
+    "notes": "Prediction scoped to Ronald Reagan appointing Alexander Haig as Secretary of State during January 1981."
+  },
+  "217:3": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "international_membership_joined",
+    "actor_name": "Switzerland",
+    "target_name": "United Nations",
+    "target_keywords": ["United Nations", "UN"],
+    "jurisdiction": "Switzerland",
+    "window_start": "1998-01-01",
+    "window_end": "2002-12-31",
+    "notes": "Prediction scoped to Switzerland's firm entry into the United Nations shortly after the turn of the millennium."
+  },
+  "448:7": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "state_resignation_announced",
+    "actor_name": "Tony Blair",
+    "target_name": "Prime Minister of the United Kingdom",
+    "target_keywords": [],
+    "jurisdiction": "United Kingdom",
+    "window_start": "2007-05-10",
+    "window_end": "2007-05-10",
+    "notes": "Prediction scoped to Tony Blair's announcement on 10 May 2007 that he would leave office in June."
   }
 }

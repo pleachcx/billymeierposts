@@ -1,5 +1,44 @@
 [
   {
+    "event_id": "va-john-paul-i-election-1978-08-26",
+    "event_type": "pope_elected",
+    "actor_name": "The Conclave",
+    "jurisdiction": "Vatican City",
+    "target_keywords": ["Luciani", "Albino Luciani", "John Paul I"],
+    "event_title": "Election of Pope John Paul I",
+    "event_start_date": "1978-08-26",
+    "location_name": "Vatican City",
+    "source_name": "Vatican",
+    "source_url": "https://www.vatican.va/content/vatican/it/holy-father/giovanni-paolo-i.html",
+    "source_excerpt": "Inizio pontificato 26.VIII.1978; Nome secolare Albino Luciani."
+  },
+  {
+    "event_id": "va-francis-election-2013-03-13",
+    "event_type": "pope_elected",
+    "actor_name": "The Conclave",
+    "jurisdiction": "Vatican City",
+    "target_keywords": ["Jorge Mario Bergoglio", "Francis", "Argentina"],
+    "event_title": "Election of Pope Francis",
+    "event_start_date": "2013-03-13",
+    "location_name": "Vatican City",
+    "source_name": "Holy See Press Office",
+    "source_url": "https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2013/03/13/0147/00367.html",
+    "source_excerpt": "Cardinal Jorge Mario Bergoglio was elected as Supreme Pontiff and chose the name Francis."
+  },
+  {
+    "event_id": "va-benedict-xvi-death-2022-12-31",
+    "event_type": "pope_died",
+    "actor_name": "Benedict XVI",
+    "jurisdiction": "Vatican City",
+    "target_keywords": ["Benedict XVI", "Ratzinger", "Pope Emeritus"],
+    "event_title": "Death of Pope Emeritus Benedict XVI",
+    "event_start_date": "2022-12-31",
+    "location_name": "Vatican City",
+    "source_name": "Holy See Press Office",
+    "source_url": "https://press.vatican.va/content/salastampa/en/bollettino/pubblico/2022/12/31/221231a.html",
+    "source_excerpt": "The Pope Emeritus, Benedict XVI, passed away today at 9:34 in the Mater Ecclesiae Monastery in the Vatican."
+  },
+  {
     "event_id": "au-national-apology-2008-02-13",
     "event_type": "formal_apology_delivered",
     "actor_name": "Kevin Rudd",

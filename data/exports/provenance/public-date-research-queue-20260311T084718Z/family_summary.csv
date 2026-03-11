@@ -1,0 +1,4 @@
+event_family_final,prediction_count,family_counts,match_status_counts,combined_observed_probability,top_priority_rank,top_report_number,top_candidate_seq
+earthquake,24,"{""earthquake"": 24}","{""exact_hit"": 15, ""near_hit"": 7, ""similar_only"": 2}","{""count"": 24, ""ln_sum"": -90.847157, ""log10_sum"": -39.454419}",1,465,6
+epidemic,6,"{""epidemic"": 6}","{""exact_hit"": 4, ""similar_only"": 2}","{""count"": 6, ""ln_sum"": -14.876855, ""log10_sum"": -6.460936}",6,453,14
+politics_election,4,"{""politics_election"": 4}","{""exact_hit"": 4}","{""count"": 4, ""ln_sum"": -21.546552, ""log10_sum"": -9.357549}",2,829,15

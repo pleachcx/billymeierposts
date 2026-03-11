@@ -1,0 +1,11 @@
+cohort_name,event_family_final,prediction_count,family_counts,match_status_counts,public_date_status_counts,combined_observed_probability
+claimed_date_baseline,earthquake,28,"{""earthquake"": 28}","{""exact_hit"": 15, ""miss"": 4, ""near_hit"": 7, ""similar_only"": 2}","{""event_precedes_publication"": 24, ""public_date_ok"": 4}","{""count"": 28, ""ln_sum"": -90.933586, ""log10_sum"": -39.491954}"
+claimed_date_baseline,epidemic,7,"{""epidemic"": 7}","{""exact_hit"": 4, ""miss"": 1, ""similar_only"": 2}","{""event_precedes_publication"": 6, ""public_date_ok"": 1}","{""count"": 7, ""ln_sum"": -15.422851, ""log10_sum"": -6.698059}"
+claimed_date_baseline,politics_election,4,"{""politics_election"": 4}","{""exact_hit"": 4}","{""event_precedes_publication"": 4}","{""count"": 4, ""ln_sum"": -21.546552, ""log10_sum"": -9.357549}"
+public_date_not_disproven,earthquake,4,"{""earthquake"": 4}","{""miss"": 4}","{""public_date_ok"": 4}","{""count"": 4, ""ln_sum"": -0.086429, ""log10_sum"": -0.037535}"
+public_date_not_disproven,epidemic,1,"{""epidemic"": 1}","{""miss"": 1}","{""public_date_ok"": 1}","{""count"": 1, ""ln_sum"": -0.545996, ""log10_sum"": -0.237123}"
+public_date_strict_clean,earthquake,4,"{""earthquake"": 4}","{""miss"": 4}","{""public_date_ok"": 4}","{""count"": 4, ""ln_sum"": -0.086429, ""log10_sum"": -0.037535}"
+public_date_strict_clean,epidemic,1,"{""epidemic"": 1}","{""miss"": 1}","{""public_date_ok"": 1}","{""count"": 1, ""ln_sum"": -0.545996, ""log10_sum"": -0.237123}"
+public_date_excluded,earthquake,24,"{""earthquake"": 24}","{""exact_hit"": 15, ""near_hit"": 7, ""similar_only"": 2}","{""event_precedes_publication"": 24}","{""count"": 24, ""ln_sum"": -90.847157, ""log10_sum"": -39.454419}"
+public_date_excluded,epidemic,6,"{""epidemic"": 6}","{""exact_hit"": 4, ""similar_only"": 2}","{""event_precedes_publication"": 6}","{""count"": 6, ""ln_sum"": -14.876855, ""log10_sum"": -6.460936}"
+public_date_excluded,politics_election,4,"{""politics_election"": 4}","{""exact_hit"": 4}","{""event_precedes_publication"": 4}","{""count"": 4, ""ln_sum"": -21.546552, ""log10_sum"": -9.357549}"

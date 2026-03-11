@@ -1,0 +1,277 @@
+{
+  "cohorts": {
+    "claimed_date_baseline": {
+      "combined_observed_probability": {
+        "count": 39,
+        "ln_sum": -127.902988,
+        "log10_sum": -55.547562
+      },
+      "family_counts": {
+        "earthquake": 28,
+        "epidemic": 7,
+        "politics_election": 4
+      },
+      "match_status_counts": {
+        "exact_hit": 23,
+        "miss": 5,
+        "near_hit": 7,
+        "similar_only": 4
+      },
+      "prediction_count": 39,
+      "public_date_status_counts": {
+        "event_precedes_publication": 34,
+        "public_date_ok": 5
+      }
+    },
+    "public_date_excluded": {
+      "combined_observed_probability": {
+        "count": 34,
+        "ln_sum": -127.270564,
+        "log10_sum": -55.272904
+      },
+      "family_counts": {
+        "earthquake": 24,
+        "epidemic": 6,
+        "politics_election": 4
+      },
+      "match_status_counts": {
+        "exact_hit": 23,
+        "near_hit": 7,
+        "similar_only": 4
+      },
+      "prediction_count": 34,
+      "public_date_status_counts": {
+        "event_precedes_publication": 34
+      }
+    },
+    "public_date_not_disproven": {
+      "combined_observed_probability": {
+        "count": 5,
+        "ln_sum": -0.632424,
+        "log10_sum": -0.274658
+      },
+      "family_counts": {
+        "earthquake": 4,
+        "epidemic": 1
+      },
+      "match_status_counts": {
+        "miss": 5
+      },
+      "prediction_count": 5,
+      "public_date_status_counts": {
+        "public_date_ok": 5
+      }
+    },
+    "public_date_strict_clean": {
+      "combined_observed_probability": {
+        "count": 5,
+        "ln_sum": -0.632424,
+        "log10_sum": -0.274658
+      },
+      "family_counts": {
+        "earthquake": 4,
+        "epidemic": 1
+      },
+      "match_status_counts": {
+        "miss": 5
+      },
+      "prediction_count": 5,
+      "public_date_status_counts": {
+        "public_date_ok": 5
+      }
+    }
+  },
+  "cohorts_by_family": {
+    "claimed_date_baseline": {
+      "earthquake": {
+        "combined_observed_probability": {
+          "count": 28,
+          "ln_sum": -90.933586,
+          "log10_sum": -39.491954
+        },
+        "family_counts": {
+          "earthquake": 28
+        },
+        "match_status_counts": {
+          "exact_hit": 15,
+          "miss": 4,
+          "near_hit": 7,
+          "similar_only": 2
+        },
+        "prediction_count": 28,
+        "public_date_status_counts": {
+          "event_precedes_publication": 24,
+          "public_date_ok": 4
+        }
+      },
+      "epidemic": {
+        "combined_observed_probability": {
+          "count": 7,
+          "ln_sum": -15.422851,
+          "log10_sum": -6.698059
+        },
+        "family_counts": {
+          "epidemic": 7
+        },
+        "match_status_counts": {
+          "exact_hit": 4,
+          "miss": 1,
+          "similar_only": 2
+        },
+        "prediction_count": 7,
+        "public_date_status_counts": {
+          "event_precedes_publication": 6,
+          "public_date_ok": 1
+        }
+      },
+      "politics_election": {
+        "combined_observed_probability": {
+          "count": 4,
+          "ln_sum": -21.546552,
+          "log10_sum": -9.357549
+        },
+        "family_counts": {
+          "politics_election": 4
+        },
+        "match_status_counts": {
+          "exact_hit": 4
+        },
+        "prediction_count": 4,
+        "public_date_status_counts": {
+          "event_precedes_publication": 4
+        }
+      }
+    },
+    "public_date_excluded": {
+      "earthquake": {
+        "combined_observed_probability": {
+          "count": 24,
+          "ln_sum": -90.847157,
+          "log10_sum": -39.454419
+        },
+        "family_counts": {
+          "earthquake": 24
+        },
+        "match_status_counts": {
+          "exact_hit": 15,
+          "near_hit": 7,
+          "similar_only": 2
+        },
+        "prediction_count": 24,
+        "public_date_status_counts": {
+          "event_precedes_publication": 24
+        }
+      },
+      "epidemic": {
+        "combined_observed_probability": {
+          "count": 6,
+          "ln_sum": -14.876855,
+          "log10_sum": -6.460936
+        },
+        "family_counts": {
+          "epidemic": 6
+        },
+        "match_status_counts": {
+          "exact_hit": 4,
+          "similar_only": 2
+        },
+        "prediction_count": 6,
+        "public_date_status_counts": {
+          "event_precedes_publication": 6
+        }
+      },
+      "politics_election": {
+        "combined_observed_probability": {
+          "count": 4,
+          "ln_sum": -21.546552,
+          "log10_sum": -9.357549
+        },
+        "family_counts": {
+          "politics_election": 4
+        },
+        "match_status_counts": {
+          "exact_hit": 4
+        },
+        "prediction_count": 4,
+        "public_date_status_counts": {
+          "event_precedes_publication": 4
+        }
+      }
+    },
+    "public_date_not_disproven": {
+      "earthquake": {
+        "combined_observed_probability": {
+          "count": 4,
+          "ln_sum": -0.086429,
+          "log10_sum": -0.037535
+        },
+        "family_counts": {
+          "earthquake": 4
+        },
+        "match_status_counts": {
+          "miss": 4
+        },
+        "prediction_count": 4,
+        "public_date_status_counts": {
+          "public_date_ok": 4
+        }
+      },
+      "epidemic": {
+        "combined_observed_probability": {
+          "count": 1,
+          "ln_sum": -0.545996,
+          "log10_sum": -0.237123
+        },
+        "family_counts": {
+          "epidemic": 1
+        },
+        "match_status_counts": {
+          "miss": 1
+        },
+        "prediction_count": 1,
+        "public_date_status_counts": {
+          "public_date_ok": 1
+        }
+      }
+    },
+    "public_date_strict_clean": {
+      "earthquake": {
+        "combined_observed_probability": {
+          "count": 4,
+          "ln_sum": -0.086429,
+          "log10_sum": -0.037535
+        },
+        "family_counts": {
+          "earthquake": 4
+        },
+        "match_status_counts": {
+          "miss": 4
+        },
+        "prediction_count": 4,
+        "public_date_status_counts": {
+          "public_date_ok": 4
+        }
+      },
+      "epidemic": {
+        "combined_observed_probability": {
+          "count": 1,
+          "ln_sum": -0.545996,
+          "log10_sum": -0.237123
+        },
+        "family_counts": {
+          "epidemic": 1
+        },
+        "match_status_counts": {
+          "miss": 1
+        },
+        "prediction_count": 1,
+        "public_date_status_counts": {
+          "public_date_ok": 1
+        }
+      }
+    }
+  },
+  "generated_at": "2026-03-11T08:47:11.834185+00:00",
+  "script_version": "cohort_comparison_v2",
+  "stage2_run_key": "stage2-20260310T232950Z"
+}

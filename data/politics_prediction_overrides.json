@@ -1,4 +1,37 @@
 {
+  "113:7": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "pope_elected",
+    "actor_name": "The Conclave",
+    "target_name": "Albino Luciani",
+    "target_keywords": ["Luciani", "Albino Luciani", "John Paul I"],
+    "jurisdiction": "Vatican City",
+    "window_start": "1978-08-26",
+    "window_end": "1978-08-26",
+    "notes": "Prediction scoped to the conclave electing Albino Luciani as Pope on Saturday 26 August 1978."
+  },
+  "555:1": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "pope_elected",
+    "actor_name": "The Conclave",
+    "target_name": "Jorge Mario Bergoglio",
+    "target_keywords": ["Jorge Mario Bergoglio", "Francis", "Argentina"],
+    "jurisdiction": "Vatican City",
+    "window_start": "2013-03-13",
+    "window_end": "2013-03-13",
+    "notes": "Prediction scoped to the conclave electing Jorge Mario Bergoglio, who took the name Francis, on 13 March 2013."
+  },
+  "829:15": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "pope_died",
+    "actor_name": "Benedict XVI",
+    "target_name": "Benedict XVI",
+    "target_keywords": ["Benedict XVI", "Ratzinger", "Pope Emeritus"],
+    "jurisdiction": "Vatican City",
+    "window_start": "2022-12-31",
+    "window_end": "2022-12-31",
+    "notes": "Prediction scoped to the death of Pope Emeritus Benedict XVI on 31 December 2022."
+  },
   "459:4": {
     "scoped_family": "politics_election",
     "expected_event_type": "formal_apology_delivered",

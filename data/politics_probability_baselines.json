@@ -1,4 +1,34 @@
 {
+  "113:7": {
+    "probability_key": "john_paul_i_election_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1978-08-06",
+    "calibration_end": "1978-08-26",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat the Luciani election as a one-off conclave event during the sede vacante following Paul VI's death."
+  },
+  "555:1": {
+    "probability_key": "francis_election_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "2013-02-11",
+    "calibration_end": "2013-03-13",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat the Bergoglio election as a one-off conclave event in the window between Benedict XVI's resignation announcement and the actual election."
+  },
+  "829:15": {
+    "probability_key": "benedict_xvi_death_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "2013-02-28",
+    "calibration_end": "2022-12-31",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Benedict XVI's death as a one-off actor-specific event during the period from his resignation to his death."
+  },
   "459:4": {
     "probability_key": "kevin_rudd_indigenous_apology_window",
     "model": "actor_risk_window_single_event_v1",

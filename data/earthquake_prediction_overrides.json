@@ -112,5 +112,71 @@
     "window_end": "2005-11-18",
     "resolution_source": "prediction_override_northern_chile_november_2005",
     "notes": "The claim names Chile and the 17th/18th of November for a magnitude 6.9 earthquake, matching the northern Chile event window."
+  },
+  "395:4": {
+    "target_name": "Nicobar Islands Region",
+    "target_type": "region",
+    "lat": 7.9000,
+    "lon": 92.2000,
+    "radius_km": 240.0,
+    "window_start": "2005-07-23",
+    "window_end": "2005-07-24",
+    "resolution_source": "prediction_override_nicobar_july_2005",
+    "notes": "The claim explicitly names the Nicobar Islands and the 23rd/24th of July for a magnitude 7.2 seaquake."
+  },
+  "402:3": {
+    "target_name": "Northern Pakistan / Kashmir Region",
+    "target_type": "region",
+    "lat": 34.7000,
+    "lon": 73.3000,
+    "radius_km": 220.0,
+    "window_start": "2005-11-06",
+    "window_end": "2005-11-06",
+    "resolution_source": "prediction_override_northern_pakistan_november_2005",
+    "notes": "The claim names northern Pakistan, Sunday 6 November, and magnitude 6.0."
+  },
+  "408:5": {
+    "target_name": "Kithira / Peloponnesian Greece Offshore",
+    "target_type": "region",
+    "lat": 36.2000,
+    "lon": 23.3000,
+    "radius_km": 180.0,
+    "window_start": "2006-01-08",
+    "window_end": "2006-01-08",
+    "resolution_source": "prediction_override_kithira_january_2006",
+    "notes": "The claim explicitly names the 8th of January, off Kithira in the Peloponnesian region of Greece, with magnitude 6.9."
+  },
+  "446:6": {
+    "target_name": "Noto Peninsula Offshore, Japan",
+    "target_type": "region",
+    "lat": 37.2200,
+    "lon": 136.6900,
+    "radius_km": 180.0,
+    "window_start": "2007-03-25",
+    "window_end": "2007-03-25",
+    "resolution_source": "prediction_override_noto_march_2007",
+    "notes": "The claim explicitly names March 25 and a seaquake off Japan near Noto with magnitude 6.9."
+  },
+  "446:8": {
+    "target_name": "Hindu Kush, Afghanistan",
+    "target_type": "region",
+    "lat": 36.5000,
+    "lon": 70.9000,
+    "radius_km": 220.0,
+    "window_start": "2007-03-26",
+    "window_end": "2007-03-26",
+    "resolution_source": "prediction_override_hindu_kush_march_2007",
+    "notes": "The claim says one day after the 25 March Noto quake, a magnitude 6.2 earthquake occurs in the Hindu Kush in Afghanistan."
+  },
+  "519:1": {
+    "target_name": "Off East Coast of Honshu, Japan",
+    "target_type": "region",
+    "lat": 38.3000,
+    "lon": 142.4000,
+    "radius_km": 220.0,
+    "window_start": "2011-04-07",
+    "window_end": "2011-04-08",
+    "resolution_source": "prediction_override_honshu_april_2011",
+    "notes": "The claim names the period from the 7th/8th of April for a magnitude 7.4 seaquake, matching the major Tohoku aftershock window."
   }
 }

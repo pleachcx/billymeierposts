@@ -16,7 +16,7 @@ import psycopg2
 from psycopg2.extras import Json, execute_values
 
 
-PARSER_VERSION = "stage1_regex_v2"
+PARSER_VERSION = "stage1_regex_v3"
 PROMPT_VERSION = "none"
 SOURCE_CORPUS = "public.contact_reports.english_content"
 FUTURE_MARKER_PATTERN = re.compile(
@@ -48,7 +48,12 @@ TIME_PATTERN = re.compile(
     r"""
     (
         on\s+the\s+\d{1,2}(?:st|nd|rd|th)?\s+of\s+[A-Z][a-z]+|
+        on\s+\d{1,2}(?:st|nd|rd|th)?\s+[A-Z][a-z]+|
         on\s+[A-Z][a-z]+\s+\d{1,2},?\s+\d{4}|
+        until\s+the\s+\d{1,2}(?:st|nd|rd|th)?\s+of\s+[A-Z][a-z]+|
+        until\s+\d{1,2}(?:st|nd|rd|th)?\s+[A-Z][a-z]+|
+        at\s+about\s+the\s+same\s+time|
+        at\s+the\s+same\s+time|
         by\s+\d{4}|
         in\s+\d{4}|
         around\s+the\s+turn\s+of\s+the\s+millennium|
@@ -79,7 +84,61 @@ ACTOR_PATTERN = re.compile(
     r"""
     \b([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,3})\b
     \s+
-    (?:will|shall|is\ going\ to|are\ going\ to)
+    (?:will|shall|is\ going\ to|are\ going\ to|officially\s+resigns?|resigns?|is\ declared|declares?|apologi[sz]es?)
+    """,
+    re.VERBOSE,
+)
+DECLARATIVE_PREDICTIVE_PREFIX_PATTERN = re.compile(
+    r"""
+    ^\s*
+    (?:
+        then|
+        and\ then|
+        at\s+about\s+the\s+same\s+time|
+        at\s+the\s+same\s+time|
+        on\s+(?:the\s+)?\d{1,2}(?:st|nd|rd|th)?(?:\s+of)?\s+[A-Z][a-z]+|
+        until\s+(?:the\s+)?\d{1,2}(?:st|nd|rd|th)?(?:\s+of)?\s+[A-Z][a-z]+
+    )\b
+    """,
+    re.IGNORECASE | re.VERBOSE,
+)
+DECLARATIVE_TIME_PATTERN = re.compile(
+    r"""
+    (
+        on\s+(?:the\s+)?\d{1,2}(?:st|nd|rd|th)?(?:\s+of)?\s+[A-Z][a-z]+|
+        until\s+(?:the\s+)?\d{1,2}(?:st|nd|rd|th)?(?:\s+of)?\s+[A-Z][a-z]+|
+        at\s+about\s+the\s+same\s+time|
+        at\s+the\s+same\s+time
+    )
+    """,
+    re.IGNORECASE | re.VERBOSE,
+)
+DECLARATIVE_EVENT_PATTERN = re.compile(
+    r"""
+    \b(
+        is\ declared|
+        declared\ independent|
+        resigns?|
+        is\ shot\ down|
+        shot\ down|
+        exploded|
+        apologi[sz]es?|
+        recogni[sz]es?|
+        is\ recogni[sz]ed|
+        occurs?|
+        takes\ place
+    )\b
+    """,
+    re.IGNORECASE | re.VERBOSE,
+)
+DECLARATIVE_ACTOR_PATTERN = re.compile(
+    r"""
+    (?:
+        on\s+(?:the\s+)?\d{1,2}(?:st|nd|rd|th)?(?:\s+of)?\s+[A-Z][a-z]+\s+
+    )?
+    \b([A-Z][A-Za-z'`.-]+(?:\s+[A-Z][A-Za-z'`.-]+){0,3})\b
+    \s+
+    (?:is\ declared|declared\ independent|officially\s+resigns?|resigns?|apologi[sz]es?)
     """,
     re.VERBOSE,
 )
@@ -148,7 +207,8 @@ EVENTISH_PATTERN = re.compile(
     r"""
     \b(
         earthquake|seaquake|quake|volcano|eruption|storm|hurricane|flood|war|attack|
-        epidemic|pandemic|disease|virus|election|pope|president|comet|asteroid
+        epidemic|pandemic|disease|virus|election|pope|president|comet|asteroid|
+        satellite|rocket|independence|independent|resign|apology
     )\b
     """,
     re.IGNORECASE | re.VERBOSE,
@@ -168,7 +228,7 @@ EVENT_FAMILY_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
     ("war_conflict", re.compile(r"\b(war|civil war|conflict|attack|invasion|terror|terrorist)\b", re.IGNORECASE)),
     ("epidemic", re.compile(r"\b(epidemic|pandemic|disease|virus|plague|infection)\b", re.IGNORECASE)),
     ("aviation_space", re.compile(r"\b(space|spacecraft|satellite|comet|asteroid|rocket|aircraft|plane crash)\b", re.IGNORECASE)),
-    ("politics_election", re.compile(r"\b(election|vote|referendum|government|president|chancellor|pope)\b", re.IGNORECASE)),
+    ("politics_election", re.compile(r"\b(election|vote|referendum|government|president|chancellor|pope|prime minister|resign(?:s|ed|ation)?|independence|independent|recogni[sz](?:e|es|ed)|apolog(?:y|ise|ises|ized|ize))\b", re.IGNORECASE)),
     ("economy", re.compile(r"\b(economy|economic|inflation|recession|market crash|collapse)\b", re.IGNORECASE)),
     ("climate_environment", re.compile(r"\b(climate|warming|environment|overpopulation|pollution|resource shortage)\b", re.IGNORECASE)),
     ("science_technology", re.compile(r"\b(genetic|genetics|dna|gene|technology|artificial intelligence|robot)\b", re.IGNORECASE)),
@@ -280,11 +340,26 @@ def looks_like_world_prediction(text: str) -> bool:
     return bool(family or has_time or has_location or has_scope or has_state_signal)
 
 
+def has_predictive_signal(text: str) -> bool:
+    normalized = normalize_claim_text(text)
+    if FUTURE_MARKER_PATTERN.search(normalized):
+        return True
+    if DECLARATIVE_TIME_PATTERN.search(normalized) and (
+        has_event_anchor(normalized) or DECLARATIVE_EVENT_PATTERN.search(normalized) or STATE_CHANGE_WORDS.search(normalized)
+    ):
+        return True
+    if DECLARATIVE_PREDICTIVE_PREFIX_PATTERN.search(normalized) and (
+        has_event_anchor(normalized) or DECLARATIVE_EVENT_PATTERN.search(normalized) or STATE_CHANGE_WORDS.search(normalized)
+    ):
+        return True
+    return False
+
+
 def is_atomic_prediction_text(text: str, inherited_future: bool = False) -> bool:
     normalized = normalize_claim_text(text)
     if not normalized:
         return False
-    if FUTURE_MARKER_PATTERN.search(normalized):
+    if has_predictive_signal(normalized):
         return looks_like_world_prediction(normalized)
     if not inherited_future:
         return False
@@ -307,7 +382,7 @@ def has_event_anchor(text: str) -> bool:
 
 def is_compound_rhs_candidate(text: str) -> bool:
     normalized = normalize_claim_text(text)
-    if FUTURE_MARKER_PATTERN.search(normalized):
+    if has_predictive_signal(normalized):
         return has_event_anchor(normalized)
     return bool(
         has_event_anchor(normalized)
@@ -367,14 +442,14 @@ def split_compound_claim(segment: str) -> list[tuple[str, bool]]:
 
 def split_line_into_claims(line: str) -> list[str]:
     cleaned = LINE_PREFIX_PATTERN.sub("", line.strip())
-    if not FUTURE_MARKER_PATTERN.search(cleaned):
+    if not has_predictive_signal(cleaned):
         return []
 
     claims: list[str] = []
     for part in re.split(r"\s+(?:and|but)\s+(?=[^,;:.!?]{0,120}\b(?:will|shall|is going to|are going to)\b)", cleaned, flags=re.IGNORECASE):
         for subpart in SPLIT_PATTERN.split(part):
             text = normalize_claim_text(subpart)
-            if text and FUTURE_MARKER_PATTERN.search(text) and looks_like_world_prediction(text):
+            if text and has_predictive_signal(text) and looks_like_world_prediction(text):
                 claims.append(text)
     return claims
 
@@ -391,6 +466,24 @@ def extract_location_text(text: str) -> str | None:
 
 def extract_actor_text(text: str) -> str | None:
     match = ACTOR_PATTERN.search(text)
+    if match:
+        actor = normalize_claim_text(match.group(1))
+        if actor.split()[0].lower() not in {
+            "january",
+            "february",
+            "march",
+            "april",
+            "may",
+            "june",
+            "july",
+            "august",
+            "september",
+            "october",
+            "november",
+            "december",
+        }:
+            return actor
+    match = DECLARATIVE_ACTOR_PATTERN.search(text)
     return normalize_claim_text(match.group(1)) if match else None
 
 
@@ -434,7 +527,7 @@ def build_ambiguity_flags(text: str, time_text: str | None, location_text: str |
 
 def estimate_confidence(text: str, family: str | None, time_text: str | None, location_text: str | None) -> float:
     score = 0.55
-    if FUTURE_MARKER_PATTERN.search(text):
+    if has_predictive_signal(text):
         score += 0.12
     if family:
         score += 0.08
@@ -533,7 +626,7 @@ def extract_candidates_from_report(text: str) -> list[Candidate]:
                         extractor_confidence=confidence,
                         extractor_meta={
                             "parser_version": PARSER_VERSION,
-                            "future_marker_found": bool(FUTURE_MARKER_PATTERN.search(component_text)) or inherited_future,
+                            "future_marker_found": bool(has_predictive_signal(component_text)) or inherited_future,
                             "inherited_future_marker": inherited_future,
                             "line_fragment": normalize_claim_text(original_line)[:240],
                         },

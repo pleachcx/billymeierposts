@@ -34,7 +34,7 @@ from scripts.parse_contact_report_predictions import (
 )
 
 
-REVIEW_VERSION = "stage2_rules_v1"
+REVIEW_VERSION = "stage2_rules_v2"
 STOPWORDS = {
     "about",
     "after",
@@ -328,20 +328,28 @@ def infer_event_family(claim: str, provisional: str | None) -> str | None:
     return provisional or provisional_event_family(claim)
 
 
-def parse_month_day(text: str, base_year: int, claimed_date: date) -> tuple[date, date] | None:
-    match = re.search(r"\bon\s+the\s+(\d{1,2})(?:st|nd|rd|th)?\s+of\s+([A-Za-z]+)(?:,\s*(\d{4}))?", text, re.IGNORECASE)
-    if not match:
-        return None
-    day = int(match.group(1))
-    month_name = match.group(2).lower()
-    year = int(match.group(3)) if match.group(3) else base_year
-    month = MONTHS.get(month_name)
-    if not month:
-        return None
-    candidate = date(year, month, day)
-    if match.group(3) is None and candidate < claimed_date:
-        candidate = date(year + 1, month, day)
-    return candidate, candidate
+def parse_month_day_variant(text: str, base_year: int, claimed_date: date) -> tuple[date, str] | None:
+    patterns = [
+        (r"\bon\s+the\s+(\d{1,2})(?:st|nd|rd|th)?\s+of\s+([A-Za-z]+)(?:,\s*(\d{4}))?", "exact_month_day"),
+        (r"\bon\s+(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)(?:,\s*(\d{4}))?", "exact_month_day"),
+        (r"\buntil\s+the\s+(\d{1,2})(?:st|nd|rd|th)?\s+of\s+([A-Za-z]+)(?:,\s*(\d{4}))?", "until_month_day"),
+        (r"\buntil\s+(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)(?:,\s*(\d{4}))?", "until_month_day"),
+    ]
+    for pattern, basis in patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if not match:
+            continue
+        day = int(match.group(1))
+        month_name = match.group(2).lower()
+        year = int(match.group(3)) if match.group(3) else base_year
+        month = MONTHS.get(month_name)
+        if not month:
+            return None
+        candidate = date(year, month, day)
+        if match.group(3) is None and candidate < claimed_date:
+            candidate = date(year + 1, month, day)
+        return candidate, basis
+    return None
 
 
 def add_months(source: date, months: int) -> date:
@@ -353,9 +361,11 @@ def add_months(source: date, months: int) -> date:
 
 def normalize_time_window(claimed_date: date, claim: str, time_text: str | None) -> tuple[date | None, date | None, str | None]:
     lower_claim = claim.lower()
-    exact = parse_month_day(claim, claimed_date.year, claimed_date)
+    exact = parse_month_day_variant(claim, claimed_date.year, claimed_date)
     if exact:
-        return exact[0], exact[1], "exact_month_day"
+        if exact[1] == "until_month_day":
+            return claimed_date, exact[0], "until_month_day"
+        return exact[0], exact[0], exact[1]
 
     full_date = re.search(r"\bon\s+([A-Za-z]+)\s+(\d{1,2}),?\s+(\d{4})\b", claim, re.IGNORECASE)
     if full_date:
@@ -436,7 +446,7 @@ def clean_actor(actor_text: str | None) -> str | None:
     if not actor_text:
         return None
     value = normalize_claim_text(actor_text).strip(",.")
-    if value.lower() in {"i", "we", "you", "they", "he", "she", "it"}:
+    if value.lower() in {"i", "we", "you", "they", "he", "she", "it", "what", "then"}:
         return None
     return value
 

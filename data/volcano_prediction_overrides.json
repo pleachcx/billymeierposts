@@ -1,0 +1,57 @@
+{
+  "150:133": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Kilauea",
+    "target_name": "Hawaiian Islands",
+    "target_keywords": ["Kilauea", "Hawaii", "Hawaiian Islands"],
+    "jurisdiction": "Hawaii, United States",
+    "window_start": "1983-01-01",
+    "window_end": "1983-01-31",
+    "notes": "Prediction scoped to a Hawaiian volcano beginning a renewed eruption shortly after the turn of the year 1982/1983."
+  },
+  "238:7": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Unzendake",
+    "target_name": "Unzendake",
+    "target_keywords": ["Unzendake", "Unzen", "Japan"],
+    "jurisdiction": "Japan",
+    "window_start": "1991-06-03",
+    "window_end": "1991-06-03",
+    "notes": "Prediction scoped to the volcano Unzendake in Japan erupting on 3 June 1991."
+  },
+  "383:27": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Talang",
+    "target_name": "Talang",
+    "target_keywords": ["Talang", "Indonesia", "Sumatra"],
+    "jurisdiction": "Indonesia",
+    "window_start": "2005-04-11",
+    "window_end": "2005-04-11",
+    "notes": "Prediction scoped to Talang beginning its April 2005 eruption on 11 April."
+  },
+  "444:3": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Stromboli",
+    "target_name": "Stromboli",
+    "target_keywords": ["Stromboli", "Italy", "Mediterranean"],
+    "jurisdiction": "Italy",
+    "window_start": "2007-02-23",
+    "window_end": "2007-02-28",
+    "notes": "Prediction scoped to Stromboli becoming active again towards the end of February 2007."
+  },
+  "464:4": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Chaiten",
+    "target_name": "Chaiten",
+    "target_keywords": ["Chaiten", "Chile"],
+    "jurisdiction": "Chile",
+    "window_start": "2008-04-30",
+    "window_end": "2008-05-07",
+    "notes": "Prediction scoped to the long-dormant Chaiten volcano in southern Chile erupting in the coming days after the 30 April 2008 report."
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "150:133": {
+    "probability_key": "kilauea_eruption_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "1950-01-01",
+    "calibration_end": "1983-01-03",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat the restart of a major Hawaiian eruption at the turn of 1982/1983 as a one-off named-volcano event."
+  },
+  "238:7": {
+    "probability_key": "unzendake_eruption_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "1991-05-18",
+    "calibration_end": "1991-06-03",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat the Unzendake eruption as a one-off named-volcano event in the short window before the 3 June 1991 dome emergence."
+  },
+  "383:27": {
+    "probability_key": "talang_eruption_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2005-03-17",
+    "calibration_end": "2005-04-12",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Talang's April 2005 eruption onset as a one-off named-volcano event over the short post-prediction hazard window."
+  },
+  "444:3": {
+    "probability_key": "stromboli_eruption_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2007-02-23",
+    "calibration_end": "2007-02-27",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Stromboli's late-February 2007 reactivation as a one-off named-volcano event."
+  },
+  "464:4": {
+    "probability_key": "chaiten_eruption_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2008-04-30",
+    "calibration_end": "2008-05-02",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Chaiten's May 2008 reawakening as a one-off named-volcano event in the immediate post-prediction window."
+  }
+}

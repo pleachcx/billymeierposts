@@ -1,0 +1,67 @@
+[
+  {
+    "event_id": "us-hi-kilauea-1983-01-03",
+    "event_type": "volcano_eruption_began",
+    "actor_name": "Kilauea",
+    "jurisdiction": "Hawaii, United States",
+    "target_keywords": ["Kilauea", "Hawaii", "Hawaiian Islands"],
+    "event_title": "Kilauea East Rift Zone eruption began",
+    "event_start_date": "1983-01-03",
+    "location_name": "Hawaii",
+    "source_name": "USGS",
+    "source_url": "https://www.usgs.gov/observatories/hvo/news/volcano-watch-kilaueas-long-lived-east-rift-zone-eruption-1983-2018",
+    "source_excerpt": "Beginning on January 3, 1983, and continuing for 35 years, the eruption along Kilauea Volcano's East Rift Zone was by far the longest-lived."
+  },
+  {
+    "event_id": "jp-unzendake-1991-06-03",
+    "event_type": "volcano_eruption_began",
+    "actor_name": "Unzendake",
+    "jurisdiction": "Japan",
+    "target_keywords": ["Unzendake", "Unzen", "Japan"],
+    "event_title": "Unzendake lava dome eruption began",
+    "event_start_date": "1991-06-03",
+    "location_name": "Kyushu, Japan",
+    "source_name": "Smithsonian Global Volcanism Program",
+    "source_url": "https://volcano.si.edu/volcano.cfm?vn=282080",
+    "source_excerpt": "A lava dome emerged in Jigokuato crater on 3 June."
+  },
+  {
+    "event_id": "id-talang-2005-04-12",
+    "event_type": "volcano_eruption_began",
+    "actor_name": "Talang",
+    "jurisdiction": "Indonesia",
+    "target_keywords": ["Talang", "Indonesia", "Sumatra"],
+    "event_title": "Talang eruption began",
+    "event_start_date": "2005-04-12",
+    "location_name": "Sumatra, Indonesia",
+    "source_name": "Smithsonian Global Volcanism Program",
+    "source_url": "https://volcano.si.edu/volcano.cfm?vn=261140",
+    "source_excerpt": "An eruption began on 12 April 2005 after increased seismicity."
+  },
+  {
+    "event_id": "it-stromboli-2007-02-27",
+    "event_type": "volcano_eruption_began",
+    "actor_name": "Stromboli",
+    "jurisdiction": "Italy",
+    "target_keywords": ["Stromboli", "Italy", "Mediterranean"],
+    "event_title": "Stromboli effusive eruption resumed",
+    "event_start_date": "2007-02-27",
+    "location_name": "Aeolian Islands, Italy",
+    "source_name": "Smithsonian Global Volcanism Program",
+    "source_url": "https://volcano.si.edu/volcano.cfm?vn=211040",
+    "source_excerpt": "An effusive eruption started on 27 February 2007 from vents in the NE crater area."
+  },
+  {
+    "event_id": "cl-chaiten-2008-05-02",
+    "event_type": "volcano_eruption_began",
+    "actor_name": "Chaiten",
+    "jurisdiction": "Chile",
+    "target_keywords": ["Chaiten", "Chile"],
+    "event_title": "Chaiten eruption began",
+    "event_start_date": "2008-05-02",
+    "location_name": "Southern Chile",
+    "source_name": "Smithsonian Global Volcanism Program",
+    "source_url": "https://volcano.si.edu/volcano.cfm?vn=357050",
+    "source_excerpt": "The eruption began on 2 May 2008 and prompted evacuations."
+  }
+]

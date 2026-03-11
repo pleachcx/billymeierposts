@@ -1,18 +1,25 @@
 {
+  "combined_observed_probability": {
+    "count": 5,
+    "ln_sum": -10.937492,
+    "log10_sum": -4.750093
+  },
   "final_status_counts": {
     "included_in_statistics": 5
   },
-  "generated_at": "2026-03-11T03:11:41.300683+00:00",
+  "generated_at": "2026-03-11T03:15:57.735454+00:00",
   "match_status_counts": {
     "exact_hit": 2,
     "near_hit": 1,
     "similar_only": 2
   },
   "named_target_count": 3,
+  "probability_ready_count": 5,
   "run_keys": {
     "stage2_run_key": "stage2-20260310T232950Z",
     "stage3_run_key": "stage3-epidemic-20260311T030713Z",
     "stage4_run_key": "stage4-epidemic-20260311T030720Z",
+    "stage5_run_key": "stage5-epidemic-20260311T031534Z",
     "stage7_run_key": "stage7-epidemic-final-20260311T031120Z"
   },
   "scoped_prediction_count": 5,

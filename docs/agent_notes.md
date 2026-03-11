@@ -53,3 +53,6 @@
 - Finalize the epidemic named-disease slice with `python3 scripts/finalize_epidemic_predictions.py --stage4-run-key stage4-epidemic-20260311T030720Z`; latest run is `stage7-epidemic-final-20260311T031120Z`.
 - The current finalized epidemic named-disease cohort is simple: all `5` scoped rows are `included_in_statistics`, so no manual epidemic adjudication rules were needed yet.
 - Refresh `data/exports/epidemic/stage4-epidemic-20260311T030720Z/` after epidemic Stage 7 so the CSV carries `final_status`, `final_reason`, and `stage7_run_key`.
+- Assign epidemic Stage 5 probabilities with `python3 scripts/assign_epidemic_probabilities.py --stage4-run-key stage4-epidemic-20260311T030720Z`; latest run is `stage5-epidemic-20260311T031534Z`.
+- The epidemic Stage 5 model is provisional and catalog-scoped: it uses smoothed disease-specific rates from `data/epidemic_official_events.json`, not a complete historical surveillance dataset.
+- Refresh the epidemic export after Stage 5 so `summary.json` and `predictions.csv` carry `p_*`, `probability_model_version`, and the combined observed log-probability summary.

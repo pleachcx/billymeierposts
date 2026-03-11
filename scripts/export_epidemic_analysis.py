@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import math
 import os
 import sys
 from collections import Counter
@@ -29,6 +30,8 @@ class RunSet:
     stage3_run_key: str | None
     stage4_run_id: int
     stage4_run_key: str
+    stage5_run_id: int | None
+    stage5_run_key: str | None
     stage7_run_id: int | None
     stage7_run_key: str | None
 
@@ -88,6 +91,21 @@ def resolve_run_set(cur, args: argparse.Namespace) -> RunSet:
         """
         SELECT id, run_key
         FROM public.prediction_audit_runs
+        WHERE stage = 'stage5_probability_model'
+          AND status = 'completed'
+          AND source_filter->>'stage4_run_key' = %s
+          AND source_filter->>'family' = 'epidemic'
+        ORDER BY created_at DESC
+        LIMIT 1
+        """,
+        (stage4["run_key"],),
+    )
+    stage5 = cur.fetchone()
+
+    cur.execute(
+        """
+        SELECT id, run_key
+        FROM public.prediction_audit_runs
         WHERE stage = 'stage7_final_adjudication'
           AND status = 'completed'
           AND source_filter->>'stage4_run_key' = %s
@@ -106,6 +124,8 @@ def resolve_run_set(cur, args: argparse.Namespace) -> RunSet:
         stage3_run_key=stage3["run_key"] if stage3 else None,
         stage4_run_id=stage4["id"],
         stage4_run_key=stage4["run_key"],
+        stage5_run_id=stage5["id"] if stage5 else None,
+        stage5_run_key=stage5["run_key"] if stage5 else None,
         stage7_run_id=stage7["id"] if stage7 else None,
         stage7_run_key=stage7["run_key"] if stage7 else None,
     )
@@ -128,6 +148,13 @@ def load_predictions(cur, runs: RunSet) -> list[dict[str, Any]]:
             p.target_name,
             p.target_type,
             p.match_status,
+            p.p_exact_under_null,
+            p.p_near_under_null,
+            p.p_similar_under_null,
+            p.p_miss_under_null,
+            p.probability_model_version,
+            p.probability_notes,
+            p.probability_meta,
             p.final_status,
             p.final_reason,
             p.final_meta,
@@ -152,6 +179,30 @@ def load_predictions(cur, runs: RunSet) -> list[dict[str, Any]]:
         (runs.stage4_run_id,),
     )
     return [dict(row) for row in cur.fetchall()]
+
+
+def observed_probability(row: dict[str, Any]) -> float | None:
+    if row["match_status"] == "exact_hit":
+        value = row.get("p_exact_under_null")
+    elif row["match_status"] == "near_hit":
+        value = row.get("p_near_under_null")
+    elif row["match_status"] == "similar_only":
+        value = row.get("p_similar_under_null")
+    elif row["match_status"] == "miss":
+        value = row.get("p_miss_under_null")
+    else:
+        value = None
+    return float(value) if value is not None else None
+
+
+def aggregate_probabilities(values: list[float]) -> dict[str, Any]:
+    if not values:
+        return {"count": 0, "log10_sum": None, "ln_sum": None}
+    return {
+        "count": len(values),
+        "log10_sum": round(sum(math.log10(value) for value in values if value > 0), 6),
+        "ln_sum": round(sum(math.log(value) for value in values if value > 0), 6),
+    }
 
 
 def csv_safe(value: Any) -> Any:
@@ -183,6 +234,11 @@ def main() -> int:
             runs = resolve_run_set(cur, args)
             predictions = load_predictions(cur, runs)
 
+        for prediction in predictions:
+            prediction["observed_probability_under_null"] = observed_probability(prediction)
+            probability = prediction["observed_probability_under_null"]
+            prediction["observed_probability_log10"] = round(math.log10(probability), 6) if probability and probability > 0 else None
+
         summary = {
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "script_version": SCRIPT_VERSION,
@@ -190,6 +246,7 @@ def main() -> int:
                 "stage2_run_key": runs.stage2_run_key,
                 "stage3_run_key": runs.stage3_run_key,
                 "stage4_run_key": runs.stage4_run_key,
+                "stage5_run_key": runs.stage5_run_key,
                 "stage7_run_key": runs.stage7_run_key,
             },
             "scoped_prediction_count": len(predictions),
@@ -197,6 +254,10 @@ def main() -> int:
             "final_status_counts": dict(Counter(row["final_status"] for row in predictions)),
             "significant_count": sum(1 for row in predictions if row["significant"]),
             "named_target_count": sum(1 for row in predictions if row["target_name"]),
+            "probability_ready_count": sum(1 for row in predictions if row["observed_probability_under_null"] is not None),
+            "combined_observed_probability": aggregate_probabilities(
+                [row["observed_probability_under_null"] for row in predictions if row["observed_probability_under_null"] is not None]
+            ),
         }
 
         output_dir = Path(args.output_dir) if args.output_dir else OUTPUT_ROOT / runs.stage4_run_key
@@ -224,6 +285,15 @@ def main() -> int:
                 "target_name",
                 "target_type",
                 "match_status",
+                "p_exact_under_null",
+                "p_near_under_null",
+                "p_similar_under_null",
+                "p_miss_under_null",
+                "observed_probability_under_null",
+                "observed_probability_log10",
+                "probability_model_version",
+                "probability_notes",
+                "probability_meta",
                 "final_status",
                 "final_reason",
                 "final_meta",

@@ -178,5 +178,38 @@
     "window_end": "2011-04-08",
     "resolution_source": "prediction_override_honshu_april_2011",
     "notes": "The claim names the period from the 7th/8th of April for a magnitude 7.4 seaquake, matching the major Tohoku aftershock window."
+  },
+  "401:2": {
+    "target_name": "Aegean Sea",
+    "target_type": "region",
+    "lat": 38.8000,
+    "lon": 26.0000,
+    "radius_km": 220.0,
+    "window_start": "2005-10-20",
+    "window_end": "2005-10-21",
+    "resolution_source": "prediction_override_aegean_october_2005",
+    "notes": "The quote places this magnitude 6 quake in the night from 20th to 21st October as a follow-up to the 17 October Aegean quakes."
+  },
+  "408:7": {
+    "target_name": "Banda Sea, Eastern Indonesia",
+    "target_type": "region",
+    "lat": -6.5000,
+    "lon": 129.5000,
+    "radius_km": 260.0,
+    "window_start": "2006-01-29",
+    "window_end": "2006-01-31",
+    "resolution_source": "prediction_override_banda_sea_january_2006",
+    "notes": "The claim says an even stronger magnitude 7.7 seaquake occurs at the end of January in the Banda Sea."
+  },
+  "427:1": {
+    "target_name": "Indian Ocean South of Java",
+    "target_type": "region",
+    "lat": -9.0000,
+    "lon": 107.0000,
+    "radius_km": 260.0,
+    "window_start": "2006-07-17",
+    "window_end": "2006-07-17",
+    "resolution_source": "prediction_override_indian_ocean_july_2006",
+    "notes": "The claim explicitly names 17 July for a severe magnitude 7.9 seaquake in the Indian Ocean."
   }
 }

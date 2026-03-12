@@ -196,3 +196,4 @@
 - Report `383` does not currently have a separate parsed Marburg-virus candidate on the refreshed mainline; do not invent a new row in a family override, fix Stage 1/2 extraction first if that claim needs scoring later.
 - The current small/medium-gap exact-hit provenance rescue targets are `663/15` (`-14` days), `729/12` (`-20` days), and `725/1` (`-34` days); everything else in the queue is already in large/deep-archive territory.
 - Direct Joomla-style path probing on `figu.org` for corona pages, special bulletins, and report-number search pages currently returns 404s; do not assume the old `/ch/...` SEO paths in search-engine snippets are still live without a captured URL.
+- Wayback does have official captures for `https://www.figu.org/ch/index/downloads/coronavirus` and `.../kontaktberichte`, but the earliest currently found are `2020-05-13` for `coronavirus` and `2020-11-17` for `kontaktberichte`, which are too late to rescue `729/12`, `725/1`, or `663/15`.

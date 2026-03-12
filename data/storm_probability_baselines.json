@@ -1,4 +1,14 @@
 {
+  "366:11": {
+    "probability_key": "jeanne_formation_window_2004",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2004-09-03",
+    "calibration_end": "2004-09-13",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat the named-storm formation of Jeanne as a one-off Caribbean hurricane-basin event in the immediate post-prediction window."
+  },
   "464:5": {
     "probability_key": "myanmar_cyclone_catastrophe_window",
     "model": "location_risk_window_single_event_v1",

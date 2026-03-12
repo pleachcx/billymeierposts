@@ -1,4 +1,15 @@
 {
+  "366:11": {
+    "scoped_family": "storm",
+    "expected_event_type": "named_hurricane_formed",
+    "actor_name": "Jeanne",
+    "target_name": "Caribbean",
+    "target_keywords": ["Jeanne", "Caribbean", "Puerto Rico"],
+    "jurisdiction": "Caribbean",
+    "window_start": "2004-09-10",
+    "window_end": "2004-09-14",
+    "notes": "Prediction scoped to the named storm Jeanne forming in the Caribbean in the days immediately after the 3 September 2004 report."
+  },
   "464:5": {
     "scoped_family": "storm",
     "expected_event_type": "cyclone_catastrophe_occurs",

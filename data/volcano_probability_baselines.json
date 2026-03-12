@@ -1,4 +1,24 @@
 {
+  "136:97": {
+    "probability_key": "etna_eruption_window_1981",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "1980-10-14",
+    "calibration_end": "1981-03-17",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Etna's March 1981 renewed activity as a one-off named-volcano event over the late-winter to early-spring post-prediction window."
+  },
+  "182:19": {
+    "probability_key": "etna_eruption_window_1983",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "1983-02-03",
+    "calibration_end": "1983-03-28",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Etna's March 1983 fissure eruption as a one-off named-volcano event over the short post-prediction hazard window."
+  },
   "150:133": {
     "probability_key": "kilauea_eruption_window",
     "model": "location_risk_window_single_event_v1",
@@ -19,6 +39,36 @@
     "similar_horizon_days": 365,
     "notes": "Treat the Unzendake eruption as a one-off named-volcano event in the short window before the 3 June 1991 dome emergence."
   },
+  "238:158": {
+    "probability_key": "etna_eruption_window_1991",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "1991-05-18",
+    "calibration_end": "1991-12-14",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Etna's December 1991 flank eruption as a one-off named-volcano event over the post-prediction hazard window."
+  },
+  "241:47": {
+    "probability_key": "cerro_negro_eruption_window_1992",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "1992-02-03",
+    "calibration_end": "1992-04-09",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Cerro Negro's April 1992 eruption as a one-off named-volcano event in the immediate post-prediction season."
+  },
+  "366:13": {
+    "probability_key": "asamayama_eruption_window_2004",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2004-09-03",
+    "calibration_end": "2004-09-15",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Asamayama's September 2004 eruption onset as a one-off named-volcano event in the immediate post-prediction window."
+  },
   "383:27": {
     "probability_key": "talang_eruption_window",
     "model": "location_risk_window_single_event_v1",
@@ -28,6 +78,16 @@
     "near_expansion_days": 7,
     "similar_horizon_days": 365,
     "notes": "Treat Talang's April 2005 eruption onset as a one-off named-volcano event over the short post-prediction hazard window."
+  },
+  "400:3": {
+    "probability_key": "santa_ana_eruption_window_2005",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2005-09-25",
+    "calibration_end": "2005-10-01",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Santa Ana's 1 October 2005 eruption as a one-off named-volcano event in the immediate post-prediction window."
   },
   "444:3": {
     "probability_key": "stromboli_eruption_window",

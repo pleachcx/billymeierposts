@@ -1,4 +1,26 @@
 {
+  "136:97": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Etna",
+    "target_name": "Etna",
+    "target_keywords": ["Etna", "Sicily", "Italy"],
+    "jurisdiction": "Italy",
+    "window_start": "1981-03-01",
+    "window_end": "1981-03-31",
+    "notes": "Prediction scoped to Etna beginning unusual renewed activity during the late-winter and early-spring 1981 transition."
+  },
+  "182:19": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Etna",
+    "target_name": "Etna",
+    "target_keywords": ["Etna", "Sicily", "Italy"],
+    "jurisdiction": "Italy",
+    "window_start": "1983-03-20",
+    "window_end": "1983-04-05",
+    "notes": "Prediction scoped to Etna ejecting major lava flows around the March/April 1983 turning point."
+  },
   "150:133": {
     "scoped_family": "volcano",
     "expected_event_type": "volcano_eruption_began",
@@ -21,6 +43,39 @@
     "window_end": "1991-06-03",
     "notes": "Prediction scoped to the volcano Unzendake in Japan erupting on 3 June 1991."
   },
+  "238:158": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Etna",
+    "target_name": "Etna",
+    "target_keywords": ["Etna", "Sicily", "Italy"],
+    "jurisdiction": "Italy",
+    "window_start": "1991-12-15",
+    "window_end": "1991-12-15",
+    "notes": "Prediction scoped to Etna beginning a new activity phase on 15 December 1991."
+  },
+  "241:47": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Cerro Negro",
+    "target_name": "Cerro Negro",
+    "target_keywords": ["Cerro Negro", "Nicaragua"],
+    "jurisdiction": "Nicaragua",
+    "window_start": "1992-04-01",
+    "window_end": "1992-04-30",
+    "notes": "Prediction scoped to Cerro Negro in Nicaragua developing dangerous eruptive activity during April 1992."
+  },
+  "366:13": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Asamayama",
+    "target_name": "Asamayama",
+    "target_keywords": ["Asama", "Asamayama", "Japan"],
+    "jurisdiction": "Japan",
+    "window_start": "2004-09-03",
+    "window_end": "2004-09-15",
+    "notes": "Prediction scoped to Asamayama in Japan awakening to renewed eruptive activity in early September 2004."
+  },
   "383:27": {
     "scoped_family": "volcano",
     "expected_event_type": "volcano_eruption_began",
@@ -31,6 +86,17 @@
     "window_start": "2005-04-11",
     "window_end": "2005-04-11",
     "notes": "Prediction scoped to Talang beginning its April 2005 eruption on 11 April."
+  },
+  "400:3": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Santa Ana",
+    "target_name": "Santa Ana",
+    "target_keywords": ["Santa Ana", "Ilamatepec", "El Salvador"],
+    "jurisdiction": "El Salvador",
+    "window_start": "2005-09-25",
+    "window_end": "2005-10-05",
+    "notes": "Prediction scoped to the Santa Ana (Ilamatepec) eruption in El Salvador at the beginning of October 2005."
   },
   "444:3": {
     "scoped_family": "volcano",

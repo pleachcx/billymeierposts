@@ -1,0 +1,7 @@
+event_family_final,included_scored_count,claimed_hit_count,claimed_exact_hit_count,public_date_clean_count,public_date_clean_hit_count,public_date_clean_exact_hit_count,match_status_counts,public_date_status_counts,best_available_source_tier_counts
+aviation_space,1,1,1,0,0,0,"{""exact_hit"": 1}","{""event_precedes_publication"": 1}","{""official_figu_original"": 1}"
+earthquake,54,49,29,5,0,0,"{""exact_hit"": 29, ""miss"": 5, ""near_hit"": 14, ""similar_only"": 6}","{""event_precedes_publication"": 49, ""public_date_ok"": 5}","{""mirror_revision_timestamp"": 4, ""mirror_translation_page"": 2, ""official_figu_original"": 48}"
+epidemic,12,11,9,2,1,1,"{""exact_hit"": 9, ""miss"": 1, ""similar_only"": 2}","{""event_precedes_publication"": 10, ""public_date_ok"": 2}","{""mirror_revision_timestamp"": 4, ""official_figu_original"": 8}"
+politics_election,11,11,11,0,0,0,"{""exact_hit"": 11}","{""event_precedes_publication"": 11}","{""mirror_revision_timestamp"": 2, ""official_figu_original"": 9}"
+storm,1,1,1,0,0,0,"{""exact_hit"": 1}","{""event_precedes_publication"": 1}","{""mirror_revision_timestamp"": 1}"
+volcano,11,10,8,1,0,0,"{""exact_hit"": 8, ""miss"": 1, ""near_hit"": 2}","{""event_precedes_publication"": 10, ""public_date_ok"": 1}","{""mirror_revision_timestamp"": 5, ""official_figu_original"": 6}"

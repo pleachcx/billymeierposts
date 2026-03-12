@@ -1,5 +1,31 @@
 [
   {
+    "event_id": "it-etna-1981-03-17",
+    "event_type": "volcano_eruption_began",
+    "actor_name": "Etna",
+    "jurisdiction": "Italy",
+    "target_keywords": ["Etna", "Sicily", "Italy"],
+    "event_title": "Etna eruption began",
+    "event_start_date": "1981-03-17",
+    "location_name": "Sicily, Italy",
+    "source_name": "Smithsonian Global Volcanism Program",
+    "source_url": "https://volcano.si.edu/volcano.cfm?vn=211060",
+    "source_excerpt": "A summit eruption and short lava flow began on 17 March 1981."
+  },
+  {
+    "event_id": "it-etna-1983-03-28",
+    "event_type": "volcano_eruption_began",
+    "actor_name": "Etna",
+    "jurisdiction": "Italy",
+    "target_keywords": ["Etna", "Sicily", "Italy"],
+    "event_title": "Etna destructive fissure eruption began",
+    "event_start_date": "1983-03-28",
+    "location_name": "Sicily, Italy",
+    "source_name": "Smithsonian Global Volcanism Program",
+    "source_url": "https://volcano.si.edu/showreport.cfm?doi=10.5479/si.GVP.SEAN198303-211060",
+    "source_excerpt": "A destructive S-flank fissure eruption began on 28 March."
+  },
+  {
     "event_id": "us-hi-kilauea-1983-01-03",
     "event_type": "volcano_eruption_began",
     "actor_name": "Kilauea",
@@ -26,6 +52,45 @@
     "source_excerpt": "A lava dome emerged in Jigokuato crater on 3 June."
   },
   {
+    "event_id": "it-etna-1991-12-14",
+    "event_type": "volcano_eruption_began",
+    "actor_name": "Etna",
+    "jurisdiction": "Italy",
+    "target_keywords": ["Etna", "Sicily", "Italy"],
+    "event_title": "Etna flank eruption began",
+    "event_start_date": "1991-12-14",
+    "location_name": "Sicily, Italy",
+    "source_name": "Smithsonian Global Volcanism Program",
+    "source_url": "https://volcano.si.edu/volcano.cfm?vn=211060",
+    "source_excerpt": "A flank eruption began on 14 December 1991."
+  },
+  {
+    "event_id": "jp-asamayama-2004-09-01",
+    "event_type": "volcano_eruption_began",
+    "actor_name": "Asamayama",
+    "jurisdiction": "Japan",
+    "target_keywords": ["Asama", "Asamayama", "Japan"],
+    "event_title": "Asamayama eruption began",
+    "event_start_date": "2004-09-01",
+    "location_name": "Honshu, Japan",
+    "source_name": "Smithsonian Global Volcanism Program",
+    "source_url": "https://volcano.si.edu/volcano.cfm?vn=283110&vtab=Weekly",
+    "source_excerpt": "2004 Sep 1 - 2004 Dec 9 Confirmed Eruption."
+  },
+  {
+    "event_id": "ni-cerro-negro-1992-04-09",
+    "event_type": "volcano_eruption_began",
+    "actor_name": "Cerro Negro",
+    "jurisdiction": "Nicaragua",
+    "target_keywords": ["Cerro Negro", "Nicaragua"],
+    "event_title": "Cerro Negro eruption began",
+    "event_start_date": "1992-04-09",
+    "location_name": "Nicaragua",
+    "source_name": "Smithsonian Global Volcanism Program",
+    "source_url": "https://volcano.si.edu/volcano.cfm?vn=344070",
+    "source_excerpt": "A Strombolian eruption began on 9 April 1992 and lasted through 14 April."
+  },
+  {
     "event_id": "id-talang-2005-04-12",
     "event_type": "volcano_eruption_began",
     "actor_name": "Talang",
@@ -37,6 +102,19 @@
     "source_name": "Smithsonian Global Volcanism Program",
     "source_url": "https://volcano.si.edu/volcano.cfm?vn=261140",
     "source_excerpt": "An eruption began on 12 April 2005 after increased seismicity."
+  },
+  {
+    "event_id": "sv-santa-ana-2005-10-01",
+    "event_type": "volcano_eruption_began",
+    "actor_name": "Santa Ana",
+    "jurisdiction": "El Salvador",
+    "target_keywords": ["Santa Ana", "Ilamatepec", "El Salvador"],
+    "event_title": "Santa Ana (Ilamatepec) eruption began",
+    "event_start_date": "2005-10-01",
+    "location_name": "El Salvador",
+    "source_name": "Smithsonian Global Volcanism Program",
+    "source_url": "https://volcano.si.edu/showreport.cfm?doi=10.5479/si.GVP.BGVN200509-343020",
+    "source_excerpt": "This report discusses a 1 October 2005 eruption at Santa Ana (also called Ilamatepec)."
   },
   {
     "event_id": "it-stromboli-2007-02-27",

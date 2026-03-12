@@ -99,6 +99,16 @@
     "similar_horizon_days": 365,
     "notes": "Treat Stromboli's late-February 2007 reactivation as a one-off named-volcano event."
   },
+  "453:24": {
+    "probability_key": "jebel_at_tair_eruption_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2007-07-14",
+    "calibration_end": "2007-09-30",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Jebel at Tair's September 2007 eruption as a one-off named-volcano event over the post-prediction window."
+  },
   "464:4": {
     "probability_key": "chaiten_eruption_window",
     "model": "location_risk_window_single_event_v1",

@@ -1,5 +1,18 @@
 [
   {
+    "event_id": "mm-cyclone-nargis-2008-05-03",
+    "event_type": "cyclone_catastrophe_occurs",
+    "actor_name": "Myanmar",
+    "jurisdiction": "Myanmar",
+    "target_keywords": ["Myanmar", "Burma", "cyclone", "Nargis"],
+    "event_title": "Cyclone Nargis catastrophe struck Myanmar",
+    "event_start_date": "2008-05-03",
+    "location_name": "Myanmar",
+    "source_name": "World Meteorological Organization",
+    "source_url": "https://library.wmo.int/idurl/4/56991",
+    "source_excerpt": "Cyclone Nargis made landfall in Myanmar on 2-3 May 2008 and caused a humanitarian catastrophe."
+  },
+  {
     "event_id": "us-ks-greensburg-tornado-2007-05-04",
     "event_type": "town_destroyed_by_tornado",
     "actor_name": "Greensburg, Kansas",
@@ -11,5 +24,18 @@
     "source_name": "National Weather Service Dodge City",
     "source_url": "https://www.weather.gov/ddc/events",
     "source_excerpt": "A destructive tornado hit Greensburg, Kansas on May 4, 2007, causing extensive damage, including 90% of Greensburg."
+  },
+  {
+    "event_id": "us-tx-harvey-2017-08-25",
+    "event_type": "hurricane_landfall_catastrophe",
+    "actor_name": "Texas",
+    "jurisdiction": "Texas, United States",
+    "target_keywords": ["Texas", "Harvey", "hurricane"],
+    "event_title": "Hurricane Harvey made catastrophic Texas landfall",
+    "event_start_date": "2017-08-25",
+    "location_name": "Texas, United States",
+    "source_name": "NOAA National Hurricane Center",
+    "source_url": "https://www.nhc.noaa.gov/data/tcr/AL092017_Harvey.pdf",
+    "source_excerpt": "Harvey made landfall on the middle Texas coast late on 25 August 2017 and caused catastrophic flooding."
   }
 ]

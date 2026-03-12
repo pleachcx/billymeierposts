@@ -1,4 +1,14 @@
 {
+  "464:5": {
+    "probability_key": "myanmar_cyclone_catastrophe_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2008-04-30",
+    "calibration_end": "2008-05-03",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat a named-country cyclone catastrophe on the specified day as a one-off event over the immediate post-prediction window."
+  },
   "448:6": {
     "probability_key": "greensburg_tornado_window",
     "model": "location_risk_window_single_event_v1",
@@ -8,5 +18,15 @@
     "near_expansion_days": 7,
     "similar_horizon_days": 365,
     "notes": "Treat destruction of a named town by a tornado as a one-off location-specific event across the modern tornado record."
+  },
+  "688:6": {
+    "probability_key": "texas_catastrophic_hurricane_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2017-08-20",
+    "calibration_end": "2017-08-25",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat a catastrophic hurricane striking Texas in the immediate post-prediction days as a one-off regional storm event."
   }
 }

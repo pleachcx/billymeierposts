@@ -16,6 +16,10 @@ TIER_ARCHIVE = "external_archive"
 TIER_SECONDARY = "secondary_source"
 TIER_REPO = "repo_artifact"
 
+PUBLIC_DATE_COHORT_INCLUDED = "included_in_current_public_date_cohort"
+PUBLIC_DATE_COHORT_EXCLUDED = "excluded_currently_unrescued"
+PUBLIC_DATE_COHORT_PENDING = "pending_more_public_evidence"
+
 BUCKET_PRIMARY = "primary_official"
 BUCKET_MIRROR = "mirror"
 BUCKET_SECONDARY = "secondary"
@@ -134,6 +138,14 @@ def classify_gap_bucket(lag_days: int | None) -> str | None:
     if lag_days >= -730:
         return "large_gap"
     return "deep_archive_gap"
+
+
+def derive_public_date_cohort_status(public_date_status: str | None) -> str:
+    if public_date_status == "public_date_ok":
+        return PUBLIC_DATE_COHORT_INCLUDED
+    if public_date_status == "event_precedes_publication":
+        return PUBLIC_DATE_COHORT_EXCLUDED
+    return PUBLIC_DATE_COHORT_PENDING
 
 
 def _earliest_sort_key(row: dict[str, Any]) -> tuple[Any, ...]:

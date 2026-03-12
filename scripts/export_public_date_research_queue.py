@@ -18,11 +18,12 @@ from psycopg2.extras import RealDictCursor
 
 from provenance_export_helpers import (
     annotate_predictions_with_provenance,
+    derive_public_date_cohort_status,
     fetch_report_provenance_rows,
     resolve_stage2_run,
 )
 
-SCRIPT_VERSION = "public_date_research_queue_v2"
+SCRIPT_VERSION = "public_date_research_queue_v3"
 OUTPUT_ROOT = Path("data") / "exports" / "provenance"
 OBSERVED_PROBABILITY_FIELD = {
     "exact_hit": "p_exact_under_null",
@@ -80,6 +81,7 @@ def summarize_rows(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "prediction_count": len(rows),
         "family_counts": dict(Counter(row["event_family_final"] for row in rows)),
         "match_status_counts": dict(Counter(row["match_status"] for row in rows)),
+        "public_date_cohort_status_counts": dict(Counter(row["public_date_cohort_status"] for row in rows)),
         "current_public_source_tier_counts": dict(Counter(row["current_public_source_tier"] for row in rows)),
         "best_available_source_tier_counts": dict(Counter(row["best_available_source_tier"] for row in rows)),
         "conflict_gap_bucket_counts": dict(Counter(row["publication_conflict_gap_bucket"] for row in rows if row["publication_conflict_gap_bucket"])),
@@ -111,6 +113,8 @@ def main() -> int:
                     p.provenance_score,
                     p.public_date_status,
                     p.public_date_reason,
+                    p.public_date_cohort_status,
+                    p.public_date_cohort_reason,
                     p.match_status,
                     p.final_status,
                     p.claim_normalized,
@@ -140,6 +144,7 @@ def main() -> int:
             probability = row["observed_probability_under_null"]
             row["observed_probability_log10"] = round(math.log10(probability), 6) if probability and probability > 0 else None
             row["surprisal_log10"] = round(-math.log10(probability), 6) if probability and probability > 0 else None
+            row["public_date_cohort_status"] = row.get("public_date_cohort_status") or derive_public_date_cohort_status(row.get("public_date_status"))
             if row["earliest_provable_public_date"] and row["event_start_date"]:
                 lag_days = (row["event_start_date"] - row["earliest_provable_public_date"]).days
             else:
@@ -180,6 +185,7 @@ def main() -> int:
                     "publication_lag_days_vs_event": row["publication_lag_days_vs_event"],
                     "publication_conflict_gap_bucket": row["publication_conflict_gap_bucket"],
                     "current_public_source_tier": row["current_public_source_tier"],
+                    "public_date_cohort_status": row["public_date_cohort_status"],
                 }
                 for row in rows[:10]
             ],
@@ -211,6 +217,8 @@ def main() -> int:
                 "publication_lag_days_vs_primary_source",
                 "publication_conflict_gap_bucket",
                 "public_date_basis",
+                "public_date_cohort_status",
+                "public_date_cohort_reason",
                 "provenance_score",
                 "current_public_evidence_kind",
                 "current_public_source_tier",
@@ -252,6 +260,7 @@ def main() -> int:
                 "prediction_count",
                 "family_counts",
                 "match_status_counts",
+                "public_date_cohort_status_counts",
                 "combined_observed_probability",
                 "top_priority_rank",
                 "top_report_number",

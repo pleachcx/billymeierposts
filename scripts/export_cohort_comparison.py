@@ -18,11 +18,12 @@ from psycopg2.extras import RealDictCursor
 
 from provenance_export_helpers import (
     annotate_predictions_with_provenance,
+    derive_public_date_cohort_status,
     fetch_report_provenance_rows,
     resolve_stage2_run,
 )
 
-SCRIPT_VERSION = "cohort_comparison_v3"
+SCRIPT_VERSION = "cohort_comparison_v4"
 OUTPUT_ROOT = Path("data") / "exports" / "provenance"
 OBSERVED_PROBABILITY_FIELD = {
     "exact_hit": "p_exact_under_null",
@@ -81,6 +82,7 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "family_counts": dict(Counter(row["event_family_final"] for row in rows)),
         "match_status_counts": dict(Counter(row["match_status"] for row in rows)),
         "public_date_status_counts": dict(Counter(row["public_date_status"] for row in rows)),
+        "public_date_cohort_status_counts": dict(Counter(row["public_date_cohort_status"] for row in rows)),
         "current_public_source_tier_counts": dict(Counter(row["current_public_source_tier"] for row in rows)),
         "best_available_source_tier_counts": dict(Counter(row["best_available_source_tier"] for row in rows)),
         "current_public_source_bucket_counts": dict(Counter(row["current_public_source_bucket"] for row in rows)),
@@ -117,6 +119,8 @@ def main() -> int:
                     p.match_status,
                     p.final_status,
                     p.public_date_status,
+                    p.public_date_cohort_status,
+                    p.public_date_cohort_reason,
                     p.claimed_contact_date,
                     p.earliest_provable_public_date,
                     p.public_date_basis,
@@ -138,6 +142,7 @@ def main() -> int:
 
         for row in rows:
             row["observed_probability_under_null"] = observed_probability(row)
+            row["public_date_cohort_status"] = row.get("public_date_cohort_status") or derive_public_date_cohort_status(row.get("public_date_status"))
         annotate_predictions_with_provenance(rows, provenance_rows)
 
         cohorts = {
@@ -145,12 +150,17 @@ def main() -> int:
             "public_date_not_disproven": [row for row in rows if row["public_date_status"] != "event_precedes_publication"],
             "public_date_strict_clean": [row for row in rows if row["public_date_status"] == "public_date_ok"],
             "public_date_excluded": [row for row in rows if row["public_date_status"] == "event_precedes_publication"],
-            "public_date_currently_unrescued": [row for row in rows if row["public_date_status"] == "event_precedes_publication"],
+            "public_date_currently_unrescued": [row for row in rows if row["public_date_cohort_status"] == "excluded_currently_unrescued"],
+            "public_date_pending_evidence": [row for row in rows if row["public_date_cohort_status"] == "pending_more_public_evidence"],
             "public_date_primary_supported_clean": [
-                row for row in rows if row["public_date_status"] == "public_date_ok" and row["best_available_source_bucket"] == "primary_official"
+                row
+                for row in rows
+                if row["public_date_cohort_status"] == "included_in_current_public_date_cohort" and row["best_available_source_bucket"] == "primary_official"
             ],
             "public_date_mirror_supported_clean": [
-                row for row in rows if row["public_date_status"] == "public_date_ok" and row["best_available_source_bucket"] == "mirror"
+                row
+                for row in rows
+                if row["public_date_cohort_status"] == "included_in_current_public_date_cohort" and row["best_available_source_bucket"] == "mirror"
             ],
         }
 
@@ -179,6 +189,8 @@ def main() -> int:
                     "match_status",
                     "final_status",
                     "public_date_status",
+                    "public_date_cohort_status",
+                    "public_date_cohort_reason",
                     "claimed_contact_date",
                     "earliest_provable_public_date",
                     "public_date_basis",

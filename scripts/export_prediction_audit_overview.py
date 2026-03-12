@@ -18,12 +18,13 @@ from psycopg2.extras import RealDictCursor
 
 from provenance_export_helpers import (
     annotate_predictions_with_provenance,
+    derive_public_date_cohort_status,
     fetch_report_provenance_rows,
     resolve_stage2_run,
 )
 
 
-SCRIPT_VERSION = "prediction_audit_overview_v1"
+SCRIPT_VERSION = "prediction_audit_overview_v2"
 OUTPUT_ROOT = Path("data") / "exports" / "overview"
 OBSERVED_PROBABILITY_FIELD = {
     "exact_hit": "p_exact_under_null",
@@ -113,6 +114,7 @@ def main() -> int:
                     p.match_status,
                     p.final_status,
                     p.public_date_status,
+                    p.public_date_cohort_status,
                     p.earliest_provable_public_date,
                     p.public_date_basis,
                     p.claim_normalized,
@@ -135,10 +137,11 @@ def main() -> int:
 
         for row in scored_rows:
             row["observed_probability_under_null"] = observed_probability(row)
+            row["public_date_cohort_status"] = row.get("public_date_cohort_status") or derive_public_date_cohort_status(row.get("public_date_status"))
         annotate_predictions_with_provenance(scored_rows, provenance_rows)
 
         claimed_hits = [row for row in scored_rows if row["match_status"] in {"exact_hit", "near_hit", "similar_only"}]
-        public_clean_rows = [row for row in scored_rows if row["public_date_status"] == "public_date_ok"]
+        public_clean_rows = [row for row in scored_rows if row["public_date_cohort_status"] == "included_in_current_public_date_cohort"]
         public_clean_hits = [row for row in public_clean_rows if row["match_status"] in {"exact_hit", "near_hit", "similar_only"}]
 
         summary = {
@@ -160,6 +163,7 @@ def main() -> int:
             },
             "match_status_counts": dict(Counter(row["match_status"] for row in scored_rows)),
             "public_date_status_counts": dict(Counter(row["public_date_status"] for row in scored_rows)),
+            "public_date_cohort_status_counts": dict(Counter(row["public_date_cohort_status"] for row in scored_rows)),
             "family_counts": dict(Counter(row["event_family_final"] for row in scored_rows)),
             "current_public_source_tier_counts": dict(Counter(row["current_public_source_tier"] for row in scored_rows)),
             "best_available_source_tier_counts": dict(Counter(row["best_available_source_tier"] for row in scored_rows)),
@@ -167,7 +171,7 @@ def main() -> int:
                 "claimed_date_baseline": aggregate_probability(scored_rows),
                 "public_date_clean": aggregate_probability(public_clean_rows),
                 "public_date_currently_unrescued": aggregate_probability(
-                    [row for row in scored_rows if row["public_date_status"] == "event_precedes_publication"]
+                    [row for row in scored_rows if row["public_date_cohort_status"] == "excluded_currently_unrescued"]
                 ),
             },
         }
@@ -181,15 +185,24 @@ def main() -> int:
                     "included_scored_count": len(family_subset),
                     "claimed_hit_count": sum(1 for row in family_subset if row["match_status"] in {"exact_hit", "near_hit", "similar_only"}),
                     "claimed_exact_hit_count": sum(1 for row in family_subset if row["match_status"] == "exact_hit"),
-                    "public_date_clean_count": sum(1 for row in family_subset if row["public_date_status"] == "public_date_ok"),
+                    "public_date_clean_count": sum(
+                        1 for row in family_subset if row["public_date_cohort_status"] == "included_in_current_public_date_cohort"
+                    ),
                     "public_date_clean_hit_count": sum(
-                        1 for row in family_subset if row["public_date_status"] == "public_date_ok" and row["match_status"] in {"exact_hit", "near_hit", "similar_only"}
+                        1
+                        for row in family_subset
+                        if row["public_date_cohort_status"] == "included_in_current_public_date_cohort"
+                        and row["match_status"] in {"exact_hit", "near_hit", "similar_only"}
                     ),
                     "public_date_clean_exact_hit_count": sum(
-                        1 for row in family_subset if row["public_date_status"] == "public_date_ok" and row["match_status"] == "exact_hit"
+                        1
+                        for row in family_subset
+                        if row["public_date_cohort_status"] == "included_in_current_public_date_cohort"
+                        and row["match_status"] == "exact_hit"
                     ),
                     "match_status_counts": dict(Counter(row["match_status"] for row in family_subset)),
                     "public_date_status_counts": dict(Counter(row["public_date_status"] for row in family_subset)),
+                    "public_date_cohort_status_counts": dict(Counter(row["public_date_cohort_status"] for row in family_subset)),
                     "best_available_source_tier_counts": dict(Counter(row["best_available_source_tier"] for row in family_subset)),
                 }
             )
@@ -211,6 +224,7 @@ def main() -> int:
                 "public_date_clean_exact_hit_count",
                 "match_status_counts",
                 "public_date_status_counts",
+                "public_date_cohort_status_counts",
                 "best_available_source_tier_counts",
             ],
         )

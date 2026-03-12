@@ -17,11 +17,12 @@ from psycopg2.extras import RealDictCursor
 
 from provenance_export_helpers import (
     annotate_predictions_with_provenance,
+    derive_public_date_cohort_status,
     fetch_report_provenance_rows,
     resolve_stage2_run,
 )
 
-SCRIPT_VERSION = "publication_timing_audit_v2"
+SCRIPT_VERSION = "publication_timing_audit_v3"
 OUTPUT_ROOT = Path("data") / "exports" / "provenance"
 
 
@@ -73,6 +74,8 @@ def main() -> int:
                     p.provenance_score,
                     p.public_date_status,
                     p.public_date_reason,
+                    p.public_date_cohort_status,
+                    p.public_date_cohort_reason,
                     p.match_status,
                     p.final_status,
                     p.claim_normalized,
@@ -98,6 +101,7 @@ def main() -> int:
         for row in rows:
             lag = row.get("publication_lag_days_vs_event")
             row["observed_event_before_publication"] = lag is not None and lag < 0
+            row["public_date_cohort_status"] = row.get("public_date_cohort_status") or derive_public_date_cohort_status(row.get("public_date_status"))
         annotate_predictions_with_provenance(rows, provenance_rows)
 
         summary = {
@@ -108,6 +112,7 @@ def main() -> int:
             "family_counts": dict(Counter(row["event_family_final"] for row in rows)),
             "match_status_counts": dict(Counter(row["match_status"] for row in rows)),
             "public_date_status_counts": dict(Counter(row["public_date_status"] for row in rows)),
+            "public_date_cohort_status_counts": dict(Counter(row["public_date_cohort_status"] for row in rows)),
             "earliest_public_date_populated_count": sum(1 for row in rows if row["earliest_provable_public_date"] is not None),
             "observed_event_before_publication_count": sum(1 for row in rows if row["observed_event_before_publication"]),
             "observed_event_before_publication_by_family": dict(
@@ -137,6 +142,8 @@ def main() -> int:
             "provenance_score",
             "public_date_status",
             "public_date_reason",
+            "public_date_cohort_status",
+            "public_date_cohort_reason",
             "match_status",
             "final_status",
             "event_start_date",

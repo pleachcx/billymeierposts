@@ -222,3 +222,5 @@
 - Storm run metadata should use a generic `storm_catalog_v2` scope, not `tornado_catalog_v1`, because the family now includes hurricanes, cyclones, and regional storm catastrophes.
 - After seeding Future Of Mankind revision provenance for reports `574` and `863`, the aligned exports are `publication-timing-audit-20260312T031910Z`, `cohort-comparison-20260312T031910Z`, `public-date-research-queue-20260312T031910Z`, and `prediction-audit-overview-20260312T031911Z`; top-line mainline is now `100` included scored rows with `68` exact hits.
 - `863/6` is now a new small-gap provenance rescue target at `-8` days, alongside `663/15` (`-14`) and `729/12` (`-20`).
+- The official FIGU Canada `coronavirus.html` page is a valid official daughter-association source, but it still does not rescue `729/12`; its first dated `729/730` item is `2020-03-31`, and the earlier dated entries are about `726` or general corona notices.
+- The official Czech FIGU site has a broken TLS chain and direct `/<report>-kontakt` slugs for `663`, `725`, and `729` return `404`; its current homepage update list is therefore not a reliable rescue path for those reports.

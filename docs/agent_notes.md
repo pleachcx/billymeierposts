@@ -217,3 +217,8 @@
 - Stage 9 live run `stage9-public-cohort-20260312T004639Z` on `stage2-20260311T093233Z` froze the refreshed mainline at `8 included_in_current_public_date_cohort` and `90 excluded_currently_unrescued`.
 - Cross-family provenance exporters should consume `public_date_cohort_status` but fall back to deriving it from `public_date_status` during migration so reruns stay replay-safe.
 - `us.figu.org` does not currently rescue the high-number report conflicts; the WordPress API only exposes fresh numbered report posts up through the low `200s`, so reports like `663`, `725`, and `729` still need other provenance paths.
+- The official FIGU Canada corona page does not rescue `729/12`; its first dated `729/730` entry is still `2020-03-31`, after the `2020-03-11` WHO pandemic event.
+- The widened storm replay `stage3-storm-20260312T031801Z` / `stage4-storm-20260312T031807Z` / `stage5-storm-20260312T031815Z` / `stage7-storm-final-20260312T031821Z` expanded storm from `4` to `6` exact hits by adding `574/8` (Sardinia storm catastrophe) and `863/6` (Libya storm catastrophe).
+- Storm run metadata should use a generic `storm_catalog_v2` scope, not `tornado_catalog_v1`, because the family now includes hurricanes, cyclones, and regional storm catastrophes.
+- After seeding Future Of Mankind revision provenance for reports `574` and `863`, the aligned exports are `publication-timing-audit-20260312T031910Z`, `cohort-comparison-20260312T031910Z`, `public-date-research-queue-20260312T031910Z`, and `prediction-audit-overview-20260312T031911Z`; top-line mainline is now `100` included scored rows with `68` exact hits.
+- `863/6` is now a new small-gap provenance rescue target at `-8` days, alongside `663/15` (`-14`) and `729/12` (`-20`).

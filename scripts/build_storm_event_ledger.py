@@ -15,7 +15,7 @@ import psycopg2
 from psycopg2.extras import Json, execute_batch, execute_values
 
 
-SCRIPT_VERSION = "stage3_storm_official_catalog_v1"
+SCRIPT_VERSION = "stage3_storm_official_catalog_v2"
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -106,7 +106,7 @@ def insert_run(cur, run_key: str, source_filter: dict[str, Any], notes: str | No
             "public.prediction_audit_predictions",
             Json(source_filter),
             notes or None,
-            Json({"family": "storm", "scope": "tornado_catalog_v1"}),
+            Json({"family": "storm", "scope": "storm_catalog_v2"}),
         ),
     )
     return cur.fetchone()[0]

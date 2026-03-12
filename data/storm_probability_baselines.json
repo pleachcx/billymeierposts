@@ -38,5 +38,25 @@
     "near_expansion_days": 3,
     "similar_horizon_days": 365,
     "notes": "Treat a catastrophic hurricane striking Texas in the immediate post-prediction days as a one-off regional storm event."
+  },
+  "574:8": {
+    "probability_key": "sardinia_storm_catastrophe_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2013-11-02",
+    "calibration_end": "2013-11-18",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat a devastating regional storm catastrophe striking Sardinia in the immediate post-prediction window as a one-off event."
+  },
+  "863:6": {
+    "probability_key": "libya_storm_catastrophe_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2023-09-06",
+    "calibration_end": "2023-09-10",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat a country-scale storm catastrophe striking Libya in the immediate post-prediction days as a one-off regional event."
   }
 }

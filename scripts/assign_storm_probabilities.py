@@ -16,7 +16,7 @@ import psycopg2
 from psycopg2.extras import Json, execute_batch
 
 
-SCRIPT_VERSION = "stage5_storm_location_risk_window_v1"
+SCRIPT_VERSION = "stage5_storm_location_risk_window_v2"
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -292,7 +292,7 @@ def main() -> int:
                         "stage2_run_key": resolved_stage2_run_key,
                         "stage4_run_key": resolved_stage4_run_key,
                         "family": "storm",
-                        "scope": "tornado_catalog_v1",
+                        "scope": "storm_catalog_v2",
                     },
                     args.notes,
                 )

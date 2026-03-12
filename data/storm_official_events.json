@@ -50,5 +50,31 @@
     "source_name": "NOAA National Hurricane Center",
     "source_url": "https://www.nhc.noaa.gov/data/tcr/AL092017_Harvey.pdf",
     "source_excerpt": "Harvey made landfall on the middle Texas coast late on 25 August 2017 and caused catastrophic flooding."
+  },
+  {
+    "event_id": "it-sardinia-cleopatra-2013-11-18",
+    "event_type": "regional_storm_catastrophe",
+    "actor_name": "Sardinia",
+    "jurisdiction": "Sardinia, Italy",
+    "target_keywords": ["Sardinia", "storm", "flood", "Cleopatra"],
+    "event_title": "Severe storm flooding struck Sardinia",
+    "event_start_date": "2013-11-18",
+    "location_name": "Sardinia, Italy",
+    "source_name": "Italian Meteorological Service / ECMWF",
+    "source_url": "https://www.ecmwf.int/sites/default/files/elibrary/2014/73906-application-and-verification-ecmwf-products-2014-italy_0.pdf",
+    "source_excerpt": "The November 18, 2013 flooding in Sardinia left 17 casualties behind, with extensive and widespread damage."
+  },
+  {
+    "event_id": "ly-daniel-2023-09-10",
+    "event_type": "country_storm_catastrophe",
+    "actor_name": "Libya",
+    "jurisdiction": "Libya",
+    "target_keywords": ["Libya", "Derna", "storm", "Daniel"],
+    "event_title": "Storm Daniel caused deadly flooding in Libya",
+    "event_start_date": "2023-09-10",
+    "location_name": "Libya",
+    "source_name": "World Meteorological Organization",
+    "source_url": "https://wmo.int/media/news/libya-reels-deadly-flooding",
+    "source_excerpt": "Storm Daniel caused catastrophic flooding in Libya, with Derna among the hardest-hit areas."
   }
 ]

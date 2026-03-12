@@ -16,8 +16,8 @@ import psycopg2
 from psycopg2.extras import Json, execute_batch
 
 
-SCRIPT_VERSION = "stage4_storm_tornado_catalog_v1"
-REVIEWER = "script:stage4_storm_tornado_catalog_v1"
+SCRIPT_VERSION = "stage4_storm_catalog_v2"
+REVIEWER = "script:stage4_storm_catalog_v2"
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -45,7 +45,7 @@ class LedgerRow:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Stage 4 storm match scorer for the curated tornado catalog slice.")
+    parser = argparse.ArgumentParser(description="Stage 4 storm match scorer for the curated storm catalog slice.")
     parser.add_argument("--dsn-env", default="DatabaseURL", help="Environment variable containing the PostgreSQL DSN.")
     parser.add_argument("--stage2-run-key", help="Stage 2 run key. Defaults to latest completed Stage 2 run.")
     parser.add_argument("--stage3-run-key", help="Stage 3 storm run key. Defaults to latest completed Stage 3 storm run.")
@@ -119,7 +119,7 @@ def insert_run(cur, run_key: str, source_filter: dict[str, Any], notes: str | No
             "public.prediction_audit_event_ledger",
             Json(source_filter),
             notes or None,
-            Json({"family": "storm", "scope": "tornado_catalog_v1"}),
+            Json({"family": "storm", "scope": "storm_catalog_v2"}),
         ),
     )
     return cur.fetchone()[0]

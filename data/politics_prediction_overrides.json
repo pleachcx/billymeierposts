@@ -87,6 +87,39 @@
     "window_end": "1980-11-04",
     "notes": "Prediction scoped to Ronald Reagan becoming the next President of the United States through the 1980 election result."
   },
+  "136:112": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "head_of_state_survives_assassination_attempt",
+    "actor_name": "Ronald Reagan",
+    "target_name": "United States Presidency",
+    "target_keywords": ["Washington Hilton Hotel", "John Hinckley", "Reagan"],
+    "jurisdiction": "United States",
+    "window_start": "1981-03-30",
+    "window_end": "1981-03-30",
+    "notes": "Prediction scoped to the March 30, 1981 assassination attempt on Ronald Reagan outside the Washington Hilton Hotel."
+  },
+  "136:142": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "president_elected",
+    "actor_name": "Francois Mitterrand",
+    "target_name": "Presidency of France",
+    "target_keywords": ["Mitterrand", "France", "president"],
+    "jurisdiction": "France",
+    "window_start": "1981-05-10",
+    "window_end": "1981-05-10",
+    "notes": "Prediction scoped to Francois Mitterrand being elected President of France on 10 May 1981."
+  },
+  "136:156": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "head_of_state_survives_assassination_attempt",
+    "actor_name": "John Paul II",
+    "target_name": "Papacy",
+    "target_keywords": ["John Paul II", "St Peter's Square", "assassination attempt"],
+    "jurisdiction": "Vatican City",
+    "window_start": "1981-05-13",
+    "window_end": "1981-05-13",
+    "notes": "Prediction scoped to Pope John Paul II being severely wounded but surviving the 13 May 1981 assassination attempt."
+  },
   "136:52": {
     "scoped_family": "politics_election",
     "expected_event_type": "cabinet_secretary_appointed",

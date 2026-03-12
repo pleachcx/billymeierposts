@@ -65,6 +65,45 @@
     "source_excerpt": "Ronald Reagan was elected President of the United States on November 4, 1980."
   },
   {
+    "event_id": "us-reagan-assassination-attempt-1981-03-30",
+    "event_type": "head_of_state_survives_assassination_attempt",
+    "actor_name": "Ronald Reagan",
+    "jurisdiction": "United States",
+    "target_keywords": ["Washington Hilton Hotel", "John Hinckley", "Reagan"],
+    "event_title": "Ronald Reagan survived the 30 March 1981 assassination attempt",
+    "event_start_date": "1981-03-30",
+    "location_name": "Washington, D.C.",
+    "source_name": "Reagan Library",
+    "source_url": "https://www.reaganlibrary.gov/constitutional-amendments-article-ii-section-1-article",
+    "source_excerpt": "Thirty-five years ago, on March 30, 1981, a man named John Hinckley attempted to assassinate President Ronald Reagan."
+  },
+  {
+    "event_id": "fr-mitterrand-election-1981-05-10",
+    "event_type": "president_elected",
+    "actor_name": "Francois Mitterrand",
+    "jurisdiction": "France",
+    "target_keywords": ["Mitterrand", "France", "president"],
+    "event_title": "Francois Mitterrand elected President of the French Republic",
+    "event_start_date": "1981-05-10",
+    "location_name": "France",
+    "source_name": "Conseil constitutionnel",
+    "source_url": "https://www.conseil-constitutionnel.fr/les-decisions/decision-n-81-31-pdr-du-15-mai-1981",
+    "source_excerpt": "M. Francois Mitterrand a ete elu President de la Republique."
+  },
+  {
+    "event_id": "va-john-paul-ii-assassination-attempt-1981-05-13",
+    "event_type": "head_of_state_survives_assassination_attempt",
+    "actor_name": "John Paul II",
+    "jurisdiction": "Vatican City",
+    "target_keywords": ["John Paul II", "St Peter's Square", "assassination attempt"],
+    "event_title": "John Paul II survived the 13 May 1981 assassination attempt",
+    "event_start_date": "1981-05-13",
+    "location_name": "St Peter's Square, Vatican City",
+    "source_name": "Vatican",
+    "source_url": "https://www.vatican.va/content/john-paul-ii/en/biography/documents/hf_jp-ii_bio_20010108_biography.html",
+    "source_excerpt": "On 13 May 1981, an attempt was made on his life in St Peter's Square, but his courageous energy and apostolic conviction led him to recovery."
+  },
+  {
     "event_id": "us-haig-secretary-of-state-1981-01-22",
     "event_type": "cabinet_secretary_appointed",
     "actor_name": "Ronald Reagan",

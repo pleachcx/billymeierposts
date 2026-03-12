@@ -79,6 +79,36 @@
     "similar_horizon_days": 365,
     "notes": "Treat Reagan's election as a one-off actor-specific event during the general-election period after he secured the Republican nomination."
   },
+  "136:112": {
+    "probability_key": "reagan_assassination_attempt_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1981-01-20",
+    "calibration_end": "1981-03-30",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat the Reagan assassination attempt as a one-off actor-specific violent event during the opening months of his presidency."
+  },
+  "136:142": {
+    "probability_key": "mitterrand_election_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1981-04-26",
+    "calibration_end": "1981-05-10",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat Mitterrand's election as a one-off actor-specific presidential runoff result during the 1981 French election window."
+  },
+  "136:156": {
+    "probability_key": "john_paul_ii_assassination_attempt_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1981-01-01",
+    "calibration_end": "1981-05-13",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat the 13 May 1981 assassination attempt on John Paul II as a one-off actor-specific violent event during his early pontificate."
+  },
   "136:52": {
     "probability_key": "haig_secretary_of_state_window",
     "model": "actor_risk_window_single_event_v1",

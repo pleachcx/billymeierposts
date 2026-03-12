@@ -43,6 +43,17 @@
     "window_end": "1991-06-03",
     "notes": "Prediction scoped to the volcano Unzendake in Japan erupting on 3 June 1991."
   },
+  "238:8": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Pinatubo",
+    "target_name": "Pinatubo",
+    "target_keywords": ["Pinatubo", "Philippines"],
+    "jurisdiction": "Philippines",
+    "window_start": "1991-06-09",
+    "window_end": "1991-06-09",
+    "notes": "Prediction scoped to Pinatubo erupting on 9 June 1991; this is expected to score against the first major June 1991 explosive eruption date."
+  },
   "238:158": {
     "scoped_family": "volcano",
     "expected_event_type": "volcano_eruption_began",

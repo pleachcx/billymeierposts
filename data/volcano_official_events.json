@@ -52,6 +52,19 @@
     "source_excerpt": "A lava dome emerged in Jigokuato crater on 3 June."
   },
   {
+    "event_id": "ph-pinatubo-1991-06-12",
+    "event_type": "volcano_eruption_began",
+    "actor_name": "Pinatubo",
+    "jurisdiction": "Philippines",
+    "target_keywords": ["Pinatubo", "Philippines"],
+    "event_title": "Pinatubo's first major eruption began",
+    "event_start_date": "1991-06-12",
+    "location_name": "Luzon, Philippines",
+    "source_name": "USGS",
+    "source_url": "https://pubs.usgs.gov/fs/1997/fs113-97/",
+    "source_excerpt": "On June 12, Pinatubo had its first major eruption, which generated a 19-km-high eruption column."
+  },
+  {
     "event_id": "it-etna-1991-12-14",
     "event_type": "volcano_eruption_began",
     "actor_name": "Etna",

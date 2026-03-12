@@ -39,6 +39,16 @@
     "similar_horizon_days": 365,
     "notes": "Treat the Unzendake eruption as a one-off named-volcano event in the short window before the 3 June 1991 dome emergence."
   },
+  "238:8": {
+    "probability_key": "pinatubo_major_eruption_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "1991-05-18",
+    "calibration_end": "1991-06-12",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Pinatubo's first major June 1991 eruption as a one-off named-volcano event in the immediate post-prediction window."
+  },
   "238:158": {
     "probability_key": "etna_eruption_window_1991",
     "model": "location_risk_window_single_event_v1",

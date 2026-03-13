@@ -64,16 +64,5 @@
     "window_start": "2023-09-08",
     "window_end": "2023-09-13",
     "notes": "Prediction scoped to the destructive Libya storm catastrophe in the days immediately after the 6 September 2023 report."
-  },
-  "395:6": {
-    "scoped_family": "storm",
-    "expected_event_type": "lake_tornado_catastrophe",
-    "actor_name": "Lake Constance",
-    "target_name": "Switzerland",
-    "target_keywords": ["Lake Constance", "Switzerland", "tornado"],
-    "jurisdiction": "Switzerland",
-    "window_start": "2005-07-25",
-    "window_end": "2005-07-25",
-    "notes": "Retire the Lake Constance tornado row until the storm catalog gains a defensible Swiss inland-tornado source set."
   }
 }

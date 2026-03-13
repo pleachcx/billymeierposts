@@ -1,1 +1,27 @@
-{}
+{
+  "369:2": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_hiv_china_catalog",
+    "rationale": "Prediction remains outside the current named-disease epidemic slice because the baseline does not yet carry a defensible HIV/AIDS-in-China official event set."
+  },
+  "732:2": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_media_analysis_catalog",
+    "rationale": "Prediction remains outside the current epidemic slice because it is a media-misinformation claim rather than a cataloged outbreak or disease event."
+  },
+  "734:1": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_covid_switzerland_catalog",
+    "rationale": "Prediction remains outside the current epidemic slice because the baseline COVID catalog does not yet contain a Switzerland-specific severity event to score against."
+  },
+  "767:28": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_vaccine_rollout_catalog",
+    "rationale": "Prediction remains outside the current epidemic slice because vaccine rollout and product deployment are not modeled in the present named-disease event catalog."
+  },
+  "779:233": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_lab_origin_catalog",
+    "rationale": "Prediction remains outside the current epidemic slice because the baseline catalog does not model laboratory-origin outbreak claims and causal lab-worker infection chains."
+  }
+}

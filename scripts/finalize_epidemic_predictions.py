@@ -15,8 +15,8 @@ import psycopg2
 from psycopg2.extras import Json, execute_batch
 
 
-SCRIPT_VERSION = "stage7_epidemic_final_v1"
-REVIEWER = "script:stage7_epidemic_final_v1"
+SCRIPT_VERSION = "stage7_epidemic_final_v2"
+REVIEWER = "script:stage7_epidemic_final_v2"
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -120,32 +120,50 @@ def update_run(cur, run_id: int, status: str, run_meta: dict[str, Any]) -> None:
 
 
 def load_json(path: str) -> dict[str, Any]:
+    if not Path(path).exists():
+        return {}
     with open(path, "r", encoding="utf-8") as handle:
         return json.load(handle)
 
 
-def fetch_predictions(cur, stage2_run_id: int, override_keys: list[str]) -> list[dict[str, Any]]:
-    pairs = [(int(key.split(":")[0]), int(key.split(":")[1])) for key in override_keys]
+def fetch_predictions(cur, stage2_run_id: int, stage4_run_id: int, scoped_keys: list[str]) -> list[dict[str, Any]]:
+    pairs = [(int(key.split(":")[0]), int(key.split(":")[1])) for key in scoped_keys]
     cur.execute(
         """
         SELECT
-            id,
-            report_number,
-            candidate_seq,
-            match_status,
-            claim_normalized
-        FROM public.prediction_audit_predictions
+            p.id,
+            p.report_number,
+            p.candidate_seq,
+            mr.match_status,
+            p.claim_normalized
+        FROM public.prediction_audit_predictions p
+        LEFT JOIN public.prediction_audit_match_reviews mr
+          ON mr.prediction_id = p.id
+         AND mr.review_run_id = %s
         WHERE last_stage2_run_id = %s
           AND (report_number, candidate_seq) IN %s
         ORDER BY report_number, candidate_seq
         """,
-        (stage2_run_id, tuple(pairs)),
+        (stage4_run_id, stage2_run_id, tuple(pairs)),
     )
     columns = [description[0] for description in cur.description]
     return [dict(zip(columns, row, strict=False)) for row in cur.fetchall()]
 
 
 def decide_final_status(prediction: dict[str, Any], adjudications: dict[str, dict[str, Any]]) -> tuple[str, str, dict[str, Any]]:
+    key = f"{prediction['report_number']}:{prediction['candidate_seq']}"
+    rule = adjudications.get(key)
+    if rule:
+        return (
+            rule["final_status"],
+            rule["rationale"],
+            {
+                "script_version": SCRIPT_VERSION,
+                "reason_code": rule.get("reason_code"),
+                "rule_key": key,
+            },
+        )
+
     if prediction["match_status"] in {"exact_hit", "near_hit", "similar_only", "miss"}:
         return (
             "included_in_statistics",
@@ -156,20 +174,7 @@ def decide_final_status(prediction: dict[str, Any], adjudications: dict[str, dic
             },
         )
 
-    key = f"{prediction['report_number']}:{prediction['candidate_seq']}"
-    rule = adjudications.get(key)
-    if not rule:
-        raise RuntimeError(f"Missing epidemic final adjudication rule for unresolved prediction {key}.")
-
-    return (
-        rule["final_status"],
-        rule["rationale"],
-        {
-            "script_version": SCRIPT_VERSION,
-            "reason_code": rule.get("reason_code"),
-            "rule_key": key,
-        },
-    )
+    raise RuntimeError(f"Missing epidemic final adjudication rule for unresolved prediction {key}.")
 
 
 def demote_existing_primary_reviews(cur, prediction_ids: list[int]) -> None:
@@ -260,7 +265,8 @@ def main() -> int:
             if not stage2_run_key:
                 raise RuntimeError("Could not infer Stage 2 run key from epidemic Stage 4 metadata.")
             stage2_run_id, resolved_stage2_run_key, _ = fetch_run(cur, "stage2_eligibility", stage2_run_key)
-            predictions = fetch_predictions(cur, stage2_run_id, list(overrides.keys()))
+            scoped_keys = sorted(set(overrides.keys()) | set(adjudications.keys()))
+            predictions = fetch_predictions(cur, stage2_run_id, stage4_run_id, scoped_keys)
 
             if not args.dry_run:
                 run_id = insert_run(
@@ -271,6 +277,8 @@ def main() -> int:
                         "stage4_run_key": resolved_stage4_run_key,
                         "family": "epidemic",
                         "scope": "named_disease_catalog_v1",
+                        "override_keys": sorted(overrides.keys()),
+                        "adjudication_keys": sorted(adjudications.keys()),
                         "adjudications_path": args.adjudications_path,
                     },
                     args.notes,

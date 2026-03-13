@@ -1,0 +1,32 @@
+{
+  "202:5": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_aviation_space_catalog",
+    "rationale": "Prediction is retired from the aviation-space slice because genetic-engineering claims are outside the current satellite-action rulebook."
+  },
+  "258:11": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "retrospective_historical_claim",
+    "rationale": "Prediction is retired from the aviation-space slice because the 1897 Aurora crash passage is a retrospective historical anecdote, not a future event on this baseline."
+  },
+  "366:27": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_aviation_space_catalog",
+    "rationale": "Prediction is retired from the aviation-space slice because asteroid-impact panic claims are not modeled in the current satellite-intercept catalog."
+  },
+  "481:4": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_aviation_space_catalog",
+    "rationale": "Prediction is retired from the aviation-space slice because the NASA moon-bombardment experiment row does not fit the current satellite-action rulebook."
+  },
+  "537:3": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_aviation_space_catalog",
+    "rationale": "Prediction is retired from the aviation-space slice because gamma-ray and deep-history energy-flash claims are outside the current aviation-space event catalog."
+  },
+  "688:25": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_aviation_space_catalog",
+    "rationale": "Prediction is retired from the aviation-space slice because Apollo-hoax commentary is outside the current satellite-action rulebook."
+  }
+}

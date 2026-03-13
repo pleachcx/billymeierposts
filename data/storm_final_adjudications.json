@@ -1,0 +1,7 @@
+{
+  "395:6": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "missing_defensible_swiss_tornado_catalog",
+    "rationale": "Prediction is retired from the storm slice on this baseline because the current storm catalog does not yet have a defensible Swiss inland-tornado source set for the Lake Constance damage claim."
+  }
+}

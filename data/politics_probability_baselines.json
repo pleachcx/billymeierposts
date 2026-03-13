@@ -109,46 +109,6 @@
     "similar_horizon_days": 365,
     "notes": "Treat the Agca-to-John-Paul-II row as the same one-off assassination-attempt event, even though the Stage 2 exact-day window lands too early."
   },
-  "136:138": {
-    "probability_key": "retired_papal_election_retrospective_claim",
-    "model": "actor_risk_window_single_event_v1",
-    "calibration_start": "1980-10-14",
-    "calibration_end": "1980-10-16",
-    "event_count": 0,
-    "near_expansion_days": 0,
-    "similar_horizon_days": 30,
-    "notes": "Retired retrospective papal-election biography row with no scored politics event in scope."
-  },
-  "136:139": {
-    "probability_key": "retired_papal_biography_fact_claim",
-    "model": "actor_risk_window_single_event_v1",
-    "calibration_start": "1980-10-14",
-    "calibration_end": "1981-05-18",
-    "event_count": 0,
-    "near_expansion_days": 0,
-    "similar_horizon_days": 30,
-    "notes": "Retired papal biography row with no scored politics event in scope."
-  },
-  "136:148": {
-    "probability_key": "retired_holy_see_israel_alignment_claim",
-    "model": "actor_risk_window_single_event_v1",
-    "calibration_start": "1980-10-14",
-    "calibration_end": "1982-10-14",
-    "event_count": 0,
-    "near_expansion_days": 0,
-    "similar_horizon_days": 30,
-    "notes": "Retired Holy See and Israel alignment row rather than stretching the politics event catalog in P1."
-  },
-  "136:161": {
-    "probability_key": "retired_polish_primate_biography_fact",
-    "model": "actor_risk_window_single_event_v1",
-    "calibration_start": "1980-10-14",
-    "calibration_end": "1981-08-03",
-    "event_count": 0,
-    "near_expansion_days": 0,
-    "similar_horizon_days": 30,
-    "notes": "Retired Stefan Wyszynski biography row with no scored politics event in scope."
-  },
   "136:163": {
     "probability_key": "reagan_assassination_attempt_window_hinckley_row",
     "model": "actor_risk_window_single_event_v1",
@@ -158,26 +118,6 @@
     "near_expansion_days": 3,
     "similar_horizon_days": 365,
     "notes": "Treat the Reagan/Hinckley row as the same one-off March 1981 violent event."
-  },
-  "136:211": {
-    "probability_key": "retired_banisadr_ouster_follow_on",
-    "model": "actor_risk_window_single_event_v1",
-    "calibration_start": "1980-10-14",
-    "calibration_end": "1981-06-21",
-    "event_count": 0,
-    "near_expansion_days": 0,
-    "similar_horizon_days": 30,
-    "notes": "Retired Banisadr/Iran executions follow-on row with no scored politics event in scope."
-  },
-  "136:221": {
-    "probability_key": "retired_sadat_assassination_trial_claim",
-    "model": "actor_risk_window_single_event_v1",
-    "calibration_start": "1980-10-14",
-    "calibration_end": "1982-10-14",
-    "event_count": 0,
-    "near_expansion_days": 0,
-    "similar_horizon_days": 30,
-    "notes": "Retired Sadat-assassination trial row rather than adding a new politics-trial rulebook in P1."
   },
   "136:213": {
     "probability_key": "reagan_assassination_attempt_window_short_claim",
@@ -229,16 +169,6 @@
     "similar_horizon_days": 365,
     "notes": "Treat Switzerland's UN entry as a one-off jurisdiction-specific membership event over the post-prediction accession process."
   },
-  "225:7": {
-    "probability_key": "retired_public_vindication_claim",
-    "model": "actor_risk_window_single_event_v1",
-    "calibration_start": "1988-12-31",
-    "calibration_end": "1990-12-31",
-    "event_count": 0,
-    "near_expansion_days": 0,
-    "similar_horizon_days": 30,
-    "notes": "Retired generalized vindication row with no scored politics event in scope."
-  },
   "436:12": {
     "probability_key": "house_majority_flip_2006_window",
     "model": "actor_risk_window_single_event_v1",
@@ -258,15 +188,5 @@
     "near_expansion_days": 7,
     "similar_horizon_days": 365,
     "notes": "Treat Blair's resignation announcement as a one-off actor-specific transition event during the final two weeks before the 10 May 2007 announcement."
-  },
-  "150:105": {
-    "probability_key": "retired_ariel_sharon_swearing_in_claim",
-    "model": "actor_risk_window_single_event_v1",
-    "calibration_start": "1981-05-13",
-    "calibration_end": "1982-02-06",
-    "event_count": 0,
-    "near_expansion_days": 0,
-    "similar_horizon_days": 30,
-    "notes": "Retired Ariel Sharon swearing-in row because the current Stage 2 time normalization is too far removed from the eventual 2001 premiership event."
   }
 }

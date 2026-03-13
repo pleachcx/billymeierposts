@@ -139,6 +139,16 @@
     "similar_horizon_days": 365,
     "notes": "Treat Talang's April 2005 eruption onset as a one-off named-volcano event over the short post-prediction hazard window."
   },
+  "383:13": {
+    "probability_key": "colima_eruption_window_2005",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2005-03-01",
+    "calibration_end": "2005-03-29",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat Colima's late-March 2005 ash-emission episode as a one-off named-volcano event during the immediate pre-window build-up and 23-29 March activity span."
+  },
   "400:3": {
     "probability_key": "santa_ana_eruption_window_2005",
     "model": "location_risk_window_single_event_v1",

@@ -1,0 +1,22 @@
+{
+  "72:1": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "conditional_hazard_claim",
+    "rationale": "Prediction is retired from the volcano slice because it is a conditional hazard warning without a named volcano or measurable eruption trigger in the current rulebook."
+  },
+  "214:26": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "conditional_counterfactual_claim",
+    "rationale": "Prediction is retired from the volcano slice because it is a hypothetical Vesuvius counterfactual rather than a measurable eruption prediction on this baseline."
+  },
+  "238:41": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "misclassified_non_volcano_claim",
+    "rationale": "Prediction is retired from the volcano slice because it is an oil-tanker accident claim, not a volcano event."
+  },
+  "779:464": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "retrospective_historical_claim",
+    "rationale": "Prediction is retired from the volcano slice because it is a retrospective 1951 eruption reference rather than a future event on the active baseline."
+  }
+}

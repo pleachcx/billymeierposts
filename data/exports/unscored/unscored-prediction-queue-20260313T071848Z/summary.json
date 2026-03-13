@@ -1,0 +1,188 @@
+{
+  "generated_at": "2026-03-13T07:18:48.335630+00:00",
+  "queue_summary": {
+    "family_guess_counts": {
+      "aviation_space": 88,
+      "climate_environment": 121,
+      "earthquake": 81,
+      "economy": 41,
+      "epidemic": 316,
+      "politics_election": 210,
+      "science_technology": 37,
+      "storm": 70,
+      "unknown": 296,
+      "volcano": 24,
+      "war_conflict": 313
+    },
+    "prediction_count": 1597,
+    "recovery_bucket_counts": {
+      "existing_pipeline_outside_current_p3_scope": 81,
+      "needs_parser_or_stage2_family_resolution": 279,
+      "outside_current_rulebook_scope": 496,
+      "promote_via_existing_family_pipeline": 498,
+      "retire_past_event_reference": 52,
+      "stage2_revisit_in_supported_family": 191
+    },
+    "significant_count": 214,
+    "stage2_label_counts": {
+      "eligible_prediction": 1192,
+      "prediction_but_not_measurable": 191,
+      "significant_prediction": 214
+    },
+    "supported_family_count": 708
+  },
+  "script_version": "unscored_prediction_queue_v1",
+  "stage2_run_key": "stage2-20260313T024045Z",
+  "top_rows": [
+    {
+      "candidate_seq": 85,
+      "family_guess": "politics_election",
+      "match_status": "unreviewed",
+      "priority_rank": 1,
+      "recovery_bucket": "promote_via_existing_family_pipeline",
+      "report_number": 238,
+      "significant": true,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 182,
+      "family_guess": "politics_election",
+      "match_status": "unreviewed",
+      "priority_rank": 2,
+      "recovery_bucket": "promote_via_existing_family_pipeline",
+      "report_number": 238,
+      "significant": true,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 186,
+      "family_guess": "politics_election",
+      "match_status": "unreviewed",
+      "priority_rank": 3,
+      "recovery_bucket": "promote_via_existing_family_pipeline",
+      "report_number": 238,
+      "significant": true,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 195,
+      "family_guess": "politics_election",
+      "match_status": "unreviewed",
+      "priority_rank": 4,
+      "recovery_bucket": "promote_via_existing_family_pipeline",
+      "report_number": 238,
+      "significant": true,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 2,
+      "family_guess": "politics_election",
+      "match_status": "unreviewed",
+      "priority_rank": 5,
+      "recovery_bucket": "promote_via_existing_family_pipeline",
+      "report_number": 252,
+      "significant": true,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 5,
+      "family_guess": "politics_election",
+      "match_status": "unreviewed",
+      "priority_rank": 6,
+      "recovery_bucket": "promote_via_existing_family_pipeline",
+      "report_number": 383,
+      "significant": true,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 4,
+      "family_guess": "politics_election",
+      "match_status": "unreviewed",
+      "priority_rank": 7,
+      "recovery_bucket": "promote_via_existing_family_pipeline",
+      "report_number": 589,
+      "significant": true,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 12,
+      "family_guess": "politics_election",
+      "match_status": "unreviewed",
+      "priority_rank": 8,
+      "recovery_bucket": "promote_via_existing_family_pipeline",
+      "report_number": 687,
+      "significant": true,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 25,
+      "family_guess": "politics_election",
+      "match_status": "unreviewed",
+      "priority_rank": 9,
+      "recovery_bucket": "promote_via_existing_family_pipeline",
+      "report_number": 718,
+      "significant": true,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 7,
+      "family_guess": "politics_election",
+      "match_status": "unreviewed",
+      "priority_rank": 10,
+      "recovery_bucket": "promote_via_existing_family_pipeline",
+      "report_number": 786,
+      "significant": true,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 8,
+      "family_guess": "epidemic",
+      "match_status": "unreviewed",
+      "priority_rank": 11,
+      "recovery_bucket": "promote_via_existing_family_pipeline",
+      "report_number": 788,
+      "significant": true,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 12,
+      "family_guess": "epidemic",
+      "match_status": "unreviewed",
+      "priority_rank": 12,
+      "recovery_bucket": "promote_via_existing_family_pipeline",
+      "report_number": 830,
+      "significant": true,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 3,
+      "family_guess": "aviation_space",
+      "match_status": "unreviewed",
+      "priority_rank": 13,
+      "recovery_bucket": "promote_via_existing_family_pipeline",
+      "report_number": 833,
+      "significant": true,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 58,
+      "family_guess": "volcano",
+      "match_status": "unreviewed",
+      "priority_rank": 14,
+      "recovery_bucket": "promote_via_existing_family_pipeline",
+      "report_number": 136,
+      "significant": true,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 24,
+      "family_guess": "volcano",
+      "match_status": "unreviewed",
+      "priority_rank": 15,
+      "recovery_bucket": "promote_via_existing_family_pipeline",
+      "report_number": 182,
+      "significant": true,
+      "stage2_label": "significant_prediction"
+    }
+  ]
+}

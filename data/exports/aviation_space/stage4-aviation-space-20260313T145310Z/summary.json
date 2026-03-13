@@ -8,7 +8,7 @@
   "final_status_counts": {
     "included_in_statistics": 1
   },
-  "generated_at": "2026-03-13T07:18:45.836113+00:00",
+  "generated_at": "2026-03-13T07:43:06.206835+00:00",
   "match_status_counts": {
     "exact_hit": 1
   },
@@ -76,7 +76,7 @@
     "stage3_run_key": "stage3-aviation-space-20260313T145300Z",
     "stage4_run_key": "stage4-aviation-space-20260313T145310Z",
     "stage5_run_key": "stage5-aviation-space-20260313T145320Z",
-    "stage7_run_key": "stage7-aviation-space-final-20260313T071704Z"
+    "stage7_run_key": "stage7-aviation-space-final-20260313T074259Z"
   },
   "scoped_prediction_count": 1,
   "script_version": "aviation_space_export_v1"

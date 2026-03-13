@@ -1,0 +1,11 @@
+{
+  "schema_version": "prediction_provenance_research_log_v1",
+  "active_pack_id": "P2",
+  "baseline_stage2_run_key": "stage2-20260311T093233Z",
+  "updated_at": "2026-03-13T00:00:00Z",
+  "notes": [
+    "Track deep-archive provenance rescue attempts separately from importable evidence rows.",
+    "Record only defensible source facts in attempted_sources; keep speculative follow-ups in next_hypothesis."
+  ],
+  "entries": []
+}

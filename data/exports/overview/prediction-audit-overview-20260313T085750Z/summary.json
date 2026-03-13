@@ -1,0 +1,71 @@
+{
+  "best_available_source_tier_counts": {
+    "(none)": 4,
+    "mirror_revision_timestamp": 11,
+    "mirror_translation_page": 2,
+    "official_figu_original": 118
+  },
+  "combined_observed_probability": {
+    "claimed_date_baseline": {
+      "count": 134,
+      "ln_sum": -490.968242,
+      "log10_sum": -213.224798
+    },
+    "public_date_clean": {
+      "count": 9,
+      "ln_sum": -30.751032,
+      "log10_sum": -13.355003
+    },
+    "public_date_currently_unrescued": {
+      "count": 99,
+      "ln_sum": -378.501834,
+      "log10_sum": -164.381258
+    }
+  },
+  "current_public_source_tier_counts": {
+    "(none)": 4,
+    "mirror_revision_timestamp": 88,
+    "mirror_translation_page": 39,
+    "official_figu_original": 4
+  },
+  "family_counts": {
+    "aviation_space": 1,
+    "earthquake": 69,
+    "epidemic": 18,
+    "politics_election": 21,
+    "storm": 6,
+    "volcano": 20
+  },
+  "generated_at": "2026-03-13T08:57:50.414817+00:00",
+  "match_status_counts": {
+    "exact_hit": 94,
+    "miss": 10,
+    "near_hit": 20,
+    "similar_only": 11
+  },
+  "parse_counts": {
+    "candidate_count": 6797,
+    "eligible_count": 1226,
+    "significant_count": 316
+  },
+  "public_date_cohort_status_counts": {
+    "excluded_currently_unrescued": 100,
+    "included_in_current_public_date_cohort": 9,
+    "pending_more_public_evidence": 26
+  },
+  "public_date_status_counts": {
+    "event_precedes_publication": 100,
+    "no_public_date_evidence": 26,
+    "public_date_ok": 9
+  },
+  "scored_counts": {
+    "claimed_exact_hit_count": 94,
+    "claimed_hit_count": 125,
+    "included_scored_count": 135,
+    "public_date_clean_count": 9,
+    "public_date_clean_exact_hit_count": 1,
+    "public_date_clean_hit_count": 1
+  },
+  "script_version": "prediction_audit_overview_v2",
+  "stage2_run_key": "stage2-20260313T024045Z"
+}

@@ -143,6 +143,15 @@
     "window_end": "2005-01-11",
     "notes": "Scope the Japan row to human avian-influenza cases; the current catalog can only offer a same-disease partial match."
   },
+  "182:38": {
+    "disease_key": "bse_vcjd",
+    "expected_event_type": "human_link_reported",
+    "target_name": "United Kingdom",
+    "target_keywords": ["United Kingdom", "UK", "BSE", "CJD", "Creutzfeldt-Jakob"],
+    "window_start": "1990-01-01",
+    "window_end": "1996-03-21",
+    "notes": "Scope the BSE/CJD row to WHO's 21 March 1996 report that the most likely explanation for the unusual human CJD cases was prior exposure to BSE."
+  },
   "721:6": {
     "disease_key": "covid19",
     "expected_event_type": "pandemic_declared",

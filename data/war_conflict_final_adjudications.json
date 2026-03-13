@@ -1,0 +1,7 @@
+{
+  "394:3": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "stored_exact_day_conflicts_with_only_matching_event",
+    "rationale": "Prediction is retired from the war_conflict slice because the stored exact-day window is 21 July 2004, while the only defensible same-target analogue is the 21 July 2005 attempted London bombings; the current rulebook will not rewrite the corpus year to save the row."
+  }
+}

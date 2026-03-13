@@ -1,0 +1,82 @@
+{
+  "136:170": {
+    "probability_key": "irp_headquarters_bombing_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "1980-10-14",
+    "calibration_end": "1981-06-28",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat the Tehran IRP headquarters bombing as a one-off location-specific attack event during the post-prediction window."
+  },
+  "136:202": {
+    "probability_key": "tehran_leadership_bombing_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "1981-06-28",
+    "calibration_end": "1981-08-30",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat the second Tehran leadership bombing as a one-off post-anchor attack after the first Tehran bombing."
+  },
+  "206:5": {
+    "probability_key": "us_mass_casualty_terror_window_911",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "1986-03-07",
+    "calibration_end": "2001-09-11",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat the 11 September 2001 United States attacks as a one-off mass-casualty terror event within the long post-prediction horizon."
+  },
+  "393:8": {
+    "probability_key": "london_77_transport_bombing_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2005-07-02",
+    "calibration_end": "2005-07-07",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat the 7 July 2005 London transport bombings as a one-off city transport attack in the immediate post-prediction days."
+  },
+  "394:3": {
+    "probability_key": "london_follow_on_attempted_bombing_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2004-07-09",
+    "calibration_end": "2005-07-21",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Keep a probability record for the follow-on London bombing row even though final adjudication retires it for the stored 2004/2005 chronology conflict."
+  },
+  "400:1": {
+    "probability_key": "bali_2005_suicide_bombing_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2005-09-25",
+    "calibration_end": "2005-10-01",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat the 1 October 2005 Bali bombings as a one-off tourist-district attack in the immediate post-prediction window."
+  },
+  "400:21": {
+    "probability_key": "nalchik_security_raid_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2005-09-25",
+    "calibration_end": "2005-10-13",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat the Nalchik raid as a one-off named-city security-target attack in the days after the report."
+  },
+  "668:2": {
+    "probability_key": "berlin_market_vehicle_attack_window",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2016-12-15",
+    "calibration_end": "2016-12-19",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat the Berlin Christmas market vehicle attack as a one-off named-market attack in the immediate post-prediction window."
+  }
+}

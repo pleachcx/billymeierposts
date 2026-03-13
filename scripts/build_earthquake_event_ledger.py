@@ -642,6 +642,8 @@ def clear_stale_prediction_overrides(cur, stage2_run_id: int, active_override_ke
             id,
             report_number,
             candidate_seq,
+            best_event_ledger_id,
+            time_window_start,
             stage2_meta
         FROM public.prediction_audit_predictions
         WHERE last_stage2_run_id = %s
@@ -650,18 +652,40 @@ def clear_stale_prediction_overrides(cur, stage2_run_id: int, active_override_ke
         (stage2_run_id,),
     )
     stale_prediction_ids: list[int] = []
-    for prediction_id, report_number, candidate_seq, stage2_meta in cur.fetchall():
+    for prediction_id, report_number, candidate_seq, best_event_ledger_id, time_window_start, stage2_meta in cur.fetchall():
         meta = stage2_meta or {}
         key = f"{report_number}:{candidate_seq}"
         if key in active_override_keys:
             continue
         time_override = meta.get("earthquake_time_window_override")
         target_resolution = meta.get("target_resolution") or {}
-        if time_override or str(target_resolution.get("source", "")).startswith("prediction_override"):
+        if (
+            time_override
+            or str(target_resolution.get("source", "")).startswith("prediction_override")
+            or (best_event_ledger_id is not None and time_window_start is None and bool(target_resolution))
+        ):
             stale_prediction_ids.append(prediction_id)
 
     if not stale_prediction_ids:
         return 0
+
+    cur.execute(
+        """
+        UPDATE public.prediction_audit_match_reviews
+        SET is_primary = false
+        WHERE prediction_id = ANY(%s) AND is_primary = true
+        """,
+        (stale_prediction_ids,),
+    )
+
+    cur.execute(
+        """
+        UPDATE public.prediction_audit_final_reviews
+        SET is_primary = false
+        WHERE prediction_id = ANY(%s) AND is_primary = true
+        """,
+        (stale_prediction_ids,),
+    )
 
     cur.execute(
         """
@@ -681,6 +705,19 @@ def clear_stale_prediction_overrides(cur, stage2_run_id: int, active_override_ke
             target_radius_km = NULL,
             time_window_start = NULL,
             time_window_end = NULL,
+            best_event_ledger_id = NULL,
+            match_status = 'unreviewed',
+            p_exact_under_null = NULL,
+            p_near_under_null = NULL,
+            p_similar_under_null = NULL,
+            p_miss_under_null = NULL,
+            probability_model_version = NULL,
+            probability_notes = NULL,
+            probability_meta = '{}'::jsonb,
+            final_status = 'pending',
+            final_reason = NULL,
+            last_final_review_run_id = NULL,
+            final_meta = '{}'::jsonb,
             stage2_meta = COALESCE(stage2_meta, '{}'::jsonb) - 'target_resolution' - 'earthquake_time_window_override'
         WHERE id = ANY(%s)
         """,
@@ -745,11 +782,11 @@ def main() -> int:
     try:
         with conn.cursor() as cur:
             stage2_run_id, resolved_stage2_run_key = fetch_stage2_run(cur, args.stage2_run_key)
-            predictions = fetch_predictions(cur, stage2_run_id, args.only_significant, match_statuses, args.limit)
             stale_override_resets = 0
             if not args.dry_run:
                 stale_override_resets = clear_stale_prediction_overrides(cur, stage2_run_id, set(prediction_overrides))
                 conn.commit()
+            predictions = fetch_predictions(cur, stage2_run_id, args.only_significant, match_statuses, args.limit)
 
             if not args.dry_run:
                 stage3_run_id = insert_run(

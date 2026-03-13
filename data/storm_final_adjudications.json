@@ -58,5 +58,20 @@
     "final_status": "permanently_unresolved",
     "reason_code": "unnamed_alpine_catastrophe_claim",
     "rationale": "Prediction is retired from the storm slice because it only warns of alpine catastrophes in Switzerland next week without naming a specific storm or defensible weather event target."
+  },
+  "238:20": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "countryless_storm_continuation_claim",
+    "rationale": "Prediction is retired from the storm slice because it only says unnamed storms will keep bringing floods and deaths to an unspecified country rather than naming one bounded weather disaster."
+  },
+  "376:12": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "seasonal_weather_sequence_not_named_storm",
+    "rationale": "Prediction is retired from the storm slice because it forecasts a cold spell, spring thaw, and renewed flooding as one seasonal sequence instead of one cataloged storm event."
+  },
+  "688:10": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "multi_region_monsoon_season_aggregate",
+    "rationale": "Prediction is retired from the storm slice because it aggregates monsoon catastrophe and death claims across Asia and South Asia over a whole season rather than one defensible atomic storm event."
   }
 }

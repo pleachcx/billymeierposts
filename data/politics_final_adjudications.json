@@ -83,5 +83,50 @@
     "final_status": "permanently_unresolved",
     "reason_code": "outside_current_politics_catalog",
     "rationale": "Prediction is retired from the politics slice because generalized personal vindication is not a measurable government-action event in the current catalog."
+  },
+  "238:85": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_state_dissolution_event",
+    "rationale": "Prediction is retired from the politics slice because Soviet disintegration and the collapse of the communist alliance are broad regime-breakup claims that the current government-action catalog does not score as one bounded event type."
+  },
+  "238:182": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_public_discreditation_claim",
+    "rationale": "Prediction is retired from the politics slice because public discrediting of Boris Yeltsin and demands for his resignation are political sentiment claims, not one formal government-action event in the current catalog."
+  },
+  "238:186": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_public_discreditation_claim",
+    "rationale": "Prediction is retired from the politics slice because the claim that Russians will recognize Yeltsin's inability is a broad approval-collapse narrative rather than a scored election or state-action event."
+  },
+  "238:195": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "contextless_pronoun_politics_claim",
+    "rationale": "Prediction is retired from the politics slice because the row only says that an unnamed danger will be recognized by year's end, without a self-contained governmental action or officeholder outcome to score."
+  },
+  "252:2": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "internal_board_governance_claim",
+    "rationale": "Prediction is retired from the politics slice because it concerns board-of-directors term turnover in 2018, which is internal governance rather than a public government-action event in the current catalog."
+  },
+  "383:5": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "public_sentiment_about_royal_marriage",
+    "rationale": "Prediction is retired from the politics slice because popular objection to Camilla becoming queen is a public-opinion claim tied to a royal marriage, not a formal government-action event in the current catalog."
+  },
+  "589:4": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_former_leader_questioning_event",
+    "rationale": "Prediction is retired from the politics slice because former President Sarkozy being detained for questioning is a judicial-investigation event type the current politics catalog does not score on this baseline."
+  },
+  "718:25": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "broad_regime_overthrow_claim",
+    "rationale": "Prediction is retired from the politics slice because it forecasts intrigue-driven government overthrows in Europe and Austria without one named officeholder change or bounded state-action event."
+  },
+  "786:7": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_referendum_event_type",
+    "rationale": "Prediction is retired from the politics slice because the row depends on an implied issue context and a referendum date, but the current government-action catalog does not yet score referendum-launch events."
   }
 }

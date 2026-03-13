@@ -50,6 +50,10 @@ def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> 
             writer.writerow({field: csv_safe(row.get(field)) for field in fieldnames})
 
 
+def json_safe_counter(counter: Counter[Any]) -> dict[str, int]:
+    return {("(none)" if key is None else str(key)): value for key, value in counter.items()}
+
+
 def main() -> int:
     args = parse_args()
     dsn = os.environ.get(args.dsn_env)
@@ -109,19 +113,21 @@ def main() -> int:
             "script_version": SCRIPT_VERSION,
             "stage2_run_key": stage2["run_key"],
             "included_scored_prediction_count": len(rows),
-            "family_counts": dict(Counter(row["event_family_final"] for row in rows)),
-            "match_status_counts": dict(Counter(row["match_status"] for row in rows)),
-            "public_date_status_counts": dict(Counter(row["public_date_status"] for row in rows)),
-            "public_date_cohort_status_counts": dict(Counter(row["public_date_cohort_status"] for row in rows)),
+            "family_counts": json_safe_counter(Counter(row["event_family_final"] for row in rows)),
+            "match_status_counts": json_safe_counter(Counter(row["match_status"] for row in rows)),
+            "public_date_status_counts": json_safe_counter(Counter(row["public_date_status"] for row in rows)),
+            "public_date_cohort_status_counts": json_safe_counter(Counter(row["public_date_cohort_status"] for row in rows)),
             "earliest_public_date_populated_count": sum(1 for row in rows if row["earliest_provable_public_date"] is not None),
             "observed_event_before_publication_count": sum(1 for row in rows if row["observed_event_before_publication"]),
-            "observed_event_before_publication_by_family": dict(
+            "observed_event_before_publication_by_family": json_safe_counter(
                 Counter(row["event_family_final"] for row in rows if row["observed_event_before_publication"])
             ),
-            "current_public_source_tier_counts": dict(Counter(row["current_public_source_tier"] for row in rows)),
-            "best_available_source_tier_counts": dict(Counter(row["best_available_source_tier"] for row in rows)),
-            "current_public_source_bucket_counts": dict(Counter(row["current_public_source_bucket"] for row in rows)),
-            "conflict_gap_bucket_counts": dict(Counter(row["publication_conflict_gap_bucket"] for row in rows if row["publication_conflict_gap_bucket"])),
+            "current_public_source_tier_counts": json_safe_counter(Counter(row["current_public_source_tier"] for row in rows)),
+            "best_available_source_tier_counts": json_safe_counter(Counter(row["best_available_source_tier"] for row in rows)),
+            "current_public_source_bucket_counts": json_safe_counter(Counter(row["current_public_source_bucket"] for row in rows)),
+            "conflict_gap_bucket_counts": json_safe_counter(
+                Counter(row["publication_conflict_gap_bucket"] for row in rows if row["publication_conflict_gap_bucket"])
+            ),
         }
 
         default_dir = OUTPUT_ROOT / ("publication-timing-audit-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))

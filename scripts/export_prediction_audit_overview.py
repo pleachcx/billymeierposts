@@ -77,6 +77,10 @@ def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> 
             writer.writerow({field: csv_safe(row.get(field)) for field in fieldnames})
 
 
+def json_safe_counter(counter: Counter[Any]) -> dict[str, int]:
+    return {("(none)" if key is None else str(key)): value for key, value in counter.items()}
+
+
 def main() -> int:
     args = parse_args()
     dsn = os.environ.get(args.dsn_env)
@@ -161,12 +165,12 @@ def main() -> int:
                 "public_date_clean_hit_count": len(public_clean_hits),
                 "public_date_clean_exact_hit_count": sum(1 for row in public_clean_hits if row["match_status"] == "exact_hit"),
             },
-            "match_status_counts": dict(Counter(row["match_status"] for row in scored_rows)),
-            "public_date_status_counts": dict(Counter(row["public_date_status"] for row in scored_rows)),
-            "public_date_cohort_status_counts": dict(Counter(row["public_date_cohort_status"] for row in scored_rows)),
-            "family_counts": dict(Counter(row["event_family_final"] for row in scored_rows)),
-            "current_public_source_tier_counts": dict(Counter(row["current_public_source_tier"] for row in scored_rows)),
-            "best_available_source_tier_counts": dict(Counter(row["best_available_source_tier"] for row in scored_rows)),
+            "match_status_counts": json_safe_counter(Counter(row["match_status"] for row in scored_rows)),
+            "public_date_status_counts": json_safe_counter(Counter(row["public_date_status"] for row in scored_rows)),
+            "public_date_cohort_status_counts": json_safe_counter(Counter(row["public_date_cohort_status"] for row in scored_rows)),
+            "family_counts": json_safe_counter(Counter(row["event_family_final"] for row in scored_rows)),
+            "current_public_source_tier_counts": json_safe_counter(Counter(row["current_public_source_tier"] for row in scored_rows)),
+            "best_available_source_tier_counts": json_safe_counter(Counter(row["best_available_source_tier"] for row in scored_rows)),
             "combined_observed_probability": {
                 "claimed_date_baseline": aggregate_probability(scored_rows),
                 "public_date_clean": aggregate_probability(public_clean_rows),
@@ -200,10 +204,10 @@ def main() -> int:
                         if row["public_date_cohort_status"] == "included_in_current_public_date_cohort"
                         and row["match_status"] == "exact_hit"
                     ),
-                    "match_status_counts": dict(Counter(row["match_status"] for row in family_subset)),
-                    "public_date_status_counts": dict(Counter(row["public_date_status"] for row in family_subset)),
-                    "public_date_cohort_status_counts": dict(Counter(row["public_date_cohort_status"] for row in family_subset)),
-                    "best_available_source_tier_counts": dict(Counter(row["best_available_source_tier"] for row in family_subset)),
+                    "match_status_counts": json_safe_counter(Counter(row["match_status"] for row in family_subset)),
+                    "public_date_status_counts": json_safe_counter(Counter(row["public_date_status"] for row in family_subset)),
+                    "public_date_cohort_status_counts": json_safe_counter(Counter(row["public_date_cohort_status"] for row in family_subset)),
+                    "best_available_source_tier_counts": json_safe_counter(Counter(row["best_available_source_tier"] for row in family_subset)),
                 }
             )
 

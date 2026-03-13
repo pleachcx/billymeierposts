@@ -198,6 +198,11 @@
 - Direct Joomla-style path probing on `figu.org` for corona pages, special bulletins, and report-number search pages currently returns 404s; do not assume the old `/ch/...` SEO paths in search-engine snippets are still live without a captured URL.
 - Wayback does have official captures for `https://www.figu.org/ch/index/downloads/coronavirus` and `.../kontaktberichte`, but the earliest currently found are `2020-05-13` for `coronavirus` and `2020-11-17` for `kontaktberichte`, which are too late to rescue `729/12`, `725/1`, or `663/15`.
 - Family-specific exporters must run strictly after both Stage 7 and Stage 8 complete; parallelizing them with adjudication or publication review snapshots stale `pending` final/public-date statuses.
+- Block a new supervisor cycle when the work spec names a different feature branch and that branch does not yet exist; do not reopen the closed baseline branch for fresh backlog work.
+- Rewrite `.workflow/*` from the active work spec when a new cycle supersedes a `branch_complete` state; verify branch name, branch existence, and start-of-bundle cleanliness before releasing `P1`.
+- Treat missing `support.md` in `support.md docs/*.md` discovery as an explicit planning assumption; anchor the cycle to the available `docs/*.md` files and record the missing path in workflow notes.
+- Reconstruct supervisor-loop progress from `.workflow/branch_plan.md`, `.workflow/slice_queue.md`, and `.workflow/supervisor_decision.md`; `docs/prediction_audit_supervisor_work_spec.md` can lag the accepted branch state.
+- Scope the next audit wave from `unscored-prediction-queue` bucket counts: drain `promote_via_existing_family_pipeline`, `stage2_revisit_in_supported_family`, and earthquake replay backlog before reopening blocked new-family rulebooks.
 - Rewrite supervisor workflow files to the active aligned Stage 2 baseline after any accepted rerun pack; do not keep active instructions anchored to stale spec-front-matter run keys.
 - Verify pack acceptance against the generated summary JSON artifacts before advancing the active pack; do not trust implementer handoff counts alone.
 - Open the release-output pack only after overview, provenance, research-queue, and unscored exports reconcile on one baseline.

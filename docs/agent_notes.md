@@ -198,6 +198,9 @@
 - Direct Joomla-style path probing on `figu.org` for corona pages, special bulletins, and report-number search pages currently returns 404s; do not assume the old `/ch/...` SEO paths in search-engine snippets are still live without a captured URL.
 - Wayback does have official captures for `https://www.figu.org/ch/index/downloads/coronavirus` and `.../kontaktberichte`, but the earliest currently found are `2020-05-13` for `coronavirus` and `2020-11-17` for `kontaktberichte`, which are too late to rescue `729/12`, `725/1`, or `663/15`.
 - Family-specific exporters must run strictly after both Stage 7 and Stage 8 complete; parallelizing them with adjudication or publication review snapshots stale `pending` final/public-date statuses.
+- Rerun Stage 8 and then Stage 9 sequentially if they were launched together by mistake; the cohort counts drift even when both commands succeed.
+- Check `P3` completion by exact key membership in `data/exports/unscored/*/queue.csv`, not by the top-level `existing_pipeline_outside_current_p3_scope` bucket count alone.
+- Use USGS-backed one-day windows for late earthquake cleanup when the report context names the location and relative timing well enough; `miss` outcomes still clear the queue once Stage 5 and Stage 7 complete.
 - Refresh supervisor workflow state immediately after a clean pack handoff; do not leave the next pack blocked on an already-landed closeout.
 - Block a new supervisor cycle when the work spec names a different feature branch and that branch does not yet exist; do not reopen the closed baseline branch for fresh backlog work.
 - Rewrite `.workflow/*` from the active work spec when a new cycle supersedes a `branch_complete` state; verify branch name, branch existence, and start-of-bundle cleanliness before releasing `P1`.

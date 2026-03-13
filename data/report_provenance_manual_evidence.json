@@ -231,6 +231,17 @@
     "notes": "The FIGU shop product page linked from Future Of Mankind exposes article:published_time/datePublished as 2022-10-21T14:20:53+01:00; this is official-source support for Block 15 but still postdates the matched event."
   },
   {
+    "report_number": 725,
+    "evidence_kind": "publication_snapshot",
+    "evidence_quality": 2,
+    "evidence_public_date": "2019-12-27",
+    "source_label": "FIGU-ZEITZEICHEN Sonderausgabe Nr. 4 excerpting Contact Report 725",
+    "source_url": "https://www.figu.org/files/figu_zeitzeichen%20sonderausgabe/figu_zeitzeichen_sa_004.pdf",
+    "language": "german",
+    "edition_or_translation": "official FIGU special issue PDF",
+    "notes": "Official FIGU PDF metadata shows CreationDate as 2019-12-27, and the PDF includes 'Auszuege aus dem 725. offiziellen Kontaktbericht vom 12. Oktober 2019' with the Albania earthquake and Yemen dengue passage. This improves the public date over the mirror revision but still postdates the matched 2019-11-26 Albania earthquake."
+  },
+  {
     "report_number": 683,
     "evidence_kind": "manual_source_link",
     "evidence_quality": 1,
@@ -262,6 +273,17 @@
     "language": "english",
     "edition_or_translation": "authorised but unofficial English translation",
     "notes": "Future Of Mankind page lists 'Date of original translation: Thursday, 17th June 2021'."
+  },
+  {
+    "report_number": 729,
+    "evidence_kind": "publication_snapshot",
+    "evidence_quality": 2,
+    "evidence_public_date": "2020-03-21",
+    "source_label": "FIGU-Zeitzeichen Sonderausgabe Nr. 8 excerpting Contact Report 729",
+    "source_url": "https://www.figu.org/files/figu_zeitzeichen%20sonderausgabe/figu_zeitzeichen_sa_008.pdf",
+    "language": "german",
+    "edition_or_translation": "official FIGU special issue PDF",
+    "notes": "Official FIGU PDF metadata shows CreationDate as 2020-03-21, and the PDF includes 'Auszug aus dem 729. offiziellen Kontaktgespraech vom 2. Januar 2020' with the Corona/WHO pandemic passage. This improves the public date over the mirror revision but still postdates the matched 2020-03-11 WHO pandemic event."
   },
   {
     "report_number": 729,
@@ -350,5 +372,16 @@
     "language": "english",
     "edition_or_translation": "authorised but unofficial English translation",
     "notes": "Future Of Mankind page lists 'Date of original translation: Thursday, 5th December 2024'."
+  },
+  {
+    "report_number": 863,
+    "evidence_kind": "publication_snapshot",
+    "evidence_quality": 2,
+    "evidence_public_date": "2023-09-18",
+    "source_label": "FIGU official German PDF metadata for Contact Report 863",
+    "source_url": "https://www.figu.org/files/figu_kontaktberichte/figu_kontaktbericht_863.pdf",
+    "language": "german",
+    "edition_or_translation": "official FIGU German PDF",
+    "notes": "Official FIGU PDF is publicly downloadable; pdfinfo reports CreationDate and ModDate as Monday, 18th September 2023 AEST, and the PDF text includes the Libya storm passage. This matches the current mirror revision date and still postdates the matched 2023-09-10 Storm Daniel flooding event."
   }
 ]

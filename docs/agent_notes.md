@@ -296,3 +296,7 @@
 - Verify pack acceptance against the latest unscored queue by checking the exact target keys, not only the bucket delta; `230:53` stayed parked until the explicit volcano adjudication was rerun.
 - Clear `scripts/__pycache__/` before the pack handoff commit; validator byproducts make the worktree look dirtier than the real implementation boundary.
 - P2 revisit closeout runs are politics `stage3/4/5/7 = 20260313T074002Z`, epidemic `stage3/4/5/7 = 20260313T073852Z/073853Z/073853Z/074018Z`, Stage `8` `074028Z`, Stage `9` `074029Z`, provenance exports `074030Z/074031Z`, overview `074031Z`, unscored `074122Z`, and release `074122Z`; the `stage2_revisit_in_supported_family` bucket dropped from `191` to `155` and all `36` P2 target keys left the queue.
+- During supervisor review, treat report-only commits as non-evidence until the cited export paths and queue files exist in the committed tree.
+- For revisit-pack acceptance, verify both the summary counts and the actual `queue.csv` membership for every spec-listed target row before advancing to the next pack.
+- Run `export_prediction_audit_release_report.py --skip-refresh` only after the fresh aligned exporters finish; otherwise the release bundle can lock onto older stage2-matched export dirs.
+- Record the repair-cycle closeout from committed artifacts, not transient rerun output: final `P2` evidence is Stage `8/9` `075727Z`, overview/provenance `075756Z`, unscored `075757Z`, and release `075808Z`.

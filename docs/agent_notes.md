@@ -218,6 +218,8 @@
 - The widened volcano replay `stage3-volcano-20260312T001424Z` / `stage4-volcano-20260312T001430Z` / `stage5-volcano-20260312T001440Z` / `stage7-volcano-final-20260312T001448Z` expanded volcano to `11` included rows with `8 exact_hit`, `2 near_hit`, and `1 miss`.
 - New widened volcano rows on the refreshed mainline are `136/97` exact hit, `238/158` near hit, and `241/47` exact hit; `366/13` remains the only public-date-clean volcano row and it is a miss.
 - The aligned post-volcano exports are `publication-timing-audit-20260312T001511Z`, `cohort-comparison-20260312T001512Z`, `public-date-research-queue-20260312T001512Z`, and `prediction-audit-overview-20260312T001512Z`; top-line mainline is now `90` included scored rows with `59` exact hits.
+- Accept a repaired pack only after verifying the cited export directories, summary counts, and target-row queue membership directly from the committed artifacts.
+- When a large pack opens from a spec with only one or two slices, expand the execution queue into meaningful prep, replay, follow-on, and closeout slices without rewriting the overall pack order.
 - After a family replay finishes Stage 7, rerun Stage 8 again sequentially before trusting the global counts; the first post-storm Stage 8 run still showed `90` rows because it raced final adjudication, while the rerun picked up the correct `92`.
 - When the active pack handoff commit is already on `HEAD`, stop at supervisor review and update workflow docs to reflect the live commit list instead of replaying the pack.
 - Treat stale `.workflow/current_implementer_report.md` content from a closed cycle as historical context; rewrite the active supervisor files from the new work spec before issuing fresh pack instructions.

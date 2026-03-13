@@ -188,5 +188,55 @@
     "near_expansion_days": 7,
     "similar_horizon_days": 365,
     "notes": "Treat Chaiten's May 2008 reawakening as a one-off named-volcano event in the immediate post-prediction window."
+  },
+  "72:1": {
+    "probability_key": "retired_conditional_unnamed_volcano_claim",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "1977-02-03",
+    "calibration_end": "1979-02-03",
+    "event_count": 0,
+    "near_expansion_days": 0,
+    "similar_horizon_days": 30,
+    "notes": "Retired conditional unnamed-volcano row with no scored eruption event in scope."
+  },
+  "214:26": {
+    "probability_key": "retired_vesuvius_disaster_claim",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "1987-08-24",
+    "calibration_end": "1987-08-24",
+    "event_count": 0,
+    "near_expansion_days": 0,
+    "similar_horizon_days": 30,
+    "notes": "Retired Vesuvius disaster row with no scored eruption event in scope on the current baseline."
+  },
+  "238:41": {
+    "probability_key": "retired_tenyo_maru_oil_tanker_row",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "1991-05-18",
+    "calibration_end": "1996-05-18",
+    "event_count": 0,
+    "near_expansion_days": 0,
+    "similar_horizon_days": 30,
+    "notes": "Retired Tenyo Maru oil-tanker row because it falls outside the named-volcano eruption catalog."
+  },
+  "383:13": {
+    "probability_key": "retired_colima_catalog_gap_row",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2005-04-06",
+    "calibration_end": "2005-04-06",
+    "event_count": 0,
+    "near_expansion_days": 0,
+    "similar_horizon_days": 30,
+    "notes": "Retired Colima row because the checked-in volcano catalog does not yet include a defensible Colima eruption event."
+  },
+  "779:464": {
+    "probability_key": "retired_hibok_hibok_retrospective_row",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2022-07-07",
+    "calibration_end": "2022-07-07",
+    "event_count": 0,
+    "near_expansion_days": 0,
+    "similar_horizon_days": 30,
+    "notes": "Retired historical Hibok-Hibok/Lamington row because the text is retrospective rather than a replay-ready future eruption claim."
   }
 }

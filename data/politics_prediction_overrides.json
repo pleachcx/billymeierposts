@@ -21,6 +21,17 @@
     "window_end": "1978-08-26",
     "notes": "Prediction scoped to the conclave electing Albino Luciani as Pope on Saturday 26 August 1978."
   },
+  "113:8": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "pope_elected",
+    "actor_name": "The Conclave",
+    "target_name": "Albino Luciani",
+    "target_keywords": ["Luciani", "Albino Luciani", "John Paul I"],
+    "jurisdiction": "Vatican City",
+    "window_start": "1978-08-26",
+    "window_end": "1978-08-26",
+    "notes": "Prediction scoped to the same 26 August 1978 conclave outcome, but from the row that names Luciani and the day explicitly."
+  },
   "555:1": {
     "scoped_family": "politics_election",
     "expected_event_type": "pope_elected",
@@ -97,6 +108,17 @@
     "window_start": "1981-03-30",
     "window_end": "1981-03-30",
     "notes": "Prediction scoped to the March 30, 1981 assassination attempt on Ronald Reagan outside the Washington Hilton Hotel."
+  },
+  "136:213": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "head_of_state_survives_assassination_attempt",
+    "actor_name": "Ronald Reagan",
+    "target_name": "United States Presidency",
+    "target_keywords": ["Washington Hilton Hotel", "John Hinckley", "Reagan"],
+    "jurisdiction": "United States",
+    "window_start": "1981-03-30",
+    "window_end": "1981-03-30",
+    "notes": "Prediction scoped to the same March 30, 1981 Reagan assassination attempt from the shorter lead-in claim."
   },
   "136:143": {
     "scoped_family": "politics_election",

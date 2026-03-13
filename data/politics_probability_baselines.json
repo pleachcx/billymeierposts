@@ -19,6 +19,16 @@
     "similar_horizon_days": 365,
     "notes": "Treat the Luciani election as a one-off conclave event during the sede vacante following Paul VI's death."
   },
+  "113:8": {
+    "probability_key": "john_paul_i_election_window_named_day",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1978-08-06",
+    "calibration_end": "1978-08-26",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat the Luciani election as the same one-off conclave event for the duplicate row that names the exact Saturday date."
+  },
   "555:1": {
     "probability_key": "francis_election_window",
     "model": "actor_risk_window_single_event_v1",
@@ -88,6 +98,16 @@
     "near_expansion_days": 3,
     "similar_horizon_days": 365,
     "notes": "Treat the Reagan assassination attempt as a one-off actor-specific violent event during the opening months of his presidency."
+  },
+  "136:213": {
+    "probability_key": "reagan_assassination_attempt_window_short_claim",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1981-01-20",
+    "calibration_end": "1981-03-30",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat the shorter Reagan-assassination claim as the same one-off March 1981 violent event window."
   },
   "136:143": {
     "probability_key": "mitterrand_election_window",

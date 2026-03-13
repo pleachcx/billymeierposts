@@ -65,6 +65,17 @@
     "resolution_source": "prediction_override_greece_february_1981",
     "notes": "The surrounding report context resolves the 'shortly after 20 February 1981' Greece quake to the 24 February 1981 Alkyonides Gulf sequence."
   },
+  "136:172": {
+    "target_name": "Golbaf / Kerman Province, Iran",
+    "target_type": "region",
+    "lat": 29.75,
+    "lon": 57.73,
+    "radius_km": 180.0,
+    "window_start": "1981-06-11",
+    "window_end": "1981-06-11",
+    "resolution_source": "prediction_override_kerman_june_1981",
+    "notes": "The surrounding report text explicitly identifies this as the 11 June 1981 southern Kerman earthquake that devastated Golbaf only hours after the Bani Sadr attack."
+  },
   "136:89": {
     "target_name": "Western Athens / Alkyonides Gulf, Greece",
     "target_type": "region",
@@ -84,6 +95,39 @@
     "window_end": "1991-06-29",
     "resolution_source": "prediction_override_sierra_madre_june_1991",
     "notes": "The claim names around 29 June and the Sierra Madre epicentral area in California, matching the late-June 1991 Sierra Madre sequence."
+  },
+  "150:135": {
+    "target_name": "Dhamar / Sanaa Governorate, Yemen",
+    "target_type": "region",
+    "lat": 14.56,
+    "lon": 44.39,
+    "radius_km": 140.0,
+    "window_start": "1982-12-13",
+    "window_end": "1982-12-13",
+    "resolution_source": "prediction_override_dhamar_december_1982",
+    "notes": "The report explicitly scopes this row to Dhamar near Sanaa in December 1982, matching the 13 December 1982 Yemen earthquake sequence."
+  },
+  "182:53": {
+    "target_name": "Liege Region, Belgium",
+    "target_type": "region",
+    "lat": 50.64,
+    "lon": 5.57,
+    "radius_km": 140.0,
+    "window_start": "1983-11-08",
+    "window_end": "1983-11-08",
+    "resolution_source": "prediction_override_liege_november_1983",
+    "notes": "This follow-on row is anchored about ten days after the late-October 1983 northeast Turkey quake and explicitly names Liege and the surrounding area."
+  },
+  "238:210": {
+    "target_name": "Erzincan-Bingol Corridor, Turkey",
+    "target_type": "region",
+    "lat": 39.72,
+    "lon": 39.62,
+    "radius_km": 220.0,
+    "window_start": "1992-03-13",
+    "window_end": "1992-03-13",
+    "resolution_source": "prediction_override_erzincan_march_1992",
+    "notes": "The surrounding report context names Erzincan, Erzurum, and Bingol together and ties the row to the same-time Turkey disaster, matching the 13 March 1992 Erzincan sequence."
   },
   "238:182": {
     "target_name": "Tokyo",
@@ -140,6 +184,28 @@
     "window_end": "2005-07-24",
     "resolution_source": "prediction_override_nicobar_july_2005",
     "notes": "The claim explicitly names the Nicobar Islands and the 23rd/24th of July for a magnitude 7.2 seaquake."
+  },
+  "377:23": {
+    "target_name": "Stilfontein Mining District, South Africa",
+    "target_type": "region",
+    "lat": -26.84,
+    "lon": 26.77,
+    "radius_km": 140.0,
+    "window_start": "2005-03-09",
+    "window_end": "2005-03-09",
+    "resolution_source": "prediction_override_stilfontein_march_2005",
+    "notes": "The March 2005 South Africa row mentions a magnitude-5 quake with miner deaths, matching the 9 March 2005 Stilfontein mine earthquake."
+  },
+  "400:6": {
+    "target_name": "La Libertad Offshore, El Salvador",
+    "target_type": "region",
+    "lat": 13.49,
+    "lon": -89.34,
+    "radius_km": 180.0,
+    "window_start": "2005-10-07",
+    "window_end": "2005-10-07",
+    "resolution_source": "prediction_override_el_salvador_october_2005",
+    "notes": "In the same October 2005 sequence as Stan and the Pakistan quake, this row cleanly matches the 7 October 2005 offshore La Libertad earthquake in El Salvador."
   },
   "400:7": {
     "target_name": "Muzaffarabad / Kashmir Region, Pakistan",
@@ -229,6 +295,17 @@
     "resolution_source": "prediction_override_banda_sea_january_2006",
     "notes": "The claim says an even stronger magnitude 7.7 seaquake occurs at the end of January in the Banda Sea."
   },
+  "416:1": {
+    "target_name": "Koryakia / Eastern Siberia, Russia",
+    "target_type": "region",
+    "lat": 60.94,
+    "lon": 167.67,
+    "radius_km": 500.0,
+    "window_start": "2006-04-20",
+    "window_end": "2006-04-20",
+    "resolution_source": "prediction_override_koryakia_april_2006",
+    "notes": "The claim says an 8.1 earthquake will occur in Eastern Siberia/Russia in the coming days, matching the 20 April 2006 Koryakia sequence on the same near-term horizon."
+  },
   "427:1": {
     "target_name": "Indian Ocean South of Java",
     "target_type": "region",
@@ -239,6 +316,17 @@
     "window_end": "2006-07-17",
     "resolution_source": "prediction_override_indian_ocean_july_2006",
     "notes": "The claim explicitly names 17 July for a severe magnitude 7.9 seaquake in the Indian Ocean."
+  },
+  "436:3": {
+    "target_name": "Nice Hinterland / France-Italy Border",
+    "target_type": "region",
+    "lat": 43.96,
+    "lon": 7.62,
+    "radius_km": 90.0,
+    "window_start": "2006-10-24",
+    "window_end": "2006-10-25",
+    "resolution_source": "prediction_override_nice_border_october_2006",
+    "notes": "This row sits between the 24 October Italy quakes and the 26 October Sicily event in the same study list, so the defensible window is 24-25 October 2006 in the Nice hinterland border region."
   },
   "446:7": {
     "target_name": "Noto Peninsula Offshore, Japan",

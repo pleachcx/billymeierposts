@@ -145,6 +145,17 @@ MECHANISM_PATTERN = re.compile(
     """,
     re.IGNORECASE | re.VERBOSE,
 )
+COUNTERFACTUAL_WISH_PATTERN = re.compile(r"\b(?:it\s+would\s+be\s+nice|would\s+be\s+nice)\s+if\b", re.IGNORECASE)
+GENERIC_DISASTER_PATTERN = re.compile(r"\b(catastrophe|disaster)\b", re.IGNORECASE)
+OUTSIDE_RULEBOOK_PATTERN = re.compile(
+    r"""
+    \b(
+        accident|collision|crash|dangerous\s+goods|explodes?|explosion|fire\s+inferno|
+        inferno|petrol|railway\s+accident|vehicle
+    )\b
+    """,
+    re.IGNORECASE | re.VERBOSE,
+)
 LOCATION_GENERIC_VALUES = {
     "Earth",
     "world",
@@ -167,6 +178,7 @@ MONTHS = {
     "november": 11,
     "december": 12,
 }
+MONTH_NAMES = set(MONTHS)
 
 
 @dataclass
@@ -331,10 +343,10 @@ def infer_event_family(claim: str, provisional: str | None) -> str | None:
 
 def parse_month_day_variant(text: str, base_year: int, claimed_date: date) -> tuple[date, str] | None:
     patterns = [
-        (r"\bon\s+the\s+(\d{1,2})(?:st|nd|rd|th)?\s+of\s+([A-Za-z]+)(?:,\s*(\d{4}))?", "exact_month_day"),
-        (r"\bon\s+(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)(?:,\s*(\d{4}))?", "exact_month_day"),
-        (r"\buntil\s+the\s+(\d{1,2})(?:st|nd|rd|th)?\s+of\s+([A-Za-z]+)(?:,\s*(\d{4}))?", "until_month_day"),
-        (r"\buntil\s+(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)(?:,\s*(\d{4}))?", "until_month_day"),
+        (r"\bon\s+the\s+(\d{1,2})(?:st|nd|rd|th)?\s+of\s+([A-Za-z]+)(?:,?\s+(\d{4}))?", "exact_month_day"),
+        (r"\bon\s+(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)(?:,?\s+(\d{4}))?", "exact_month_day"),
+        (r"\buntil\s+the\s+(\d{1,2})(?:st|nd|rd|th)?\s+of\s+([A-Za-z]+)(?:,?\s+(\d{4}))?", "until_month_day"),
+        (r"\buntil\s+(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)(?:,?\s+(\d{4}))?", "until_month_day"),
     ]
     for pattern, basis in patterns:
         match = re.search(pattern, text, re.IGNORECASE)
@@ -346,6 +358,8 @@ def parse_month_day_variant(text: str, base_year: int, claimed_date: date) -> tu
         month = MONTHS.get(month_name)
         if not month:
             return None
+        if match.group(3) is not None and year < claimed_date.year:
+            continue
         candidate = date(year, month, day)
         if match.group(3) is None and candidate < claimed_date:
             candidate = date(year + 1, month, day)
@@ -372,7 +386,10 @@ def normalize_time_window(claimed_date: date, claim: str, time_text: str | None)
     if full_date:
         month = MONTHS.get(full_date.group(1).lower())
         if month:
-            candidate = date(int(full_date.group(3)), month, int(full_date.group(2)))
+            year = int(full_date.group(3))
+            if year < claimed_date.year:
+                return None, None, "historical_full_date_reference"
+            candidate = date(year, month, int(full_date.group(2)))
             return candidate, candidate, "exact_full_date"
 
     months_range = re.search(r"\b(\d{1,2})\s+to\s+(\d{1,2})\s+months\s+from\s+today\b", lower_claim)
@@ -442,6 +459,8 @@ def clean_location(location_text: str | None) -> str | None:
     value = normalize_claim_text(location_text).strip(",.")
     if value in LOCATION_GENERIC_VALUES:
         return None
+    if value.lower() in MONTH_NAMES:
+        return None
     return value
 
 
@@ -451,7 +470,30 @@ def clean_actor(actor_text: str | None) -> str | None:
     value = normalize_claim_text(actor_text).strip(",.")
     if value.lower() in {"i", "we", "you", "they", "he", "she", "it", "what", "then"}:
         return None
+    if value.lower() in MONTH_NAMES:
+        return None
     return value
+
+
+def classify_family_resolution(
+    claim: str,
+    family: str | None,
+    conditionality: str,
+    candidate_class: str,
+) -> tuple[str, str | None]:
+    if family:
+        return "resolved", None
+    if COUNTERFACTUAL_WISH_PATTERN.search(claim):
+        return "retire_nonprediction", "counterfactual_wish_or_preference"
+    if OUTSIDE_RULEBOOK_PATTERN.search(claim):
+        return "outside_current_rulebook_scope", "unsupported_accident_or_industrial_incident"
+    if conditionality != "none" and "armed conflict" in claim.lower():
+        return "resolved_by_rule", "conflict_family_keyword_recovered"
+    if GENERIC_DISASTER_PATTERN.search(claim):
+        return "outside_current_rulebook_scope", "generic_disaster_without_stable_family"
+    if candidate_class == "conditional_future_claim":
+        return "outside_current_rulebook_scope", "conditional_claim_without_stable_family"
+    return "needs_family_resolution", None
 
 
 def parse_magnitude(magnitude_text: str | None, claim: str) -> tuple[float | None, float | None, str | None]:
@@ -588,8 +630,11 @@ def build_result(row: tuple) -> Stage2Result:
     meaningfulness_score, meaning_reasons = score_meaningfulness(claim, family, (time_start, time_end), location, actor, magnitude_text)
     measurability_score, measure_reasons = score_measurability(claim, family, (time_start, time_end), location, actor, magnitude_text)
     provenance_score, derived_public_basis = score_provenance(claimed_contact_date, earliest_public_date)
+    family_resolution_status, family_resolution_reason = classify_family_resolution(claim, family, conditionality, candidate_class)
 
-    if not future_claim_present and not FUTURE_MARKER_PATTERN.search(claim):
+    if family_resolution_status == "retire_nonprediction":
+        label = "not_a_prediction"
+    elif not future_claim_present and not FUTURE_MARKER_PATTERN.search(claim):
         label = "not_a_prediction"
     elif meaningfulness_score < 1 and measurability_score < 1:
         label = "not_a_prediction"
@@ -632,6 +677,8 @@ def build_result(row: tuple) -> Stage2Result:
         "bundle_component_count": bundle_component_count,
         "ambiguity_flags": ambiguity_flags or [],
         "extractor_confidence": float(extractor_confidence) if extractor_confidence is not None else None,
+        "family_resolution_status": family_resolution_status,
+        "family_resolution_reason": family_resolution_reason,
         "family_key_inputs": {
             "event_family_final": family,
             "location": location,

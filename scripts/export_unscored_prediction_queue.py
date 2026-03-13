@@ -55,6 +55,7 @@ def derive_recovery_bucket(row: dict[str, Any]) -> str:
     family = row["family_guess"]
     time_window_end = row.get("time_window_end")
     claimed_contact_date = row.get("claimed_contact_date")
+    family_resolution_status = (row.get("stage2_meta") or {}).get("family_resolution_status")
 
     if time_window_end and claimed_contact_date and time_window_end < claimed_contact_date:
         return "retire_past_event_reference"
@@ -64,6 +65,8 @@ def derive_recovery_bucket(row: dict[str, Any]) -> str:
         return "promote_via_existing_family_pipeline"
     if family == "earthquake":
         return "existing_pipeline_outside_current_p3_scope"
+    if family_resolution_status == "outside_current_rulebook_scope":
+        return "outside_current_rulebook_scope"
     if family is None:
         return "needs_parser_or_stage2_family_resolution"
     return "outside_current_rulebook_scope"
@@ -83,6 +86,11 @@ def derive_recovery_rationale(row: dict[str, Any]) -> str:
         return "Earthquake scaffolding exists, but this queue exporter flags the row for later handling because the current pack is scoped to other recovery families first."
     if bucket == "needs_parser_or_stage2_family_resolution":
         return "Stage 2 left the row without a stable family assignment, so parser/review logic must clarify it before family scoring."
+    if bucket == "outside_current_rulebook_scope" and family is None:
+        reason = (row.get("stage2_meta") or {}).get("family_resolution_reason")
+        if reason:
+            return f"Stage 2 documented the row as outside the current recovery rulebooks (`{reason}`), so it should be deferred or retired rather than recycled through parser-fix triage."
+        return "Stage 2 documented the row as outside the current recovery rulebooks, so it should be deferred or retired rather than recycled through parser-fix triage."
     return f"{family} lacks an active P3 recovery rulebook, so this row should be deferred or explicitly retired instead of stretched into the wrong family."
 
 

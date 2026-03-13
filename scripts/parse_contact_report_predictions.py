@@ -222,16 +222,16 @@ SKIP_LINE_PATTERNS = [
 ]
 
 EVENT_FAMILY_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
-    ("earthquake", re.compile(r"\b(earthquake|seaquake|quake|richter)\b", re.IGNORECASE)),
-    ("volcano", re.compile(r"\b(volcano|eruption|erupt)\b", re.IGNORECASE)),
-    ("storm", re.compile(r"\b(storm|hurricane|cyclone|typhoon|tornado|flood)\b", re.IGNORECASE)),
-    ("war_conflict", re.compile(r"\b(war|civil war|conflict|attack|invasion|terror|terrorist)\b", re.IGNORECASE)),
-    ("epidemic", re.compile(r"\b(epidemic|pandemic|disease|virus|plague|infection)\b", re.IGNORECASE)),
-    ("aviation_space", re.compile(r"\b(space|spacecraft|satellite|comet|asteroid|rocket|aircraft|plane crash)\b", re.IGNORECASE)),
-    ("politics_election", re.compile(r"\b(election|vote|referendum|government|president|chancellor|pope|prime minister|resign(?:s|ed|ation)?|independence|independent|recogni[sz](?:e|es|ed)|apolog(?:y|ise|ises|ized|ize))\b", re.IGNORECASE)),
-    ("economy", re.compile(r"\b(economy|economic|inflation|recession|market crash|collapse)\b", re.IGNORECASE)),
-    ("climate_environment", re.compile(r"\b(climate|warming|environment|overpopulation|pollution|resource shortage)\b", re.IGNORECASE)),
-    ("science_technology", re.compile(r"\b(genetic|genetics|dna|gene|technology|artificial intelligence|robot)\b", re.IGNORECASE)),
+    ("earthquake", re.compile(r"\b(earthquake(?:s)?|seaquake(?:s)?|quake(?:s)?|richter|tsunami(?:s)?|tidal\s+wave(?:s)?)\b", re.IGNORECASE)),
+    ("volcano", re.compile(r"\b(volcano(?:es)?|volcanic|eruption(?:s)?|erupt(?:s|ed|ing)?)\b", re.IGNORECASE)),
+    ("storm", re.compile(r"\b(storm(?:s)?|rainstorm(?:s)?|snowstorm(?:s)?|monsoon(?:s)?|hurricane(?:s)?|cyclone(?:s)?|typhoon(?:s)?|tornado(?:es)?|flood(?:s|ing)?)\b", re.IGNORECASE)),
+    ("war_conflict", re.compile(r"\b(war(?:s)?|civil\s+war(?:s)?|armed\s+conflict(?:s)?|conflict(?:s)?|attack(?:s)?|bombing(?:s)?|invasion|terror(?:ism)?|terrorist(?:s)?|rocket(?:s)?|air\s+strike(?:s)?)\b", re.IGNORECASE)),
+    ("epidemic", re.compile(r"\b(epidemic(?:s)?|pandemic(?:s)?|disease(?:s)?|virus(?:es)?|plague|infection(?:s)?)\b", re.IGNORECASE)),
+    ("aviation_space", re.compile(r"\b(space|spacecraft|satellite(?:s)?|comet(?:s)?|asteroid(?:s)?|rocket(?:s)?|aircraft|plane\s+crash(?:es)?)\b", re.IGNORECASE)),
+    ("politics_election", re.compile(r"\b(election(?:s)?|vote(?:s)?|referendum|government|president|chancellor|pope|prime minister|come\s+to\s+power|return(?:s|ing)?\s+to\s+politics|resign(?:s|ed|ation)?|independence|independent|recogni[sz](?:e|es|ed)|apolog(?:y|ise|ises|ized|ize))\b", re.IGNORECASE)),
+    ("economy", re.compile(r"\b(economy|economic|inflation|recession|market\s+crash|collapse)\b", re.IGNORECASE)),
+    ("climate_environment", re.compile(r"\b(climate|warming|environment|overpopulation|pollution|resource\s+shortage|heat\s+wave(?:s)?|drought(?:s)?|forest\s+fire(?:s)?)\b", re.IGNORECASE)),
+    ("science_technology", re.compile(r"\b(genetic|genetics|dna|gene|technology|artificial\s+intelligence|robot)\b", re.IGNORECASE)),
 ]
 
 TREND_WORDS = re.compile(r"\b(increase|decrease|rise|fall|grow|decline|deteriorat|spread|expand)\w*\b", re.IGNORECASE)

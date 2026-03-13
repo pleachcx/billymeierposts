@@ -58,6 +58,8 @@ def derive_recovery_bucket(row: dict[str, Any]) -> str:
 
     if time_window_end and claimed_contact_date and time_window_end < claimed_contact_date:
         return "retire_past_event_reference"
+    if row["stage2_label"] == "prediction_but_not_measurable" and family in P3_SUPPORTED_FAMILIES:
+        return "stage2_revisit_in_supported_family"
     if family in P3_SUPPORTED_FAMILIES:
         return "promote_via_existing_family_pipeline"
     if family == "earthquake":
@@ -73,6 +75,8 @@ def derive_recovery_rationale(row: dict[str, Any]) -> str:
 
     if bucket == "retire_past_event_reference":
         return "Time window ends before the claimed contact date, so this row should retire instead of being scored."
+    if bucket == "stage2_revisit_in_supported_family":
+        return f"{family} is in the active P3 family set, but Stage 2 excluded the row as not measurable; review notes and family-specific overrides may still support a bounded recovery or explicit retirement."
     if bucket == "promote_via_existing_family_pipeline":
         return f"{family} already has Stage 3-7 scaffolding in the current pack; this row is a candidate for a curated override or clean retirement."
     if bucket == "existing_pipeline_outside_current_p3_scope":
@@ -83,8 +87,16 @@ def derive_recovery_rationale(row: dict[str, Any]) -> str:
 
 
 def rank_key(row: dict[str, Any]) -> tuple[Any, ...]:
+    bucket_rank = {
+        "promote_via_existing_family_pipeline": 0,
+        "stage2_revisit_in_supported_family": 1,
+        "retire_past_event_reference": 2,
+        "existing_pipeline_outside_current_p3_scope": 3,
+        "needs_parser_or_stage2_family_resolution": 4,
+        "outside_current_rulebook_scope": 5,
+    }
     return (
-        row["recovery_bucket"] != "promote_via_existing_family_pipeline",
+        bucket_rank.get(row["recovery_bucket"], 9),
         not row["significant"],
         row["family_guess"] not in P3_SUPPORTED_FAMILIES,
         row["time_window_start"] is None,
@@ -142,12 +154,18 @@ def main() -> int:
                     p.stage2_meta
                 FROM public.prediction_audit_predictions p
                 WHERE p.last_stage2_run_id = %s
-                  AND p.stage2_label IN ('eligible_prediction', 'significant_prediction')
-                  AND p.match_status = 'unreviewed'
+                  AND (
+                    p.stage2_label IN ('eligible_prediction', 'significant_prediction')
+                    OR (
+                        p.stage2_label = 'prediction_but_not_measurable'
+                        AND COALESCE(p.event_family_final, p.event_family_provisional) = ANY(%s)
+                    )
+                  )
+                  AND p.match_status NOT IN ('exact_hit', 'near_hit', 'similar_only', 'miss')
                   AND COALESCE(p.final_status, 'pending') = 'pending'
                 ORDER BY p.report_number, p.candidate_seq
                 """,
-                (stage2["id"],),
+                (stage2["id"], list(P3_SUPPORTED_FAMILIES)),
             )
             rows = [dict(row) for row in cur.fetchall()]
 
@@ -173,6 +191,7 @@ def main() -> int:
                     "family_guess": row["family_guess"],
                     "stage2_label": row["stage2_label"],
                     "significant": row["significant"],
+                    "match_status": row["match_status"],
                     "recovery_bucket": row["recovery_bucket"],
                 }
                 for row in rows[:15]

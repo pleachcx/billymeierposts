@@ -58,6 +58,8 @@ The matcher must also reject any event dated before `claimed_contact_date`.
 - use only when the row cannot be scored objectively under the stored baseline
 - current retirement triggers in this slice:
 - the corpus chronology points to one exact day, but the only plausible real-world analogue requires overriding that stored day or year
+- the stored row never received a normalized exact day or bounded window in Stage 2, and scoring it would require backfilling chronology from neighboring clauses or a later famous event
+- the stored row mixes a possible attack clause with non-war or non-atomic material that Stage 2 did not split cleanly enough for one event-level review
 - the stored claim stays at the level of world war, Cold War, regime change, retaliation trend, ceasefire, military ceremony, or other non-attack framing that cannot be reduced to one atomic dated attack without changing the claim itself
 - the row was mis-grouped into `war_conflict` even though the stored event family is geologic or otherwise outside the attack catalog
 
@@ -90,3 +92,6 @@ This first replay tranche is limited to:
 - `394:3` stays in-slice for transparency, but the final review must not "repair" the stored `2004-07-21` window to `2005-07-21`. If the similar 2005 attempted London bombings remain the only plausible analogue, retire the row from statistics.
 - `668:2` scopes only the Berlin market attack clause from the broader three-crimes sentence.
 - `136:202` scopes only the second Tehran attack that killed the president and a minister; the first attack belongs to `136:170`.
+- Companion casualty clauses such as `136:217` stay retired when the row has no independent stored date or place and would need a neighboring attack sentence to bind the event.
+- Rows such as `226:9` that name a day or clock time but still lack a normalized stored year stay retired in this slice; do not backfill the missing year from a later military campaign.
+- Compound rows such as `364:25` stay retired when a possible attack clause is fused to non-war criminal material and the stored Stage 2 record does not isolate one attack window.

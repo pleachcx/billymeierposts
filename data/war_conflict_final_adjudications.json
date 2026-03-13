@@ -1,8 +1,23 @@
 {
+  "136:196": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "attack_clause_lacks_stored_window_for_slice",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because the Switzerland bombing clause never received a normalized exact day or bounded post-anchor window in Stage 2, and the current rulebook will not backfill chronology from neighboring report context or a later analogue."
+  },
+  "136:217": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "companion_casualty_clause_lacks_independent_window",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because the casualty-count clause depends on a neighboring attack sentence but carries no independent stored date or location window that would let the slice score one atomic attack objectively."
+  },
   "136:251": {
     "final_status": "permanently_unresolved",
     "reason_code": "non_attack_regime_collapse_outside_dated_attack_rulebook",
     "rationale": "Prediction is retired from the war_conflict dated-attack slice because the bloody fall of the Ceausescu regime is framed as a revolution and regime collapse, not as one atomic dated attack event that the current rulebook is allowed to score."
+  },
+  "150:50": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "conditional_world_war_invasion_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because a conditional claim that England will be attacked in a future world war is a broad war-onset scenario, not one dated bombing or atomic attack record."
   },
   "182:57": {
     "final_status": "permanently_unresolved",
@@ -13,6 +28,36 @@
     "final_status": "permanently_unresolved",
     "reason_code": "cold_war_claim_outside_dated_attack_rulebook",
     "rationale": "Prediction is retired from the war_conflict dated-attack slice because the end of the Cold War and resulting peace are geopolitical condition claims, not atomic attack events."
+  },
+  "201:13": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "cold_war_continuation_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because the Cold War seeming to end officially while continuing secretly is a geopolitical condition claim, not one atomic attack event."
+  },
+  "204:1": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "open_ended_terror_escalation_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because rising extremism, assassination attempts, and terrorism in unprecedented forms describe an open-ended violence trend, not one dated attack that can be matched to a single catalog event."
+  },
+  "212:18": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "suicide_bombing_campaign_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because spreading terrorism by suicide bombers in Israel and more death and terror describes an ongoing campaign, not one atomic dated attack event."
+  },
+  "215:2": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "state_repression_and_terror_trend_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because the claim about Israel trampling rights and spreading murderous terror is policy-and-trend language, not one dated attack event."
+  },
+  "215:38": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "world_war_expansion_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because a great horror expanding into a war encompassing the entire world is broad world-war framing, not one atomic attack."
+  },
+  "215:52": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unavoidable_great_war_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because an almost unavoidable great war is a broad war scenario, not one public-record dated attack event."
   },
   "216:33": {
     "final_status": "permanently_unresolved",

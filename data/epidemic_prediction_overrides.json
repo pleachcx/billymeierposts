@@ -71,6 +71,15 @@
     "window_end": "2007-08-05",
     "notes": "Prediction interpreted as the early-August 2007 foot-and-mouth outbreak in England."
   },
+  "453:13": {
+    "disease_key": "foot_and_mouth",
+    "expected_event_type": "animal_outbreak_reported",
+    "target_name": "Europe",
+    "target_keywords": ["Europe", "England", "Surrey"],
+    "window_start": "2007-08-01",
+    "window_end": "2007-08-05",
+    "notes": "Prediction interpreted as the unusual European animal-disease outbreak materializing in England during the early-August 2007 foot-and-mouth event."
+  },
   "383:32": {
     "disease_key": "h2n2_samples",
     "expected_event_type": "distribution_disclosed",
@@ -89,6 +98,15 @@
     "window_end": "2022-01-02",
     "notes": "Prediction interpreted as WHO-level pandemic recognition for the coronavirus outbreak."
   },
+  "729:2": {
+    "disease_key": "covid19",
+    "expected_event_type": "pandemic_declared",
+    "target_name": "Global",
+    "target_keywords": ["Global", "World"],
+    "window_start": "2020-01-02",
+    "window_end": "2020-12-31",
+    "notes": "Prediction scoped to the pandemic clause of the claim, using WHO's 11 March 2020 COVID-19 pandemic declaration as the measurable outcome."
+  },
   "757:1": {
     "disease_key": "covid19",
     "expected_event_type": "death_threshold_crossed",
@@ -106,5 +124,14 @@
     "window_start": "2020-03-02",
     "window_end": "2020-03-15",
     "notes": "Prediction scoped to the first severe European COVID-19 regional impact being centered in Italy within the immediate post-contact window; the broader Europe clause remains unscored here."
+  },
+  "732:16": {
+    "disease_key": "covid19",
+    "expected_event_type": "regional_severe_outbreak_reported",
+    "target_name": "Italy",
+    "target_keywords": ["Italy", "Northern Italy"],
+    "window_start": "2020-03-02",
+    "window_end": "2020-03-15",
+    "notes": "Prediction scoped to the northern-Italy clause of the claim, with the wider Europe follow-on left outside this measured epidemic row."
   }
 }

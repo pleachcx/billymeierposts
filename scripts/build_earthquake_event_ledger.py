@@ -635,6 +635,60 @@ def persist_time_window_override(cur, prediction_id: int, prediction: Prediction
     )
 
 
+def clear_stale_prediction_overrides(cur, stage2_run_id: int, active_override_keys: set[str]) -> int:
+    cur.execute(
+        """
+        SELECT
+            id,
+            report_number,
+            candidate_seq,
+            stage2_meta
+        FROM public.prediction_audit_predictions
+        WHERE last_stage2_run_id = %s
+          AND event_family_final = 'earthquake'
+        """,
+        (stage2_run_id,),
+    )
+    stale_prediction_ids: list[int] = []
+    for prediction_id, report_number, candidate_seq, stage2_meta in cur.fetchall():
+        meta = stage2_meta or {}
+        key = f"{report_number}:{candidate_seq}"
+        if key in active_override_keys:
+            continue
+        time_override = meta.get("earthquake_time_window_override")
+        target_resolution = meta.get("target_resolution") or {}
+        if time_override or str(target_resolution.get("source", "")).startswith("prediction_override"):
+            stale_prediction_ids.append(prediction_id)
+
+    if not stale_prediction_ids:
+        return 0
+
+    cur.execute(
+        """
+        UPDATE public.prediction_audit_predictions
+        SET target_name = COALESCE(
+                stage2_meta->'family_key_inputs'->>'location',
+                stage2_meta->'family_key_inputs'->>'actor',
+                target_name
+            ),
+            target_type = CASE
+                WHEN stage2_meta->'family_key_inputs'->>'location' IS NOT NULL THEN 'region'
+                WHEN stage2_meta->'family_key_inputs'->>'actor' IS NOT NULL THEN 'actor'
+                ELSE target_type
+            END,
+            target_lat = NULL,
+            target_lon = NULL,
+            target_radius_km = NULL,
+            time_window_start = NULL,
+            time_window_end = NULL,
+            stage2_meta = COALESCE(stage2_meta, '{}'::jsonb) - 'target_resolution' - 'earthquake_time_window_override'
+        WHERE id = ANY(%s)
+        """,
+        (stale_prediction_ids,),
+    )
+    return len(stale_prediction_ids)
+
+
 def persist_event_rows(cur, rows: list[tuple[Any, ...]]) -> None:
     if not rows:
         return
@@ -692,6 +746,10 @@ def main() -> int:
         with conn.cursor() as cur:
             stage2_run_id, resolved_stage2_run_key = fetch_stage2_run(cur, args.stage2_run_key)
             predictions = fetch_predictions(cur, stage2_run_id, args.only_significant, match_statuses, args.limit)
+            stale_override_resets = 0
+            if not args.dry_run:
+                stale_override_resets = clear_stale_prediction_overrides(cur, stage2_run_id, set(prediction_overrides))
+                conn.commit()
 
             if not args.dry_run:
                 stage3_run_id = insert_run(
@@ -704,6 +762,7 @@ def main() -> int:
                         "limit": args.limit,
                         "overrides_path": args.overrides_path,
                         "prediction_overrides_path": args.prediction_overrides_path,
+                        "stale_override_resets": stale_override_resets,
                         "family": "earthquake",
                     },
                     args.notes,

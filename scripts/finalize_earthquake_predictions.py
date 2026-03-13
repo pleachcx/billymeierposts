@@ -32,6 +32,11 @@ def parse_args() -> argparse.Namespace:
         default=str(REPO_ROOT / "data" / "earthquake_final_adjudications.json"),
         help="Path to manual final-adjudication rules keyed by report_number:candidate_seq.",
     )
+    parser.add_argument(
+        "--prediction-overrides-path",
+        default=str(REPO_ROOT / "data" / "earthquake_prediction_overrides.json"),
+        help="Path to per-prediction override rules keyed by report_number:candidate_seq.",
+    )
     parser.add_argument("--dry-run", action="store_true", help="Compute final statuses without writing DB updates.")
     return parser.parse_args()
 
@@ -117,30 +122,64 @@ def load_adjudications(path: str) -> dict[str, dict[str, Any]]:
         return json.load(handle)
 
 
-def fetch_predictions(cur, stage2_run_id: int) -> list[dict[str, Any]]:
-    cur.execute(
-        """
-        SELECT
-            id,
-            report_number,
-            candidate_seq,
-            match_status,
-            claim_normalized,
-            target_name,
-            p_exact_under_null,
-            p_near_under_null,
-            p_similar_under_null,
-            p_miss_under_null
-        FROM public.prediction_audit_predictions
-        WHERE last_stage2_run_id = %s
-          AND event_family_final = 'earthquake'
-          AND stage2_label IN ('eligible_prediction', 'significant_prediction')
-          AND time_window_start IS NOT NULL
-          AND time_window_end IS NOT NULL
-        ORDER BY report_number, candidate_seq
-        """,
-        (stage2_run_id,),
-    )
+def load_prediction_overrides(path: str) -> dict[str, dict[str, Any]]:
+    if not os.path.exists(path):
+        return {}
+    with open(path, "r", encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def fetch_predictions(cur, stage2_run_id: int, manual_scope_keys: list[str]) -> list[dict[str, Any]]:
+    if manual_scope_keys:
+        cur.execute(
+            """
+            SELECT
+                id,
+                report_number,
+                candidate_seq,
+                match_status,
+                claim_normalized,
+                target_name,
+                p_exact_under_null,
+                p_near_under_null,
+                p_similar_under_null,
+                p_miss_under_null
+            FROM public.prediction_audit_predictions
+            WHERE last_stage2_run_id = %s
+              AND event_family_final = 'earthquake'
+              AND stage2_label IN ('eligible_prediction', 'significant_prediction')
+              AND (
+                    (time_window_start IS NOT NULL AND time_window_end IS NOT NULL)
+                    OR ((report_number::text || ':' || candidate_seq::text) = ANY(%s))
+                  )
+            ORDER BY report_number, candidate_seq
+            """,
+            (stage2_run_id, manual_scope_keys),
+        )
+    else:
+        cur.execute(
+            """
+            SELECT
+                id,
+                report_number,
+                candidate_seq,
+                match_status,
+                claim_normalized,
+                target_name,
+                p_exact_under_null,
+                p_near_under_null,
+                p_similar_under_null,
+                p_miss_under_null
+            FROM public.prediction_audit_predictions
+            WHERE last_stage2_run_id = %s
+              AND event_family_final = 'earthquake'
+              AND stage2_label IN ('eligible_prediction', 'significant_prediction')
+              AND time_window_start IS NOT NULL
+              AND time_window_end IS NOT NULL
+            ORDER BY report_number, candidate_seq
+            """,
+            (stage2_run_id,),
+        )
     columns = [description[0] for description in cur.description]
     return [dict(zip(columns, row, strict=False)) for row in cur.fetchall()]
 
@@ -248,6 +287,8 @@ def main() -> int:
         return 2
 
     adjudications = load_adjudications(args.adjudications_path)
+    prediction_overrides = load_prediction_overrides(args.prediction_overrides_path)
+    manual_scope_keys = sorted(set(adjudications) | set(prediction_overrides))
     run_key = args.run_key or generate_run_key()
     conn = psycopg2.connect(dsn)
     conn.autocommit = False
@@ -260,7 +301,7 @@ def main() -> int:
             if not stage2_run_key:
                 raise RuntimeError("Could not infer Stage 2 run key from Stage 5 metadata.")
             stage2_run_id, resolved_stage2_run_key, _ = fetch_run(cur, "stage2_eligibility", stage2_run_key)
-            predictions = fetch_predictions(cur, stage2_run_id)
+            predictions = fetch_predictions(cur, stage2_run_id, manual_scope_keys)
 
             if not args.dry_run:
                 final_run_id = insert_run(
@@ -270,6 +311,8 @@ def main() -> int:
                         "stage2_run_key": resolved_stage2_run_key,
                         "stage5_run_key": resolved_stage5_run_key,
                         "adjudications_path": args.adjudications_path,
+                        "prediction_overrides_path": args.prediction_overrides_path,
+                        "manual_scope_key_count": len(manual_scope_keys),
                         "family": "earthquake",
                     },
                     args.notes,

@@ -63,5 +63,35 @@
     "final_status": "permanently_unresolved",
     "reason_code": "outside_current_lab_origin_catalog",
     "rationale": "Prediction remains outside the current epidemic slice because the baseline catalog does not model laboratory-origin outbreak claims and causal lab-worker infection chains."
+  },
+  "241:12": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "generic_global_epidemic_warning",
+    "rationale": "Prediction remains outside the current epidemic slice because it warns that unnamed epidemics could become catastrophic without naming a disease or one measurable outbreak event."
+  },
+  "675:3": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "long_horizon_multi_condition_health_claim",
+    "rationale": "Prediction remains outside the current epidemic slice because excessive hygiene leading sooner or later to allergies, asthma, and autoimmune disease is a diffuse health-trend claim rather than a bounded outbreak event."
+  },
+  "731:18": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "compound_transmission_and_reinfection_claim",
+    "rationale": "Prediction remains outside the current epidemic slice because it bundles airborne transmission, reinfection, and later public acknowledgment into one mechanism-heavy claim instead of one named-disease event in the current catalog."
+  },
+  "748:17": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "rolling_case_count_threshold_claim",
+    "rationale": "Prediction remains outside the current epidemic slice because it only forecasts the next disclosed infection-count milestone within a week, which the current named-disease catalog does not score as a standalone outbreak event."
+  },
+  "788:8": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_variant_origin_claim",
+    "rationale": "Prediction remains outside the current epidemic slice because an unnamed corona mutation allegedly developed months earlier in Nigeria is not a bounded variant event in the present catalog."
+  },
+  "830:12": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "generic_mass_death_epidemic_claim",
+    "rationale": "Prediction remains outside the current epidemic slice because a coming great dying in China from the epidemic is too broad for the current named-disease event catalog."
   }
 }

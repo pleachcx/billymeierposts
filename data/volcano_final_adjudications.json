@@ -43,5 +43,35 @@
     "final_status": "permanently_unresolved",
     "reason_code": "retrospective_historical_claim",
     "rationale": "Prediction is retired from the volcano slice because it is a retrospective 1951 eruption reference rather than a future event on the active baseline."
+  },
+  "136:58": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unnamed_iceland_eruption_claim",
+    "rationale": "Prediction is retired from the volcano slice because it forecasts an eruption in Iceland without naming a volcano or providing one defensible eruption target inside the current rulebook."
+  },
+  "150:161": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "retrospective_historical_claim",
+    "rationale": "Prediction is retired from the volcano slice because the Santorini-and-Moses passage is historical background, not a future measurable eruption prediction on this baseline."
+  },
+  "182:24": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_human_rerouting_clause",
+    "rationale": "Prediction is retired from the volcano slice because it depends on humans rerouting Etna's lava flows, which the current eruption catalog does not model as a bounded scored volcano event."
+  },
+  "238:198": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "global_natural_forces_commentary",
+    "rationale": "Prediction is retired from the volcano slice because it is a broad commentary on worldwide natural forces and pollution rather than a named-volcano eruption claim."
+  },
+  "369:23": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "death_toll_clause_without_named_eruption",
+    "rationale": "Prediction is retired from the volcano slice because it only forecasts that a natural-disaster death toll will exceed Krakatau's without naming one measurable volcano event to score."
+  },
+  "389:1": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "compound_storm_and_volcano_claim",
+    "rationale": "Prediction is retired from the volcano slice because it pairs Austrian storm damage with talk about Colima's activity instead of isolating one bounded volcano event in the current rulebook."
   }
 }

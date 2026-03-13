@@ -218,6 +218,7 @@
 - Keep large-pack guidance explicit when a spec slice list is too small; split recovery work into meaningful batches instead of forcing trivial handoffs.
 - Refresh supervisor workflow files against live `git` branch state before carrying forward a prior blocked decision; stale branch assumptions can block the wrong pack.
 - Block supervisor-loop cycles on `main`; require `feat/prediction-audit-outstanding` before supervised implementation starts.
+- When a follow-on supervisor cycle starts from a merged prior branch, replace stale `branch_complete` workflow files immediately and anchor the new plan to the live clean branch, not the old spec front-matter branch name.
 - Keep first-cycle supervisor workflow files aligned to the work-spec pack order; only rewrite the pack plan when docs or the active Stage 2 baseline materially change.
 - Pull parser and Stage 2 backlog batches from `recovery_bucket` membership, not `family_guess`; unknown-family rows can serialize with blank family fields.
 - The widened volcano replay `stage3-volcano-20260312T001424Z` / `stage4-volcano-20260312T001430Z` / `stage5-volcano-20260312T001440Z` / `stage7-volcano-final-20260312T001448Z` expanded volcano to `11` included rows with `8 exact_hit`, `2 near_hit`, and `1 miss`.
@@ -325,3 +326,6 @@
 - Bootstrap a new narrow family by copying a mature slice, then rename the family metadata, default data paths, run-key prefixes, release-discovery roots, and supported-family queue list before replay; otherwise outputs still land under the old family.
 - Retire `war_conflict` rows when the only plausible analogue requires rewriting the stored Stage `2` chronology; keep the comparable event in the catalog for transparency, but finalize the row as `permanently_unresolved` instead of saving it.
 - Verify `branch_complete` against live `HEAD`, aligned artifact summaries, and exact target-key queue membership; the implementer report can lag the final closeout commit even when the pack is otherwise ready to accept.
+- Retire `war_conflict` tranche rows by adjudication key when the dated-attack rulebook is too narrow; Stage `7` can clear them from the queue without inventing overrides or fake event matches.
+- Update `export_war_conflict_analysis.py` to read the Stage `7` review set when retirements are adjudication-only; Stage `4`-only exports hide valid `permanently_unresolved` closeouts.
+- Verify adjudication-only `war_conflict` retirements in both places: `data/exports/war_conflict/*/predictions.csv` must carry the retired keys and `data/exports/unscored/*/queue.csv` must carry `0/N` remaining targets.

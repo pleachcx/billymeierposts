@@ -24,6 +24,11 @@
     "reason_code": "open_ended_many_diseases_claim",
     "rationale": "Prediction remains outside the current epidemic slice because it rolls AIDS and unspecified future deadly diseases into an unbounded long-horizon decimation narrative."
   },
+  "182:38": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_bse_catalog",
+    "rationale": "Prediction remains outside the current epidemic slice because the baseline does not yet carry a defensible BSE/vCJD official event set for this row."
+  },
   "215:72": {
     "final_status": "permanently_unresolved",
     "reason_code": "generic_sporadic_epidemic_claim",

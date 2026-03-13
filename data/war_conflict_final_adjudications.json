@@ -1,4 +1,54 @@
 {
+  "136:251": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "non_attack_regime_collapse_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because the bloody fall of the Ceausescu regime is framed as a revolution and regime collapse, not as one atomic dated attack event that the current rulebook is allowed to score."
+  },
+  "182:57": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "world_war_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because a coming Third World War is a broad war-onset claim, not one public-record bombing or dated attack event."
+  },
+  "201:12": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "cold_war_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because the end of the Cold War and resulting peace are geopolitical condition claims, not atomic attack events."
+  },
+  "216:33": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "militarization_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because American efforts to field such bombs under a later U.S. president describe militarization and policy, not one dated attack."
+  },
+  "231:4": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "war_onset_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because Bush and Blair deliberately triggering the Iraq war is a war-onset claim, not one atomic bombing or attack record."
+  },
+  "231:5": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "conditional_war_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because the claimed Bush-Blair conspiracy for a new Iraq war is a conditional broad-war claim rather than a dated attack event the current rulebook can score."
+  },
+  "238:68": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "attack_plan_disclosure_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because disclosure of Saddam's attack plans and bomb programs is not the attack event itself and cannot be reduced to one scoped bombing without changing the stored claim."
+  },
+  "241:16": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "misgrouped_geologic_row_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because the stored claim is about earthquakes and volcanic eruptions in Graubunden and England, not a war-conflict attack event."
+  },
+  "264:2": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "generic_war_turmoil_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because rising political turmoil and expected malicious acts of war remain broad conflict language without one atomic dated attack to score."
+  },
+  "385:1": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "open_ended_bombing_trend_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because continuing bombings and suicide bombers in Iraq over coming weeks and months describe an open-ended trend, not one dated attack event."
+  },
   "394:3": {
     "final_status": "permanently_unresolved",
     "reason_code": "stored_exact_day_conflicts_with_only_matching_event",

@@ -280,3 +280,7 @@
 - Use `--skip-refresh` for the first low-churn release-bundle compose, then rerun the default refresh mode before closeout so the checked-in bundle points at fresh aligned `overview`/`provenance`/`unscored` exports.
 - Keep `README.md` and `docs/prediction_audit_supervisor_work_spec.md` pinned to the latest checked-in release snapshot paths after the final refresh; stale snapshot links undercut the operator handoff.
 - Close the workflow branch only after every ready pack is done and any still-blocked future pack is explicitly retired from the branch plan and slice queue.
+- Make `scripts/assign_epidemic_probabilities.py` tolerate disease keys with zero catalog events; explicit epidemic retirements otherwise crash Stage 5 on empty calibrations.
+- Sanitize `None` counter keys before writing sorted JSON summaries in provenance and overview exporters; refreshed missing-source cohorts can surface null bucket keys and crash `json.dumps(..., sort_keys=True)`.
+- Treat `aviation_space` as blocked when the checked-in slice is still only `satellite_action_catalog_v1`; genetics, UFO-crash, asteroid-rumor, moon-experiment, gamma-flash, and Apollo-hoax rows need a new rulebook, not forced reuse of the one-event catalog.
+- Stop for supervisor direction if a second override-to-adjudication migration appears mid-pack and dirties tracked family files after commits; do not silently mix partial adjudication data with the committed override-driven replay state.

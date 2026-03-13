@@ -59,10 +59,35 @@
     "reason_code": "unavoidable_great_war_claim_outside_dated_attack_rulebook",
     "rationale": "Prediction is retired from the war_conflict dated-attack slice because an almost unavoidable great war is a broad war scenario, not one public-record dated attack event."
   },
+  "215:75": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "multi_country_civil_war_turmoil_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because multi-country unrest, upheaval, and civil-war language across France, Russia, and Sweden is broad turmoil framing, not one atomic dated attack."
+  },
+  "215:87": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "negative_war_nonparticipation_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because Denmark not being dragged into a war is a negative geopolitical participation claim, not a dated attack event."
+  },
+  "215:112": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "conflict_consequences_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because mass killings, destruction, annihilation, and epidemics are consequence language about a broader conflict, not the attack event itself."
+  },
   "216:33": {
     "final_status": "permanently_unresolved",
     "reason_code": "militarization_claim_outside_dated_attack_rulebook",
     "rationale": "Prediction is retired from the war_conflict dated-attack slice because American efforts to field such bombs under a later U.S. president describe militarization and policy, not one dated attack."
+  },
+  "225:2": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "global_terror_network_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because rising terrorist organisations targeting America worldwide is open-ended threat framing, not one atomic dated attack that can be tied to a single catalog record."
+  },
+  "226:9": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "named_day_attack_lacks_stored_year_window",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because the Baghdad rocket-attack clause names a day and clock time but never received a normalized stored year window in Stage 2, and the current rulebook does not backfill that missing chronology from a later military campaign."
   },
   "231:4": {
     "final_status": "permanently_unresolved",
@@ -79,6 +104,16 @@
     "reason_code": "attack_plan_disclosure_outside_dated_attack_rulebook",
     "rationale": "Prediction is retired from the war_conflict dated-attack slice because disclosure of Saddam's attack plans and bomb programs is not the attack event itself and cannot be reduced to one scoped bombing without changing the stored claim."
   },
+  "251:50": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "conditional_world_war_consequences_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because devastating consequences if a Third World War happens are conditional broad-war consequences, not one dated attack event."
+  },
+  "251:72": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "future_new_war_conditions_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because disputes creating the conditions for a new war after later scientific changes is long-horizon war-onset framing, not one atomic dated attack."
+  },
   "241:16": {
     "final_status": "permanently_unresolved",
     "reason_code": "misgrouped_geologic_row_outside_dated_attack_rulebook",
@@ -88,6 +123,16 @@
     "final_status": "permanently_unresolved",
     "reason_code": "generic_war_turmoil_outside_dated_attack_rulebook",
     "rationale": "Prediction is retired from the war_conflict dated-attack slice because rising political turmoil and expected malicious acts of war remain broad conflict language without one atomic dated attack to score."
+  },
+  "340:7": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "global_terror_backlash_trend_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because worldwide hatred against the USA and Great Britain taking on terrorist dimensions is a global backlash trend, not one dated attack event."
+  },
+  "364:25": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "compound_attack_and_crime_clause_lacks_atomic_window",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because the Chechnya police-station clause is fused to an unrelated Dusseldorf jealousy shooting and the stored Stage 2 row never isolates one atomic attack window for objective scoring."
   },
   "385:1": {
     "final_status": "permanently_unresolved",

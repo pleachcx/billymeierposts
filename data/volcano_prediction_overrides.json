@@ -10,6 +10,17 @@
     "window_end": "1981-03-31",
     "notes": "Prediction scoped to Etna beginning unusual renewed activity during the late-winter and early-spring 1981 transition."
   },
+  "136:98": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Etna",
+    "target_name": "Etna",
+    "target_keywords": ["Etna", "Sicily", "Italy"],
+    "jurisdiction": "Italy",
+    "window_start": "1981-03-01",
+    "window_end": "1981-03-31",
+    "notes": "Prediction scoped to the same Etna renewed-activity window for the duplicate row that explicitly says the volcano will begin acting up again."
+  },
   "182:19": {
     "scoped_family": "volcano",
     "expected_event_type": "volcano_eruption_began",
@@ -31,6 +42,17 @@
     "window_start": "1983-01-01",
     "window_end": "1983-01-31",
     "notes": "Prediction scoped to a Hawaiian volcano beginning a renewed eruption shortly after the turn of the year 1982/1983."
+  },
+  "150:159": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Kilauea",
+    "target_name": "Hawaiian Islands",
+    "target_keywords": ["Kilauea", "Hawaii", "Hawaiian Islands"],
+    "jurisdiction": "Hawaii, United States",
+    "window_start": "1983-01-01",
+    "window_end": "1983-01-31",
+    "notes": "Prediction scoped to the same early-January 1983 Hawaiian reawakening for the broader duplicate claim about another eruption soon after calm."
   },
   "238:7": {
     "scoped_family": "volcano",
@@ -65,6 +87,28 @@
     "window_end": "1991-12-15",
     "notes": "Prediction scoped to Etna beginning a new activity phase on 15 December 1991."
   },
+  "238:160": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Etna",
+    "target_name": "Etna",
+    "target_keywords": ["Etna", "Sicily", "Italy"],
+    "jurisdiction": "Italy",
+    "window_start": "1991-12-01",
+    "window_end": "1991-12-31",
+    "notes": "Prediction scoped to the broader December 1991 Etna reactivation after a two-year lull."
+  },
+  "238:161": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Etna",
+    "target_name": "Etna",
+    "target_keywords": ["Etna", "Sicily", "Italy"],
+    "jurisdiction": "Italy",
+    "window_start": "1991-12-15",
+    "window_end": "1991-12-15",
+    "notes": "Prediction scoped to the exact 15 December 1991 timing claim for Etna's renewed activity."
+  },
   "241:47": {
     "scoped_family": "volcano",
     "expected_event_type": "volcano_eruption_began",
@@ -75,6 +119,17 @@
     "window_start": "1992-04-01",
     "window_end": "1992-04-30",
     "notes": "Prediction scoped to Cerro Negro in Nicaragua developing dangerous eruptive activity during April 1992."
+  },
+  "241:48": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Cerro Negro",
+    "target_name": "Cerro Negro",
+    "target_keywords": ["Cerro Negro", "Nicaragua"],
+    "jurisdiction": "Nicaragua",
+    "window_start": "1992-04-01",
+    "window_end": "1992-04-30",
+    "notes": "Prediction scoped to the same April 1992 Cerro Negro activity for the duplicate row that pairs it with other disasters."
   },
   "366:13": {
     "scoped_family": "volcano",
@@ -130,6 +185,17 @@
     "window_start": "2007-07-14",
     "window_end": "2007-10-15",
     "notes": "Prediction scoped to the post-report eruption of Jebel at Tair (Bird Island) with fatalities during the following months."
+  },
+  "453:23": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Jebel at Tair",
+    "target_name": "Jebel at Tair",
+    "target_keywords": ["Jebel at Tair", "Jabal al-Tair", "Bird Island", "Yemen"],
+    "jurisdiction": "Yemen",
+    "window_start": "2007-07-14",
+    "window_end": "2007-10-15",
+    "notes": "Prediction scoped to the same Jebel at Tair eruption and fatality window for the duplicate row naming Bird Island directly."
   },
   "464:4": {
     "scoped_family": "volcano",

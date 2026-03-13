@@ -8,12 +8,12 @@ recommended_doc_spec:
   - billy_meier_staged_protocol.md
 baseline_stage2_run_key: stage2-20260313T024045Z
 baseline_exports:
-  overview: data/exports/overview/prediction-audit-overview-20260313T035032Z/summary.json
-  publication_timing: data/exports/provenance/publication-timing-audit-20260313T035031Z/summary.json
-  cohort_comparison: data/exports/provenance/cohort-comparison-20260313T035031Z/summary.json
-  research_queue: data/exports/provenance/public-date-research-queue-20260313T035032Z/summary.json
-  unscored_queue: data/exports/unscored/unscored-prediction-queue-20260313T035033Z/summary.json
-  release_bundle: data/exports/release/prediction-audit-release-20260313T040828Z/summary.json
+  overview: data/exports/overview/prediction-audit-overview-20260313T041049Z/summary.json
+  publication_timing: data/exports/provenance/publication-timing-audit-20260313T041049Z/summary.json
+  cohort_comparison: data/exports/provenance/cohort-comparison-20260313T041049Z/summary.json
+  research_queue: data/exports/provenance/public-date-research-queue-20260313T041049Z/summary.json
+  unscored_queue: data/exports/unscored/unscored-prediction-queue-20260313T041050Z/summary.json
+  release_bundle: data/exports/release/prediction-audit-release-20260313T041050Z/summary.json
 current_state:
   candidate_count: 6797
   eligible_count: 1226
@@ -400,14 +400,14 @@ The staged protocol defines the evaluation rules. This work spec defines what is
 - Current public-date-clean exact hits: `1`
 - Current public-date-pending-evidence cohort: `19`
 - Current public-date-currently-unrescued cohort: `83`
-- Current checked-in release snapshot: `data/exports/release/prediction-audit-release-20260313T040828Z/release_summary.md`
+- Current checked-in release snapshot: `data/exports/release/prediction-audit-release-20260313T041050Z/release_summary.md`
 
 ## Release bundle refresh
 
 - Refresh the aligned release bundle with `python3 scripts/export_prediction_audit_release_report.py --stage2-run-key stage2-20260313T024045Z`.
 - The script refreshes the aligned overview, provenance, research-queue, and unscored export surfaces before composing `data/exports/release/prediction-audit-release-<timestamp>/`.
 - For a low-churn recomposition from already-aligned exports, use `python3 scripts/export_prediction_audit_release_report.py --stage2-run-key stage2-20260313T024045Z --skip-refresh`.
-- Current checked-in machine-readable release snapshot: `data/exports/release/prediction-audit-release-20260313T040828Z/summary.json`.
+- Current checked-in machine-readable release snapshot: `data/exports/release/prediction-audit-release-20260313T041050Z/summary.json`.
 
 ## Supervisor guidance
 

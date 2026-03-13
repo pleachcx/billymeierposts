@@ -230,6 +230,8 @@ def run_export(spec: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]
     payload = parse_export_stdout(completed.stdout)
     summary_path = payload.get("summary_path")
     output_dir = payload.get("output_dir")
+    if summary_path and not output_dir:
+        output_dir = str(Path(summary_path).parent)
     if not summary_path or not output_dir:
         raise RuntimeError(f"{spec['script']} did not report summary_path/output_dir in its JSON payload.")
 

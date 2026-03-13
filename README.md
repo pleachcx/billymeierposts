@@ -25,8 +25,8 @@ python3 scripts/export_prediction_audit_release_report.py --stage2-run-key stage
 
 Current checked-in release snapshot:
 
-- Markdown summary: `data/exports/release/prediction-audit-release-20260313T040828Z/release_summary.md`
-- Machine summary: `data/exports/release/prediction-audit-release-20260313T040828Z/summary.json`
+- Markdown summary: `data/exports/release/prediction-audit-release-20260313T041050Z/release_summary.md`
+- Machine summary: `data/exports/release/prediction-audit-release-20260313T041050Z/summary.json`
 
 The release bundle keeps three cohorts separate on purpose:
 

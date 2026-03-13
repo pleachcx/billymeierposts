@@ -1,0 +1,105 @@
+{
+  "combined_observed_probability": {
+    "count": 12,
+    "ln_sum": -24.844597,
+    "log10_sum": -10.789871
+  },
+  "earliest_public_date_populated_count": 8,
+  "final_status_counts": {
+    "included_in_statistics": 12
+  },
+  "generated_at": "2026-03-13T03:28:40.401779+00:00",
+  "match_status_counts": {
+    "exact_hit": 9,
+    "miss": 1,
+    "similar_only": 2
+  },
+  "named_target_count": 4,
+  "observed_event_before_publication_count": 6,
+  "probability_ready_count": 12,
+  "public_date_cohort_summary": {
+    "claimed_date_baseline": {
+      "combined_observed_probability": {
+        "count": 12,
+        "ln_sum": -24.844597,
+        "log10_sum": -10.789871
+      },
+      "match_status_counts": {
+        "exact_hit": 9,
+        "miss": 1,
+        "similar_only": 2
+      },
+      "prediction_count": 12,
+      "probability_ready_count": 12,
+      "public_date_status_counts": {
+        "event_precedes_publication": 6,
+        "no_public_date_evidence": 4,
+        "public_date_ok": 2
+      }
+    },
+    "public_date_excluded": {
+      "combined_observed_probability": {
+        "count": 6,
+        "ln_sum": -15.708839,
+        "log10_sum": -6.822262
+      },
+      "match_status_counts": {
+        "exact_hit": 4,
+        "similar_only": 2
+      },
+      "prediction_count": 6,
+      "probability_ready_count": 6,
+      "public_date_status_counts": {
+        "event_precedes_publication": 6
+      }
+    },
+    "public_date_not_disproven": {
+      "combined_observed_probability": {
+        "count": 6,
+        "ln_sum": -9.135758,
+        "log10_sum": -3.967609
+      },
+      "match_status_counts": {
+        "exact_hit": 5,
+        "miss": 1
+      },
+      "prediction_count": 6,
+      "probability_ready_count": 6,
+      "public_date_status_counts": {
+        "no_public_date_evidence": 4,
+        "public_date_ok": 2
+      }
+    },
+    "public_date_strict_clean": {
+      "combined_observed_probability": {
+        "count": 2,
+        "ln_sum": -3.030327,
+        "log10_sum": -1.316054
+      },
+      "match_status_counts": {
+        "exact_hit": 1,
+        "miss": 1
+      },
+      "prediction_count": 2,
+      "probability_ready_count": 2,
+      "public_date_status_counts": {
+        "public_date_ok": 2
+      }
+    }
+  },
+  "public_date_status_counts": {
+    "event_precedes_publication": 6,
+    "no_public_date_evidence": 4,
+    "public_date_ok": 2
+  },
+  "run_keys": {
+    "stage2_run_key": "stage2-20260313T024045Z",
+    "stage3_run_key": "stage3-epidemic-20260313T145700Z",
+    "stage4_run_key": "stage4-epidemic-20260313T145710Z",
+    "stage5_run_key": "stage5-epidemic-20260313T145720Z",
+    "stage7_run_key": "stage7-epidemic-final-20260313T145730Z"
+  },
+  "scoped_prediction_count": 12,
+  "script_version": "epidemic_export_v2",
+  "significant_count": 2
+}

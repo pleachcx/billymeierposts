@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any
 
 import psycopg2
-from psycopg2.extras import Json, execute_values
+from psycopg2.extras import Json, execute_batch, execute_values
 
 
 SCRIPT_VERSION = "stage3_epidemic_official_catalog_v2"
@@ -167,6 +167,44 @@ def fetch_predictions(cur, stage2_run_id: int, override_keys: list[str]) -> list
             )
         )
     return rows
+
+
+def apply_scoped_overrides(cur, stage2_run_id: int, overrides: dict[str, dict[str, Any]]) -> None:
+    params = []
+    for key in overrides:
+        report_number, candidate_seq = key.split(":")
+        params.append(
+            (
+                "epidemic",
+                Json(
+                    {
+                        "manual_scope_override": {
+                            "script_version": SCRIPT_VERSION,
+                            "scoped_family": "epidemic",
+                            "override_key": key,
+                        }
+                    }
+                ),
+                stage2_run_id,
+                int(report_number),
+                int(candidate_seq),
+            )
+        )
+    if not params:
+        return
+    execute_batch(
+        cur,
+        """
+        UPDATE public.prediction_audit_predictions
+        SET event_family_final = %s,
+            stage2_meta = COALESCE(stage2_meta, '{}'::jsonb) || %s
+        WHERE last_stage2_run_id = %s
+          AND report_number = %s
+          AND candidate_seq = %s
+        """,
+        params,
+        page_size=100,
+    )
 
 
 def parse_iso_date(raw: str | None) -> date | None:
@@ -343,6 +381,8 @@ def main() -> int:
     try:
         with conn.cursor() as cur:
             stage2_run_id, resolved_stage2_run_key = fetch_run(cur, "stage2_eligibility", args.stage2_run_key)
+            if not args.dry_run:
+                apply_scoped_overrides(cur, stage2_run_id, overrides)
             predictions = fetch_predictions(cur, stage2_run_id, list(overrides.keys()))
 
             if not args.dry_run:

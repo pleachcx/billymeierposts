@@ -1,0 +1,406 @@
+{
+  "schema_version": "prediction_provenance_research_log_v1",
+  "active_pack_id": "P2",
+  "baseline_stage2_run_key": "stage2-20260311T093233Z",
+  "updated_at": "2026-03-13T02:10:02Z",
+  "notes": [
+    "Track deep-archive provenance rescue attempts separately from importable evidence rows.",
+    "Record only defensible source facts in attempted_sources; keep speculative follow-ups in next_hypothesis."
+  ],
+  "artifacts": {
+    "stage0_provenance_run_key": "stage0-provenance-20260313T020853Z",
+    "stage8_publication_run_key": "stage8-publication-20260313T020905Z",
+    "stage9_public_cohort_run_key": "stage9-public-cohort-20260313T020912Z",
+    "publication_timing_audit_dir": "data/exports/provenance/publication-timing-audit-20260313T020928Z",
+    "cohort_comparison_dir": "data/exports/provenance/cohort-comparison-20260313T020928Z",
+    "public_date_research_queue_dir": "data/exports/provenance/public-date-research-queue-20260313T020928Z",
+    "overview_dir": "data/exports/overview/prediction-audit-overview-20260313T020928Z"
+  },
+  "entries": [
+    {
+      "prediction_key": "465/6",
+      "batch_id": "P2.A",
+      "family": "earthquake",
+      "priority_rank": 1,
+      "priority_tier": "deep_archive_gap",
+      "match_status": "exact_hit",
+      "claimed_contact_date": "2008-05-07",
+      "event_start_date": "2008-05-12",
+      "publication_lag_days_vs_event": -4438,
+      "current_public_source_tier": "mirror_translation_page",
+      "best_available_source_tier": "official_figu_original",
+      "research_outcome": "next_hypothesis",
+      "evidence_decision": "no_new_defensible_import",
+      "attempted_sources": [
+        {
+          "source_kind": "repo_export_rollup",
+          "source_label": "Future Of Mankind Contact Report 465 English translation page",
+          "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_465",
+          "observed_public_date": "2020-07-06",
+          "attempt_outcome": "Mirror translation date is still 4438 days after the matched Sichuan earthquake."
+        },
+        {
+          "source_kind": "repo_provenance_evidence",
+          "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 11",
+          "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-11/",
+          "observed_public_date": "2022-10-21",
+          "attempt_outcome": "Official FIGU shop metadata exists, but the product page is much later than the event."
+        },
+        {
+          "source_kind": "wayback_exact_url_query",
+          "source_label": "Wayback CDX for the exact Block 11 shop URL",
+          "source_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fshop.figu.org%2Fprodukt%2Fplejadisch-plejarische-kontaktberichte-block-11%2F&output=json&fl=timestamp,original,statuscode&filter=statuscode:200&limit=5&from=1990",
+          "attempt_outcome": "The exact shop URL returned no 200-status captures."
+        }
+      ],
+      "next_hypothesis": "Search for a pre-2008 official FIGU PDF, bulletin extract, or legacy downloads page for Block 11; the current mirror and shop sources cannot rescue the row.",
+      "notes": "No paired contradiction forced expansion beyond the listed target row."
+    },
+    {
+      "prediction_key": "446/6",
+      "batch_id": "P2.A",
+      "family": "earthquake",
+      "priority_rank": 2,
+      "priority_tier": "deep_archive_gap",
+      "match_status": "exact_hit",
+      "claimed_contact_date": "2007-03-17",
+      "event_start_date": "2007-03-25",
+      "publication_lag_days_vs_event": -4810,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "best_available_source_tier": "official_figu_original",
+      "research_outcome": "next_hypothesis",
+      "evidence_decision": "no_new_defensible_import",
+      "attempted_sources": [
+        {
+          "source_kind": "repo_export_rollup",
+          "source_label": "Future Of Mankind Contact Report 446 first page revision",
+          "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_446",
+          "observed_public_date": "2020-05-25",
+          "attempt_outcome": "The earliest mirror revision still trails the Noto Peninsula event by 4810 days."
+        },
+        {
+          "source_kind": "repo_provenance_evidence",
+          "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 11",
+          "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-11/",
+          "observed_public_date": "2022-10-21",
+          "attempt_outcome": "The official block product page is valid evidence, but it is much too late to resolve a March 2007 hit."
+        },
+        {
+          "source_kind": "wayback_exact_url_query",
+          "source_label": "Wayback CDX for the exact Block 11 shop URL",
+          "source_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fshop.figu.org%2Fprodukt%2Fplejadisch-plejarische-kontaktberichte-block-11%2F&output=json&fl=timestamp,original,statuscode&filter=statuscode:200&limit=5&from=1990",
+          "attempt_outcome": "The exact shop URL returned no 200-status captures."
+        }
+      ],
+      "next_hypothesis": "Probe legacy FIGU downloads and bulletin paths for a pre-2007 German extract of Report 446 or neighboring Block 11 material.",
+      "notes": "Current evidence set shows only post-event mirror and shop surfaces."
+    },
+    {
+      "prediction_key": "136/88",
+      "batch_id": "P2.A",
+      "family": "earthquake",
+      "priority_rank": 3,
+      "priority_tier": "deep_archive_gap",
+      "match_status": "exact_hit",
+      "claimed_contact_date": "1980-10-14",
+      "event_start_date": "1981-02-24",
+      "publication_lag_days_vs_event": -9663,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "best_available_source_tier": "official_figu_original",
+      "research_outcome": "next_hypothesis",
+      "evidence_decision": "no_new_defensible_import",
+      "attempted_sources": [
+        {
+          "source_kind": "repo_export_rollup",
+          "source_label": "Future Of Mankind Contact Report 136 first page revision",
+          "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_136",
+          "observed_public_date": "2007-08-10",
+          "attempt_outcome": "The earliest mirror revision is decades after the 1981 Greece earthquake."
+        },
+        {
+          "source_kind": "repo_provenance_evidence",
+          "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 04",
+          "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-4/",
+          "observed_public_date": "2022-10-21",
+          "attempt_outcome": "The official shop page proves a modern product listing only and cannot rescue a pre-web 1981 event."
+        }
+      ],
+      "next_hypothesis": "Treat this as a print-era rescue problem: look for a dated German Block 04 edition, catalog record, or scanned FIGU periodical that predates 1981-02-24.",
+      "notes": "Web-era provenance cannot close a gap this large."
+    },
+    {
+      "prediction_key": "400/7",
+      "batch_id": "P2.A",
+      "family": "earthquake",
+      "priority_rank": 4,
+      "priority_tier": "deep_archive_gap",
+      "match_status": "exact_hit",
+      "claimed_contact_date": "2005-09-25",
+      "event_start_date": "2005-10-08",
+      "publication_lag_days_vs_event": -1420,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "best_available_source_tier": "official_figu_original",
+      "research_outcome": "next_hypothesis",
+      "evidence_decision": "no_new_defensible_import",
+      "attempted_sources": [
+        {
+          "source_kind": "repo_export_rollup",
+          "source_label": "Future Of Mankind Contact Report 400 first page revision",
+          "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_400",
+          "observed_public_date": "2009-08-28",
+          "attempt_outcome": "The earliest mirror revision still postdates the Pakistan earthquake by nearly four years."
+        },
+        {
+          "source_kind": "repo_provenance_evidence",
+          "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 10",
+          "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-10/",
+          "observed_public_date": "2022-10-21",
+          "attempt_outcome": "The official Block 10 shop metadata is real but far too late to resolve an October 2005 event."
+        },
+        {
+          "source_kind": "wayback_exact_url_query",
+          "source_label": "Wayback CDX for the exact Block 10 shop URL",
+          "source_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fshop.figu.org%2Fprodukt%2Fplejadisch-plejarische-kontaktberichte-block-10%2F&output=json&fl=timestamp,original,statuscode&filter=statuscode:200&limit=5&from=1990",
+          "attempt_outcome": "The exact shop URL returned no 200-status captures."
+        }
+      ],
+      "next_hypothesis": "Search legacy FIGU downloads and bulletin surfaces for a 2005-era German extract of Report 400 or Block 10 before treating the row as print-only.",
+      "notes": "The live official surface helps document provenance tiering but does not change the cohort outcome."
+    },
+    {
+      "prediction_key": "395/4",
+      "batch_id": "P2.A",
+      "family": "earthquake",
+      "priority_rank": 5,
+      "priority_tier": "deep_archive_gap",
+      "match_status": "exact_hit",
+      "claimed_contact_date": "2005-07-16",
+      "event_start_date": "2005-07-24",
+      "publication_lag_days_vs_event": -5350,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "best_available_source_tier": "official_figu_original",
+      "research_outcome": "official_evidence_imported_no_rescue",
+      "evidence_decision": "imported_manual_evidence",
+      "attempted_sources": [
+        {
+          "source_kind": "repo_export_rollup",
+          "source_label": "Future Of Mankind Contact Report 395 first page revision",
+          "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_395",
+          "observed_public_date": "2020-03-17",
+          "attempt_outcome": "Only a mirror revision timestamp is currently recorded, leaving the report without any imported official source tier."
+        },
+        {
+          "source_kind": "live_official_source_link",
+          "source_label": "Future Of Mankind source link for Contact Report 395",
+          "source_url": "https://shop.figu.org/b%C3%BCcher/plejadisch-plejarische-kontaktberichte-block-10",
+          "attempt_outcome": "The live mirror page points to the official FIGU Block 10 shop page."
+        },
+        {
+          "source_kind": "live_official_shop_page",
+          "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 10",
+          "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-10/",
+          "observed_public_date": "2022-10-21",
+          "attempt_outcome": "Imported via Stage 0 provenance run `stage0-provenance-20260313T020853Z`; it upgrades the best available source tier but still postdates the 2005 event by thousands of days."
+        }
+      ],
+      "next_hypothesis": "Search for a pre-2005 FIGU download, bulletin extract, or print-era citation for Block 10 if this row is revisited.",
+      "notes": "Stage 8 and Stage 9 reruns preserved the same excluded cohort status after the official-source import."
+    },
+    {
+      "prediction_key": "459/5",
+      "batch_id": "P2.B",
+      "family": "politics_election",
+      "priority_rank": 6,
+      "priority_tier": "deep_archive_gap",
+      "match_status": "exact_hit",
+      "claimed_contact_date": "2008-02-03",
+      "event_start_date": "2008-02-17",
+      "publication_lag_days_vs_event": -4509,
+      "current_public_source_tier": "mirror_translation_page",
+      "best_available_source_tier": "official_figu_original",
+      "research_outcome": "next_hypothesis",
+      "evidence_decision": "no_new_defensible_import",
+      "attempted_sources": [
+        {
+          "source_kind": "repo_export_rollup",
+          "source_label": "Future Of Mankind Contact Report 459 English translation page",
+          "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_459",
+          "observed_public_date": "2020-06-22",
+          "attempt_outcome": "The current mirror translation date trails Kosovo independence by 4509 days."
+        },
+        {
+          "source_kind": "repo_provenance_evidence",
+          "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 11",
+          "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-11/",
+          "observed_public_date": "2022-10-21",
+          "attempt_outcome": "Official Block 11 product metadata exists but is even later than the mirror evidence."
+        },
+        {
+          "source_kind": "wayback_exact_url_query",
+          "source_label": "Wayback CDX for the exact Block 11 shop URL",
+          "source_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fshop.figu.org%2Fprodukt%2Fplejadisch-plejarische-kontaktberichte-block-11%2F&output=json&fl=timestamp,original,statuscode&filter=statuscode:200&limit=5&from=1990",
+          "attempt_outcome": "The exact shop URL returned no 200-status captures."
+        }
+      ],
+      "next_hypothesis": "Look for a pre-2008 official German extract or bulletin that covers the Kosovo passage rather than relying on the late mirror translation.",
+      "notes": "This row remains a provenance problem, not a family-matching problem."
+    },
+    {
+      "prediction_key": "442/3",
+      "batch_id": "P2.B",
+      "family": "earthquake",
+      "priority_rank": 8,
+      "priority_tier": "large_gap",
+      "match_status": "exact_hit",
+      "claimed_contact_date": "2007-02-10",
+      "event_start_date": "2007-02-12",
+      "publication_lag_days_vs_event": -356,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "best_available_source_tier": "official_figu_original",
+      "research_outcome": "next_hypothesis",
+      "evidence_decision": "no_new_defensible_import",
+      "attempted_sources": [
+        {
+          "source_kind": "repo_export_rollup",
+          "source_label": "Future Of Mankind Contact Report 442 first page revision",
+          "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_442",
+          "observed_public_date": "2008-02-03",
+          "attempt_outcome": "The earliest mirror revision is only one year later, but it still misses the February 2007 event window."
+        },
+        {
+          "source_kind": "repo_provenance_evidence",
+          "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 11",
+          "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-11/",
+          "observed_public_date": "2022-10-21",
+          "attempt_outcome": "The official shop page is valid but not useful for a near-pre-web rescue."
+        },
+        {
+          "source_kind": "wayback_exact_url_query",
+          "source_label": "Wayback CDX for the exact Block 11 shop URL",
+          "source_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fshop.figu.org%2Fprodukt%2Fplejadisch-plejarische-kontaktberichte-block-11%2F&output=json&fl=timestamp,original,statuscode&filter=statuscode:200&limit=5&from=1990",
+          "attempt_outcome": "The exact shop URL returned no 200-status captures."
+        }
+      ],
+      "next_hypothesis": "Focus on 2007-era FIGU PDFs or download listings first because this is a comparatively small gap and the mirror revision is already close.",
+      "notes": "This is the best remaining candidate in P2 for a legacy-web rescue if an official 2007 surface exists."
+    },
+    {
+      "prediction_key": "246/23",
+      "batch_id": "P2.B",
+      "family": "earthquake",
+      "priority_rank": 9,
+      "priority_tier": "deep_archive_gap",
+      "match_status": "exact_hit",
+      "claimed_contact_date": "1993-06-19",
+      "event_start_date": "1993-07-12",
+      "publication_lag_days_vs_event": -5286,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "best_available_source_tier": "official_figu_original",
+      "research_outcome": "next_hypothesis",
+      "evidence_decision": "no_new_defensible_import",
+      "attempted_sources": [
+        {
+          "source_kind": "repo_export_rollup",
+          "source_label": "Future Of Mankind Contact Report 246 first page revision",
+          "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_246",
+          "observed_public_date": "2008-01-01",
+          "attempt_outcome": "The earliest mirror revision is more than fourteen years after the Hokkaido event."
+        },
+        {
+          "source_kind": "repo_provenance_evidence",
+          "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 07",
+          "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-7/",
+          "observed_public_date": "2022-10-21",
+          "attempt_outcome": "The official shop page proves only a modern product listing for Block 07."
+        },
+        {
+          "source_kind": "wayback_exact_url_query",
+          "source_label": "Wayback CDX for the exact Block 07 shop URL",
+          "source_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fshop.figu.org%2Fprodukt%2Fplejadisch-plejarische-kontaktberichte-block-7%2F&output=json&fl=timestamp,original,statuscode&filter=statuscode:200&limit=3&from=1990",
+          "observed_public_date": "2026-01-24",
+          "attempt_outcome": "The earliest exact-url archive hit is from 2026, which is non-rescuing for a 1993 event."
+        }
+      ],
+      "next_hypothesis": "Treat this as a print-era Block 07 problem and look for dated catalogs, scanned books, or official periodicals that cite Report 246 before 1993-07-12.",
+      "notes": "No live or archived web surface came close to the event date."
+    },
+    {
+      "prediction_key": "427/1",
+      "batch_id": "P2.B",
+      "family": "earthquake",
+      "priority_rank": 10,
+      "priority_tier": "large_gap",
+      "match_status": "exact_hit",
+      "claimed_contact_date": "2006-07-09",
+      "event_start_date": "2006-07-17",
+      "publication_lag_days_vs_event": -566,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "best_available_source_tier": "official_figu_original",
+      "research_outcome": "official_evidence_imported_no_rescue",
+      "evidence_decision": "imported_manual_evidence",
+      "attempted_sources": [
+        {
+          "source_kind": "repo_export_rollup",
+          "source_label": "Future Of Mankind Contact Report 427 first page revision",
+          "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_427",
+          "observed_public_date": "2008-02-03",
+          "attempt_outcome": "Only mirror revision evidence is currently recorded, leaving the report without any imported official source tier."
+        },
+        {
+          "source_kind": "live_official_source_link",
+          "source_label": "Future Of Mankind source link for Contact Report 427",
+          "source_url": "https://shop.figu.org/b%C3%BCcher/plejadisch-plejarische-kontaktberichte-block-10",
+          "attempt_outcome": "The live mirror page points to the official FIGU Block 10 shop page."
+        },
+        {
+          "source_kind": "live_official_shop_page",
+          "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 10",
+          "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-10/",
+          "observed_public_date": "2022-10-21",
+          "attempt_outcome": "Imported via Stage 0 provenance run `stage0-provenance-20260313T020853Z`; it upgrades the best available source tier but still postdates the 2006 event."
+        }
+      ],
+      "next_hypothesis": "Search for a pre-2006 official PDF, bulletin extract, or print citation for Block 10 if this row is revisited.",
+      "notes": "Stage 8 and Stage 9 reruns preserved the same excluded cohort status after the official-source import."
+    },
+    {
+      "prediction_key": "402/5",
+      "batch_id": "P2.B",
+      "family": "earthquake",
+      "priority_rank": 11,
+      "priority_tier": "deep_archive_gap",
+      "match_status": "exact_hit",
+      "claimed_contact_date": "2005-10-29",
+      "event_start_date": "2005-11-12",
+      "publication_lag_days_vs_event": -1385,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "best_available_source_tier": "official_figu_original",
+      "research_outcome": "next_hypothesis",
+      "evidence_decision": "no_new_defensible_import",
+      "attempted_sources": [
+        {
+          "source_kind": "repo_export_rollup",
+          "source_label": "Future Of Mankind Contact Report 402 first page revision",
+          "source_url": "https://www.futureofmankind.co.uk/Billy_Meier/Contact_Report_402",
+          "observed_public_date": "2009-08-28",
+          "attempt_outcome": "The earliest mirror revision still arrives almost four years after the Switzerland event."
+        },
+        {
+          "source_kind": "repo_provenance_evidence",
+          "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 10",
+          "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-10/",
+          "observed_public_date": "2022-10-21",
+          "attempt_outcome": "The official Block 10 product page is real but much too late to rescue a November 2005 event."
+        },
+        {
+          "source_kind": "wayback_exact_url_query",
+          "source_label": "Wayback CDX for the exact Block 10 shop URL",
+          "source_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fshop.figu.org%2Fprodukt%2Fplejadisch-plejarische-kontaktberichte-block-10%2F&output=json&fl=timestamp,original,statuscode&filter=statuscode:200&limit=5&from=1990",
+          "attempt_outcome": "The exact shop URL returned no 200-status captures."
+        }
+      ],
+      "next_hypothesis": "Search for a 2005 official FIGU PDF or bulletin excerpt that circulated before the Swiss event; current mirror and shop evidence are both too late.",
+      "notes": "The current best official tier does not alter the exclusion."
+    }
+  ]
+}

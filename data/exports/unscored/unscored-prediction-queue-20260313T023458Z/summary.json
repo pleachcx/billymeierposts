@@ -1,0 +1,139 @@
+{
+  "generated_at": "2026-03-13T02:34:58.215646+00:00",
+  "queue_summary": {
+    "family_guess_counts": {
+      "<none>": 288,
+      "aviation_space": 81,
+      "climate_environment": 108,
+      "earthquake": 76,
+      "economy": 37,
+      "epidemic": 190,
+      "politics_election": 184,
+      "science_technology": 35,
+      "storm": 39,
+      "volcano": 20,
+      "war_conflict": 293
+    },
+    "prediction_count": 1351,
+    "recovery_bucket_counts": {
+      "generic_retire_or_reclassify": 272,
+      "missing_family_assignment": 16,
+      "needs_new_rulebook": 473,
+      "outside_p3_scope": 76,
+      "supported_family_needs_override": 152,
+      "supported_family_needs_window_override": 362
+    },
+    "stage2_label_counts": {
+      "eligible_prediction": 1126,
+      "significant_prediction": 225
+    },
+    "supported_family_counts": {
+      "aviation_space": 81,
+      "epidemic": 190,
+      "politics_election": 184,
+      "storm": 39,
+      "volcano": 20
+    }
+  },
+  "script_version": "unscored_prediction_queue_v1",
+  "stage2_run_key": "stage2-20260311T093233Z",
+  "supported_families": [
+    "aviation_space",
+    "epidemic",
+    "politics_election",
+    "storm",
+    "volcano"
+  ],
+  "top_rows": [
+    {
+      "candidate_seq": 1,
+      "family_guess": "volcano",
+      "override_present": false,
+      "priority_rank": 1,
+      "recovery_bucket": "supported_family_needs_override",
+      "report_number": 72,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 135,
+      "family_guess": "politics_election",
+      "override_present": false,
+      "priority_rank": 2,
+      "recovery_bucket": "supported_family_needs_override",
+      "report_number": 136,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 137,
+      "family_guess": "politics_election",
+      "override_present": false,
+      "priority_rank": 3,
+      "recovery_bucket": "supported_family_needs_override",
+      "report_number": 136,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 138,
+      "family_guess": "politics_election",
+      "override_present": false,
+      "priority_rank": 4,
+      "recovery_bucket": "supported_family_needs_override",
+      "report_number": 136,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 147,
+      "family_guess": "politics_election",
+      "override_present": false,
+      "priority_rank": 5,
+      "recovery_bucket": "supported_family_needs_override",
+      "report_number": 136,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 160,
+      "family_guess": "politics_election",
+      "override_present": false,
+      "priority_rank": 6,
+      "recovery_bucket": "supported_family_needs_override",
+      "report_number": 136,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 162,
+      "family_guess": "politics_election",
+      "override_present": false,
+      "priority_rank": 7,
+      "recovery_bucket": "supported_family_needs_override",
+      "report_number": 136,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 209,
+      "family_guess": "politics_election",
+      "override_present": false,
+      "priority_rank": 8,
+      "recovery_bucket": "supported_family_needs_override",
+      "report_number": 136,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 219,
+      "family_guess": "politics_election",
+      "override_present": false,
+      "priority_rank": 9,
+      "recovery_bucket": "supported_family_needs_override",
+      "report_number": 136,
+      "stage2_label": "significant_prediction"
+    },
+    {
+      "candidate_seq": 105,
+      "family_guess": "politics_election",
+      "override_present": false,
+      "priority_rank": 10,
+      "recovery_bucket": "supported_family_needs_override",
+      "report_number": 150,
+      "stage2_label": "significant_prediction"
+    }
+  ]
+}

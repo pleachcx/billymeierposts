@@ -410,6 +410,8 @@ def normalize_time_window(claimed_date: date, claim: str, time_text: str | None)
     year_match = re.search(r"\b(?:in|by)\s+(\d{4})\b", lower_claim)
     if year_match:
         year = int(year_match.group(1))
+        if f"by {year}" in lower_claim and year < claimed_date.year:
+            return None, None, "past_deadline_reference"
         start = claimed_date if lower_claim.startswith("by ") or f"by {year}" in lower_claim else date(year, 1, 1)
         end = date(year, 12, 31)
         return start, end, "calendar_year"
@@ -580,6 +582,8 @@ def build_result(row: tuple) -> Stage2Result:
     location = clean_location(location_text)
     actor = clean_actor(actor_text)
     time_start, time_end, time_basis = normalize_time_window(claimed_contact_date, claim, time_text)
+    if time_start and time_end and time_end < time_start:
+        time_start, time_end, time_basis = None, None, "invalid_time_window_reference"
     magnitude_min, magnitude_max, severity_band = parse_magnitude(magnitude_text, claim)
     meaningfulness_score, meaning_reasons = score_meaningfulness(claim, family, (time_start, time_end), location, actor, magnitude_text)
     measurability_score, measure_reasons = score_measurability(claim, family, (time_start, time_end), location, actor, magnitude_text)

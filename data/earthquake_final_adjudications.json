@@ -4,7 +4,17 @@
     "rationale": "The claim aggregates earthquake deaths over a broad future interval without a defensible target region, so it cannot be scored as an atomic measurable earthquake prediction.",
     "reason_code": "broad_casualty_aggregate_no_target"
   },
+  "235:15": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The claim aggregates earthquake deaths over a broad future interval without a defensible target region, so it cannot be scored as an atomic measurable earthquake prediction.",
+    "reason_code": "broad_casualty_aggregate_no_target"
+  },
   "238:213": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The claim says a severe earthquake will strike the following year but never names a target region or event context tightly enough to score as an atomic earthquake prediction.",
+    "reason_code": "no_target_in_contextual_followup"
+  },
+  "238:214": {
     "final_status": "permanently_unresolved",
     "rationale": "The claim says a severe earthquake will strike the following year but never names a target region or event context tightly enough to score as an atomic earthquake prediction.",
     "reason_code": "no_target_in_contextual_followup"
@@ -15,6 +25,11 @@
     "reason_code": "compound_remainder_requires_atomic_split"
   },
   "400:18": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This is a world-scope cascading-rule claim rather than a bounded atomic earthquake prediction, so it should be excluded from the earthquake statistical cohort.",
+    "reason_code": "world_scope_rule_claim"
+  },
+  "400:19": {
     "final_status": "excluded_from_statistics",
     "rationale": "This is a world-scope cascading-rule claim rather than a bounded atomic earthquake prediction, so it should be excluded from the earthquake statistical cohort.",
     "reason_code": "world_scope_rule_claim"
@@ -30,6 +45,11 @@
     "reason_code": "multi_year_compound_world_scope"
   },
   "779:488": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This row mixes a first severe earthquake with later eruptions and escalating earthquake sequences across multiple years, so it is outside the atomic earthquake cohort.",
+    "reason_code": "multi_year_compound_world_scope"
+  },
+  "779:478": {
     "final_status": "excluded_from_statistics",
     "rationale": "This row mixes a first severe earthquake with later eruptions and escalating earthquake sequences across multiple years, so it is outside the atomic earthquake cohort.",
     "reason_code": "multi_year_compound_world_scope"

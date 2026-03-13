@@ -1,5 +1,5 @@
 {
-  "366:11": {
+  "366:12": {
     "probability_key": "jeanne_formation_window_2004",
     "model": "location_risk_window_single_event_v1",
     "calibration_start": "2004-09-03",
@@ -19,7 +19,7 @@
     "similar_horizon_days": 365,
     "notes": "Treat a named-country cyclone catastrophe on the specified day as a one-off event over the immediate post-prediction window."
   },
-  "448:6": {
+  "448:8": {
     "probability_key": "greensburg_tornado_window",
     "model": "location_risk_window_single_event_v1",
     "calibration_start": "1950-01-01",
@@ -39,7 +39,7 @@
     "similar_horizon_days": 365,
     "notes": "Treat a catastrophic hurricane striking Texas in the immediate post-prediction days as a one-off regional storm event."
   },
-  "574:8": {
+  "574:7": {
     "probability_key": "sardinia_storm_catastrophe_window",
     "model": "location_risk_window_single_event_v1",
     "calibration_start": "2013-11-02",

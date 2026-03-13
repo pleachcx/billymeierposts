@@ -35,7 +35,7 @@
     "resolution_source": "prediction_override_onagawa_context",
     "notes": "The immediately preceding sentence places the seaquake sequence near Onagawa in northern Japan."
   },
-  "136:88": {
+  "136:89": {
     "target_name": "Western Athens / Alkyonides Gulf, Greece",
     "target_type": "region",
     "lat": 38.1328,
@@ -44,7 +44,7 @@
     "resolution_source": "prediction_override_athens_context",
     "notes": "The source quote explicitly places the 1981-02-24 quake 70 kilometres west of Athens, matching the Alkyonides Gulf sequence."
   },
-  "238:196": {
+  "238:197": {
     "target_name": "Tokyo",
     "target_type": "region",
     "lat": 35.6762,
@@ -62,7 +62,7 @@
     "resolution_source": "prediction_override_sumatra_context",
     "notes": "The immediately preceding sentence places the seaquake sequence off Sumatra and the follow-up 6.4 seaquake is part of the same local sequence."
   },
-  "446:9": {
+  "446:10": {
     "target_name": "Acapulco Region, Mexico",
     "target_type": "region",
     "lat": 16.8634,
@@ -71,7 +71,7 @@
     "resolution_source": "prediction_override_acapulco_context",
     "notes": "The claim explicitly names the Acapulco region of Mexico as the earthquake target."
   },
-  "453:18": {
+  "453:17": {
     "target_name": "Pisco / Peru Coast",
     "target_type": "region",
     "lat": -13.7100,

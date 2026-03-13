@@ -1,0 +1,7 @@
+event_family_final,claimed_scored_count,claimed_hit_count,claimed_exact_hit_count,public_date_clean_count,public_date_clean_exact_hit_count,pending_more_public_evidence_count,public_date_currently_unrescued_count,public_date_currently_unrescued_hit_count,public_date_currently_unrescued_exact_hit_count
+aviation_space,1,1,1,0,0,0,1,1,1
+earthquake,52,47,27,5,0,10,37,37,23
+epidemic,15,14,12,2,1,4,9,9,7
+politics_election,17,17,17,0,0,0,17,17,17
+storm,6,6,6,0,0,0,6,6,6
+volcano,19,18,14,1,0,5,13,13,9

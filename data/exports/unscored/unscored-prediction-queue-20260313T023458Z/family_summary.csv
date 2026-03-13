@@ -1,0 +1,12 @@
+family_guess,prediction_count,stage2_label_counts,recovery_bucket_counts,override_present_count,top_priority_rank,top_prediction_key
+<none>,288,"{""eligible_prediction"": 272, ""significant_prediction"": 16}","{""generic_retire_or_reclassify"": 272, ""missing_family_assignment"": 16}",0,515,364:38
+aviation_space,81,"{""eligible_prediction"": 69, ""significant_prediction"": 12}","{""supported_family_needs_override"": 35, ""supported_family_needs_window_override"": 46}",0,11,202:5
+climate_environment,108,"{""eligible_prediction"": 91, ""significant_prediction"": 17}","{""needs_new_rulebook"": 108}",0,638,241:27
+earthquake,76,"{""eligible_prediction"": 47, ""significant_prediction"": 29}","{""outside_p3_scope"": 76}",0,531,136:26
+economy,37,"{""eligible_prediction"": 28, ""significant_prediction"": 9}","{""needs_new_rulebook"": 37}",0,623,216:17
+epidemic,190,"{""eligible_prediction"": 164, ""significant_prediction"": 26}","{""supported_family_needs_override"": 45, ""supported_family_needs_window_override"": 145}",0,21,369:2
+politics_election,184,"{""eligible_prediction"": 155, ""significant_prediction"": 29}","{""supported_family_needs_override"": 56, ""supported_family_needs_window_override"": 128}",0,2,136:135
+science_technology,35,"{""eligible_prediction"": 30, ""significant_prediction"": 5}","{""needs_new_rulebook"": 35}",0,626,220:4
+storm,39,"{""eligible_prediction"": 29, ""significant_prediction"": 10}","{""supported_family_needs_override"": 8, ""supported_family_needs_window_override"": 31}",0,24,395:5
+volcano,20,"{""eligible_prediction"": 9, ""significant_prediction"": 11}","{""supported_family_needs_override"": 8, ""supported_family_needs_window_override"": 12}",0,1,72:1
+war_conflict,293,"{""eligible_prediction"": 232, ""significant_prediction"": 61}","{""needs_new_rulebook"": 293}",0,607,134:10

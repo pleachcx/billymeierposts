@@ -16,7 +16,7 @@ import psycopg2
 from psycopg2.extras import Json, execute_values
 
 
-PARSER_VERSION = "stage1_regex_v3"
+PARSER_VERSION = "stage1_regex_v4"
 PROMPT_VERSION = "none"
 SOURCE_CORPUS = "public.contact_reports.english_content"
 FUTURE_MARKER_PATTERN = re.compile(
@@ -445,8 +445,28 @@ def split_line_into_claims(line: str) -> list[str]:
     if not has_predictive_signal(cleaned):
         return []
 
+    parts = [cleaned]
+    splitter = re.compile(r"\s+(?:and|but)\s+(?=[^,;:.!?]{0,120}\b(?:will|shall|is going to|are going to)\b)", re.IGNORECASE)
+    changed = True
+    while changed:
+        changed = False
+        next_parts: list[str] = []
+        for part in parts:
+            split = splitter.split(part, maxsplit=1)
+            if len(split) != 2:
+                next_parts.append(part)
+                continue
+            left = normalize_claim_text(split[0])
+            right = normalize_claim_text(split[1])
+            if left and right and is_atomic_prediction_text(left) and is_atomic_prediction_text(right):
+                next_parts.extend([left, right])
+                changed = True
+                continue
+            next_parts.append(part)
+        parts = next_parts
+
     claims: list[str] = []
-    for part in re.split(r"\s+(?:and|but)\s+(?=[^,;:.!?]{0,120}\b(?:will|shall|is going to|are going to)\b)", cleaned, flags=re.IGNORECASE):
+    for part in parts:
         for subpart in SPLIT_PATTERN.split(part):
             text = normalize_claim_text(subpart)
             if text and has_predictive_signal(text) and looks_like_world_prediction(text):

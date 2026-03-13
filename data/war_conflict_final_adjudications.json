@@ -49,9 +49,59 @@
     "reason_code": "open_ended_bombing_trend_outside_dated_attack_rulebook",
     "rationale": "Prediction is retired from the war_conflict dated-attack slice because continuing bombings and suicide bombers in Iraq over coming weeks and months describe an open-ended trend, not one dated attack event."
   },
+  "388:8": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "military_campaign_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because land attacks and air raids against Palestine over the next week describe a military campaign, not one atomic dated attack that can be matched to a single catalog event."
+  },
   "394:3": {
     "final_status": "permanently_unresolved",
     "reason_code": "stored_exact_day_conflicts_with_only_matching_event",
     "rationale": "Prediction is retired from the war_conflict slice because the stored exact-day window is 21 July 2004, while the only defensible same-target analogue is the 21 July 2005 attempted London bombings; the current rulebook will not rewrite the corpus year to save the row."
+  },
+  "441:5": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "retaliation_trend_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because rising Palestinian attacks and Israeli revenge campaigns are open-ended retaliation trends, not one dated attack event."
+  },
+  "589:8": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "leadership_proclamation_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because Baghdadi emerging and proclaiming a caliphate is a leadership and proclamation event, not an attack event."
+  },
+  "622:22": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "military_ceremony_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because a Russian military commemoration with speeches and weapons display is ceremonial and political, not a dated attack."
+  },
+  "718:30": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "cold_war_geopolitics_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because a coming USA-China Cold War and Trump's interference in Europe are geopolitical trend claims, not atomic attacks."
+  },
+  "726:6": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "conditional_world_war_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because a possible devastating world war by 2030 is a broad conditional war scenario, not one dated bombing or attack."
+  },
+  "795:6": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "generic_social_war_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because delusion leading to discord, murder, and war is generic social commentary rather than a concrete attack prediction."
+  },
+  "830:3": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "ceasefire_pause_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because a roughly 24-hour Russian Orthodox Christmas pause in fighting is a ceasefire-style diplomatic action, not an attack event."
+  },
+  "866:9": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "ongoing_war_commentary_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because commentary about killing in the present Israel-Palestine war is not a discrete future attack event."
+  },
+  "898:9": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "generic_war_morality_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because the statement that soldiers kill when armies go to war is a generic moral claim, not a measurable attack prediction."
   }
 }

@@ -218,6 +218,7 @@
 - Refresh supervisor workflow files against live `git` branch state before carrying forward a prior blocked decision; stale branch assumptions can block the wrong pack.
 - Block supervisor-loop cycles on `main`; require `feat/prediction-audit-outstanding` before supervised implementation starts.
 - Keep first-cycle supervisor workflow files aligned to the work-spec pack order; only rewrite the pack plan when docs or the active Stage 2 baseline materially change.
+- Pull parser and Stage 2 backlog batches from `recovery_bucket` membership, not `family_guess`; unknown-family rows can serialize with blank family fields.
 - The widened volcano replay `stage3-volcano-20260312T001424Z` / `stage4-volcano-20260312T001430Z` / `stage5-volcano-20260312T001440Z` / `stage7-volcano-final-20260312T001448Z` expanded volcano to `11` included rows with `8 exact_hit`, `2 near_hit`, and `1 miss`.
 - New widened volcano rows on the refreshed mainline are `136/97` exact hit, `238/158` near hit, and `241/47` exact hit; `366/13` remains the only public-date-clean volcano row and it is a miss.
 - The aligned post-volcano exports are `publication-timing-audit-20260312T001511Z`, `cohort-comparison-20260312T001512Z`, `public-date-research-queue-20260312T001512Z`, and `prediction-audit-overview-20260312T001512Z`; top-line mainline is now `90` included scored rows with `59` exact hits.

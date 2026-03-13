@@ -34,7 +34,7 @@ from scripts.parse_contact_report_predictions import (
 )
 
 
-REVIEW_VERSION = "stage2_rules_v2"
+REVIEW_VERSION = "stage2_rules_v3"
 STOPWORDS = {
     "about",
     "after",

@@ -16,7 +16,7 @@ import psycopg2
 from psycopg2.extras import Json, execute_values
 
 
-PARSER_VERSION = "stage1_regex_v4"
+PARSER_VERSION = "stage1_regex_v5"
 PROMPT_VERSION = "none"
 SOURCE_CORPUS = "public.contact_reports.english_content"
 FUTURE_MARKER_PATTERN = re.compile(

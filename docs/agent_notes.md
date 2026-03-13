@@ -312,3 +312,6 @@
 - Cast `manual_scope_override` writes to `jsonb` inside earthquake Stage `3` and Stage `7`; `VALUES`-backed JSON payloads arrive as text unless the SQL explicitly uses `::jsonb`.
 - Treat a `0`-row fetch for the workflow Stage `2` run key as a baseline-drift checkpoint, not a harmless no-op; compare `prediction_audit_predictions.last_stage2_run_id` against the workflow run id before replaying family scripts.
 - Rewrite `.workflow/*` before continuing when the live DB has already advanced to a newer full-corpus Stage `2` run; do not silently keep implementing against a different baseline than the committed queue and overview artifacts.
+- Issue `revise_before_continue` when the live DB baseline advances mid-pack but aligned queue and overview artifacts on that baseline are still missing; re-anchor the workflow first, then resume implementation.
+- Treat untracked family export dirs on a newer Stage `2` baseline as runtime evidence only; require refreshed queue, overview, provenance, and release artifacts on that same baseline before accepting the pack.
+- Compare re-anchor regressions against live `final_status` counts as well as the exported overview; carry-forward family outcomes can survive a Stage 2 baseline change even when Stage `8` and `9` have not yet refreshed the publication-layer totals.

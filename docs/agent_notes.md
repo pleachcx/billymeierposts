@@ -209,9 +209,12 @@
 - Reconstruct supervisor-loop progress from `.workflow/branch_plan.md`, `.workflow/slice_queue.md`, and `.workflow/supervisor_decision.md`; `docs/prediction_audit_supervisor_work_spec.md` can lag the accepted branch state.
 - Scope the next audit wave from `unscored-prediction-queue` bucket counts: drain `promote_via_existing_family_pipeline`, `stage2_revisit_in_supported_family`, and earthquake replay backlog before reopening blocked new-family rulebooks.
 - After a new-family bootstrap lands cleanly, scope the next doc as a same-family widening tranche on the same Stage 2 baseline before opening a broader rulebook or switching families.
+- When the merged queue still has large `promote`, `revisit`, and parked-family buckets, define the next supervisor doc as a multi-pack backlog wave across existing pipelines before proposing another tiny one-pack follow-up.
 - Rewrite supervisor workflow files to the active aligned Stage 2 baseline after any accepted rerun pack; do not keep active instructions anchored to stale spec-front-matter run keys.
 - Verify pack acceptance against the generated summary JSON artifacts before advancing the active pack; do not trust implementer handoff counts alone.
 - Open the release-output pack only after overview, provenance, research-queue, and unscored exports reconcile on one baseline.
+- Rewrite stale `.workflow` state at the start of a new supervisor branch; completed-pack instructions from the prior branch can silently point the implementer at the wrong branch and doc set.
+- For large backlog waves, enforce at least four meaningful slices per pack by separating curation/review, family replay, and aligned export closeout instead of collapsing the pack into three oversized checkpoints.
 - Close a baseline-restoration pack only after comparing old and new overview family counts; document any net row delta explicitly before opening the next widening pack.
 - Treat untracked `scripts/__pycache__/` output from validators as repo dirt; clear it before the next implementation commit so pack history stays reviewable.
 - Verify the supervisor decision against actual `HEAD`, not only the implementer-reported commit; workflow handoff commits can advance the branch after the implementation checkpoint.
@@ -330,3 +333,5 @@
 - Retire `war_conflict` tranche rows by adjudication key when the dated-attack rulebook is too narrow; Stage `7` can clear them from the queue without inventing overrides or fake event matches.
 - Update `export_war_conflict_analysis.py` to read the Stage `7` review set when retirements are adjudication-only; Stage `4`-only exports hide valid `permanently_unresolved` closeouts.
 - Verify adjudication-only `war_conflict` retirements in both places: `data/exports/war_conflict/*/predictions.csv` must carry the retired keys and `data/exports/unscored/*/queue.csv` must carry `0/N` remaining targets.
+- Source `.env` before running the audit scripts in a fresh shell; this repo does not always export `DatabaseURL` into the process environment automatically.
+- Retire widened `war_conflict` rows when the stored Stage `2` record lacks a normalized attack window or fuses an attack clause with non-atomic material; do not backfill chronology from famous later events just to score the row.

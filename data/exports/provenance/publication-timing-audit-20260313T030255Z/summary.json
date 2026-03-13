@@ -1,0 +1,42 @@
+{
+  "best_available_source_tier_counts": {
+    "official_figu_original": 21
+  },
+  "conflict_gap_bucket_counts": {
+    "deep_archive_gap": 19,
+    "small_gap": 1,
+    "tiny_gap": 1
+  },
+  "current_public_source_bucket_counts": {
+    "mirror": 20,
+    "primary_official": 1
+  },
+  "current_public_source_tier_counts": {
+    "mirror_revision_timestamp": 14,
+    "mirror_translation_page": 6,
+    "official_figu_original": 1
+  },
+  "earliest_public_date_populated_count": 21,
+  "family_counts": {
+    "politics_election": 15,
+    "storm": 6
+  },
+  "generated_at": "2026-03-13T03:02:55.862751+00:00",
+  "included_scored_prediction_count": 21,
+  "match_status_counts": {
+    "exact_hit": 21
+  },
+  "observed_event_before_publication_by_family": {
+    "politics_election": 15,
+    "storm": 6
+  },
+  "observed_event_before_publication_count": 21,
+  "public_date_cohort_status_counts": {
+    "excluded_currently_unrescued": 21
+  },
+  "public_date_status_counts": {
+    "event_precedes_publication": 21
+  },
+  "script_version": "publication_timing_audit_v3",
+  "stage2_run_key": "stage2-20260313T024045Z"
+}

@@ -153,6 +153,17 @@
     "window_end": "2005-04-11",
     "notes": "Prediction scoped to Talang beginning its April 2005 eruption on 11 April."
   },
+  "383:13": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Colima",
+    "target_name": "Colima",
+    "target_keywords": ["Colima", "Volcan de Colima", "Mexico"],
+    "jurisdiction": "Mexico",
+    "window_start": "2005-03-27",
+    "window_end": "2005-03-28",
+    "notes": "Prediction scoped to Colima resuming eruptive activity in the 27/28 March 2005 window; the current official source anchors the broader 23-29 March ash-emission episode."
+  },
   "400:3": {
     "scoped_family": "volcano",
     "expected_event_type": "volcano_eruption_began",
@@ -207,5 +218,60 @@
     "window_start": "2008-04-30",
     "window_end": "2008-05-07",
     "notes": "Prediction scoped to the long-dormant Chaiten volcano in southern Chile erupting in the coming days after the 30 April 2008 report."
+  },
+  "72:1": {
+    "scoped_family": "volcano",
+    "expected_event_type": "conditional_volcano_reawakening",
+    "actor_name": "Unnamed volcano region",
+    "target_name": "Unnamed endangered zone",
+    "target_keywords": ["volcano region", "endangered zone"],
+    "jurisdiction": "Unknown",
+    "window_start": "1977-02-03",
+    "window_end": "1979-02-03",
+    "notes": "Retire the conditional unnamed-volcano row because the current volcano catalog only scores named eruption events."
+  },
+  "214:26": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Vesuvius",
+    "target_name": "Vesuvius",
+    "target_keywords": ["Vesuvius", "Italy"],
+    "jurisdiction": "Italy",
+    "window_start": "1987-08-24",
+    "window_end": "1987-08-24",
+    "notes": "Retire the Vesuvius disaster row on the current baseline because the volcano catalog has no scored Vesuvius eruption event for this window."
+  },
+  "238:41": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Tenyo Maru",
+    "target_name": "Japan",
+    "target_keywords": ["Tenyo Maru", "oil tanker", "Japan"],
+    "jurisdiction": "Japan",
+    "window_start": "1991-05-18",
+    "window_end": "1996-05-18",
+    "notes": "Retire the Tenyo Maru oil-tanker row rather than stretching the volcano catalog beyond named eruption claims."
+  },
+  "383:13": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Colima",
+    "target_name": "Colima",
+    "target_keywords": ["Colima", "Mexico"],
+    "jurisdiction": "Mexico",
+    "window_start": "2005-04-06",
+    "window_end": "2005-04-06",
+    "notes": "Retire the Colima row on the current baseline because the checked-in volcano catalog does not yet include a defensible Colima eruption event."
+  },
+  "779:464": {
+    "scoped_family": "volcano",
+    "expected_event_type": "volcano_eruption_began",
+    "actor_name": "Hibok-Hibok",
+    "target_name": "Hibok-Hibok",
+    "target_keywords": ["Hibok-Hibok", "Camiguin", "Philippines"],
+    "jurisdiction": "Philippines",
+    "window_start": "2022-07-07",
+    "window_end": "2022-07-07",
+    "notes": "Retire the historical Hibok-Hibok/Lamington row on the current baseline because the text is retrospective rather than a replay-ready future eruption claim."
   }
 }

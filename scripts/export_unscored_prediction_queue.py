@@ -20,7 +20,7 @@ from provenance_export_helpers import resolve_stage2_run
 
 SCRIPT_VERSION = "unscored_prediction_queue_v1"
 OUTPUT_ROOT = Path("data") / "exports" / "unscored"
-P3_SUPPORTED_FAMILIES = {"epidemic", "volcano", "storm", "politics_election", "aviation_space"}
+ACTIVE_SUPPORTED_FAMILIES = {"epidemic", "volcano", "storm", "politics_election", "aviation_space", "war_conflict"}
 
 
 def parse_args() -> argparse.Namespace:
@@ -55,15 +55,18 @@ def derive_recovery_bucket(row: dict[str, Any]) -> str:
     family = row["family_guess"]
     time_window_end = row.get("time_window_end")
     claimed_contact_date = row.get("claimed_contact_date")
+    family_resolution_status = (row.get("stage2_meta") or {}).get("family_resolution_status")
 
     if time_window_end and claimed_contact_date and time_window_end < claimed_contact_date:
         return "retire_past_event_reference"
-    if row["stage2_label"] == "prediction_but_not_measurable" and family in P3_SUPPORTED_FAMILIES:
+    if row["stage2_label"] == "prediction_but_not_measurable" and family in ACTIVE_SUPPORTED_FAMILIES:
         return "stage2_revisit_in_supported_family"
-    if family in P3_SUPPORTED_FAMILIES:
+    if family in ACTIVE_SUPPORTED_FAMILIES:
         return "promote_via_existing_family_pipeline"
     if family == "earthquake":
         return "existing_pipeline_outside_current_p3_scope"
+    if family_resolution_status == "outside_current_rulebook_scope":
+        return "outside_current_rulebook_scope"
     if family is None:
         return "needs_parser_or_stage2_family_resolution"
     return "outside_current_rulebook_scope"
@@ -76,14 +79,19 @@ def derive_recovery_rationale(row: dict[str, Any]) -> str:
     if bucket == "retire_past_event_reference":
         return "Time window ends before the claimed contact date, so this row should retire instead of being scored."
     if bucket == "stage2_revisit_in_supported_family":
-        return f"{family} is in the active P3 family set, but Stage 2 excluded the row as not measurable; review notes and family-specific overrides may still support a bounded recovery or explicit retirement."
+        return f"{family} already has an active family pipeline, but Stage 2 excluded the row as not measurable; review notes and family-specific overrides may still support a bounded recovery or explicit retirement."
     if bucket == "promote_via_existing_family_pipeline":
-        return f"{family} already has Stage 3-7 scaffolding in the current pack; this row is a candidate for a curated override or clean retirement."
+        return f"{family} already has Stage 3-7 scaffolding on the active baseline; this row is a candidate for a curated override or clean retirement."
     if bucket == "existing_pipeline_outside_current_p3_scope":
-        return "Earthquake scaffolding exists, but this queue exporter flags the row for later handling because the current pack is scoped to other recovery families first."
+        return "Earthquake scaffolding exists, but this queue exporter still flags the row for later handling because the active pack is scoped to other recovery families first."
     if bucket == "needs_parser_or_stage2_family_resolution":
         return "Stage 2 left the row without a stable family assignment, so parser/review logic must clarify it before family scoring."
-    return f"{family} lacks an active P3 recovery rulebook, so this row should be deferred or explicitly retired instead of stretched into the wrong family."
+    if bucket == "outside_current_rulebook_scope" and family is None:
+        reason = (row.get("stage2_meta") or {}).get("family_resolution_reason")
+        if reason:
+            return f"Stage 2 documented the row as outside the current recovery rulebooks (`{reason}`), so it should be deferred or retired rather than recycled through parser-fix triage."
+        return "Stage 2 documented the row as outside the current recovery rulebooks, so it should be deferred or retired rather than recycled through parser-fix triage."
+    return f"{family} lacks an active supported-family rulebook, so this row should be deferred or explicitly retired instead of stretched into the wrong family."
 
 
 def rank_key(row: dict[str, Any]) -> tuple[Any, ...]:
@@ -98,7 +106,7 @@ def rank_key(row: dict[str, Any]) -> tuple[Any, ...]:
     return (
         bucket_rank.get(row["recovery_bucket"], 9),
         not row["significant"],
-        row["family_guess"] not in P3_SUPPORTED_FAMILIES,
+        row["family_guess"] not in ACTIVE_SUPPORTED_FAMILIES,
         row["time_window_start"] is None,
         row["report_number"],
         row["candidate_seq"],
@@ -112,7 +120,7 @@ def summarize_rows(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "stage2_label_counts": dict(Counter(row["stage2_label"] for row in rows)),
         "recovery_bucket_counts": dict(Counter(row["recovery_bucket"] for row in rows)),
         "significant_count": sum(1 for row in rows if row["significant"]),
-        "supported_family_count": sum(1 for row in rows if row["family_guess"] in P3_SUPPORTED_FAMILIES),
+        "supported_family_count": sum(1 for row in rows if row["family_guess"] in ACTIVE_SUPPORTED_FAMILIES),
     }
 
 
@@ -165,7 +173,7 @@ def main() -> int:
                   AND COALESCE(p.final_status, 'pending') = 'pending'
                 ORDER BY p.report_number, p.candidate_seq
                 """,
-                (stage2["id"], list(P3_SUPPORTED_FAMILIES)),
+                (stage2["id"], list(ACTIVE_SUPPORTED_FAMILIES)),
             )
             rows = [dict(row) for row in cur.fetchall()]
 

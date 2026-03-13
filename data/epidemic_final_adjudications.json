@@ -1,1 +1,67 @@
-{}
+{
+  "131:1": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "generic_environmental_disease_claim",
+    "rationale": "Prediction remains outside the current epidemic slice because it only forecasts disease and death in broad swamp-like conditions without a bounded disease event."
+  },
+  "182:28": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "generic_global_epidemic_claim",
+    "rationale": "Prediction remains outside the current epidemic slice because it forecasts a future worldwide epidemic in broad terms without naming a disease or measurable outbreak trigger."
+  },
+  "182:29": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "topic_reference_not_measurable",
+    "rationale": "Prediction remains outside the current epidemic slice because it only refers back to explanations about AIDS rather than forecasting a bounded outbreak event."
+  },
+  "182:32": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "generic_global_epidemic_claim",
+    "rationale": "Prediction remains outside the current epidemic slice because a warning that an epidemic will quickly become global is too open-ended for the current named-disease catalog."
+  },
+  "182:37": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "open_ended_many_diseases_claim",
+    "rationale": "Prediction remains outside the current epidemic slice because it rolls AIDS and unspecified future deadly diseases into an unbounded long-horizon decimation narrative."
+  },
+  "182:38": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_bse_catalog",
+    "rationale": "Prediction remains outside the current epidemic slice because the baseline does not yet carry a defensible BSE/vCJD official event set for this row."
+  },
+  "215:72": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "generic_sporadic_epidemic_claim",
+    "rationale": "Prediction remains outside the current epidemic slice because sporadic diseases arising in epidemic proportions are not a bounded named-disease event."
+  },
+  "221:1": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "generic_immune_decline_claim",
+    "rationale": "Prediction remains outside the current epidemic slice because it broadly predicts immune-system failure from future diseases without a measurable disease-specific event."
+  },
+  "369:2": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_hiv_china_catalog",
+    "rationale": "Prediction remains outside the current named-disease epidemic slice because the baseline does not yet carry a defensible HIV/AIDS-in-China official event set."
+  },
+  "732:2": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_media_analysis_catalog",
+    "rationale": "Prediction remains outside the current epidemic slice because it is a media-misinformation claim rather than a cataloged outbreak or disease event."
+  },
+  "734:1": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_covid_switzerland_catalog",
+    "rationale": "Prediction remains outside the current epidemic slice because the baseline COVID catalog does not yet contain a Switzerland-specific severity event to score against."
+  },
+  "767:28": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_vaccine_rollout_catalog",
+    "rationale": "Prediction remains outside the current epidemic slice because vaccine rollout and product deployment are not modeled in the present named-disease event catalog."
+  },
+  "779:233": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_lab_origin_catalog",
+    "rationale": "Prediction remains outside the current epidemic slice because the baseline catalog does not model laboratory-origin outbreak claims and causal lab-worker infection chains."
+  }
+}

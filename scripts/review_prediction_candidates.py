@@ -34,7 +34,7 @@ from scripts.parse_contact_report_predictions import (
 )
 
 
-REVIEW_VERSION = "stage2_rules_v2"
+REVIEW_VERSION = "stage2_rules_v3"
 STOPWORDS = {
     "about",
     "after",
@@ -145,6 +145,17 @@ MECHANISM_PATTERN = re.compile(
     """,
     re.IGNORECASE | re.VERBOSE,
 )
+COUNTERFACTUAL_WISH_PATTERN = re.compile(r"\b(?:it\s+would\s+be\s+nice|would\s+be\s+nice)\s+if\b", re.IGNORECASE)
+GENERIC_DISASTER_PATTERN = re.compile(r"\b(catastrophe|disaster)\b", re.IGNORECASE)
+OUTSIDE_RULEBOOK_PATTERN = re.compile(
+    r"""
+    \b(
+        accident|collision|crash|dangerous\s+goods|explodes?|explosion|fire\s+inferno|
+        inferno|petrol|railway\s+accident|vehicle
+    )\b
+    """,
+    re.IGNORECASE | re.VERBOSE,
+)
 LOCATION_GENERIC_VALUES = {
     "Earth",
     "world",
@@ -167,6 +178,7 @@ MONTHS = {
     "november": 11,
     "december": 12,
 }
+MONTH_NAMES = set(MONTHS)
 
 
 @dataclass
@@ -207,6 +219,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--notes", default="", help="Free-form run notes.")
     parser.add_argument("--limit", type=int, help="Limit number of candidate rows reviewed.")
     parser.add_argument("--only-pending", action="store_true", help="Review only rows with stage2_label='pending_review'.")
+    parser.add_argument(
+        "--prediction-key",
+        action="append",
+        default=[],
+        help="Specific prediction key(s) to review in report:candidate form. Repeat as needed.",
+    )
+    parser.add_argument(
+        "--carry-forward-stage2-run-key",
+        help="Existing Stage 2 baseline whose untouched rows should be carried forward into the new run.",
+    )
     parser.add_argument("--dry-run", action="store_true", help="Score without writing updates.")
     parser.add_argument("--batch-size", type=int, default=200, help="DB update batch size.")
     return parser.parse_args()
@@ -240,6 +262,33 @@ def fetch_stage1_run(cur, parse_run_key: str | None) -> tuple[int, str]:
     if not row:
         raise RuntimeError("No completed Stage 1 parse run found.")
     return row[0], row[1]
+
+
+def fetch_stage2_run(cur, stage2_run_key: str) -> tuple[int, str]:
+    cur.execute(
+        """
+        SELECT id, run_key
+        FROM public.prediction_audit_runs
+        WHERE run_key = %s
+          AND stage = 'stage2_eligibility'
+        """,
+        (stage2_run_key,),
+    )
+    row = cur.fetchone()
+    if not row:
+        raise RuntimeError(f"Unknown Stage 2 run key: {stage2_run_key}")
+    return row[0], row[1]
+
+
+def parse_prediction_keys(values: list[str]) -> list[tuple[int, int]]:
+    parsed: list[tuple[int, int]] = []
+    for raw in values:
+        try:
+            report_number, candidate_seq = raw.split(":", 1)
+            parsed.append((int(report_number), int(candidate_seq)))
+        except ValueError as exc:
+            raise RuntimeError(f"Invalid prediction key `{raw}`; expected report:candidate.") from exc
+    return parsed
 
 
 def insert_run(cur, run_key: str, source_filter: dict[str, object], notes: str | None) -> int:
@@ -287,11 +336,23 @@ def update_run(cur, run_id: int, status: str, run_meta: dict[str, object], notes
     )
 
 
-def fetch_candidates(cur, parse_run_id: int, only_pending: bool, limit: int | None) -> list[tuple]:
+def fetch_candidates(
+    cur,
+    parse_run_id: int,
+    only_pending: bool,
+    limit: int | None,
+    prediction_keys: list[tuple[int, int]],
+) -> list[tuple]:
     where_clauses = ["parse_run_id = %s"]
     params: list[object] = [parse_run_id]
     if only_pending:
         where_clauses.append("stage2_label = 'pending_review'")
+    if prediction_keys:
+        key_clauses = []
+        for report_number, candidate_seq in prediction_keys:
+            key_clauses.append("(report_number = %s AND candidate_seq = %s)")
+            params.extend([report_number, candidate_seq])
+        where_clauses.append("(" + " OR ".join(key_clauses) + ")")
     sql = f"""
         SELECT
             id,
@@ -331,10 +392,10 @@ def infer_event_family(claim: str, provisional: str | None) -> str | None:
 
 def parse_month_day_variant(text: str, base_year: int, claimed_date: date) -> tuple[date, str] | None:
     patterns = [
-        (r"\bon\s+the\s+(\d{1,2})(?:st|nd|rd|th)?\s+of\s+([A-Za-z]+)(?:,\s*(\d{4}))?", "exact_month_day"),
-        (r"\bon\s+(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)(?:,\s*(\d{4}))?", "exact_month_day"),
-        (r"\buntil\s+the\s+(\d{1,2})(?:st|nd|rd|th)?\s+of\s+([A-Za-z]+)(?:,\s*(\d{4}))?", "until_month_day"),
-        (r"\buntil\s+(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)(?:,\s*(\d{4}))?", "until_month_day"),
+        (r"\bon\s+the\s+(\d{1,2})(?:st|nd|rd|th)?\s+of\s+([A-Za-z]+)(?:,?\s+(\d{4}))?", "exact_month_day"),
+        (r"\bon\s+(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)(?:,?\s+(\d{4}))?", "exact_month_day"),
+        (r"\buntil\s+the\s+(\d{1,2})(?:st|nd|rd|th)?\s+of\s+([A-Za-z]+)(?:,?\s+(\d{4}))?", "until_month_day"),
+        (r"\buntil\s+(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)(?:,?\s+(\d{4}))?", "until_month_day"),
     ]
     for pattern, basis in patterns:
         match = re.search(pattern, text, re.IGNORECASE)
@@ -346,6 +407,8 @@ def parse_month_day_variant(text: str, base_year: int, claimed_date: date) -> tu
         month = MONTHS.get(month_name)
         if not month:
             return None
+        if match.group(3) is not None and year < claimed_date.year:
+            continue
         candidate = date(year, month, day)
         if match.group(3) is None and candidate < claimed_date:
             candidate = date(year + 1, month, day)
@@ -372,7 +435,10 @@ def normalize_time_window(claimed_date: date, claim: str, time_text: str | None)
     if full_date:
         month = MONTHS.get(full_date.group(1).lower())
         if month:
-            candidate = date(int(full_date.group(3)), month, int(full_date.group(2)))
+            year = int(full_date.group(3))
+            if year < claimed_date.year:
+                return None, None, "historical_full_date_reference"
+            candidate = date(year, month, int(full_date.group(2)))
             return candidate, candidate, "exact_full_date"
 
     months_range = re.search(r"\b(\d{1,2})\s+to\s+(\d{1,2})\s+months\s+from\s+today\b", lower_claim)
@@ -442,6 +508,8 @@ def clean_location(location_text: str | None) -> str | None:
     value = normalize_claim_text(location_text).strip(",.")
     if value in LOCATION_GENERIC_VALUES:
         return None
+    if value.lower() in MONTH_NAMES:
+        return None
     return value
 
 
@@ -451,7 +519,30 @@ def clean_actor(actor_text: str | None) -> str | None:
     value = normalize_claim_text(actor_text).strip(",.")
     if value.lower() in {"i", "we", "you", "they", "he", "she", "it", "what", "then"}:
         return None
+    if value.lower() in MONTH_NAMES:
+        return None
     return value
+
+
+def classify_family_resolution(
+    claim: str,
+    family: str | None,
+    conditionality: str,
+    candidate_class: str,
+) -> tuple[str, str | None]:
+    if family:
+        return "resolved", None
+    if COUNTERFACTUAL_WISH_PATTERN.search(claim):
+        return "retire_nonprediction", "counterfactual_wish_or_preference"
+    if OUTSIDE_RULEBOOK_PATTERN.search(claim):
+        return "outside_current_rulebook_scope", "unsupported_accident_or_industrial_incident"
+    if conditionality != "none" and "armed conflict" in claim.lower():
+        return "resolved_by_rule", "conflict_family_keyword_recovered"
+    if GENERIC_DISASTER_PATTERN.search(claim):
+        return "outside_current_rulebook_scope", "generic_disaster_without_stable_family"
+    if candidate_class == "conditional_future_claim":
+        return "outside_current_rulebook_scope", "conditional_claim_without_stable_family"
+    return "needs_family_resolution", None
 
 
 def parse_magnitude(magnitude_text: str | None, claim: str) -> tuple[float | None, float | None, str | None]:
@@ -588,8 +679,11 @@ def build_result(row: tuple) -> Stage2Result:
     meaningfulness_score, meaning_reasons = score_meaningfulness(claim, family, (time_start, time_end), location, actor, magnitude_text)
     measurability_score, measure_reasons = score_measurability(claim, family, (time_start, time_end), location, actor, magnitude_text)
     provenance_score, derived_public_basis = score_provenance(claimed_contact_date, earliest_public_date)
+    family_resolution_status, family_resolution_reason = classify_family_resolution(claim, family, conditionality, candidate_class)
 
-    if not future_claim_present and not FUTURE_MARKER_PATTERN.search(claim):
+    if family_resolution_status == "retire_nonprediction":
+        label = "not_a_prediction"
+    elif not future_claim_present and not FUTURE_MARKER_PATTERN.search(claim):
         label = "not_a_prediction"
     elif meaningfulness_score < 1 and measurability_score < 1:
         label = "not_a_prediction"
@@ -632,6 +726,8 @@ def build_result(row: tuple) -> Stage2Result:
         "bundle_component_count": bundle_component_count,
         "ambiguity_flags": ambiguity_flags or [],
         "extractor_confidence": float(extractor_confidence) if extractor_confidence is not None else None,
+        "family_resolution_status": family_resolution_status,
+        "family_resolution_reason": family_resolution_reason,
         "family_key_inputs": {
             "event_family_final": family,
             "location": location,
@@ -796,6 +892,34 @@ def update_bundles(cur, parse_run_id: int, stage2_run_id: int) -> None:
     )
 
 
+def carry_forward_untouched_predictions(
+    cur,
+    source_stage2_run_id: int,
+    source_stage2_run_key: str,
+    stage2_run_id: int,
+) -> int:
+    cur.execute(
+        """
+        UPDATE public.prediction_audit_predictions
+        SET last_stage2_run_id = %s,
+            stage2_reviewed_at = now(),
+            stage2_meta = COALESCE(stage2_meta, '{}'::jsonb) || %s::jsonb
+        WHERE last_stage2_run_id = %s
+        """,
+        (
+            stage2_run_id,
+            json.dumps(
+                {
+                    "carried_forward_from_stage2_run_key": source_stage2_run_key,
+                    "carry_forward_review_version": REVIEW_VERSION,
+                }
+            ),
+            source_stage2_run_id,
+        ),
+    )
+    return cur.rowcount
+
+
 def main() -> int:
     args = parse_args()
     dsn = os.environ.get(args.dsn_env)
@@ -807,11 +931,15 @@ def main() -> int:
     conn = psycopg2.connect(dsn)
     conn.autocommit = False
     stage2_run_id: int | None = None
+    prediction_keys = parse_prediction_keys(args.prediction_key)
+    source_stage2_run: tuple[int, str] | None = None
 
     try:
         with conn.cursor() as cur:
             parse_run_id, resolved_parse_run_key = fetch_stage1_run(cur, args.parse_run_key)
-            candidates = fetch_candidates(cur, parse_run_id, args.only_pending, args.limit)
+            if args.carry_forward_stage2_run_key:
+                source_stage2_run = fetch_stage2_run(cur, args.carry_forward_stage2_run_key)
+            candidates = fetch_candidates(cur, parse_run_id, args.only_pending, args.limit, prediction_keys)
 
             if not args.dry_run:
                 stage2_run_id = insert_run(
@@ -821,6 +949,8 @@ def main() -> int:
                         "parse_run_key": resolved_parse_run_key,
                         "only_pending": args.only_pending,
                         "limit": args.limit,
+                        "prediction_keys": args.prediction_key,
+                        "carry_forward_stage2_run_key": args.carry_forward_stage2_run_key,
                     },
                     args.notes,
                 )
@@ -829,12 +959,23 @@ def main() -> int:
         results = [build_result(row) for row in candidates]
         apply_duplicates(results)
         summary = summarize(results)
+        carried_forward_rows = 0
 
         if not args.dry_run and stage2_run_id is not None:
             for index in range(0, len(results), args.batch_size):
                 batch = results[index : index + args.batch_size]
                 with conn.cursor() as cur:
                     update_predictions(cur, stage2_run_id, batch, args.batch_size)
+                conn.commit()
+
+            if source_stage2_run is not None:
+                with conn.cursor() as cur:
+                    carried_forward_rows = carry_forward_untouched_predictions(
+                        cur,
+                        source_stage2_run[0],
+                        source_stage2_run[1],
+                        stage2_run_id,
+                    )
                 conn.commit()
 
             with conn.cursor() as cur:
@@ -849,6 +990,7 @@ def main() -> int:
                     {
                         "parse_run_key": resolved_parse_run_key,
                         "reviewed_rows": len(results),
+                        "carried_forward_rows": carried_forward_rows,
                         "label_counts": summary["label_counts"],
                         "significant_by_family": summary["significant_by_family"],
                         "review_version": REVIEW_VERSION,

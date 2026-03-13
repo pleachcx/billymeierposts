@@ -150,7 +150,6 @@ def fetch_predictions(cur, stage2_run_id: int, override_keys: list[str]) -> list
         SELECT id, report_number, candidate_seq, claim_normalized
         FROM public.prediction_audit_predictions
         WHERE last_stage2_run_id = %s
-          AND stage2_label IN ('eligible_prediction', 'significant_prediction')
           AND (report_number, candidate_seq) IN %s
         ORDER BY report_number, candidate_seq
         """,

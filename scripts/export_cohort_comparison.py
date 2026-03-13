@@ -76,16 +76,20 @@ def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> 
             writer.writerow({field: csv_safe(row.get(field)) for field in fieldnames})
 
 
+def json_safe_counter(counter: Counter[Any]) -> dict[str, int]:
+    return {("(none)" if key is None else str(key)): value for key, value in counter.items()}
+
+
 def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
     return {
         "prediction_count": len(rows),
-        "family_counts": dict(Counter(row["event_family_final"] for row in rows)),
-        "match_status_counts": dict(Counter(row["match_status"] for row in rows)),
-        "public_date_status_counts": dict(Counter(row["public_date_status"] for row in rows)),
-        "public_date_cohort_status_counts": dict(Counter(row["public_date_cohort_status"] for row in rows)),
-        "current_public_source_tier_counts": dict(Counter(row["current_public_source_tier"] for row in rows)),
-        "best_available_source_tier_counts": dict(Counter(row["best_available_source_tier"] for row in rows)),
-        "current_public_source_bucket_counts": dict(Counter(row["current_public_source_bucket"] for row in rows)),
+        "family_counts": json_safe_counter(Counter(row["event_family_final"] for row in rows)),
+        "match_status_counts": json_safe_counter(Counter(row["match_status"] for row in rows)),
+        "public_date_status_counts": json_safe_counter(Counter(row["public_date_status"] for row in rows)),
+        "public_date_cohort_status_counts": json_safe_counter(Counter(row["public_date_cohort_status"] for row in rows)),
+        "current_public_source_tier_counts": json_safe_counter(Counter(row["current_public_source_tier"] for row in rows)),
+        "best_available_source_tier_counts": json_safe_counter(Counter(row["best_available_source_tier"] for row in rows)),
+        "current_public_source_bucket_counts": json_safe_counter(Counter(row["current_public_source_bucket"] for row in rows)),
         "combined_observed_probability": aggregate_probabilities(rows),
     }
 

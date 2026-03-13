@@ -1,0 +1,62 @@
+{
+  "79:13": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "metaphorical_storm_language",
+    "rationale": "Prediction is retired from the storm slice because storm clouds are used as a metaphor for fear and anxiety rather than a weather event."
+  },
+  "115:11": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "astronomical_not_earth_weather",
+    "rationale": "Prediction is retired from the storm slice because Jupiter's spot is an astronomical observation, not a terrestrial storm event in the current catalog."
+  },
+  "150:74": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "severity_clause_without_bound_event",
+    "rationale": "Prediction is retired from the storm slice because it only forecasts casualties from unspecified flood storms without a named storm or bounded event window."
+  },
+  "166:4": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "present_tense_weather_observation",
+    "rationale": "Prediction is retired from the storm slice because it describes an already-raging storm instead of a future measurable weather event."
+  },
+  "166:5": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "present_tense_weather_observation",
+    "rationale": "Prediction is retired from the storm slice because it describes an already-raging storm instead of a future measurable weather event."
+  },
+  "229:55": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "metaphorical_flood_language",
+    "rationale": "Prediction is retired from the storm slice because the flood language is metaphorical social commentary rather than a weather disaster claim."
+  },
+  "229:56": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "metaphorical_flood_language",
+    "rationale": "Prediction is retired from the storm slice because it uses flood language to describe war, not a bounded storm event."
+  },
+  "229:115": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "misclassified_space_disease_claim",
+    "rationale": "Prediction is retired from the storm slice because the claim is about space travel and disease, not a storm event in the current rulebook."
+  },
+  "395:6": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "missing_defensible_swiss_tornado_catalog",
+    "rationale": "Prediction is retired from the storm slice on this baseline because the current storm catalog does not yet have a defensible Swiss inland-tornado source set for the Lake Constance damage claim."
+  },
+  "395:9": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "multi_year_country_monsoon_claim",
+    "rationale": "Prediction is retired from the storm slice because it forecasts monsoon storms and flooding in India over a two-year window without one defensible atomic weather event to score."
+  },
+  "453:4": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "multi_region_cross_hazard_compound",
+    "rationale": "Prediction is retired from the storm slice because it combines rainstorms, heat waves, fires, and drought across multiple regions in one compound sentence instead of one bounded storm event."
+  },
+  "688:1": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unnamed_alpine_catastrophe_claim",
+    "rationale": "Prediction is retired from the storm slice because it only warns of alpine catastrophes in Switzerland next week without naming a specific storm or defensible weather event target."
+  }
+}

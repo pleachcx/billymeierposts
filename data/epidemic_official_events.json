@@ -88,6 +88,17 @@
     "source_url": "https://www.cdc.gov/mmwr/preview/mmwrhtml/mm5341a4.htm"
   },
   {
+    "event_id": "who-bse-vcjd-link-1996-03-21",
+    "disease_key": "bse_vcjd",
+    "event_type": "human_link_reported",
+    "event_title": "WHO reported that the most likely explanation for unusual human CJD cases was exposure to BSE",
+    "event_start_date": "1996-03-21",
+    "location_name": "United Kingdom",
+    "target_keywords": ["United Kingdom", "UK", "BSE", "CJD", "Creutzfeldt-Jakob"],
+    "source_name": "WHO Disease Outbreak News",
+    "source_url": "https://www.who.int/emergencies/disease-outbreak-news/item/1996_03_21-en"
+  },
+  {
     "event_id": "cdc-h2n2-samples-disclosed-2005-04-14",
     "disease_key": "h2n2_samples",
     "event_type": "distribution_disclosed",

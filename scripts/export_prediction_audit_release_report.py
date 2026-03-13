@@ -57,6 +57,7 @@ FAMILY_EXPORT_SPECS = [
     {"family": "politics_election", "root": Path("data") / "exports" / "politics"},
     {"family": "storm", "root": Path("data") / "exports" / "storm"},
     {"family": "volcano", "root": Path("data") / "exports" / "volcano"},
+    {"family": "war_conflict", "root": Path("data") / "exports" / "war_conflict"},
 ]
 
 MATCH_STATUS_ORDER = {

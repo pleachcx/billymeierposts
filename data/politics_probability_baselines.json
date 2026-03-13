@@ -9,6 +9,16 @@
     "similar_horizon_days": 365,
     "notes": "Treat John Paul I's death as a one-off actor-specific event during the short pontificate that began with his election."
   },
+  "113:17": {
+    "probability_key": "john_paul_i_short_pontificate_death_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1978-08-26",
+    "calibration_end": "1978-09-28",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat the short-pontificate assassination/removal row as the same one-off John Paul I death window between his election and 28 September 1978."
+  },
   "113:7": {
     "probability_key": "john_paul_i_election_window",
     "model": "actor_risk_window_single_event_v1",
@@ -98,6 +108,36 @@
     "near_expansion_days": 3,
     "similar_horizon_days": 365,
     "notes": "Treat the Reagan assassination attempt as a one-off actor-specific violent event during the opening months of his presidency."
+  },
+  "136:136": {
+    "probability_key": "john_paul_ii_agca_threat_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1981-01-01",
+    "calibration_end": "1981-05-13",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat the Agca-to-John-Paul-II row as the same one-off assassination-attempt event, even though the Stage 2 exact-day window lands too early."
+  },
+  "136:137": {
+    "probability_key": "john_paul_ii_quote_threat_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1981-01-01",
+    "calibration_end": "1981-05-13",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat the quoted papal death-threat row as the same one-off assassination-attempt event that culminated in the 13 May 1981 attack on John Paul II."
+  },
+  "136:163": {
+    "probability_key": "reagan_assassination_attempt_window_hinckley_row",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1981-01-20",
+    "calibration_end": "1981-03-30",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat the Reagan/Hinckley row as the same one-off March 1981 violent event."
   },
   "136:213": {
     "probability_key": "reagan_assassination_attempt_window_short_claim",

@@ -15,8 +15,8 @@ import psycopg2
 from psycopg2.extras import Json, execute_batch
 
 
-SCRIPT_VERSION = "stage7_storm_final_v2"
-REVIEWER = "script:stage7_storm_final_v2"
+SCRIPT_VERSION = "stage7_storm_final_v3"
+REVIEWER = "script:stage7_storm_final_v3"
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -31,6 +31,11 @@ def parse_args() -> argparse.Namespace:
         "--overrides-path",
         default=str(REPO_ROOT / "data" / "storm_prediction_overrides.json"),
         help="Path to storm prediction override JSON keyed by report_number:candidate_seq.",
+    )
+    parser.add_argument(
+        "--adjudications-path",
+        default=str(REPO_ROOT / "data" / "storm_final_adjudications.json"),
+        help="Path to storm final adjudication JSON keyed by report_number:candidate_seq.",
     )
     parser.add_argument("--dry-run", action="store_true", help="Compute final statuses without writing DB updates.")
     return parser.parse_args()
@@ -115,33 +120,50 @@ def update_run(cur, run_id: int, status: str, run_meta: dict[str, Any]) -> None:
 
 
 def load_json(path: str) -> dict[str, Any]:
+    if not Path(path).exists():
+        return {}
     with open(path, "r", encoding="utf-8") as handle:
         return json.load(handle)
 
 
-def fetch_predictions(cur, stage2_run_id: int, override_keys: list[str]) -> list[dict[str, Any]]:
-    pairs = [(int(key.split(":")[0]), int(key.split(":")[1])) for key in override_keys]
+def fetch_predictions(cur, stage2_run_id: int, stage4_run_id: int, scoped_keys: list[str]) -> list[dict[str, Any]]:
+    pairs = [(int(key.split(":")[0]), int(key.split(":")[1])) for key in scoped_keys]
     cur.execute(
         """
         SELECT
-            id,
-            report_number,
-            candidate_seq,
-            match_status,
-            claim_normalized
-        FROM public.prediction_audit_predictions
+            p.id,
+            p.report_number,
+            p.candidate_seq,
+            mr.match_status,
+            p.claim_normalized
+        FROM public.prediction_audit_predictions p
+        LEFT JOIN public.prediction_audit_match_reviews mr
+          ON mr.prediction_id = p.id
+         AND mr.review_run_id = %s
         WHERE last_stage2_run_id = %s
-          AND stage2_label IN ('eligible_prediction', 'significant_prediction')
           AND (report_number, candidate_seq) IN %s
         ORDER BY report_number, candidate_seq
         """,
-        (stage2_run_id, tuple(pairs)),
+        (stage4_run_id, stage2_run_id, tuple(pairs)),
     )
     columns = [description[0] for description in cur.description]
     return [dict(zip(columns, row, strict=False)) for row in cur.fetchall()]
 
 
-def decide_final_status(prediction: dict[str, Any]) -> tuple[str, str, dict[str, Any]]:
+def decide_final_status(prediction: dict[str, Any], adjudications: dict[str, dict[str, Any]]) -> tuple[str, str, dict[str, Any]]:
+    key = f"{prediction['report_number']}:{prediction['candidate_seq']}"
+    rule = adjudications.get(key)
+    if rule:
+        return (
+            rule["final_status"],
+            rule["rationale"],
+            {
+                "script_version": SCRIPT_VERSION,
+                "reason_code": rule.get("reason_code"),
+                "rule_key": key,
+            },
+        )
+
     if prediction["match_status"] in {"exact_hit", "near_hit", "similar_only", "miss"}:
         return (
             "included_in_statistics",
@@ -152,14 +174,7 @@ def decide_final_status(prediction: dict[str, Any]) -> tuple[str, str, dict[str,
             },
         )
 
-    return (
-        "permanently_unresolved",
-        "Prediction remains unresolved in the current storm slice and is excluded until a defensible rulebook exists.",
-        {
-            "script_version": SCRIPT_VERSION,
-            "reason_code": "unresolved_storm_slice",
-        },
-    )
+    raise RuntimeError(f"Missing storm final adjudication rule for unresolved prediction {key}.")
 
 
 def demote_existing_primary_reviews(cur, prediction_ids: list[int]) -> None:
@@ -225,6 +240,7 @@ def main() -> int:
         return 2
 
     overrides = load_json(args.overrides_path)
+    adjudications = load_json(args.adjudications_path)
     run_key = args.run_key or generate_run_key()
     conn = psycopg2.connect(dsn)
     conn.autocommit = False
@@ -242,10 +258,13 @@ def main() -> int:
                 "stage4_run_key": resolved_stage4_run_key,
                 "family": "storm",
                 "override_keys": sorted(overrides.keys()),
+                "adjudication_keys": sorted(adjudications.keys()),
+                "adjudications_path": args.adjudications_path,
             }
             run_id = insert_run(cur, run_key, source_filter, args.notes)
-            predictions = fetch_predictions(cur, stage2_run_id, sorted(overrides.keys()))
-            decisions = [(prediction["id"], *decide_final_status(prediction)) for prediction in predictions]
+            scoped_keys = sorted(set(overrides.keys()) | set(adjudications.keys()))
+            predictions = fetch_predictions(cur, stage2_run_id, stage4_run_id, scoped_keys)
+            decisions = [(prediction["id"], *decide_final_status(prediction, adjudications)) for prediction in predictions]
 
             if not args.dry_run:
                 demote_existing_primary_reviews(cur, [prediction["id"] for prediction in predictions])

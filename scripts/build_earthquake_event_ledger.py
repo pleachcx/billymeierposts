@@ -290,6 +290,48 @@ def load_prediction_overrides(path: str) -> dict[str, dict[str, Any]]:
         return json.load(handle)
 
 
+def apply_scoped_overrides(cur, stage2_run_id: int, prediction_overrides: dict[str, dict[str, Any]]) -> None:
+    params = []
+    for key, override in prediction_overrides.items():
+        scoped_family = override.get("scoped_family")
+        if not scoped_family:
+            continue
+        report_number, candidate_seq = key.split(":")
+        params.append(
+            (
+                scoped_family,
+                Json(
+                    {
+                        "manual_scope_override": {
+                            "script_version": SCRIPT_VERSION,
+                            "scoped_family": scoped_family,
+                            "override_key": key,
+                        }
+                    }
+                ),
+                stage2_run_id,
+                int(report_number),
+                int(candidate_seq),
+            )
+        )
+    if not params:
+        return
+    execute_values(
+        cur,
+        """
+        UPDATE public.prediction_audit_predictions AS p
+        SET event_family_final = v.scoped_family,
+            stage2_meta = COALESCE(p.stage2_meta, '{}'::jsonb) || v.meta::jsonb
+        FROM (VALUES %s) AS v(scoped_family, meta, stage2_run_id, report_number, candidate_seq)
+        WHERE p.last_stage2_run_id = v.stage2_run_id
+          AND p.report_number = v.report_number
+          AND p.candidate_seq = v.candidate_seq
+        """,
+        params,
+        template="(%s, %s, %s, %s, %s)",
+    )
+
+
 def apply_prediction_override(
     prediction: PredictionRow,
     prediction_overrides: dict[str, dict[str, Any]],
@@ -635,6 +677,97 @@ def persist_time_window_override(cur, prediction_id: int, prediction: Prediction
     )
 
 
+def clear_stale_prediction_overrides(cur, stage2_run_id: int, active_override_keys: set[str]) -> int:
+    cur.execute(
+        """
+        SELECT
+            id,
+            report_number,
+            candidate_seq,
+            best_event_ledger_id,
+            time_window_start,
+            stage2_meta
+        FROM public.prediction_audit_predictions
+        WHERE last_stage2_run_id = %s
+          AND event_family_final = 'earthquake'
+        """,
+        (stage2_run_id,),
+    )
+    stale_prediction_ids: list[int] = []
+    for prediction_id, report_number, candidate_seq, best_event_ledger_id, time_window_start, stage2_meta in cur.fetchall():
+        meta = stage2_meta or {}
+        key = f"{report_number}:{candidate_seq}"
+        if key in active_override_keys:
+            continue
+        time_override = meta.get("earthquake_time_window_override")
+        target_resolution = meta.get("target_resolution") or {}
+        if (
+            time_override
+            or str(target_resolution.get("source", "")).startswith("prediction_override")
+            or (best_event_ledger_id is not None and time_window_start is None and bool(target_resolution))
+        ):
+            stale_prediction_ids.append(prediction_id)
+
+    if not stale_prediction_ids:
+        return 0
+
+    cur.execute(
+        """
+        UPDATE public.prediction_audit_match_reviews
+        SET is_primary = false
+        WHERE prediction_id = ANY(%s) AND is_primary = true
+        """,
+        (stale_prediction_ids,),
+    )
+
+    cur.execute(
+        """
+        UPDATE public.prediction_audit_final_reviews
+        SET is_primary = false
+        WHERE prediction_id = ANY(%s) AND is_primary = true
+        """,
+        (stale_prediction_ids,),
+    )
+
+    cur.execute(
+        """
+        UPDATE public.prediction_audit_predictions
+        SET target_name = COALESCE(
+                stage2_meta->'family_key_inputs'->>'location',
+                stage2_meta->'family_key_inputs'->>'actor',
+                target_name
+            ),
+            target_type = CASE
+                WHEN stage2_meta->'family_key_inputs'->>'location' IS NOT NULL THEN 'region'
+                WHEN stage2_meta->'family_key_inputs'->>'actor' IS NOT NULL THEN 'actor'
+                ELSE target_type
+            END,
+            target_lat = NULL,
+            target_lon = NULL,
+            target_radius_km = NULL,
+            time_window_start = NULL,
+            time_window_end = NULL,
+            best_event_ledger_id = NULL,
+            match_status = 'unreviewed',
+            p_exact_under_null = NULL,
+            p_near_under_null = NULL,
+            p_similar_under_null = NULL,
+            p_miss_under_null = NULL,
+            probability_model_version = NULL,
+            probability_notes = NULL,
+            probability_meta = '{}'::jsonb,
+            final_status = 'pending',
+            final_reason = NULL,
+            last_final_review_run_id = NULL,
+            final_meta = '{}'::jsonb,
+            stage2_meta = COALESCE(stage2_meta, '{}'::jsonb) - 'target_resolution' - 'earthquake_time_window_override'
+        WHERE id = ANY(%s)
+        """,
+        (stale_prediction_ids,),
+    )
+    return len(stale_prediction_ids)
+
+
 def persist_event_rows(cur, rows: list[tuple[Any, ...]]) -> None:
     if not rows:
         return
@@ -691,6 +824,11 @@ def main() -> int:
     try:
         with conn.cursor() as cur:
             stage2_run_id, resolved_stage2_run_key = fetch_stage2_run(cur, args.stage2_run_key)
+            stale_override_resets = 0
+            if not args.dry_run:
+                apply_scoped_overrides(cur, stage2_run_id, prediction_overrides)
+                stale_override_resets = clear_stale_prediction_overrides(cur, stage2_run_id, set(prediction_overrides))
+                conn.commit()
             predictions = fetch_predictions(cur, stage2_run_id, args.only_significant, match_statuses, args.limit)
 
             if not args.dry_run:
@@ -704,6 +842,7 @@ def main() -> int:
                         "limit": args.limit,
                         "overrides_path": args.overrides_path,
                         "prediction_overrides_path": args.prediction_overrides_path,
+                        "stale_override_resets": stale_override_resets,
                         "family": "earthquake",
                     },
                     args.notes,

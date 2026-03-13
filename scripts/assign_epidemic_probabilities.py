@@ -199,6 +199,8 @@ def classify_counts(
 
 
 def calibration_years(events: list[dict[str, Any]]) -> float:
+    if not events:
+        return MIN_CALIBRATION_YEARS
     dates = [parse_iso_date(event["event_start_date"]) for event in events]
     start = min(dates) - timedelta(days=365)
     end = max(dates) + timedelta(days=365)

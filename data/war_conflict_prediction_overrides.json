@@ -1,0 +1,90 @@
+{
+  "136:170": {
+    "scoped_family": "war_conflict",
+    "expected_event_type": "party_headquarters_bombing",
+    "actor_name": "Islamic Republican Party headquarters",
+    "target_name": "Islamic Republican Party headquarters",
+    "target_keywords": ["Islamic Republican Party", "IRP", "Tehran"],
+    "jurisdiction": "Iran",
+    "window_start": "1981-06-28",
+    "window_end": "1981-06-28",
+    "notes": "Prediction scoped to the 28 June 1981 bombing at the Islamic Republican Party headquarters in Tehran."
+  },
+  "136:202": {
+    "scoped_family": "war_conflict",
+    "expected_event_type": "leadership_bombing_kills_president_and_minister",
+    "actor_name": "Iranian leadership",
+    "target_name": "President and cabinet leadership in Tehran",
+    "target_keywords": ["Tehran", "Rajai", "Bahonar", "prime minister"],
+    "jurisdiction": "Iran",
+    "window_start": "1981-08-30",
+    "window_end": "1981-08-30",
+    "notes": "Prediction scoped to the 30 August 1981 Tehran bombing that killed President Rajai and Prime Minister Bahonar."
+  },
+  "206:5": {
+    "scoped_family": "war_conflict",
+    "expected_event_type": "mass_casualty_terror_attack",
+    "actor_name": "United States mass-casualty attack target set",
+    "target_name": "America",
+    "target_keywords": ["America", "United States", "World Trade Center", "Pentagon", "thousands"],
+    "jurisdiction": "United States",
+    "window_start": "2001-09-11",
+    "window_end": "2001-09-11",
+    "notes": "Prediction scoped to the 11 September 2001 mass-casualty terrorist attacks in the United States."
+  },
+  "393:8": {
+    "scoped_family": "war_conflict",
+    "expected_event_type": "coordinated_transit_bombing",
+    "actor_name": "London transport network",
+    "target_name": "London",
+    "target_keywords": ["London", "Underground", "bus", "transport"],
+    "jurisdiction": "United Kingdom",
+    "window_start": "2005-07-07",
+    "window_end": "2005-07-07",
+    "notes": "Prediction scoped to the 7 July 2005 London Underground and bus bombings."
+  },
+  "394:3": {
+    "scoped_family": "war_conflict",
+    "expected_event_type": "failed_follow_on_transit_bombing",
+    "actor_name": "London transport network",
+    "target_name": "London",
+    "target_keywords": ["London", "Underground", "bus", "transport", "second attack"],
+    "jurisdiction": "United Kingdom",
+    "window_start": "2004-07-21",
+    "window_end": "2004-07-21",
+    "notes": "Keep the stored 21 July 2004 exact-day window; the slice may log the 21 July 2005 attempted bombings as a similar-only transparency event, but must not rewrite the year to save the row."
+  },
+  "400:1": {
+    "scoped_family": "war_conflict",
+    "expected_event_type": "tourist_district_suicide_bombing",
+    "actor_name": "Bali tourist districts",
+    "target_name": "Bali",
+    "target_keywords": ["Bali", "Kuta", "Jimbaran", "tourist"],
+    "jurisdiction": "Indonesia",
+    "window_start": "2005-10-01",
+    "window_end": "2005-10-01",
+    "notes": "Prediction scoped to the 1 October 2005 suicide bombings in Bali."
+  },
+  "400:21": {
+    "scoped_family": "war_conflict",
+    "expected_event_type": "militant_citywide_security_target_raid",
+    "actor_name": "Nalchik security targets",
+    "target_name": "Kabardino-Balkaria",
+    "target_keywords": ["Nalchik", "Kabardino-Balkaria", "airport", "interior ministry", "barracks"],
+    "jurisdiction": "Kabardino-Balkaria, Russia",
+    "window_start": "2005-10-13",
+    "window_end": "2005-10-13",
+    "notes": "Prediction scoped to the 13 October 2005 Nalchik raid on police, military, and airport targets."
+  },
+  "668:2": {
+    "scoped_family": "war_conflict",
+    "expected_event_type": "vehicle_attack_on_holiday_market",
+    "actor_name": "Breitscheidplatz Christmas market",
+    "target_name": "Berlin",
+    "target_keywords": ["Berlin", "Breitscheidplatz", "Christmas market", "truck", "market"],
+    "jurisdiction": "Germany",
+    "window_start": "2016-12-19",
+    "window_end": "2016-12-19",
+    "notes": "Prediction scoped only to the Berlin market-attack clause from the broader three-crimes sentence."
+  }
+}

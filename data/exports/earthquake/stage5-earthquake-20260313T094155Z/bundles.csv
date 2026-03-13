@@ -1,0 +1,11 @@
+bundle_key,report_number,claimed_contact_date,bundle_kind,bundle_significant,bundle_match_status,component_count,earthquake_child_count,probability_ready_child_count,scoped_match_status,child_status_counts,child_combined_observed_probability,child_combined_observed_probability_log10,child_combined_observed_probability_scientific,child_all_exact_probability,child_all_exact_probability_log10,child_all_near_or_better_probability,child_all_near_or_better_probability_log10,child_all_similar_or_better_probability,child_all_similar_or_better_probability_log10,child_all_miss_probability,child_all_miss_probability_log10,rollup_model_version,child_prediction_ids
+run:268:report:197:bundle:63478:63771,136,1980-10-14,compound_multi_event,False,near_hit,2,2,2,,"{""near_hit"": 2}",,-3.373815,4.228489e-4,,,,,,,,,,"[19966, 19967]"
+run:268:report:444:bundle:14940:15150,383,2005-03-17,compound_multi_event,True,near_hit,2,1,1,,"{""exact_hit"": 1}",,-1.658184,2.196927e-2,,,,,,,,,,[22481]
+run:268:report:444:bundle:15420:15570,383,2005-03-17,compound_multi_event,True,near_hit,2,2,2,,"{""near_hit"": 2}",,-2.311587,4.879920e-3,,,,,,,,,,"[22485, 22486]"
+run:268:report:444:bundle:661:865,383,2005-03-17,compound_multi_event,True,exact_hit,2,2,2,,"{""exact_hit"": 2}",,-2.729613,1.863747e-3,,,,,,,,,,"[22457, 22458]"
+run:268:report:455:bundle:11224:11405,394,2004-07-09,compound_multi_event,False,unreviewed,2,1,1,,"{""near_hit"": 1}",,-1.45527,3.505341e-2,,,,,,,,,,[22542]
+run:268:report:462:bundle:12823:13002,401,2005-10-15,compound_multi_event,False,unreviewed,2,1,1,,"{""near_hit"": 1}",,-0.093232,8.068043e-1,,,,,,,,,,[22616]
+run:268:report:462:bundle:3304:3561,401,2005-10-15,compound_multi_event,False,exact_hit,2,2,2,,"{""exact_hit"": 2}",,-4.771329,1.693055e-5,,,,,,,,,,"[22597, 22598]"
+run:268:report:462:bundle:3567:3724,401,2005-10-15,compound_multi_event,True,near_hit,2,2,2,,"{""exact_hit"": 1, ""near_hit"": 1}",,-1.646106,2.258883e-2,,,,,,,,,,"[22599, 22600]"
+run:268:report:463:bundle:2528:2758,402,2005-10-29,compound_multi_event,True,near_hit,2,2,2,,"{""near_hit"": 2}",,-2.709747,1.950979e-3,,,,,,,,,,"[22625, 22624]"
+run:268:report:497:bundle:1539:1805,436,2006-10-15,compound_multi_event,True,partial_hit,2,2,2,,"{""exact_hit"": 1, ""miss"": 1}",,-2.156215,6.978869e-3,,,,,,,,,,"[22744, 22745]"

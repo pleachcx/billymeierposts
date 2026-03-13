@@ -133,5 +133,41 @@
     "window_start": "2020-03-02",
     "window_end": "2020-03-15",
     "notes": "Prediction scoped to the northern-Italy clause of the claim, with the wider Europe follow-on left outside this measured epidemic row."
+  },
+  "369:13": {
+    "disease_key": "avian_influenza",
+    "expected_event_type": "human_cases_reported",
+    "target_name": "Japan",
+    "target_keywords": ["Japan"],
+    "window_start": "2004-12-12",
+    "window_end": "2005-01-11",
+    "notes": "Scope the Japan row to human avian-influenza cases; the current catalog can only offer a same-disease partial match."
+  },
+  "182:38": {
+    "disease_key": "bse_vcjd",
+    "expected_event_type": "human_link_reported",
+    "target_name": "United Kingdom",
+    "target_keywords": ["United Kingdom", "UK", "BSE", "CJD", "Creutzfeldt-Jakob"],
+    "window_start": "1990-01-01",
+    "window_end": "1996-03-21",
+    "notes": "Scope the BSE/CJD row to WHO's 21 March 1996 report that the most likely explanation for the unusual human CJD cases was prior exposure to BSE."
+  },
+  "721:6": {
+    "disease_key": "covid19",
+    "expected_event_type": "pandemic_declared",
+    "target_name": "Global",
+    "target_keywords": ["Global", "World"],
+    "window_start": "2020-01-01",
+    "window_end": "2020-12-31",
+    "notes": "Scope the 2020 pandemic clause to WHO's 11 March 2020 COVID-19 pandemic declaration."
+  },
+  "731:2": {
+    "disease_key": "covid19",
+    "expected_event_type": "pandemic_declared",
+    "target_name": "Global",
+    "target_keywords": ["Global", "World"],
+    "window_start": "2020-02-03",
+    "window_end": "2025-02-03",
+    "notes": "Scope the rapid worldwide spread clause to WHO's COVID-19 pandemic declaration inside the broad post-contact window."
   }
 }

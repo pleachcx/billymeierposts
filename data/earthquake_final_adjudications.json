@@ -1,4 +1,49 @@
 {
+  "106:2": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This sentence is retrospective commentary about a prior illustration of San Francisco after earthquake destruction, not a future atomic earthquake prediction.",
+    "reason_code": "retrospective_artwork_reference"
+  },
+  "136:35": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This row only says that the Italy earthquake will remain on people's lips; it does not add a separate bounded earthquake event to score.",
+    "reason_code": "aftermath_context_not_atomic_prediction"
+  },
+  "136:57": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "The earthquake in China is only used as a timing anchor for other unrelated events, so this row should not stay in the atomic earthquake cohort.",
+    "reason_code": "earthquake_as_time_anchor"
+  },
+  "136:87": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The claim describes a continuing earthquake chain from Agadir into Italy without a bounded next event window or a defensible atomic stopping point.",
+    "reason_code": "chain_claim_without_bounded_event"
+  },
+  "136:180": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The Philippines earthquake is only described as happening shortly after the Tehran attack and is immediately entangled with a separate volcanic-eruption clause, so the row lacks a defensible standalone target-window pair for atomic earthquake scoring.",
+    "reason_code": "cross_hazard_context_without_bounded_window"
+  },
+  "136:174": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "The Iran earthquake is only used as the temporal anchor for a later attack on the Queen of England, not as a separate measurable earthquake forecast.",
+    "reason_code": "non_earthquake_followup_anchor"
+  },
+  "150:6": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This is a world-scope run-up claim about earthquakes in various places on Earth rather than a bounded atomic earthquake prediction.",
+    "reason_code": "world_scope_precursor_claim"
+  },
+  "150:39": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This sentence bundles generic earthquake activity across China, Japan, and Mexico into one multi-country summary instead of one bounded atomic earthquake claim.",
+    "reason_code": "multi_country_compound_summary"
+  },
+  "150:142": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "The row is a past-tense historical claim about earthquakes during the crucifixion, so it is outside the future earthquake audit cohort.",
+    "reason_code": "historical_past_event_reference"
+  },
   "235:14": {
     "final_status": "permanently_unresolved",
     "rationale": "The claim aggregates earthquake deaths over a broad future interval without a defensible target region, so it cannot be scored as an atomic measurable earthquake prediction.",
@@ -19,10 +64,60 @@
     "rationale": "The claim says a severe earthquake will strike the following year but never names a target region or event context tightly enough to score as an atomic earthquake prediction.",
     "reason_code": "no_target_in_contextual_followup"
   },
+  "241:67": {
+    "final_status": "permanently_unresolved",
+    "rationale": "This is a causal warning about the great San Andreas quake appearing earlier than expected, but it does not supply a bounded event window or measurable match criteria for one atomic earthquake.",
+    "reason_code": "causal_warning_without_bounded_event"
+  },
+  "241:57": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This row still combines the first late-April Los Angeles quake with a second more severe follow-up quake, so it should not remain in the atomic earthquake cohort without an explicit split.",
+    "reason_code": "compound_two_quake_row"
+  },
   "383:23": {
     "final_status": "excluded_from_statistics",
     "rationale": "The source sentence still combines a Sumatra seaquake with the Talang eruption in one unresolved compound remainder, so it should not remain in the atomic earthquake statistics set.",
     "reason_code": "compound_remainder_requires_atomic_split"
+  },
+  "369:22": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "The sentence refers to two magnitude-9 quakes together rather than one bounded atomic earthquake, so it belongs to a compound summary rather than the standalone earthquake statistics set.",
+    "reason_code": "compound_dual_quake_summary"
+  },
+  "369:17": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "The sentence insists on two simultaneous seaquakes spanning the Bay of Bengal and near Sumatra, so it remains a compound dual-event summary rather than one atomic earthquake prediction.",
+    "reason_code": "compound_dual_event_seaquake_claim"
+  },
+  "392:2": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This is a retrospective question about earlier seaquake disasters before the 2004 tsunami, not a future earthquake prediction.",
+    "reason_code": "retrospective_question_not_prediction"
+  },
+  "392:4": {
+    "final_status": "permanently_unresolved",
+    "rationale": "This is a long-horizon Cascadia-style megaquake scenario with a vast Pacific Northwest footprint but no bounded event window or atomic stopping rule for scoring.",
+    "reason_code": "long_horizon_regionwide_megathrust"
+  },
+  "395:3": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "The Nicaragua clause is framed as a current event already causing fear and only serves as lead-in context for the later Nicobar seaquake row, not as a fresh future atomic earthquake prediction.",
+    "reason_code": "current_event_leadin_not_future_prediction"
+  },
+  "400:12": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This row comments that events will generally worsen from now on and only references the Pakistan earthquake as context, so it is not an atomic earthquake prediction.",
+    "reason_code": "commentary_not_atomic_prediction"
+  },
+  "400:9": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This sentence only describes the regional human impact footprint of the Pakistan earthquake and does not add a separate bounded earthquake event to score.",
+    "reason_code": "impact_spillover_not_atomic_event"
+  },
+  "400:16": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This is a world-scope cascading-rule claim rather than a bounded atomic event prediction, so it should be excluded from the earthquake statistical cohort.",
+    "reason_code": "world_scope_rule_claim"
   },
   "400:18": {
     "final_status": "excluded_from_statistics",
@@ -34,10 +129,50 @@
     "rationale": "This is a world-scope cascading-rule claim rather than a bounded atomic earthquake prediction, so it should be excluded from the earthquake statistical cohort.",
     "reason_code": "world_scope_rule_claim"
   },
-  "400:16": {
+  "401:12": {
     "final_status": "excluded_from_statistics",
-    "rationale": "This is a world-scope cascading-rule claim rather than a bounded atomic event prediction, so it should be excluded from the earthquake statistical cohort.",
-    "reason_code": "world_scope_rule_claim"
+    "rationale": "The row summarizes an Aegean earthquake sequence culminating in a later climax rather than one bounded atomic quake, so it should not remain in the standalone earthquake cohort.",
+    "reason_code": "sequence_summary_not_atomic_event"
+  },
+  "401:13": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The row only says precursor quakes will occur on 17 October 'down there' without naming a defensible target region, so it cannot be scored as a bounded atomic earthquake prediction.",
+    "reason_code": "no_target_for_precursor_sequence"
+  },
+  "420:2": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This sentence mixes a Comoros volcano, a Puglia earthquake, and another Indonesian quake in one unresolved multi-family row, so it should not stay in the atomic earthquake statistics set.",
+    "reason_code": "compound_multi_family_row"
+  },
+  "444:4": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The row names two magnitudes on 6 March but only locates them near the unresolved place-name 'Panang', so the current earthquake rulebook cannot assign one defensible target region without guessing.",
+    "reason_code": "ambiguous_place_name_blocks_target_resolution"
+  },
+  "519:4": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The row describes a long-horizon threat to Japan and Tokyo without a bounded event window or measurable atomic earthquake outcome.",
+    "reason_code": "long_horizon_city_risk"
+  },
+  "453:16": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The row names a severe seaquake off Japan but gives no bounded date window and does not distinguish itself clearly enough from multiple post-contact Japan seaquake sequences to score one atomic event defensibly.",
+    "reason_code": "no_bounded_window_among_multiple_japan_sequences"
+  },
+  "453:22": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This row explicitly bundles multiple end-of-September Pacific seaquakes off New Zealand and Guam into one sentence, so it is not one atomic earthquake prediction.",
+    "reason_code": "compound_multi_event_pacific_row"
+  },
+  "663:14": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The fragment says the next strong earthquake will not be in Italy but never names the actual destination or a defensible date window precisely enough to score.",
+    "reason_code": "incomplete_fragment_no_target"
+  },
+  "779:478": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This row mixes a first severe earthquake with later eruptions and escalating earthquake sequences across multiple years, so it is outside the atomic earthquake cohort.",
+    "reason_code": "multi_year_compound_world_scope"
   },
   "779:483": {
     "final_status": "excluded_from_statistics",
@@ -45,11 +180,6 @@
     "reason_code": "multi_year_compound_world_scope"
   },
   "779:488": {
-    "final_status": "excluded_from_statistics",
-    "rationale": "This row mixes a first severe earthquake with later eruptions and escalating earthquake sequences across multiple years, so it is outside the atomic earthquake cohort.",
-    "reason_code": "multi_year_compound_world_scope"
-  },
-  "779:478": {
     "final_status": "excluded_from_statistics",
     "rationale": "This row mixes a first severe earthquake with later eruptions and escalating earthquake sequences across multiple years, so it is outside the atomic earthquake cohort.",
     "reason_code": "multi_year_compound_world_scope"

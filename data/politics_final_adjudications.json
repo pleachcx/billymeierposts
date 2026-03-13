@@ -1,0 +1,87 @@
+{
+  "79:15": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "misclassified_spiritual_mortality_claim",
+    "rationale": "Prediction is retired from the politics slice because it is a spiritual reflection on death rather than a measurable government or leadership event."
+  },
+  "136:118": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_politics_catalog",
+    "rationale": "Prediction is retired from the politics slice because follow-on intelligence about an assassin's contacts is not a scored head-of-state or election event in the current catalog."
+  },
+  "136:138": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "retrospective_papal_fact",
+    "rationale": "Prediction is retired from the politics slice because it is a retrospective papal-election fact claim rather than a future government-action event."
+  },
+  "136:139": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "retrospective_papal_biography",
+    "rationale": "Prediction is retired from the politics slice because it is a papal biography statement, not a measurable future politics event."
+  },
+  "136:148": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_politics_catalog",
+    "rationale": "Prediction is retired from the politics slice because the current rulebook does not model broad Vatican-Israel alignment narratives as a scored government-action event."
+  },
+  "136:149": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_politics_catalog",
+    "rationale": "Prediction is retired from the politics slice because a vague future Israeli crime of world-provoking nature is not a bounded government-action event in the current catalog."
+  },
+  "136:161": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "retrospective_primate_biography",
+    "rationale": "Prediction is retired from the politics slice because it is a Stefan Wyszynski biography fact claim rather than a future politics event."
+  },
+  "136:162": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_politics_catalog",
+    "rationale": "Prediction is retired from the politics slice because the paired cardinal-death and failed-suicide claim does not map to a scored politics event type on this baseline."
+  },
+  "136:206": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "retrospective_regime_commentary",
+    "rationale": "Prediction is retired from the politics slice because it is commentary about Khomeiny's present stance rather than a measurable future politics event."
+  },
+  "136:211": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_politics_catalog",
+    "rationale": "Prediction is retired from the politics slice because it is a follow-on executions commentary, not a scoped government-action event in the current politics catalog."
+  },
+  "136:215": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_head_of_state_attack_type",
+    "rationale": "Prediction is retired from the politics slice on this baseline because the current politics catalog does not yet carry the Egypt military-parade assassination event type needed to score it cleanly."
+  },
+  "214:10": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_politics_catalog",
+    "rationale": "Prediction is retired from the politics slice because recognition and punishment of sudden infant death syndrome claims are not modeled as scored politics events in the current catalog."
+  },
+  "136:221": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_trial_catalog",
+    "rationale": "Prediction is retired from the politics slice because the current rulebook does not add a new assassination-trial event family inside P1."
+  },
+  "150:105": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "time_normalization_not_defensible",
+    "rationale": "Prediction is retired from the politics slice on this baseline because the Stage 2 time normalization lands in 1982 and is too far removed from Ariel Sharon's later 2001 premiership event."
+  },
+  "367:11": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "conditional_cross_family_conflict_claim",
+    "rationale": "Prediction is retired from the politics slice because it combines an unnamed November return-to-power scenario with later worldwide armed conflicts instead of one bounded government-action event in the current catalog."
+  },
+  "402:9": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_mass_casualty_attack_type",
+    "rationale": "Prediction is retired from the politics slice because the current politics catalog does not yet model multi-victim hotel terror bombings as a scored government-action event type on this baseline."
+  },
+  "225:7": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_politics_catalog",
+    "rationale": "Prediction is retired from the politics slice because generalized personal vindication is not a measurable government-action event in the current catalog."
+  }
+}

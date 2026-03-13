@@ -148,7 +148,6 @@ def fetch_predictions(cur, stage2_run_id: int, override_keys: list[str]) -> list
         FROM public.prediction_audit_predictions
         WHERE last_stage2_run_id = %s
           AND event_family_final = 'politics_election'
-          AND stage2_label IN ('eligible_prediction', 'significant_prediction')
           AND (report_number, candidate_seq) IN %s
         ORDER BY report_number, candidate_seq
         """,

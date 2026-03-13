@@ -1,4 +1,134 @@
 {
+  "136:24": {
+    "target_name": "Campania / Irpinia, Italy",
+    "target_type": "region",
+    "lat": 40.75,
+    "lon": 15.3,
+    "radius_km": 180.0,
+    "window_start": "1980-11-23",
+    "window_end": "1980-11-23",
+    "resolution_source": "prediction_override_irpinia_november_1980",
+    "notes": "The report says the next major quake after Al Asnam strikes Italy after the November 1980 US election, matching the 23 November 1980 Irpinia sequence."
+  },
+  "136:26": {
+    "target_name": "Campania / Irpinia, Italy",
+    "target_type": "region",
+    "lat": 40.75,
+    "lon": 15.3,
+    "radius_km": 180.0,
+    "window_start": "1980-11-23",
+    "window_end": "1980-11-23",
+    "resolution_source": "prediction_override_irpinia_november_1980_followup",
+    "notes": "This row is the destructive late-November Italy quake described in the immediately preceding sentence, so it shares the 23 November 1980 Irpinia target window."
+  },
+  "136:28": {
+    "target_name": "Vesuvius / Campania, Italy",
+    "target_type": "region",
+    "lat": 40.8214,
+    "lon": 14.4265,
+    "radius_km": 180.0,
+    "window_start": "1980-11-23",
+    "window_end": "1980-11-23",
+    "resolution_source": "prediction_override_vesuvius_november_1980",
+    "notes": "The severe quake around Vesuvius is the same Campania earthquake sequence framed in the surrounding November 1980 Italy context."
+  },
+  "136:44": {
+    "target_name": "Japan",
+    "target_type": "country",
+    "lat": 36.2048,
+    "lon": 138.2529,
+    "radius_km": 1200.0,
+    "window_start": "1981-01-19",
+    "window_end": "1981-01-19",
+    "resolution_source": "prediction_override_japan_january_1981",
+    "notes": "The claim explicitly anchors this earthquake to around 19 January 1981 in Japan."
+  },
+  "136:54": {
+    "target_name": "Indonesia",
+    "target_type": "country",
+    "lat": -2.5489,
+    "lon": 118.0149,
+    "radius_km": 1500.0,
+    "window_start": "1981-01-24",
+    "window_end": "1981-01-24",
+    "resolution_source": "prediction_override_indonesia_january_1981",
+    "notes": "This Indonesia quake is part of the same sequence that immediately continues into the 24 January 1981 Sichuan row."
+  },
+  "136:86": {
+    "target_name": "Western Athens / Alkyonides Gulf, Greece",
+    "target_type": "region",
+    "lat": 38.1328,
+    "lon": 23.0103,
+    "radius_km": 120.0,
+    "window_start": "1981-02-24",
+    "window_end": "1981-02-24",
+    "resolution_source": "prediction_override_greece_february_1981",
+    "notes": "The surrounding report context resolves the 'shortly after 20 February 1981' Greece quake to the 24 February 1981 Alkyonides Gulf sequence."
+  },
+  "136:172": {
+    "target_name": "Golbaf / Kerman Province, Iran",
+    "target_type": "region",
+    "lat": 29.75,
+    "lon": 57.73,
+    "radius_km": 180.0,
+    "window_start": "1981-06-11",
+    "window_end": "1981-06-11",
+    "resolution_source": "prediction_override_kerman_june_1981",
+    "notes": "The surrounding report text explicitly identifies this as the 11 June 1981 southern Kerman earthquake that devastated Golbaf only hours after the Bani Sadr attack."
+  },
+  "136:89": {
+    "target_name": "Western Athens / Alkyonides Gulf, Greece",
+    "target_type": "region",
+    "lat": 38.1328,
+    "lon": 23.0103,
+    "radius_km": 120.0,
+    "resolution_source": "prediction_override_athens_context",
+    "notes": "The source quote explicitly places the 1981-02-24 quake 70 kilometres west of Athens, matching the Alkyonides Gulf sequence."
+  },
+  "238:30": {
+    "target_name": "Sierra Madre, California",
+    "target_type": "region",
+    "lat": 34.1617,
+    "lon": -118.0528,
+    "radius_km": 120.0,
+    "window_start": "1991-06-28",
+    "window_end": "1991-06-29",
+    "resolution_source": "prediction_override_sierra_madre_june_1991",
+    "notes": "The claim names around 29 June and the Sierra Madre epicentral area in California, matching the late-June 1991 Sierra Madre sequence."
+  },
+  "150:135": {
+    "target_name": "Dhamar / Sanaa Governorate, Yemen",
+    "target_type": "region",
+    "lat": 14.56,
+    "lon": 44.39,
+    "radius_km": 140.0,
+    "window_start": "1982-12-13",
+    "window_end": "1982-12-13",
+    "resolution_source": "prediction_override_dhamar_december_1982",
+    "notes": "The report explicitly scopes this row to Dhamar near Sanaa in December 1982, matching the 13 December 1982 Yemen earthquake sequence."
+  },
+  "182:53": {
+    "target_name": "Liege Region, Belgium",
+    "target_type": "region",
+    "lat": 50.64,
+    "lon": 5.57,
+    "radius_km": 140.0,
+    "window_start": "1983-11-08",
+    "window_end": "1983-11-08",
+    "resolution_source": "prediction_override_liege_november_1983",
+    "notes": "This follow-on row is anchored about ten days after the late-October 1983 northeast Turkey quake and explicitly names Liege and the surrounding area."
+  },
+  "238:210": {
+    "target_name": "Erzincan-Bingol Corridor, Turkey",
+    "target_type": "region",
+    "lat": 39.72,
+    "lon": 39.62,
+    "radius_km": 220.0,
+    "window_start": "1992-03-13",
+    "window_end": "1992-03-13",
+    "resolution_source": "prediction_override_erzincan_march_1992",
+    "notes": "The surrounding report context names Erzincan, Erzurum, and Bingol together and ties the row to the same-time Turkey disaster, matching the 13 March 1992 Erzincan sequence."
+  },
   "238:182": {
     "target_name": "Tokyo",
     "target_type": "region",
@@ -7,6 +137,15 @@
     "radius_km": 120.0,
     "resolution_source": "prediction_override_tokyo_context",
     "notes": "Contact report context explicitly frames the 1992-02-02 quake as one of the impending quakes in Tokyo."
+  },
+  "238:197": {
+    "target_name": "Tokyo",
+    "target_type": "region",
+    "lat": 35.6762,
+    "lon": 139.6503,
+    "radius_km": 120.0,
+    "resolution_source": "prediction_override_tokyo_context_second_clause",
+    "notes": "The immediately preceding dialogue frames this row as one of the impending quakes in Tokyo."
   },
   "238:199": {
     "target_name": "Erzincan Province, Turkey",
@@ -26,41 +165,238 @@
     "resolution_source": "prediction_override_grisons_context",
     "notes": "Question context explicitly scopes the smaller quake prediction to the Grisons region and Rhine region in Switzerland."
   },
-  "519:3": {
-    "target_name": "Onagawa Coast, Japan",
-    "target_type": "region",
-    "lat": 38.4457,
-    "lon": 141.4440,
-    "radius_km": 180.0,
-    "resolution_source": "prediction_override_onagawa_context",
-    "notes": "The immediately preceding sentence places the seaquake sequence near Onagawa in northern Japan."
-  },
-  "136:89": {
-    "target_name": "Western Athens / Alkyonides Gulf, Greece",
-    "target_type": "region",
-    "lat": 38.1328,
-    "lon": 23.0103,
-    "radius_km": 120.0,
-    "resolution_source": "prediction_override_athens_context",
-    "notes": "The source quote explicitly places the 1981-02-24 quake 70 kilometres west of Athens, matching the Alkyonides Gulf sequence."
-  },
-  "238:197": {
-    "target_name": "Tokyo",
-    "target_type": "region",
-    "lat": 35.6762,
-    "lon": 139.6503,
-    "radius_km": 120.0,
-    "resolution_source": "prediction_override_tokyo_context_second_clause",
-    "notes": "The immediately preceding dialogue frames this row as one of the impending quakes in Tokyo."
-  },
   "383:28": {
     "target_name": "Off Sumatra, Indonesia",
     "target_type": "region",
-    "lat": -1.0000,
-    "lon": 99.0000,
+    "lat": -1.0,
+    "lon": 99.0,
     "radius_km": 220.0,
     "resolution_source": "prediction_override_sumatra_context",
     "notes": "The immediately preceding sentence places the seaquake sequence off Sumatra and the follow-up 6.4 seaquake is part of the same local sequence."
+  },
+  "369:1": {
+    "scoped_family": "earthquake",
+    "target_name": "Off Sumatra, Indonesia",
+    "target_type": "region",
+    "lat": -1.0,
+    "lon": 99.0,
+    "radius_km": 300.0,
+    "window_start": "2004-12-26",
+    "window_end": "2004-12-26",
+    "resolution_source": "prediction_override_sumatra_tsunami_mainshock",
+    "notes": "The 26 December 2004 Southeast Asia catastrophe in this report context is the Indian Ocean Sumatra quake and tsunami sequence, so the row is scoped to the main offshore Sumatra event."
+  },
+  "369:17": {
+    "scoped_family": "earthquake",
+    "target_name": "Off Sumatra, Indonesia",
+    "target_type": "region",
+    "lat": -1.0,
+    "lon": 99.0,
+    "radius_km": 300.0,
+    "window_start": "2004-12-26",
+    "window_end": "2004-12-26",
+    "resolution_source": "prediction_override_sumatra_dual_quake_claim",
+    "notes": "Although the sentence says two simultaneous seaquakes, the bounded earthquake target in the surrounding 26 December 2004 context is the Indian Ocean mainshock off Sumatra."
+  },
+  "395:4": {
+    "target_name": "Nicobar Islands Region",
+    "target_type": "region",
+    "lat": 7.9,
+    "lon": 92.2,
+    "radius_km": 240.0,
+    "window_start": "2005-07-23",
+    "window_end": "2005-07-24",
+    "resolution_source": "prediction_override_nicobar_july_2005",
+    "notes": "The claim explicitly names the Nicobar Islands and the 23rd/24th of July for a magnitude 7.2 seaquake."
+  },
+  "377:23": {
+    "target_name": "Stilfontein Mining District, South Africa",
+    "target_type": "region",
+    "lat": -26.84,
+    "lon": 26.77,
+    "radius_km": 140.0,
+    "window_start": "2005-03-09",
+    "window_end": "2005-03-09",
+    "resolution_source": "prediction_override_stilfontein_march_2005",
+    "notes": "The March 2005 South Africa row mentions a magnitude-5 quake with miner deaths, matching the 9 March 2005 Stilfontein mine earthquake."
+  },
+  "400:6": {
+    "target_name": "La Libertad Offshore, El Salvador",
+    "target_type": "region",
+    "lat": 13.49,
+    "lon": -89.34,
+    "radius_km": 180.0,
+    "window_start": "2005-10-07",
+    "window_end": "2005-10-07",
+    "resolution_source": "prediction_override_el_salvador_october_2005",
+    "notes": "In the same October 2005 sequence as Stan and the Pakistan quake, this row cleanly matches the 7 October 2005 offshore La Libertad earthquake in El Salvador."
+  },
+  "400:7": {
+    "target_name": "Muzaffarabad / Kashmir Region, Pakistan",
+    "target_type": "region",
+    "lat": 34.37,
+    "lon": 73.47,
+    "radius_km": 220.0,
+    "window_start": "2005-10-08",
+    "window_end": "2005-10-08",
+    "resolution_source": "prediction_override_kashmir_october_2005",
+    "notes": "The claim names Pakistan and the exact date 8 October for a magnitude 7.6 earthquake, matching the Kashmir/Muzaffarabad mainshock."
+  },
+  "401:2": {
+    "target_name": "Aegean Sea",
+    "target_type": "region",
+    "lat": 38.8,
+    "lon": 26.0,
+    "radius_km": 220.0,
+    "window_start": "2005-10-20",
+    "window_end": "2005-10-21",
+    "resolution_source": "prediction_override_aegean_october_2005",
+    "notes": "The quote places this magnitude 6 quake in the night from 20th to 21st October as a follow-up to the 17 October Aegean quakes."
+  },
+  "401:1": {
+    "scoped_family": "earthquake",
+    "target_name": "Aegean Sea",
+    "target_type": "region",
+    "lat": 38.7,
+    "lon": 25.0,
+    "radius_km": 300.0,
+    "window_start": "2005-10-17",
+    "window_end": "2005-10-17",
+    "resolution_source": "prediction_override_aegean_october_2005_opening_pair",
+    "notes": "The row explicitly names two Aegean seaquakes on 17 October 2005, so it is scoped to the opening Aegean sequence on that date."
+  },
+  "401:3": {
+    "target_name": "Ibaraki, Japan",
+    "target_type": "region",
+    "lat": 36.3911,
+    "lon": 140.4468,
+    "radius_km": 180.0,
+    "window_start": "2005-10-19",
+    "window_end": "2005-10-19",
+    "resolution_source": "prediction_override_ibaraki_october_2005_precursor",
+    "notes": "The surrounding report sequence places this 5.3 Japan quake immediately before the 19 October Ibaraki seaquake."
+  },
+  "401:20": {
+    "scoped_family": "earthquake",
+    "target_name": "Afghanistan",
+    "target_type": "country",
+    "lat": 33.9391,
+    "lon": 67.71,
+    "radius_km": 500.0,
+    "window_start": "2005-10-24",
+    "window_end": "2005-10-24",
+    "resolution_source": "prediction_override_afghanistan_october_2005_pair",
+    "notes": "The row explicitly bounds two Afghanistan earthquakes to 24 October 2005, so it is scoped to the same-day Afghan quake sequence."
+  },
+  "402:3": {
+    "target_name": "Northern Pakistan / Kashmir Region",
+    "target_type": "region",
+    "lat": 34.7,
+    "lon": 73.3,
+    "radius_km": 220.0,
+    "window_start": "2005-11-06",
+    "window_end": "2005-11-06",
+    "resolution_source": "prediction_override_northern_pakistan_november_2005",
+    "notes": "The claim names northern Pakistan, Sunday 6 November, and magnitude 6.0."
+  },
+  "402:5": {
+    "target_name": "Monthal / Laufenburg Rhine Region, Switzerland",
+    "target_type": "region",
+    "lat": 47.55,
+    "lon": 8.17,
+    "radius_km": 80.0,
+    "window_start": "2005-11-12",
+    "window_end": "2005-11-12",
+    "resolution_source": "prediction_override_monthal_laufenburg_november_2005",
+    "notes": "The claim names the Monthal and Laufenburg Rhine area in Switzerland and the evening of 12 November."
+  },
+  "402:6": {
+    "target_name": "Tarapaca / Northern Chile",
+    "target_type": "region",
+    "lat": -19.8,
+    "lon": -69.2,
+    "radius_km": 250.0,
+    "window_start": "2005-11-17",
+    "window_end": "2005-11-18",
+    "resolution_source": "prediction_override_northern_chile_november_2005",
+    "notes": "The claim names Chile and the 17th/18th of November for a magnitude 6.9 earthquake, matching the northern Chile event window."
+  },
+  "408:5": {
+    "target_name": "Kithira / Peloponnesian Greece Offshore",
+    "target_type": "region",
+    "lat": 36.2,
+    "lon": 23.3,
+    "radius_km": 180.0,
+    "window_start": "2006-01-08",
+    "window_end": "2006-01-08",
+    "resolution_source": "prediction_override_kithira_january_2006",
+    "notes": "The claim explicitly names the 8th of January, off Kithira in the Peloponnesian region of Greece, with magnitude 6.9."
+  },
+  "408:7": {
+    "target_name": "Banda Sea, Eastern Indonesia",
+    "target_type": "region",
+    "lat": -6.5,
+    "lon": 129.5,
+    "radius_km": 260.0,
+    "window_start": "2006-01-29",
+    "window_end": "2006-01-31",
+    "resolution_source": "prediction_override_banda_sea_january_2006",
+    "notes": "The claim says an even stronger magnitude 7.7 seaquake occurs at the end of January in the Banda Sea."
+  },
+  "416:1": {
+    "target_name": "Koryakia / Eastern Siberia, Russia",
+    "target_type": "region",
+    "lat": 60.94,
+    "lon": 167.67,
+    "radius_km": 500.0,
+    "window_start": "2006-04-20",
+    "window_end": "2006-04-20",
+    "resolution_source": "prediction_override_koryakia_april_2006",
+    "notes": "The claim says an 8.1 earthquake will occur in Eastern Siberia/Russia in the coming days, matching the 20 April 2006 Koryakia sequence on the same near-term horizon."
+  },
+  "427:1": {
+    "target_name": "Indian Ocean South of Java",
+    "target_type": "region",
+    "lat": -9.0,
+    "lon": 107.0,
+    "radius_km": 260.0,
+    "window_start": "2006-07-17",
+    "window_end": "2006-07-17",
+    "resolution_source": "prediction_override_indian_ocean_july_2006",
+    "notes": "The claim explicitly names 17 July for a severe magnitude 7.9 seaquake in the Indian Ocean."
+  },
+  "436:3": {
+    "target_name": "Nice Hinterland / France-Italy Border",
+    "target_type": "region",
+    "lat": 43.96,
+    "lon": 7.62,
+    "radius_km": 90.0,
+    "window_start": "2006-10-24",
+    "window_end": "2006-10-25",
+    "resolution_source": "prediction_override_nice_border_october_2006",
+    "notes": "This row sits between the 24 October Italy quakes and the 26 October Sicily event in the same study list, so the defensible window is 24-25 October 2006 in the Nice hinterland border region."
+  },
+  "446:7": {
+    "target_name": "Noto Peninsula Offshore, Japan",
+    "target_type": "region",
+    "lat": 37.22,
+    "lon": 136.69,
+    "radius_km": 180.0,
+    "window_start": "2007-03-25",
+    "window_end": "2007-03-25",
+    "resolution_source": "prediction_override_noto_march_2007",
+    "notes": "The current baseline maps the Noto 25 March 2007 claim to candidate 446:7 after Stage 2 key drift."
+  },
+  "446:9": {
+    "target_name": "Hindu Kush, Afghanistan",
+    "target_type": "region",
+    "lat": 36.5,
+    "lon": 70.9,
+    "radius_km": 220.0,
+    "window_start": "2007-03-26",
+    "window_end": "2007-03-26",
+    "resolution_source": "prediction_override_hindu_kush_march_2007",
+    "notes": "The current baseline maps the one-day-later Hindu Kush 26 March 2007 quake to candidate 446:9 after Stage 2 key drift."
   },
   "446:10": {
     "target_name": "Acapulco Region, Mexico",
@@ -74,142 +410,30 @@
   "453:17": {
     "target_name": "Pisco / Peru Coast",
     "target_type": "region",
-    "lat": -13.7100,
-    "lon": -76.2000,
+    "lat": -13.71,
+    "lon": -76.2,
     "radius_km": 220.0,
     "resolution_source": "prediction_override_peru_coast_context",
     "notes": "The claim explicitly places the seaquake off the coast of Peru and names the Pisco-area cities most affected."
   },
-  "400:7": {
-    "target_name": "Muzaffarabad / Kashmir Region, Pakistan",
-    "target_type": "region",
-    "lat": 34.3700,
-    "lon": 73.4700,
-    "radius_km": 220.0,
-    "window_start": "2005-10-08",
-    "window_end": "2005-10-08",
-    "resolution_source": "prediction_override_kashmir_october_2005",
-    "notes": "The claim names Pakistan and the exact date 8 October for a magnitude 7.6 earthquake, matching the Kashmir/Muzaffarabad mainshock."
-  },
-  "402:5": {
-    "target_name": "Mönthal / Laufenburg Rhine Region, Switzerland",
-    "target_type": "region",
-    "lat": 47.5500,
-    "lon": 8.1700,
-    "radius_km": 80.0,
-    "window_start": "2005-11-12",
-    "window_end": "2005-11-12",
-    "resolution_source": "prediction_override_monthal_laufenburg_november_2005",
-    "notes": "The claim names the Mönthal and Laufenburg Rhine area in Switzerland and the evening of 12 November."
-  },
-  "402:6": {
-    "target_name": "Tarapaca / Northern Chile",
-    "target_type": "region",
-    "lat": -19.8000,
-    "lon": -69.2000,
-    "radius_km": 250.0,
-    "window_start": "2005-11-17",
-    "window_end": "2005-11-18",
-    "resolution_source": "prediction_override_northern_chile_november_2005",
-    "notes": "The claim names Chile and the 17th/18th of November for a magnitude 6.9 earthquake, matching the northern Chile event window."
-  },
-  "395:4": {
-    "target_name": "Nicobar Islands Region",
-    "target_type": "region",
-    "lat": 7.9000,
-    "lon": 92.2000,
-    "radius_km": 240.0,
-    "window_start": "2005-07-23",
-    "window_end": "2005-07-24",
-    "resolution_source": "prediction_override_nicobar_july_2005",
-    "notes": "The claim explicitly names the Nicobar Islands and the 23rd/24th of July for a magnitude 7.2 seaquake."
-  },
-  "402:3": {
-    "target_name": "Northern Pakistan / Kashmir Region",
-    "target_type": "region",
-    "lat": 34.7000,
-    "lon": 73.3000,
-    "radius_km": 220.0,
-    "window_start": "2005-11-06",
-    "window_end": "2005-11-06",
-    "resolution_source": "prediction_override_northern_pakistan_november_2005",
-    "notes": "The claim names northern Pakistan, Sunday 6 November, and magnitude 6.0."
-  },
-  "408:5": {
-    "target_name": "Kithira / Peloponnesian Greece Offshore",
-    "target_type": "region",
-    "lat": 36.2000,
-    "lon": 23.3000,
-    "radius_km": 180.0,
-    "window_start": "2006-01-08",
-    "window_end": "2006-01-08",
-    "resolution_source": "prediction_override_kithira_january_2006",
-    "notes": "The claim explicitly names the 8th of January, off Kithira in the Peloponnesian region of Greece, with magnitude 6.9."
-  },
-  "446:6": {
-    "target_name": "Noto Peninsula Offshore, Japan",
-    "target_type": "region",
-    "lat": 37.2200,
-    "lon": 136.6900,
-    "radius_km": 180.0,
-    "window_start": "2007-03-25",
-    "window_end": "2007-03-25",
-    "resolution_source": "prediction_override_noto_march_2007",
-    "notes": "The claim explicitly names March 25 and a seaquake off Japan near Noto with magnitude 6.9."
-  },
-  "446:8": {
-    "target_name": "Hindu Kush, Afghanistan",
-    "target_type": "region",
-    "lat": 36.5000,
-    "lon": 70.9000,
-    "radius_km": 220.0,
-    "window_start": "2007-03-26",
-    "window_end": "2007-03-26",
-    "resolution_source": "prediction_override_hindu_kush_march_2007",
-    "notes": "The claim says one day after the 25 March Noto quake, a magnitude 6.2 earthquake occurs in the Hindu Kush in Afghanistan."
-  },
   "519:1": {
     "target_name": "Off East Coast of Honshu, Japan",
     "target_type": "region",
-    "lat": 38.3000,
-    "lon": 142.4000,
+    "lat": 38.3,
+    "lon": 142.4,
     "radius_km": 220.0,
     "window_start": "2011-04-07",
     "window_end": "2011-04-08",
     "resolution_source": "prediction_override_honshu_april_2011",
     "notes": "The claim names the period from the 7th/8th of April for a magnitude 7.4 seaquake, matching the major Tohoku aftershock window."
   },
-  "401:2": {
-    "target_name": "Aegean Sea",
+  "519:3": {
+    "target_name": "Onagawa Coast, Japan",
     "target_type": "region",
-    "lat": 38.8000,
-    "lon": 26.0000,
-    "radius_km": 220.0,
-    "window_start": "2005-10-20",
-    "window_end": "2005-10-21",
-    "resolution_source": "prediction_override_aegean_october_2005",
-    "notes": "The quote places this magnitude 6 quake in the night from 20th to 21st October as a follow-up to the 17 October Aegean quakes."
-  },
-  "408:7": {
-    "target_name": "Banda Sea, Eastern Indonesia",
-    "target_type": "region",
-    "lat": -6.5000,
-    "lon": 129.5000,
-    "radius_km": 260.0,
-    "window_start": "2006-01-29",
-    "window_end": "2006-01-31",
-    "resolution_source": "prediction_override_banda_sea_january_2006",
-    "notes": "The claim says an even stronger magnitude 7.7 seaquake occurs at the end of January in the Banda Sea."
-  },
-  "427:1": {
-    "target_name": "Indian Ocean South of Java",
-    "target_type": "region",
-    "lat": -9.0000,
-    "lon": 107.0000,
-    "radius_km": 260.0,
-    "window_start": "2006-07-17",
-    "window_end": "2006-07-17",
-    "resolution_source": "prediction_override_indian_ocean_july_2006",
-    "notes": "The claim explicitly names 17 July for a severe magnitude 7.9 seaquake in the Indian Ocean."
+    "lat": 38.4457,
+    "lon": 141.444,
+    "radius_km": 180.0,
+    "resolution_source": "prediction_override_onagawa_context",
+    "notes": "The immediately preceding sentence places the seaquake sequence near Onagawa in northern Japan."
   }
 }

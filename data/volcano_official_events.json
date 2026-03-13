@@ -117,6 +117,19 @@
     "source_excerpt": "An eruption began on 12 April 2005 after increased seismicity."
   },
   {
+    "event_id": "mx-colima-2005-03-23",
+    "event_type": "volcano_eruption_began",
+    "actor_name": "Colima",
+    "jurisdiction": "Mexico",
+    "target_keywords": ["Colima", "Volcan de Colima", "Mexico"],
+    "event_title": "Colima ash-emission episode began",
+    "event_start_date": "2005-03-23",
+    "location_name": "Colima, Mexico",
+    "source_name": "Smithsonian Global Volcanism Program",
+    "source_url": "https://volcano.si.edu/volcano.cfm?vn=341040",
+    "source_excerpt": "During 23-29 March there were several ash emissions from Colima."
+  },
+  {
     "event_id": "sv-santa-ana-2005-10-01",
     "event_type": "volcano_eruption_began",
     "actor_name": "Santa Ana",

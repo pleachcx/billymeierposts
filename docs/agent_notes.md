@@ -271,3 +271,4 @@
 - Derive `output_dir` from `summary_path` when orchestrating older exporter scripts; not every existing JSON payload reports both fields.
 - Use `--skip-refresh` for the first low-churn release-bundle compose, then rerun the default refresh mode before closeout so the checked-in bundle points at fresh aligned `overview`/`provenance`/`unscored` exports.
 - Keep `README.md` and `docs/prediction_audit_supervisor_work_spec.md` pinned to the latest checked-in release snapshot paths after the final refresh; stale snapshot links undercut the operator handoff.
+- Close the workflow branch only after every ready pack is done and any still-blocked future pack is explicitly retired from the branch plan and slice queue.

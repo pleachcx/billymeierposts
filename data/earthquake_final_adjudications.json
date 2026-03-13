@@ -134,10 +134,20 @@
     "rationale": "The row summarizes an Aegean earthquake sequence culminating in a later climax rather than one bounded atomic quake, so it should not remain in the standalone earthquake cohort.",
     "reason_code": "sequence_summary_not_atomic_event"
   },
+  "401:13": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The row only says precursor quakes will occur on 17 October 'down there' without naming a defensible target region, so it cannot be scored as a bounded atomic earthquake prediction.",
+    "reason_code": "no_target_for_precursor_sequence"
+  },
   "420:2": {
     "final_status": "excluded_from_statistics",
     "rationale": "This sentence mixes a Comoros volcano, a Puglia earthquake, and another Indonesian quake in one unresolved multi-family row, so it should not stay in the atomic earthquake statistics set.",
     "reason_code": "compound_multi_family_row"
+  },
+  "444:4": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The row names two magnitudes on 6 March but only locates them near the unresolved place-name 'Panang', so the current earthquake rulebook cannot assign one defensible target region without guessing.",
+    "reason_code": "ambiguous_place_name_blocks_target_resolution"
   },
   "519:4": {
     "final_status": "permanently_unresolved",

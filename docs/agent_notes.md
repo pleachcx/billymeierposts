@@ -207,6 +207,7 @@
 - Treat missing `support.md` in `support.md docs/*.md` discovery as an explicit planning assumption; anchor the cycle to the available `docs/*.md` files and record the missing path in workflow notes.
 - Reconstruct supervisor-loop progress from `.workflow/branch_plan.md`, `.workflow/slice_queue.md`, and `.workflow/supervisor_decision.md`; `docs/prediction_audit_supervisor_work_spec.md` can lag the accepted branch state.
 - Scope the next audit wave from `unscored-prediction-queue` bucket counts: drain `promote_via_existing_family_pipeline`, `stage2_revisit_in_supported_family`, and earthquake replay backlog before reopening blocked new-family rulebooks.
+- After a new-family bootstrap lands cleanly, scope the next doc as a same-family widening tranche on the same Stage 2 baseline before opening a broader rulebook or switching families.
 - Rewrite supervisor workflow files to the active aligned Stage 2 baseline after any accepted rerun pack; do not keep active instructions anchored to stale spec-front-matter run keys.
 - Verify pack acceptance against the generated summary JSON artifacts before advancing the active pack; do not trust implementer handoff counts alone.
 - Open the release-output pack only after overview, provenance, research-queue, and unscored exports reconcile on one baseline.

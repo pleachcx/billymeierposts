@@ -109,6 +109,94 @@
     "window_end": "1981-03-30",
     "notes": "Prediction scoped to the March 30, 1981 assassination attempt on Ronald Reagan outside the Washington Hilton Hotel."
   },
+  "136:136": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "head_of_state_survives_assassination_attempt",
+    "actor_name": "John Paul II",
+    "target_name": "Papacy",
+    "target_keywords": ["John Paul II", "Agca", "St Peter's Square"],
+    "jurisdiction": "Vatican City",
+    "window_start": "1981-02-01",
+    "window_end": "1981-02-01",
+    "notes": "Scope the Agca-threat row to the later John Paul II assassination attempt as the closest measurable same-actor politics event on the current catalog."
+  },
+  "136:138": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "papal_election_retrospective_claim",
+    "actor_name": "Karol Wojtyla",
+    "target_name": "Papacy",
+    "target_keywords": ["Karol Wojtyla", "John Paul II"],
+    "jurisdiction": "Vatican City",
+    "window_start": "1980-10-16",
+    "window_end": "1980-10-16",
+    "notes": "Retire this retrospective papal-election biography row as outside the measurable politics action catalog."
+  },
+  "136:139": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "papal_biography_fact_claim",
+    "actor_name": "John Paul II",
+    "target_name": "Wadowice",
+    "target_keywords": ["Wadowice", "John Paul II"],
+    "jurisdiction": "Poland",
+    "window_start": "1981-05-18",
+    "window_end": "1981-05-18",
+    "notes": "Retire this papal biography row as outside the measurable politics action catalog."
+  },
+  "136:148": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "holy_see_israel_alignment",
+    "actor_name": "John Paul II",
+    "target_name": "Israel",
+    "target_keywords": ["Israel", "Holy See", "Vatican"],
+    "jurisdiction": "Vatican City",
+    "window_start": "1980-10-14",
+    "window_end": "1982-10-14",
+    "notes": "Retire the Vatican-Israel alignment row rather than stretching the current politics catalog beyond its scored event types."
+  },
+  "136:161": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "polish_primate_biography_fact",
+    "actor_name": "Stefan Wyszynski",
+    "target_name": "Poland",
+    "target_keywords": ["Stefan Wyszynski", "Warsaw", "Gniezno"],
+    "jurisdiction": "Poland",
+    "window_start": "1981-08-03",
+    "window_end": "1981-08-03",
+    "notes": "Retire this Stefan Wyszynski biography row as outside the measurable politics action catalog."
+  },
+  "136:163": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "head_of_state_survives_assassination_attempt",
+    "actor_name": "Ronald Reagan",
+    "target_name": "United States Presidency",
+    "target_keywords": ["Ronald Reagan", "John Hinckley", "Washington Hilton Hotel"],
+    "jurisdiction": "United States",
+    "window_start": "1981-03-30",
+    "window_end": "1981-03-30",
+    "notes": "Scope this Reagan/Hinckley row to the 30 March 1981 assassination attempt on Ronald Reagan."
+  },
+  "136:211": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "president_ousted",
+    "actor_name": "Abolhassan Banisadr",
+    "target_name": "Iran",
+    "target_keywords": ["Banisadr", "Iran"],
+    "jurisdiction": "Iran",
+    "window_start": "1981-06-21",
+    "window_end": "1981-06-21",
+    "notes": "Retire this Iran executions follow-on row as outside the current politics action catalog."
+  },
+  "136:221": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "assassination_trial_begins",
+    "actor_name": "Anwar Sadat",
+    "target_name": "Egypt",
+    "target_keywords": ["Sadat", "Egypt", "military court"],
+    "jurisdiction": "Egypt",
+    "window_start": "1980-10-14",
+    "window_end": "1982-10-14",
+    "notes": "Retire this Sadat-assassination trial row rather than adding a new politics-trial rulebook inside P1."
+  },
   "136:213": {
     "scoped_family": "politics_election",
     "expected_event_type": "head_of_state_survives_assassination_attempt",
@@ -164,6 +252,17 @@
     "window_end": "2002-12-31",
     "notes": "Prediction scoped to Switzerland's firm entry into the United Nations shortly after the turn of the millennium."
   },
+  "225:7": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "vindication_from_false_statements",
+    "actor_name": "Billy Meier",
+    "target_name": "Public vindication",
+    "target_keywords": ["benefit", "bitter experiences"],
+    "jurisdiction": "Switzerland",
+    "window_start": "1988-12-31",
+    "window_end": "1990-12-31",
+    "notes": "Retire this generalized vindication row as outside the measurable politics action catalog."
+  },
   "436:12": {
     "scoped_family": "politics_election",
     "expected_event_type": "house_majority_lost",
@@ -185,5 +284,16 @@
     "window_start": "2007-05-10",
     "window_end": "2007-05-10",
     "notes": "Prediction scoped to Tony Blair's announcement on 10 May 2007 that he would leave office in June."
+  },
+  "150:105": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "prime_minister_sworn_in",
+    "actor_name": "Ariel Sharon",
+    "target_name": "Prime Minister of Israel",
+    "target_keywords": ["Ariel Sharon", "Israel", "Prime Minister"],
+    "jurisdiction": "Israel",
+    "window_start": "1982-02-06",
+    "window_end": "1982-02-06",
+    "notes": "Retire this Ariel Sharon swearing-in row on the current baseline because the Stage 2 time normalization is far removed from the eventual 2001 premiership event."
   }
 }

@@ -1,0 +1,95 @@
+{
+  "combined_observed_probability": {
+    "count": 27,
+    "ln_sum": -73.172002,
+    "log10_sum": -31.778197
+  },
+  "earliest_public_date_populated_count": 26,
+  "final_status_counts": {
+    "included_in_statistics": 27
+  },
+  "generated_at": "2026-03-13T06:50:38.885815+00:00",
+  "match_status_counts": {
+    "exact_hit": 18,
+    "miss": 8,
+    "similar_only": 1
+  },
+  "observed_event_before_publication_count": 19,
+  "probability_ready_count": 27,
+  "public_date_cohort_summary": {
+    "claimed_date_baseline": {
+      "combined_observed_probability": {
+        "count": 27,
+        "ln_sum": -73.172002,
+        "log10_sum": -31.778197
+      },
+      "match_status_counts": {
+        "exact_hit": 18,
+        "miss": 8,
+        "similar_only": 1
+      },
+      "prediction_count": 27,
+      "probability_ready_count": 27,
+      "public_date_status_counts": {
+        "event_precedes_publication": 17,
+        "pending": 10
+      }
+    },
+    "public_date_excluded": {
+      "combined_observed_probability": {
+        "count": 17,
+        "ln_sum": -68.793572,
+        "log10_sum": -29.876669
+      },
+      "match_status_counts": {
+        "exact_hit": 17
+      },
+      "prediction_count": 17,
+      "probability_ready_count": 17,
+      "public_date_status_counts": {
+        "event_precedes_publication": 17
+      }
+    },
+    "public_date_not_disproven": {
+      "combined_observed_probability": {
+        "count": 10,
+        "ln_sum": -4.37843,
+        "log10_sum": -1.901528
+      },
+      "match_status_counts": {
+        "exact_hit": 1,
+        "miss": 8,
+        "similar_only": 1
+      },
+      "prediction_count": 10,
+      "probability_ready_count": 10,
+      "public_date_status_counts": {
+        "pending": 10
+      }
+    },
+    "public_date_strict_clean": {
+      "combined_observed_probability": {
+        "count": 0,
+        "ln_sum": null,
+        "log10_sum": null
+      },
+      "match_status_counts": {},
+      "prediction_count": 0,
+      "probability_ready_count": 0,
+      "public_date_status_counts": {}
+    }
+  },
+  "public_date_status_counts": {
+    "event_precedes_publication": 17,
+    "pending": 10
+  },
+  "run_keys": {
+    "stage2_run_key": "stage2-20260313T024045Z",
+    "stage3_run_key": "stage3-politics-20260313T065020Z",
+    "stage4_run_key": "stage4-politics-20260313T065028Z",
+    "stage5_run_key": "stage5-politics-20260313T065038Z",
+    "stage7_run_key": "stage7-politics-final-20260313T065038Z"
+  },
+  "scoped_prediction_count": 27,
+  "script_version": "politics_export_v2"
+}

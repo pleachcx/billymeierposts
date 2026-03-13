@@ -130,56 +130,113 @@ def resolve_run_set(cur, args: argparse.Namespace) -> RunSet:
 
 
 def load_predictions(cur, runs: RunSet) -> list[dict[str, Any]]:
-    cur.execute(
-        """
-        SELECT
-            p.id AS prediction_id,
-            p.report_number,
-            p.candidate_seq,
-            p.event_family_final,
-            p.stage2_label,
-            p.significant,
-            p.claimed_contact_date,
-            p.earliest_provable_public_date,
-            p.public_date_basis,
-            p.provenance_score,
-            p.public_date_status,
-            p.public_date_reason,
-            p.claim_normalized,
-            p.source_quote,
-            p.time_window_start,
-            p.time_window_end,
-            p.target_name,
-            p.target_type,
-            p.match_status,
-            p.p_exact_under_null,
-            p.p_near_under_null,
-            p.p_similar_under_null,
-            p.p_miss_under_null,
-            p.probability_model_version,
-            p.probability_notes,
-            p.probability_meta,
-            p.final_status,
-            p.final_reason,
-            mr.rationale AS review_rationale,
-            mr.review_meta,
-            el.external_event_id,
-            el.event_title,
-            el.event_start_date,
-            el.location_name AS observed_location_name,
-            el.severity_band AS observed_event_type,
-            el.time_delta_days,
-            el.source_name,
-            el.source_url,
-            el.raw_event
-        FROM public.prediction_audit_match_reviews mr
-        JOIN public.prediction_audit_predictions p ON p.id = mr.prediction_id
-        LEFT JOIN public.prediction_audit_event_ledger el ON el.id = mr.event_ledger_id
-        WHERE mr.review_run_id = %s
-        ORDER BY p.report_number, p.candidate_seq
-        """,
-        (runs.stage4_run_id,),
-    )
+    if runs.stage7_run_id is not None:
+        cur.execute(
+            """
+            SELECT
+                p.id AS prediction_id,
+                p.report_number,
+                p.candidate_seq,
+                p.event_family_final,
+                p.stage2_label,
+                p.significant,
+                p.claimed_contact_date,
+                p.earliest_provable_public_date,
+                p.public_date_basis,
+                p.provenance_score,
+                p.public_date_status,
+                p.public_date_reason,
+                p.claim_normalized,
+                p.source_quote,
+                p.time_window_start,
+                p.time_window_end,
+                p.target_name,
+                p.target_type,
+                p.match_status,
+                p.p_exact_under_null,
+                p.p_near_under_null,
+                p.p_similar_under_null,
+                p.p_miss_under_null,
+                p.probability_model_version,
+                p.probability_notes,
+                p.probability_meta,
+                p.final_status,
+                p.final_reason,
+                COALESCE(mr.rationale, fr.rationale) AS review_rationale,
+                COALESCE(mr.review_meta, fr.review_meta) AS review_meta,
+                el.external_event_id,
+                el.event_title,
+                el.event_start_date,
+                el.location_name AS observed_location_name,
+                el.severity_band AS observed_event_type,
+                el.time_delta_days,
+                el.source_name,
+                el.source_url,
+                el.raw_event
+            FROM public.prediction_audit_final_reviews fr
+            JOIN public.prediction_audit_predictions p ON p.id = fr.prediction_id
+            LEFT JOIN public.prediction_audit_match_reviews mr
+              ON mr.prediction_id = p.id
+             AND mr.review_run_id = %s
+             AND mr.is_primary = true
+            LEFT JOIN public.prediction_audit_event_ledger el ON el.id = mr.event_ledger_id
+            WHERE fr.review_run_id = %s
+              AND fr.event_family = 'war_conflict'
+            ORDER BY p.report_number, p.candidate_seq
+            """,
+            (runs.stage4_run_id, runs.stage7_run_id),
+        )
+    else:
+        cur.execute(
+            """
+            SELECT
+                p.id AS prediction_id,
+                p.report_number,
+                p.candidate_seq,
+                p.event_family_final,
+                p.stage2_label,
+                p.significant,
+                p.claimed_contact_date,
+                p.earliest_provable_public_date,
+                p.public_date_basis,
+                p.provenance_score,
+                p.public_date_status,
+                p.public_date_reason,
+                p.claim_normalized,
+                p.source_quote,
+                p.time_window_start,
+                p.time_window_end,
+                p.target_name,
+                p.target_type,
+                p.match_status,
+                p.p_exact_under_null,
+                p.p_near_under_null,
+                p.p_similar_under_null,
+                p.p_miss_under_null,
+                p.probability_model_version,
+                p.probability_notes,
+                p.probability_meta,
+                p.final_status,
+                p.final_reason,
+                mr.rationale AS review_rationale,
+                mr.review_meta,
+                el.external_event_id,
+                el.event_title,
+                el.event_start_date,
+                el.location_name AS observed_location_name,
+                el.severity_band AS observed_event_type,
+                el.time_delta_days,
+                el.source_name,
+                el.source_url,
+                el.raw_event
+            FROM public.prediction_audit_match_reviews mr
+            JOIN public.prediction_audit_predictions p ON p.id = mr.prediction_id
+            LEFT JOIN public.prediction_audit_event_ledger el ON el.id = mr.event_ledger_id
+            WHERE mr.review_run_id = %s
+            ORDER BY p.report_number, p.candidate_seq
+            """,
+            (runs.stage4_run_id,),
+        )
     return [dict(row) for row in cur.fetchall()]
 
 

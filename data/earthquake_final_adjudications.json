@@ -1,4 +1,39 @@
 {
+  "106:2": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This sentence is retrospective commentary about a prior illustration of San Francisco after earthquake destruction, not a future atomic earthquake prediction.",
+    "reason_code": "retrospective_artwork_reference"
+  },
+  "136:35": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This row only says that the Italy earthquake will remain on people's lips; it does not add a separate bounded earthquake event to score.",
+    "reason_code": "aftermath_context_not_atomic_prediction"
+  },
+  "136:57": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "The earthquake in China is only used as a timing anchor for other unrelated events, so this row should not stay in the atomic earthquake cohort.",
+    "reason_code": "earthquake_as_time_anchor"
+  },
+  "136:87": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The claim describes a continuing earthquake chain from Agadir into Italy without a bounded next event window or a defensible atomic stopping point.",
+    "reason_code": "chain_claim_without_bounded_event"
+  },
+  "136:174": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "The Iran earthquake is only used as the temporal anchor for a later attack on the Queen of England, not as a separate measurable earthquake forecast.",
+    "reason_code": "non_earthquake_followup_anchor"
+  },
+  "150:6": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This is a world-scope run-up claim about earthquakes in various places on Earth rather than a bounded atomic earthquake prediction.",
+    "reason_code": "world_scope_precursor_claim"
+  },
+  "150:142": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "The row is a past-tense historical claim about earthquakes during the crucifixion, so it is outside the future earthquake audit cohort.",
+    "reason_code": "historical_past_event_reference"
+  },
   "235:14": {
     "final_status": "permanently_unresolved",
     "rationale": "The claim aggregates earthquake deaths over a broad future interval without a defensible target region, so it cannot be scored as an atomic measurable earthquake prediction.",
@@ -19,10 +54,30 @@
     "rationale": "The claim says a severe earthquake will strike the following year but never names a target region or event context tightly enough to score as an atomic earthquake prediction.",
     "reason_code": "no_target_in_contextual_followup"
   },
+  "241:67": {
+    "final_status": "permanently_unresolved",
+    "rationale": "This is a causal warning about the great San Andreas quake appearing earlier than expected, but it does not supply a bounded event window or measurable match criteria for one atomic earthquake.",
+    "reason_code": "causal_warning_without_bounded_event"
+  },
   "383:23": {
     "final_status": "excluded_from_statistics",
     "rationale": "The source sentence still combines a Sumatra seaquake with the Talang eruption in one unresolved compound remainder, so it should not remain in the atomic earthquake statistics set.",
     "reason_code": "compound_remainder_requires_atomic_split"
+  },
+  "392:2": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This is a retrospective question about earlier seaquake disasters before the 2004 tsunami, not a future earthquake prediction.",
+    "reason_code": "retrospective_question_not_prediction"
+  },
+  "400:12": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This row comments that events will generally worsen from now on and only references the Pakistan earthquake as context, so it is not an atomic earthquake prediction.",
+    "reason_code": "commentary_not_atomic_prediction"
+  },
+  "400:16": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This is a world-scope cascading-rule claim rather than a bounded atomic event prediction, so it should be excluded from the earthquake statistical cohort.",
+    "reason_code": "world_scope_rule_claim"
   },
   "400:18": {
     "final_status": "excluded_from_statistics",
@@ -34,10 +89,20 @@
     "rationale": "This is a world-scope cascading-rule claim rather than a bounded atomic earthquake prediction, so it should be excluded from the earthquake statistical cohort.",
     "reason_code": "world_scope_rule_claim"
   },
-  "400:16": {
+  "519:4": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The row describes a long-horizon threat to Japan and Tokyo without a bounded event window or measurable atomic earthquake outcome.",
+    "reason_code": "long_horizon_city_risk"
+  },
+  "663:14": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The fragment says the next strong earthquake will not be in Italy but never names the actual destination or a defensible date window precisely enough to score.",
+    "reason_code": "incomplete_fragment_no_target"
+  },
+  "779:478": {
     "final_status": "excluded_from_statistics",
-    "rationale": "This is a world-scope cascading-rule claim rather than a bounded atomic event prediction, so it should be excluded from the earthquake statistical cohort.",
-    "reason_code": "world_scope_rule_claim"
+    "rationale": "This row mixes a first severe earthquake with later eruptions and escalating earthquake sequences across multiple years, so it is outside the atomic earthquake cohort.",
+    "reason_code": "multi_year_compound_world_scope"
   },
   "779:483": {
     "final_status": "excluded_from_statistics",
@@ -45,11 +110,6 @@
     "reason_code": "multi_year_compound_world_scope"
   },
   "779:488": {
-    "final_status": "excluded_from_statistics",
-    "rationale": "This row mixes a first severe earthquake with later eruptions and escalating earthquake sequences across multiple years, so it is outside the atomic earthquake cohort.",
-    "reason_code": "multi_year_compound_world_scope"
-  },
-  "779:478": {
     "final_status": "excluded_from_statistics",
     "rationale": "This row mixes a first severe earthquake with later eruptions and escalating earthquake sequences across multiple years, so it is outside the atomic earthquake cohort.",
     "reason_code": "multi_year_compound_world_scope"

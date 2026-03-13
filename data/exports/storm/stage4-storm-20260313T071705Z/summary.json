@@ -1,48 +1,48 @@
 {
   "combined_observed_probability": {
-    "count": 1,
-    "ln_sum": -6.074196,
-    "log10_sum": -2.63799
+    "count": 6,
+    "ln_sum": -12.040141,
+    "log10_sum": -5.228967
   },
-  "earliest_public_date_populated_count": 1,
+  "earliest_public_date_populated_count": 6,
   "final_status_counts": {
-    "included_in_statistics": 1
+    "included_in_statistics": 6
   },
-  "generated_at": "2026-03-13T07:17:05.139051+00:00",
+  "generated_at": "2026-03-13T07:17:05.825832+00:00",
   "match_status_counts": {
-    "exact_hit": 1
+    "exact_hit": 6
   },
-  "observed_event_before_publication_count": 1,
-  "probability_ready_count": 1,
+  "observed_event_before_publication_count": 6,
+  "probability_ready_count": 6,
   "public_date_cohort_summary": {
     "claimed_date_baseline": {
       "combined_observed_probability": {
-        "count": 1,
-        "ln_sum": -6.074196,
-        "log10_sum": -2.63799
+        "count": 6,
+        "ln_sum": -12.040141,
+        "log10_sum": -5.228967
       },
       "match_status_counts": {
-        "exact_hit": 1
+        "exact_hit": 6
       },
-      "prediction_count": 1,
-      "probability_ready_count": 1,
+      "prediction_count": 6,
+      "probability_ready_count": 6,
       "public_date_status_counts": {
-        "event_precedes_publication": 1
+        "event_precedes_publication": 6
       }
     },
     "public_date_excluded": {
       "combined_observed_probability": {
-        "count": 1,
-        "ln_sum": -6.074196,
-        "log10_sum": -2.63799
+        "count": 6,
+        "ln_sum": -12.040141,
+        "log10_sum": -5.228967
       },
       "match_status_counts": {
-        "exact_hit": 1
+        "exact_hit": 6
       },
-      "prediction_count": 1,
-      "probability_ready_count": 1,
+      "prediction_count": 6,
+      "probability_ready_count": 6,
       "public_date_status_counts": {
-        "event_precedes_publication": 1
+        "event_precedes_publication": 6
       }
     },
     "public_date_not_disproven": {
@@ -69,15 +69,15 @@
     }
   },
   "public_date_status_counts": {
-    "event_precedes_publication": 1
+    "event_precedes_publication": 6
   },
   "run_keys": {
     "stage2_run_key": "stage2-20260313T024045Z",
-    "stage3_run_key": "stage3-aviation-space-20260313T145300Z",
-    "stage4_run_key": "stage4-aviation-space-20260313T145310Z",
-    "stage5_run_key": "stage5-aviation-space-20260313T145320Z",
-    "stage7_run_key": "stage7-aviation-space-final-20260313T071704Z"
+    "stage3_run_key": "stage3-storm-20260313T071704Z",
+    "stage4_run_key": "stage4-storm-20260313T071705Z",
+    "stage5_run_key": "stage5-storm-20260313T071705Z",
+    "stage7_run_key": "stage7-storm-final-20260313T071705Z"
   },
-  "scoped_prediction_count": 1,
-  "script_version": "aviation_space_export_v1"
+  "scoped_prediction_count": 6,
+  "script_version": "storm_export_v1"
 }

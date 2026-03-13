@@ -63,5 +63,65 @@
     "final_status": "permanently_unresolved",
     "reason_code": "outside_current_aviation_space_catalog",
     "rationale": "Prediction is retired from the aviation-space slice because Apollo-hoax commentary is outside the current satellite-action rulebook."
+  },
+  "4:6": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "generic_outer_space_control_claim",
+    "rationale": "Prediction is retired from the aviation-space slice because future control of outer space is a broad capability claim, not a bounded mission, launch, or satellite event in the current catalog."
+  },
+  "31:7": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "extraterrestrial_satellite_claim",
+    "rationale": "Prediction is retired from the aviation-space slice because photographing terrestrial and extraterrestrial satellites after capsule docking is not a defensible, bounded aerospace event in the current catalog."
+  },
+  "51:3": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "deep_history_contact_claim",
+    "rationale": "Prediction is retired from the aviation-space slice because it describes primordial human development and foreign-race influence rather than a future aerospace event."
+  },
+  "183:5": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "misclassified_animal_welfare_claim",
+    "rationale": "Prediction is retired from the aviation-space slice because the ducks-in-an-enclosure row is an animal-welfare instruction, not an aviation or space event."
+  },
+  "198:5": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_space_station_program_claim",
+    "rationale": "Prediction is retired from the aviation-space slice because a future international space-station project being tackled around the millennium is a programmatic trend claim outside the current satellite-action catalog."
+  },
+  "198:7": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_space_station_deorbit_claim",
+    "rationale": "Prediction is retired from the aviation-space slice because the row forecasts a space station falling to Earth in 1999, and the current catalog does not score station-deorbit narratives as one bounded event type."
+  },
+  "198:12": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_launch_program_participation_claim",
+    "rationale": "Prediction is retired from the aviation-space slice because German participation in the Ariane project is a launch-program development claim, not a scored mission or satellite event in the current rulebook."
+  },
+  "201:2": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "far_future_cosmology_claim",
+    "rationale": "Prediction is retired from the aviation-space slice because the Sun's fate billions of years from now lies far outside the auditable mission-scale aerospace catalog."
+  },
+  "214:3": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_repeated_neo_close_pass_claim",
+    "rationale": "Prediction is retired from the aviation-space slice because repeated near-Earth asteroid passages during a broad multi-year window are not modeled as one bounded event in the current catalog."
+  },
+  "214:4": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_specific_neo_close_pass_claim",
+    "rationale": "Prediction is retired from the aviation-space slice because the unknown asteroid crossing Earth’s orbit near the start of the millennium does not map to a current cataloged aerospace event type."
+  },
+  "251:58": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "metaphysical_space_station_claim",
+    "rationale": "Prediction is retired from the aviation-space slice because research into the secrets of Creation on off-Earth space stations is metaphysical and not a measurable aerospace event."
+  },
+  "251:118": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "cross_planet_satellite_crash_claim",
+    "rationale": "Prediction is retired from the aviation-space slice because it predicts all stations and satellites around multiple planets will crash from solar-gravity changes, which is too sweeping and unsupported for the current aerospace catalog."
   }
 }

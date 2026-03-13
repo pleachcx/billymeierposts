@@ -321,7 +321,7 @@ def apply_scoped_overrides(cur, stage2_run_id: int, prediction_overrides: dict[s
         """
         UPDATE public.prediction_audit_predictions AS p
         SET event_family_final = v.scoped_family,
-            stage2_meta = COALESCE(p.stage2_meta, '{}'::jsonb) || v.meta
+            stage2_meta = COALESCE(p.stage2_meta, '{}'::jsonb) || v.meta::jsonb
         FROM (VALUES %s) AS v(scoped_family, meta, stage2_run_id, report_number, candidate_seq)
         WHERE p.last_stage2_run_id = v.stage2_run_id
           AND p.report_number = v.report_number

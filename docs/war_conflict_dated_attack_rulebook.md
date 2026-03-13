@@ -56,7 +56,10 @@ The matcher must also reject any event dated before `claimed_contact_date`.
 `permanently_unresolved`
 
 - use only when the row cannot be scored objectively under the stored baseline
-- current retirement trigger in this slice: the corpus chronology points to one exact day, but the only plausible real-world analogue requires overriding that stored day or year
+- current retirement triggers in this slice:
+- the corpus chronology points to one exact day, but the only plausible real-world analogue requires overriding that stored day or year
+- the stored claim stays at the level of world war, Cold War, regime change, retaliation trend, ceasefire, military ceremony, or other non-attack framing that cannot be reduced to one atomic dated attack without changing the claim itself
+- the row was mis-grouped into `war_conflict` even though the stored event family is geologic or otherwise outside the attack catalog
 
 ## Source Catalog
 

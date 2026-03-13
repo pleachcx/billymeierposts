@@ -133,5 +133,77 @@
     "window_start": "2020-03-02",
     "window_end": "2020-03-15",
     "notes": "Prediction scoped to the northern-Italy clause of the claim, with the wider Europe follow-on left outside this measured epidemic row."
+  },
+  "369:2": {
+    "disease_key": "hiv_aids_china",
+    "expected_event_type": "government_acknowledges_outbreak",
+    "target_name": "China",
+    "target_keywords": ["China", "AIDS", "HIV"],
+    "window_start": "2004-11-12",
+    "window_end": "2009-11-12",
+    "notes": "Retire the China/AIDS admission row on the current baseline until the epidemic catalog grows a defensible HIV-China source set."
+  },
+  "369:13": {
+    "disease_key": "avian_influenza",
+    "expected_event_type": "human_cases_reported",
+    "target_name": "Japan",
+    "target_keywords": ["Japan"],
+    "window_start": "2004-12-12",
+    "window_end": "2005-01-11",
+    "notes": "Scope the Japan row to human avian-influenza cases; the current catalog can only offer a same-disease partial match."
+  },
+  "721:6": {
+    "disease_key": "covid19",
+    "expected_event_type": "pandemic_declared",
+    "target_name": "Global",
+    "target_keywords": ["Global", "World"],
+    "window_start": "2020-01-01",
+    "window_end": "2020-12-31",
+    "notes": "Scope the 2020 pandemic clause to WHO's 11 March 2020 COVID-19 pandemic declaration."
+  },
+  "731:2": {
+    "disease_key": "covid19",
+    "expected_event_type": "pandemic_declared",
+    "target_name": "Global",
+    "target_keywords": ["Global", "World"],
+    "window_start": "2020-02-03",
+    "window_end": "2025-02-03",
+    "notes": "Scope the rapid worldwide spread clause to WHO's COVID-19 pandemic declaration inside the broad post-contact window."
+  },
+  "732:2": {
+    "disease_key": "covid19",
+    "expected_event_type": "media_misinformation_wave_reported",
+    "target_name": "Europe",
+    "target_keywords": ["Europe"],
+    "window_start": "2020-04-02",
+    "window_end": "2020-05-01",
+    "notes": "Retire the Europe media-misinformation row rather than stretching the epidemic catalog into media-analysis events."
+  },
+  "734:1": {
+    "disease_key": "covid19",
+    "expected_event_type": "regional_severe_outbreak_reported",
+    "target_name": "Switzerland",
+    "target_keywords": ["Switzerland"],
+    "window_start": "2020-03-22",
+    "window_end": "2022-03-22",
+    "notes": "Retire the Switzerland-specific severity row on the current catalog because the baseline only carries Wuhan, Italy, pandemic, and U.S. death-threshold COVID events."
+  },
+  "767:28": {
+    "disease_key": "covid19",
+    "expected_event_type": "vaccines_put_into_use",
+    "target_name": "Global vaccination rollout",
+    "target_keywords": ["vaccines", "vaccination"],
+    "window_start": "2022-01-01",
+    "window_end": "2022-12-31",
+    "notes": "Retire the vaccine-availability row rather than stretching the named-disease epidemic catalog into pharmaceutical deployment events."
+  },
+  "779:233": {
+    "disease_key": "lab_engineered_pandemic",
+    "expected_event_type": "laboratory_worker_outbreak_reported",
+    "target_name": "Global",
+    "target_keywords": ["laboratory", "worker"],
+    "window_start": "2021-10-06",
+    "window_end": "2023-10-06",
+    "notes": "Retire the laboratory-worker mutation row until a defensible catalog exists for laboratory-origin epidemic claims."
   }
 }

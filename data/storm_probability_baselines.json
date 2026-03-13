@@ -58,5 +58,15 @@
     "near_expansion_days": 3,
     "similar_horizon_days": 365,
     "notes": "Treat a country-scale storm catastrophe striking Libya in the immediate post-prediction days as a one-off regional event."
+  },
+  "395:6": {
+    "probability_key": "retired_lake_constance_tornado_claim",
+    "model": "location_risk_window_single_event_v1",
+    "calibration_start": "2005-07-25",
+    "calibration_end": "2005-07-25",
+    "event_count": 0,
+    "near_expansion_days": 0,
+    "similar_horizon_days": 30,
+    "notes": "Retired Lake Constance tornado row with no scored storm-catalog event in scope on the current baseline."
   }
 }

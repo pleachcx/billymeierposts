@@ -1,0 +1,12 @@
+family_guess,prediction_count,family_guess_counts,stage2_label_counts,recovery_bucket_counts,significant_count,supported_family_count,top_priority_rank,top_report_number,top_candidate_seq
+aviation_space,81,"{""aviation_space"": 81}","{""eligible_prediction"": 69, ""significant_prediction"": 12}","{""promote_via_existing_family_pipeline"": 78, ""retire_past_event_reference"": 3}",12,81,11,202,5
+climate_environment,108,"{""climate_environment"": 108}","{""eligible_prediction"": 91, ""significant_prediction"": 17}","{""outside_current_rulebook_scope"": 102, ""retire_past_event_reference"": 6}",17,0,542,449,4
+earthquake,76,"{""earthquake"": 76}","{""eligible_prediction"": 47, ""significant_prediction"": 29}","{""existing_pipeline_outside_current_p3_scope"": 76}",29,0,574,136,26
+economy,37,"{""economy"": 37}","{""eligible_prediction"": 28, ""significant_prediction"": 9}","{""outside_current_rulebook_scope"": 35, ""retire_past_event_reference"": 2}",9,0,514,216,17
+epidemic,190,"{""epidemic"": 190}","{""eligible_prediction"": 164, ""significant_prediction"": 26}","{""promote_via_existing_family_pipeline"": 182, ""retire_past_event_reference"": 8}",26,190,21,369,2
+politics_election,183,"{""politics_election"": 183}","{""eligible_prediction"": 154, ""significant_prediction"": 29}","{""promote_via_existing_family_pipeline"": 182, ""retire_past_event_reference"": 1}",29,183,2,136,135
+science_technology,35,"{""science_technology"": 35}","{""eligible_prediction"": 30, ""significant_prediction"": 5}","{""outside_current_rulebook_scope"": 35}",5,0,525,251,140
+storm,39,"{""storm"": 39}","{""eligible_prediction"": 29, ""significant_prediction"": 10}","{""promote_via_existing_family_pipeline"": 35, ""retire_past_event_reference"": 4}",10,39,24,395,5
+unknown,288,"{""unknown"": 288}","{""eligible_prediction"": 272, ""significant_prediction"": 16}","{""needs_parser_or_stage2_family_resolution"": 271, ""retire_past_event_reference"": 17}",16,0,530,364,38
+volcano,20,"{""volcano"": 20}","{""eligible_prediction"": 9, ""significant_prediction"": 11}","{""promote_via_existing_family_pipeline"": 19, ""retire_past_event_reference"": 1}",11,20,1,72,1
+war_conflict,293,"{""war_conflict"": 293}","{""eligible_prediction"": 232, ""significant_prediction"": 61}","{""outside_current_rulebook_scope"": 285, ""retire_past_event_reference"": 8}",61,0,509,134,10

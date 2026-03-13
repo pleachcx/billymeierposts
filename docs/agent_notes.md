@@ -323,3 +323,4 @@
 - Open the first new-family bootstrap on `war_conflict` before `climate_environment`; the dated attack-and-bombing rows are concrete enough for a source-backed rulebook while the current climate rows are still too diffuse.
 - Bootstrap a new narrow family by copying a mature slice, then rename the family metadata, default data paths, run-key prefixes, release-discovery roots, and supported-family queue list before replay; otherwise outputs still land under the old family.
 - Retire `war_conflict` rows when the only plausible analogue requires rewriting the stored Stage `2` chronology; keep the comparable event in the catalog for transparency, but finalize the row as `permanently_unresolved` instead of saving it.
+- Verify `branch_complete` against live `HEAD`, aligned artifact summaries, and exact target-key queue membership; the implementer report can lag the final closeout commit even when the pack is otherwise ready to accept.

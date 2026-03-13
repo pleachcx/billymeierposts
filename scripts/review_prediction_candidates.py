@@ -219,6 +219,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--notes", default="", help="Free-form run notes.")
     parser.add_argument("--limit", type=int, help="Limit number of candidate rows reviewed.")
     parser.add_argument("--only-pending", action="store_true", help="Review only rows with stage2_label='pending_review'.")
+    parser.add_argument(
+        "--prediction-key",
+        action="append",
+        default=[],
+        help="Specific prediction key(s) to review in report:candidate form. Repeat as needed.",
+    )
+    parser.add_argument(
+        "--carry-forward-stage2-run-key",
+        help="Existing Stage 2 baseline whose untouched rows should be carried forward into the new run.",
+    )
     parser.add_argument("--dry-run", action="store_true", help="Score without writing updates.")
     parser.add_argument("--batch-size", type=int, default=200, help="DB update batch size.")
     return parser.parse_args()
@@ -252,6 +262,33 @@ def fetch_stage1_run(cur, parse_run_key: str | None) -> tuple[int, str]:
     if not row:
         raise RuntimeError("No completed Stage 1 parse run found.")
     return row[0], row[1]
+
+
+def fetch_stage2_run(cur, stage2_run_key: str) -> tuple[int, str]:
+    cur.execute(
+        """
+        SELECT id, run_key
+        FROM public.prediction_audit_runs
+        WHERE run_key = %s
+          AND stage = 'stage2_eligibility'
+        """,
+        (stage2_run_key,),
+    )
+    row = cur.fetchone()
+    if not row:
+        raise RuntimeError(f"Unknown Stage 2 run key: {stage2_run_key}")
+    return row[0], row[1]
+
+
+def parse_prediction_keys(values: list[str]) -> list[tuple[int, int]]:
+    parsed: list[tuple[int, int]] = []
+    for raw in values:
+        try:
+            report_number, candidate_seq = raw.split(":", 1)
+            parsed.append((int(report_number), int(candidate_seq)))
+        except ValueError as exc:
+            raise RuntimeError(f"Invalid prediction key `{raw}`; expected report:candidate.") from exc
+    return parsed
 
 
 def insert_run(cur, run_key: str, source_filter: dict[str, object], notes: str | None) -> int:
@@ -299,11 +336,23 @@ def update_run(cur, run_id: int, status: str, run_meta: dict[str, object], notes
     )
 
 
-def fetch_candidates(cur, parse_run_id: int, only_pending: bool, limit: int | None) -> list[tuple]:
+def fetch_candidates(
+    cur,
+    parse_run_id: int,
+    only_pending: bool,
+    limit: int | None,
+    prediction_keys: list[tuple[int, int]],
+) -> list[tuple]:
     where_clauses = ["parse_run_id = %s"]
     params: list[object] = [parse_run_id]
     if only_pending:
         where_clauses.append("stage2_label = 'pending_review'")
+    if prediction_keys:
+        key_clauses = []
+        for report_number, candidate_seq in prediction_keys:
+            key_clauses.append("(report_number = %s AND candidate_seq = %s)")
+            params.extend([report_number, candidate_seq])
+        where_clauses.append("(" + " OR ".join(key_clauses) + ")")
     sql = f"""
         SELECT
             id,
@@ -843,6 +892,34 @@ def update_bundles(cur, parse_run_id: int, stage2_run_id: int) -> None:
     )
 
 
+def carry_forward_untouched_predictions(
+    cur,
+    source_stage2_run_id: int,
+    source_stage2_run_key: str,
+    stage2_run_id: int,
+) -> int:
+    cur.execute(
+        """
+        UPDATE public.prediction_audit_predictions
+        SET last_stage2_run_id = %s,
+            stage2_reviewed_at = now(),
+            stage2_meta = COALESCE(stage2_meta, '{}'::jsonb) || %s::jsonb
+        WHERE last_stage2_run_id = %s
+        """,
+        (
+            stage2_run_id,
+            json.dumps(
+                {
+                    "carried_forward_from_stage2_run_key": source_stage2_run_key,
+                    "carry_forward_review_version": REVIEW_VERSION,
+                }
+            ),
+            source_stage2_run_id,
+        ),
+    )
+    return cur.rowcount
+
+
 def main() -> int:
     args = parse_args()
     dsn = os.environ.get(args.dsn_env)
@@ -854,11 +931,15 @@ def main() -> int:
     conn = psycopg2.connect(dsn)
     conn.autocommit = False
     stage2_run_id: int | None = None
+    prediction_keys = parse_prediction_keys(args.prediction_key)
+    source_stage2_run: tuple[int, str] | None = None
 
     try:
         with conn.cursor() as cur:
             parse_run_id, resolved_parse_run_key = fetch_stage1_run(cur, args.parse_run_key)
-            candidates = fetch_candidates(cur, parse_run_id, args.only_pending, args.limit)
+            if args.carry_forward_stage2_run_key:
+                source_stage2_run = fetch_stage2_run(cur, args.carry_forward_stage2_run_key)
+            candidates = fetch_candidates(cur, parse_run_id, args.only_pending, args.limit, prediction_keys)
 
             if not args.dry_run:
                 stage2_run_id = insert_run(
@@ -868,6 +949,8 @@ def main() -> int:
                         "parse_run_key": resolved_parse_run_key,
                         "only_pending": args.only_pending,
                         "limit": args.limit,
+                        "prediction_keys": args.prediction_key,
+                        "carry_forward_stage2_run_key": args.carry_forward_stage2_run_key,
                     },
                     args.notes,
                 )
@@ -876,12 +959,23 @@ def main() -> int:
         results = [build_result(row) for row in candidates]
         apply_duplicates(results)
         summary = summarize(results)
+        carried_forward_rows = 0
 
         if not args.dry_run and stage2_run_id is not None:
             for index in range(0, len(results), args.batch_size):
                 batch = results[index : index + args.batch_size]
                 with conn.cursor() as cur:
                     update_predictions(cur, stage2_run_id, batch, args.batch_size)
+                conn.commit()
+
+            if source_stage2_run is not None:
+                with conn.cursor() as cur:
+                    carried_forward_rows = carry_forward_untouched_predictions(
+                        cur,
+                        source_stage2_run[0],
+                        source_stage2_run[1],
+                        stage2_run_id,
+                    )
                 conn.commit()
 
             with conn.cursor() as cur:
@@ -896,6 +990,7 @@ def main() -> int:
                     {
                         "parse_run_key": resolved_parse_run_key,
                         "reviewed_rows": len(results),
+                        "carried_forward_rows": carried_forward_rows,
                         "label_counts": summary["label_counts"],
                         "significant_by_family": summary["significant_by_family"],
                         "review_version": REVIEW_VERSION,

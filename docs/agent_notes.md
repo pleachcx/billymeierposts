@@ -224,3 +224,5 @@
 - `863/6` is now a new small-gap provenance rescue target at `-8` days, alongside `663/15` (`-14`) and `729/12` (`-20`).
 - The official FIGU Canada `coronavirus.html` page is a valid official daughter-association source, but it still does not rescue `729/12`; its first dated `729/730` item is `2020-03-31`, and the earlier dated entries are about `726` or general corona notices.
 - The official Czech FIGU site has a broken TLS chain and direct `/<report>-kontakt` slugs for `663`, `725`, and `729` return `404`; its current homepage update list is therefore not a reliable rescue path for those reports.
+- Add `docs/prediction_audit_supervisor_work_spec.md` as the machine-friendly backlog doc for the prediction audit; anchor it to the current aligned baseline `stage2-20260311T093233Z` and keep packs explicit about reruns, provenance rescue, recovery queues, and family expansion.
+- Ignore the local `supervisor-implementer-loop.sh` script plus `.workflow/` and prompt temp artifacts in git so the operator can run the local loop in this repo without dirtying the branch.

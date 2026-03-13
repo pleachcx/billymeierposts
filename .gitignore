@@ -2,3 +2,9 @@
 .env
 .env.*
 !.env.example
+
+# Local Codex loop artifacts
+supervisor-implementer-loop.sh
+.workflow/
+.supervisor_prompt.tmp.md
+.implementer_prompt.tmp.md

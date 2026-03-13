@@ -9,6 +9,16 @@
     "similar_horizon_days": 365,
     "notes": "Treat John Paul I's death as a one-off actor-specific event during the short pontificate that began with his election."
   },
+  "113:17": {
+    "probability_key": "john_paul_i_short_pontificate_death_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1978-08-26",
+    "calibration_end": "1978-09-28",
+    "event_count": 1,
+    "near_expansion_days": 7,
+    "similar_horizon_days": 365,
+    "notes": "Treat the short-pontificate assassination/removal row as the same one-off John Paul I death window between his election and 28 September 1978."
+  },
   "113:7": {
     "probability_key": "john_paul_i_election_window",
     "model": "actor_risk_window_single_event_v1",

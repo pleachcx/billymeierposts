@@ -10,6 +10,17 @@
     "window_end": "1978-09-28",
     "notes": "Prediction scoped to the death of Pope John Paul I on the exact named day."
   },
+  "113:17": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "pope_died",
+    "actor_name": "John Paul I",
+    "target_name": "John Paul I",
+    "target_keywords": ["John Paul I", "Albino Luciani"],
+    "jurisdiction": "Vatican City",
+    "window_start": "1978-08-26",
+    "window_end": "1978-09-28",
+    "notes": "Prediction scoped to Pope John Paul I being removed from office via the death that ended his short pontificate on 28 September 1978."
+  },
   "113:7": {
     "scoped_family": "politics_election",
     "expected_event_type": "pope_elected",

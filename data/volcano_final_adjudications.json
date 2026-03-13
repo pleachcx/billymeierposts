@@ -1,4 +1,14 @@
 {
+  "136:29": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "symbolic_volcano_omen",
+    "rationale": "Prediction is retired from the volcano slice because it treats eruptions as a symbolic omen for war rather than a bounded named-volcano event."
+  },
+  "136:32": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unbounded_subsurface_hazard_claim",
+    "rationale": "Prediction is retired from the volcano slice because the Rome magma-chamber claim lacks a named eruption target and a defensible event window in the current rulebook."
+  },
   "72:1": {
     "final_status": "permanently_unresolved",
     "reason_code": "conditional_hazard_claim",
@@ -8,6 +18,11 @@
     "final_status": "permanently_unresolved",
     "reason_code": "conditional_counterfactual_claim",
     "rationale": "Prediction is retired from the volcano slice because it is a hypothetical Vesuvius counterfactual rather than a measurable eruption prediction on this baseline."
+  },
+  "214:27": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "conditional_hazard_claim",
+    "rationale": "Prediction is retired from the volcano slice because it only describes consequences if Vesuvius erupts, without bounding a measurable eruption event."
   },
   "238:41": {
     "final_status": "permanently_unresolved",

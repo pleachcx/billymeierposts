@@ -84,6 +84,11 @@
     "rationale": "The sentence refers to two magnitude-9 quakes together rather than one bounded atomic earthquake, so it belongs to a compound summary rather than the standalone earthquake statistics set.",
     "reason_code": "compound_dual_quake_summary"
   },
+  "369:17": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "The sentence insists on two simultaneous seaquakes spanning the Bay of Bengal and near Sumatra, so it remains a compound dual-event summary rather than one atomic earthquake prediction.",
+    "reason_code": "compound_dual_event_seaquake_claim"
+  },
   "392:2": {
     "final_status": "excluded_from_statistics",
     "rationale": "This is a retrospective question about earlier seaquake disasters before the 2004 tsunami, not a future earthquake prediction.",

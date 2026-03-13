@@ -29,6 +29,11 @@
     "reason_code": "retrospective_historical_claim",
     "rationale": "Prediction is retired from the volcano slice because the wartime crater-bombardment passage is historical background, not a future eruption prediction on this baseline."
   },
+  "235:12": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "multi_continent_eruption_sequence",
+    "rationale": "Prediction is retired from the volcano slice because it bundles earth upheavals and future eruptions across multiple continents after the turn of the millennium rather than one bounded named-volcano event."
+  },
   "238:41": {
     "final_status": "permanently_unresolved",
     "reason_code": "misclassified_non_volcano_claim",

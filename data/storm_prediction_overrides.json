@@ -43,6 +43,17 @@
     "window_end": "2017-08-31",
     "notes": "Prediction scoped to a catastrophic hurricane striking Texas in the days immediately after the 20 August 2017 report."
   },
+  "688:12": {
+    "scoped_family": "storm",
+    "expected_event_type": "hurricane_landfall_catastrophe",
+    "actor_name": "Texas",
+    "target_name": "Texas",
+    "target_keywords": ["Texas", "hurricane", "Harvey"],
+    "jurisdiction": "Texas, United States",
+    "window_start": "2017-08-24",
+    "window_end": "2017-08-31",
+    "notes": "Prediction scoped to Hurricane Harvey devastating Texas homeowners in the week immediately after the 20 August 2017 report."
+  },
   "574:7": {
     "scoped_family": "storm",
     "expected_event_type": "regional_storm_catastrophe",

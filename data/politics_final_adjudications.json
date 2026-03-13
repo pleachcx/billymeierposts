@@ -69,6 +69,16 @@
     "reason_code": "time_normalization_not_defensible",
     "rationale": "Prediction is retired from the politics slice on this baseline because the Stage 2 time normalization lands in 1982 and is too far removed from Ariel Sharon's later 2001 premiership event."
   },
+  "367:11": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "conditional_cross_family_conflict_claim",
+    "rationale": "Prediction is retired from the politics slice because it combines an unnamed November return-to-power scenario with later worldwide armed conflicts instead of one bounded government-action event in the current catalog."
+  },
+  "402:9": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_mass_casualty_attack_type",
+    "rationale": "Prediction is retired from the politics slice because the current politics catalog does not yet model multi-victim hotel terror bombings as a scored government-action event type on this baseline."
+  },
   "225:7": {
     "final_status": "permanently_unresolved",
     "reason_code": "outside_current_politics_catalog",

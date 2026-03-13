@@ -174,6 +174,30 @@
     "resolution_source": "prediction_override_sumatra_context",
     "notes": "The immediately preceding sentence places the seaquake sequence off Sumatra and the follow-up 6.4 seaquake is part of the same local sequence."
   },
+  "369:1": {
+    "scoped_family": "earthquake",
+    "target_name": "Off Sumatra, Indonesia",
+    "target_type": "region",
+    "lat": -1.0,
+    "lon": 99.0,
+    "radius_km": 300.0,
+    "window_start": "2004-12-26",
+    "window_end": "2004-12-26",
+    "resolution_source": "prediction_override_sumatra_tsunami_mainshock",
+    "notes": "The 26 December 2004 Southeast Asia catastrophe in this report context is the Indian Ocean Sumatra quake and tsunami sequence, so the row is scoped to the main offshore Sumatra event."
+  },
+  "369:17": {
+    "scoped_family": "earthquake",
+    "target_name": "Off Sumatra, Indonesia",
+    "target_type": "region",
+    "lat": -1.0,
+    "lon": 99.0,
+    "radius_km": 300.0,
+    "window_start": "2004-12-26",
+    "window_end": "2004-12-26",
+    "resolution_source": "prediction_override_sumatra_dual_quake_claim",
+    "notes": "Although the sentence says two simultaneous seaquakes, the bounded earthquake target in the surrounding 26 December 2004 context is the Indian Ocean mainshock off Sumatra."
+  },
   "395:4": {
     "target_name": "Nicobar Islands Region",
     "target_type": "region",
@@ -229,6 +253,18 @@
     "resolution_source": "prediction_override_aegean_october_2005",
     "notes": "The quote places this magnitude 6 quake in the night from 20th to 21st October as a follow-up to the 17 October Aegean quakes."
   },
+  "401:1": {
+    "scoped_family": "earthquake",
+    "target_name": "Aegean Sea",
+    "target_type": "region",
+    "lat": 38.7,
+    "lon": 25.0,
+    "radius_km": 300.0,
+    "window_start": "2005-10-17",
+    "window_end": "2005-10-17",
+    "resolution_source": "prediction_override_aegean_october_2005_opening_pair",
+    "notes": "The row explicitly names two Aegean seaquakes on 17 October 2005, so it is scoped to the opening Aegean sequence on that date."
+  },
   "401:3": {
     "target_name": "Ibaraki, Japan",
     "target_type": "region",
@@ -239,6 +275,18 @@
     "window_end": "2005-10-19",
     "resolution_source": "prediction_override_ibaraki_october_2005_precursor",
     "notes": "The surrounding report sequence places this 5.3 Japan quake immediately before the 19 October Ibaraki seaquake."
+  },
+  "401:20": {
+    "scoped_family": "earthquake",
+    "target_name": "Afghanistan",
+    "target_type": "country",
+    "lat": 33.9391,
+    "lon": 67.71,
+    "radius_km": 500.0,
+    "window_start": "2005-10-24",
+    "window_end": "2005-10-24",
+    "resolution_source": "prediction_override_afghanistan_october_2005_pair",
+    "notes": "The row explicitly bounds two Afghanistan earthquakes to 24 October 2005, so it is scoped to the same-day Afghan quake sequence."
   },
   "402:3": {
     "target_name": "Northern Pakistan / Kashmir Region",

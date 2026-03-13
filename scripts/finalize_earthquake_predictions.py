@@ -129,6 +129,47 @@ def load_prediction_overrides(path: str) -> dict[str, dict[str, Any]]:
         return json.load(handle)
 
 
+def apply_scoped_overrides(cur, stage2_run_id: int, prediction_overrides: dict[str, dict[str, Any]]) -> None:
+    params = []
+    for key, override in prediction_overrides.items():
+        scoped_family = override.get("scoped_family")
+        if not scoped_family:
+            continue
+        report_number, candidate_seq = key.split(":")
+        params.append(
+            (
+                scoped_family,
+                Json(
+                    {
+                        "manual_scope_override": {
+                            "script_version": SCRIPT_VERSION,
+                            "scoped_family": scoped_family,
+                            "override_key": key,
+                        }
+                    }
+                ),
+                stage2_run_id,
+                int(report_number),
+                int(candidate_seq),
+            )
+        )
+    if not params:
+        return
+    execute_batch(
+        cur,
+        """
+        UPDATE public.prediction_audit_predictions
+        SET event_family_final = %s,
+            stage2_meta = COALESCE(stage2_meta, '{}'::jsonb) || %s
+        WHERE last_stage2_run_id = %s
+          AND report_number = %s
+          AND candidate_seq = %s
+        """,
+        params,
+        page_size=100,
+    )
+
+
 def fetch_predictions(cur, stage2_run_id: int, manual_scope_keys: list[str]) -> list[dict[str, Any]]:
     if manual_scope_keys:
         cur.execute(
@@ -301,6 +342,8 @@ def main() -> int:
             if not stage2_run_key:
                 raise RuntimeError("Could not infer Stage 2 run key from Stage 5 metadata.")
             stage2_run_id, resolved_stage2_run_key, _ = fetch_run(cur, "stage2_eligibility", stage2_run_key)
+            if not args.dry_run:
+                apply_scoped_overrides(cur, stage2_run_id, prediction_overrides)
             predictions = fetch_predictions(cur, stage2_run_id, manual_scope_keys)
 
             if not args.dry_run:

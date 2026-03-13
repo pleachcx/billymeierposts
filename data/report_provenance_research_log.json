@@ -2,11 +2,20 @@
   "schema_version": "prediction_provenance_research_log_v1",
   "active_pack_id": "P2",
   "baseline_stage2_run_key": "stage2-20260311T093233Z",
-  "updated_at": "2026-03-13T02:05:04Z",
+  "updated_at": "2026-03-13T02:10:02Z",
   "notes": [
     "Track deep-archive provenance rescue attempts separately from importable evidence rows.",
     "Record only defensible source facts in attempted_sources; keep speculative follow-ups in next_hypothesis."
   ],
+  "artifacts": {
+    "stage0_provenance_run_key": "stage0-provenance-20260313T020853Z",
+    "stage8_publication_run_key": "stage8-publication-20260313T020905Z",
+    "stage9_public_cohort_run_key": "stage9-public-cohort-20260313T020912Z",
+    "publication_timing_audit_dir": "data/exports/provenance/publication-timing-audit-20260313T020928Z",
+    "cohort_comparison_dir": "data/exports/provenance/cohort-comparison-20260313T020928Z",
+    "public_date_research_queue_dir": "data/exports/provenance/public-date-research-queue-20260313T020928Z",
+    "overview_dir": "data/exports/overview/prediction-audit-overview-20260313T020928Z"
+  },
   "entries": [
     {
       "prediction_key": "465/6",
@@ -169,9 +178,9 @@
       "event_start_date": "2005-07-24",
       "publication_lag_days_vs_event": -5350,
       "current_public_source_tier": "mirror_revision_timestamp",
-      "best_available_source_tier": "mirror_revision_timestamp",
-      "research_outcome": "candidate_evidence_ready",
-      "evidence_decision": "queue_official_import",
+      "best_available_source_tier": "official_figu_original",
+      "research_outcome": "official_evidence_imported_no_rescue",
+      "evidence_decision": "imported_manual_evidence",
       "attempted_sources": [
         {
           "source_kind": "repo_export_rollup",
@@ -191,11 +200,11 @@
           "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 10",
           "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-10/",
           "observed_public_date": "2022-10-21",
-          "attempt_outcome": "This is new official-source support worth importing even though it still postdates the 2005 event by thousands of days."
+          "attempt_outcome": "Imported via Stage 0 provenance run `stage0-provenance-20260313T020853Z`; it upgrades the best available source tier but still postdates the 2005 event by thousands of days."
         }
       ],
-      "next_hypothesis": "Import the Block 10 shop snapshot first, then continue searching for a pre-2005 FIGU download or bulletin extract if the row remains excluded.",
-      "notes": "Report 395 shares the same official Block 10 source family already used by other rows but has not yet been backfilled."
+      "next_hypothesis": "Search for a pre-2005 FIGU download, bulletin extract, or print-era citation for Block 10 if this row is revisited.",
+      "notes": "Stage 8 and Stage 9 reruns preserved the same excluded cohort status after the official-source import."
     },
     {
       "prediction_key": "459/5",
@@ -326,9 +335,9 @@
       "event_start_date": "2006-07-17",
       "publication_lag_days_vs_event": -566,
       "current_public_source_tier": "mirror_revision_timestamp",
-      "best_available_source_tier": "mirror_revision_timestamp",
-      "research_outcome": "candidate_evidence_ready",
-      "evidence_decision": "queue_official_import",
+      "best_available_source_tier": "official_figu_original",
+      "research_outcome": "official_evidence_imported_no_rescue",
+      "evidence_decision": "imported_manual_evidence",
       "attempted_sources": [
         {
           "source_kind": "repo_export_rollup",
@@ -348,11 +357,11 @@
           "source_label": "FIGU shop product page for Plejadisch-plejarische Kontaktberichte Block 10",
           "source_url": "https://shop.figu.org/produkt/plejadisch-plejarische-kontaktberichte-block-10/",
           "observed_public_date": "2022-10-21",
-          "attempt_outcome": "This is new official-source support worth importing even though it still postdates the 2006 event."
+          "attempt_outcome": "Imported via Stage 0 provenance run `stage0-provenance-20260313T020853Z`; it upgrades the best available source tier but still postdates the 2006 event."
         }
       ],
-      "next_hypothesis": "Import the Block 10 shop snapshot first, then search for a pre-2006 official PDF or bulletin extract if the row remains excluded.",
-      "notes": "Report 427 shares the same missing official tier issue as Report 395."
+      "next_hypothesis": "Search for a pre-2006 official PDF, bulletin extract, or print citation for Block 10 if this row is revisited.",
+      "notes": "Stage 8 and Stage 9 reruns preserved the same excluded cohort status after the official-source import."
     },
     {
       "prediction_key": "402/5",

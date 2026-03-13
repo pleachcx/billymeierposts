@@ -29,7 +29,7 @@
     "similar_horizon_days": 365,
     "notes": "Treat the Bergoglio election as a one-off conclave event in the window between Benedict XVI's resignation announcement and the actual election."
   },
-  "829:15": {
+  "829:17": {
     "probability_key": "benedict_xvi_death_window",
     "model": "actor_risk_window_single_event_v1",
     "calibration_start": "2013-02-28",
@@ -79,7 +79,7 @@
     "similar_horizon_days": 365,
     "notes": "Treat Reagan's election as a one-off actor-specific event during the general-election period after he secured the Republican nomination."
   },
-  "136:112": {
+  "136:113": {
     "probability_key": "reagan_assassination_attempt_window",
     "model": "actor_risk_window_single_event_v1",
     "calibration_start": "1981-01-20",
@@ -89,7 +89,7 @@
     "similar_horizon_days": 365,
     "notes": "Treat the Reagan assassination attempt as a one-off actor-specific violent event during the opening months of his presidency."
   },
-  "136:142": {
+  "136:143": {
     "probability_key": "mitterrand_election_window",
     "model": "actor_risk_window_single_event_v1",
     "calibration_start": "1981-04-26",
@@ -99,7 +99,7 @@
     "similar_horizon_days": 365,
     "notes": "Treat Mitterrand's election as a one-off actor-specific presidential runoff result during the 1981 French election window."
   },
-  "136:156": {
+  "136:157": {
     "probability_key": "john_paul_ii_assassination_attempt_window",
     "model": "actor_risk_window_single_event_v1",
     "calibration_start": "1981-01-01",
@@ -109,7 +109,7 @@
     "similar_horizon_days": 365,
     "notes": "Treat the 13 May 1981 assassination attempt on John Paul II as a one-off actor-specific violent event during his early pontificate."
   },
-  "136:52": {
+  "136:53": {
     "probability_key": "haig_secretary_of_state_window",
     "model": "actor_risk_window_single_event_v1",
     "calibration_start": "1980-11-04",
@@ -129,7 +129,7 @@
     "similar_horizon_days": 365,
     "notes": "Treat Switzerland's UN entry as a one-off jurisdiction-specific membership event over the post-prediction accession process."
   },
-  "436:11": {
+  "436:12": {
     "probability_key": "house_majority_flip_2006_window",
     "model": "actor_risk_window_single_event_v1",
     "calibration_start": "2006-10-15",
@@ -139,7 +139,7 @@
     "similar_horizon_days": 365,
     "notes": "Treat the 2006 House majority flip as a one-off party-control event during the final stretch of the midterm election campaign."
   },
-  "448:7": {
+  "448:9": {
     "probability_key": "tony_blair_resignation_announcement_window",
     "model": "actor_risk_window_single_event_v1",
     "calibration_start": "2007-04-27",

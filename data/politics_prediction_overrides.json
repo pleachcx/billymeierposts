@@ -32,7 +32,7 @@
     "window_end": "2013-03-13",
     "notes": "Prediction scoped to the conclave electing Jorge Mario Bergoglio, who took the name Francis, on 13 March 2013."
   },
-  "829:15": {
+  "829:17": {
     "scoped_family": "politics_election",
     "expected_event_type": "pope_died",
     "actor_name": "Benedict XVI",
@@ -87,7 +87,7 @@
     "window_end": "1980-11-04",
     "notes": "Prediction scoped to Ronald Reagan becoming the next President of the United States through the 1980 election result."
   },
-  "136:112": {
+  "136:113": {
     "scoped_family": "politics_election",
     "expected_event_type": "head_of_state_survives_assassination_attempt",
     "actor_name": "Ronald Reagan",
@@ -98,7 +98,7 @@
     "window_end": "1981-03-30",
     "notes": "Prediction scoped to the March 30, 1981 assassination attempt on Ronald Reagan outside the Washington Hilton Hotel."
   },
-  "136:142": {
+  "136:143": {
     "scoped_family": "politics_election",
     "expected_event_type": "president_elected",
     "actor_name": "Francois Mitterrand",
@@ -109,7 +109,7 @@
     "window_end": "1981-05-10",
     "notes": "Prediction scoped to Francois Mitterrand being elected President of France on 10 May 1981."
   },
-  "136:156": {
+  "136:157": {
     "scoped_family": "politics_election",
     "expected_event_type": "head_of_state_survives_assassination_attempt",
     "actor_name": "John Paul II",
@@ -120,7 +120,7 @@
     "window_end": "1981-05-13",
     "notes": "Prediction scoped to Pope John Paul II being severely wounded but surviving the 13 May 1981 assassination attempt."
   },
-  "136:52": {
+  "136:53": {
     "scoped_family": "politics_election",
     "expected_event_type": "cabinet_secretary_appointed",
     "actor_name": "Ronald Reagan",
@@ -142,7 +142,7 @@
     "window_end": "2002-12-31",
     "notes": "Prediction scoped to Switzerland's firm entry into the United Nations shortly after the turn of the millennium."
   },
-  "436:11": {
+  "436:12": {
     "scoped_family": "politics_election",
     "expected_event_type": "house_majority_lost",
     "actor_name": "Republican Party",
@@ -153,7 +153,7 @@
     "window_end": "2006-11-07",
     "notes": "Prediction scoped to Republicans losing the U.S. House majority in the November 2006 House elections."
   },
-  "448:7": {
+  "448:9": {
     "scoped_family": "politics_election",
     "expected_event_type": "state_resignation_announced",
     "actor_name": "Tony Blair",

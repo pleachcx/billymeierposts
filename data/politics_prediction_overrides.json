@@ -131,6 +131,17 @@
     "window_end": "1981-02-01",
     "notes": "Scope the Agca-threat row to the later John Paul II assassination attempt as the closest measurable same-actor politics event on the current catalog."
   },
+  "136:137": {
+    "scoped_family": "politics_election",
+    "expected_event_type": "head_of_state_survives_assassination_attempt",
+    "actor_name": "John Paul II",
+    "target_name": "Papacy",
+    "target_keywords": ["John Paul II", "Agca", "St Peter's Square"],
+    "jurisdiction": "Vatican City",
+    "window_start": "1981-01-01",
+    "window_end": "1981-05-13",
+    "notes": "Scope the quoted papal death-threat row to the later John Paul II assassination attempt as the closest measurable same-actor politics event on the current catalog."
+  },
   "136:163": {
     "scoped_family": "politics_election",
     "expected_event_type": "head_of_state_survives_assassination_attempt",

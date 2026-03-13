@@ -24,6 +24,11 @@
     "reason_code": "conditional_hazard_claim",
     "rationale": "Prediction is retired from the volcano slice because it only describes consequences if Vesuvius erupts, without bounding a measurable eruption event."
   },
+  "230:53": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "retrospective_historical_claim",
+    "rationale": "Prediction is retired from the volcano slice because the wartime crater-bombardment passage is historical background, not a future eruption prediction on this baseline."
+  },
   "238:41": {
     "final_status": "permanently_unresolved",
     "reason_code": "misclassified_non_volcano_claim",

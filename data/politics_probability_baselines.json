@@ -119,6 +119,16 @@
     "similar_horizon_days": 365,
     "notes": "Treat the Agca-to-John-Paul-II row as the same one-off assassination-attempt event, even though the Stage 2 exact-day window lands too early."
   },
+  "136:137": {
+    "probability_key": "john_paul_ii_quote_threat_window",
+    "model": "actor_risk_window_single_event_v1",
+    "calibration_start": "1981-01-01",
+    "calibration_end": "1981-05-13",
+    "event_count": 1,
+    "near_expansion_days": 3,
+    "similar_horizon_days": 365,
+    "notes": "Treat the quoted papal death-threat row as the same one-off assassination-attempt event that culminated in the 13 May 1981 attack on John Paul II."
+  },
   "136:163": {
     "probability_key": "reagan_assassination_attempt_window_hinckley_row",
     "model": "actor_risk_window_single_event_v1",

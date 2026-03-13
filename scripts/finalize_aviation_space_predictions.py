@@ -141,7 +141,6 @@ def fetch_predictions(cur, stage2_run_id: int, stage4_run_id: int, scoped_keys: 
           ON mr.prediction_id = p.id
          AND mr.review_run_id = %s
         WHERE last_stage2_run_id = %s
-          AND stage2_label IN ('eligible_prediction', 'significant_prediction')
           AND (report_number, candidate_seq) IN %s
         ORDER BY report_number, candidate_seq
         """,

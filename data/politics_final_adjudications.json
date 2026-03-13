@@ -9,11 +9,6 @@
     "reason_code": "outside_current_politics_catalog",
     "rationale": "Prediction is retired from the politics slice because follow-on intelligence about an assassin's contacts is not a scored head-of-state or election event in the current catalog."
   },
-  "136:137": {
-    "final_status": "permanently_unresolved",
-    "reason_code": "quoted_threat_not_scored_event",
-    "rationale": "Prediction is retired from the politics slice because the quoted threat against the Pope is not itself a bounded state-action event in the current rulebook."
-  },
   "136:138": {
     "final_status": "permanently_unresolved",
     "reason_code": "retrospective_papal_fact",

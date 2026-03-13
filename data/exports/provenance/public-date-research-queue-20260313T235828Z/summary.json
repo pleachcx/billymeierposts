@@ -1,0 +1,168 @@
+{
+  "generated_at": "2026-03-13T23:58:28.351522+00:00",
+  "queue_summary": {
+    "best_available_source_tier_counts": {
+      "mirror_translation_page": 2,
+      "official_figu_original": 104
+    },
+    "combined_observed_probability": {
+      "count": 105,
+      "ln_sum": -395.869007,
+      "log10_sum": -171.923725
+    },
+    "conflict_gap_bucket_counts": {
+      "deep_archive_gap": 96,
+      "large_gap": 4,
+      "medium_gap": 1,
+      "small_gap": 4,
+      "tiny_gap": 1
+    },
+    "current_public_source_tier_counts": {
+      "mirror_revision_timestamp": 66,
+      "mirror_translation_page": 36,
+      "official_figu_original": 4
+    },
+    "family_counts": {
+      "aviation_space": 1,
+      "earthquake": 51,
+      "epidemic": 10,
+      "politics_election": 21,
+      "storm": 7,
+      "volcano": 14,
+      "war_conflict": 2
+    },
+    "match_status_counts": {
+      "exact_hit": 81,
+      "near_hit": 18,
+      "similar_only": 7
+    },
+    "prediction_count": 106,
+    "public_date_cohort_status_counts": {
+      "excluded_currently_unrescued": 106
+    }
+  },
+  "script_version": "public_date_research_queue_v3",
+  "stage2_run_key": "stage2-20260313T092015Z",
+  "top_rows": [
+    {
+      "candidate_seq": 28,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 1,
+      "public_date_cohort_status": "excluded_currently_unrescued",
+      "publication_conflict_gap_bucket": "deep_archive_gap",
+      "publication_lag_days_vs_event": -9756,
+      "report_number": 136,
+      "surprisal_log10": 4.286849
+    },
+    {
+      "candidate_seq": 135,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 2,
+      "public_date_cohort_status": "excluded_currently_unrescued",
+      "publication_conflict_gap_bucket": "deep_archive_gap",
+      "publication_lag_days_vs_event": -9801,
+      "report_number": 150,
+      "surprisal_log10": 4.286849
+    },
+    {
+      "candidate_seq": 5,
+      "current_public_source_tier": "mirror_translation_page",
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 3,
+      "public_date_cohort_status": "excluded_currently_unrescued",
+      "publication_conflict_gap_bucket": "deep_archive_gap",
+      "publication_lag_days_vs_event": -4438,
+      "report_number": 465,
+      "surprisal_log10": 3.80975
+    },
+    {
+      "candidate_seq": 89,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 4,
+      "public_date_cohort_status": "excluded_currently_unrescued",
+      "publication_conflict_gap_bucket": "deep_archive_gap",
+      "publication_lag_days_vs_event": -9663,
+      "report_number": 136,
+      "surprisal_log10": 3.587924
+    },
+    {
+      "candidate_seq": 17,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "event_family_final": "politics_election",
+      "match_status": "exact_hit",
+      "priority_rank": 5,
+      "public_date_cohort_status": "excluded_currently_unrescued",
+      "publication_conflict_gap_bucket": "tiny_gap",
+      "publication_lag_days_vs_event": -1,
+      "report_number": 829,
+      "surprisal_log10": 3.555638
+    },
+    {
+      "candidate_seq": 86,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 6,
+      "public_date_cohort_status": "excluded_currently_unrescued",
+      "publication_conflict_gap_bucket": "deep_archive_gap",
+      "publication_lag_days_vs_event": -9663,
+      "report_number": 136,
+      "surprisal_log10": 3.508754
+    },
+    {
+      "candidate_seq": 5,
+      "current_public_source_tier": "mirror_translation_page",
+      "event_family_final": "politics_election",
+      "match_status": "exact_hit",
+      "priority_rank": 7,
+      "public_date_cohort_status": "excluded_currently_unrescued",
+      "publication_conflict_gap_bucket": "deep_archive_gap",
+      "publication_lag_days_vs_event": -4509,
+      "report_number": 459,
+      "surprisal_log10": 3.501812
+    },
+    {
+      "candidate_seq": 210,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 8,
+      "public_date_cohort_status": "excluded_currently_unrescued",
+      "publication_conflict_gap_bucket": "deep_archive_gap",
+      "publication_lag_days_vs_event": -5626,
+      "report_number": 238,
+      "surprisal_log10": 3.441819
+    },
+    {
+      "candidate_seq": 172,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "event_family_final": "earthquake",
+      "match_status": "exact_hit",
+      "priority_rank": 9,
+      "public_date_cohort_status": "excluded_currently_unrescued",
+      "publication_conflict_gap_bucket": "deep_archive_gap",
+      "publication_lag_days_vs_event": -9556,
+      "report_number": 136,
+      "surprisal_log10": 3.332696
+    },
+    {
+      "candidate_seq": 8,
+      "current_public_source_tier": "mirror_revision_timestamp",
+      "event_family_final": "storm",
+      "match_status": "exact_hit",
+      "priority_rank": 10,
+      "public_date_cohort_status": "excluded_currently_unrescued",
+      "publication_conflict_gap_bucket": "deep_archive_gap",
+      "publication_lag_days_vs_event": -1369,
+      "report_number": 448,
+      "surprisal_log10": 3.321143
+    }
+  ]
+}

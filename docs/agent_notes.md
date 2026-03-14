@@ -335,3 +335,9 @@
 - Verify adjudication-only `war_conflict` retirements in both places: `data/exports/war_conflict/*/predictions.csv` must carry the retired keys and `data/exports/unscored/*/queue.csv` must carry `0/N` remaining targets.
 - Source `.env` before running the audit scripts in a fresh shell; this repo does not always export `DatabaseURL` into the process environment automatically.
 - Retire widened `war_conflict` rows when the stored Stage `2` record lacks a normalized attack window or fuses an attack clause with non-atomic material; do not backfill chronology from famous later events just to score the row.
+- Check `HEAD` after an implementer handoff commit; supervisor workflow files can lag the accepted pack even when the report is complete.
+- Verify pack acceptance from refreshed `summary.json` artifacts and exact queue-key membership, not from the implementer report alone.
+- Normalize workflow branch state to the checked-out feature branch when a work spec still names an older branch.
+- Mirror every family override key into the corresponding probability baseline file before rerunning Stage 5; `assign_*_probabilities.py` hard-fails on any override without a baseline, as with storm `688:12`.
+- Use family final adjudications to retire supported-family promotion rows when the current catalog lacks a defensible atomic event type; rerun Stage 3-7 plus the family export so `final_status` drops the row from the queue without touching Stage 2.
+- Clear generated `scripts/__pycache__/` output before each pack commit; validator runs otherwise leave avoidable repo dirt behind.

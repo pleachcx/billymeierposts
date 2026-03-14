@@ -407,6 +407,17 @@
     "resolution_source": "prediction_override_acapulco_context",
     "notes": "The claim explicitly names the Acapulco region of Mexico as the earthquake target."
   },
+  "833:12": {
+    "target_name": "Turkey-Syria Border Region",
+    "target_type": "region",
+    "lat": 37.17,
+    "lon": 37.03,
+    "radius_km": 260.0,
+    "window_start": "2023-02-06",
+    "window_end": "2023-02-06",
+    "resolution_source": "prediction_override_turkey_syria_february_2023",
+    "notes": "The report says heavy earthquakes will strike within the next few days in Turkey and Syria in February 2023, matching the 6 February 2023 Kahramanmaras mainshock sequence felt into Cyprus."
+  },
   "453:17": {
     "target_name": "Pisco / Peru Coast",
     "target_type": "region",

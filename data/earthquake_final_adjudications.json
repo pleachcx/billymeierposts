@@ -19,6 +19,11 @@
     "rationale": "The claim describes a continuing earthquake chain from Agadir into Italy without a bounded next event window or a defensible atomic stopping point.",
     "reason_code": "chain_claim_without_bounded_event"
   },
+  "136:92": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The row describes an Italy-led earthquake chain running from late 1980 far into the third millennium, so it lacks a bounded atomic event window or defensible stopping rule for scoring.",
+    "reason_code": "multi_year_earthquake_chain_claim"
+  },
   "136:180": {
     "final_status": "permanently_unresolved",
     "rationale": "The Philippines earthquake is only described as happening shortly after the Tehran attack and is immediately entangled with a separate volcanic-eruption clause, so the row lacks a defensible standalone target-window pair for atomic earthquake scoring.",
@@ -32,6 +37,11 @@
   "150:6": {
     "final_status": "excluded_from_statistics",
     "rationale": "This is a world-scope run-up claim about earthquakes in various places on Earth rather than a bounded atomic earthquake prediction.",
+    "reason_code": "world_scope_precursor_claim"
+  },
+  "150:31": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This is a world-scope summary about earthquakes across practically all countries on Earth rather than one bounded atomic earthquake prediction.",
     "reason_code": "world_scope_precursor_claim"
   },
   "150:39": {
@@ -104,6 +114,26 @@
     "rationale": "The Nicaragua clause is framed as a current event already causing fear and only serves as lead-in context for the later Nicobar seaquake row, not as a fresh future atomic earthquake prediction.",
     "reason_code": "current_event_leadin_not_future_prediction"
   },
+  "252:11": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This row expands into a decades-long world-scope chain of earthquakes, eruptions, and other disasters rather than one bounded atomic earthquake prediction.",
+    "reason_code": "multi_year_compound_world_scope"
+  },
+  "364:20": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "The row predicts a whole series of ordinary small quakes in Germany during August rather than one bounded atomic earthquake, so it should not remain in the standalone earthquake cohort.",
+    "reason_code": "sequence_summary_not_atomic_event"
+  },
+  "367:6": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This row jumps from Taiwan to Switzerland and wider Europe in later times, so it is a multi-region earthquake summary rather than one bounded atomic prediction.",
+    "reason_code": "multi_country_compound_summary"
+  },
+  "369:4": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This is a world-scope cascading-rule claim about Japan, Asia, Europe, and the Americas rather than a bounded atomic earthquake prediction.",
+    "reason_code": "world_scope_rule_claim"
+  },
   "400:12": {
     "final_status": "excluded_from_statistics",
     "rationale": "This row comments that events will generally worsen from now on and only references the Pakistan earthquake as context, so it is not an atomic earthquake prediction.",
@@ -148,6 +178,11 @@
     "final_status": "permanently_unresolved",
     "rationale": "The row names two magnitudes on 6 March but only locates them near the unresolved place-name 'Panang', so the current earthquake rulebook cannot assign one defensible target region without guessing.",
     "reason_code": "ambiguous_place_name_blocks_target_resolution"
+  },
+  "446:8": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This sentence only describes how the already-scoped 25 March 2007 Japan quake will affect Tokyo, so it does not add a separate bounded earthquake event to score.",
+    "reason_code": "impact_spillover_not_atomic_event"
   },
   "519:4": {
     "final_status": "permanently_unresolved",

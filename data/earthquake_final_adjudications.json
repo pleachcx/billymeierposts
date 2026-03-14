@@ -4,6 +4,21 @@
     "rationale": "This sentence is retrospective commentary about a prior illustration of San Francisco after earthquake destruction, not a future atomic earthquake prediction.",
     "reason_code": "retrospective_artwork_reference"
   },
+  "70:9": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This is a world-scope forecast about many more major quakes in the future rather than a bounded atomic earthquake prediction.",
+    "reason_code": "world_scope_precursor_claim"
+  },
+  "136:33": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "The row summarizes the start of a longer Italy earthquake sequence in late November 1980 rather than one bounded atomic quake.",
+    "reason_code": "sequence_summary_not_atomic_event"
+  },
+  "136:34": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This sentence only says that other major earthquakes will later follow in Italy, so it does not add a separate bounded earthquake event to score.",
+    "reason_code": "sequence_summary_not_atomic_event"
+  },
   "136:35": {
     "final_status": "excluded_from_statistics",
     "rationale": "This row only says that the Italy earthquake will remain on people's lips; it does not add a separate bounded earthquake event to score.",
@@ -29,6 +44,11 @@
     "rationale": "The Philippines earthquake is only described as happening shortly after the Tehran attack and is immediately entangled with a separate volcanic-eruption clause, so the row lacks a defensible standalone target-window pair for atomic earthquake scoring.",
     "reason_code": "cross_hazard_context_without_bounded_window"
   },
+  "136:108": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "The row summarizes continuing earthquakes in Italy and Greece rather than one bounded atomic quake, so it should not remain in the standalone earthquake cohort.",
+    "reason_code": "sequence_summary_not_atomic_event"
+  },
   "136:174": {
     "final_status": "excluded_from_statistics",
     "rationale": "The Iran earthquake is only used as the temporal anchor for a later attack on the Queen of England, not as a separate measurable earthquake forecast.",
@@ -38,6 +58,11 @@
     "final_status": "excluded_from_statistics",
     "rationale": "This is a world-scope run-up claim about earthquakes in various places on Earth rather than a bounded atomic earthquake prediction.",
     "reason_code": "world_scope_precursor_claim"
+  },
+  "150:30": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This sentence surveys earthquakes across America, North Africa, Italy, Oceania, Japan, China, and Russia rather than one bounded atomic earthquake prediction.",
+    "reason_code": "multi_country_compound_summary"
   },
   "150:31": {
     "final_status": "excluded_from_statistics",
@@ -63,6 +88,21 @@
     "final_status": "permanently_unresolved",
     "rationale": "The claim aggregates earthquake deaths over a broad future interval without a defensible target region, so it cannot be scored as an atomic measurable earthquake prediction.",
     "reason_code": "broad_casualty_aggregate_no_target"
+  },
+  "182:23": {
+    "final_status": "permanently_unresolved",
+    "rationale": "The row points to California and San Francisco but gives no bounded event window, so it remains a long-horizon city-risk claim rather than one measurable atomic earthquake prediction.",
+    "reason_code": "long_horizon_city_risk"
+  },
+  "215:115": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This sentence mixes tornadoes, earthquakes, and volcanic eruptions across America, Europe, and the rest of the world, so it is not one atomic earthquake prediction.",
+    "reason_code": "compound_multi_family_row"
+  },
+  "215:116": {
+    "final_status": "excluded_from_statistics",
+    "rationale": "This row links earthquakes and volcanic eruptions to climatic changes and tornadoes on a world scale, so it is not one bounded atomic earthquake prediction.",
+    "reason_code": "compound_multi_family_row"
   },
   "238:213": {
     "final_status": "permanently_unresolved",

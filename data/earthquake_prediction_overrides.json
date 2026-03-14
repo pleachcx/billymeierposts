@@ -65,6 +65,17 @@
     "resolution_source": "prediction_override_greece_february_1981",
     "notes": "The surrounding report context resolves the 'shortly after 20 February 1981' Greece quake to the 24 February 1981 Alkyonides Gulf sequence."
   },
+  "136:88": {
+    "target_name": "Western Athens / Alkyonides Gulf, Greece",
+    "target_type": "region",
+    "lat": 38.1328,
+    "lon": 23.0103,
+    "radius_km": 120.0,
+    "window_start": "1981-02-24",
+    "window_end": "1981-02-24",
+    "resolution_source": "prediction_override_greece_followon_sequence",
+    "notes": "This follow-on sentence still points to Greece as the next quake country after Italy in the same late-February 1981 sequence, so it shares the 24 February 1981 Alkyonides Gulf window."
+  },
   "136:172": {
     "target_name": "Golbaf / Kerman Province, Iran",
     "target_type": "region",
@@ -117,6 +128,17 @@
     "window_end": "1983-11-08",
     "resolution_source": "prediction_override_liege_november_1983",
     "notes": "This follow-on row is anchored about ten days after the late-October 1983 northeast Turkey quake and explicitly names Liege and the surrounding area."
+  },
+  "230:54": {
+    "target_name": "Vesuvius / Campania, Italy",
+    "target_type": "region",
+    "lat": 40.8214,
+    "lon": 14.4265,
+    "radius_km": 180.0,
+    "window_start": "2000-01-01",
+    "window_end": "2000-12-31",
+    "resolution_source": "prediction_override_vesuvius_year_2000",
+    "notes": "The claim explicitly places the earthquake in the Vesuvius area in the year 2000, so the defensible scoring window is the 2000 calendar year in Campania."
   },
   "238:210": {
     "target_name": "Erzincan-Bingol Corridor, Turkey",

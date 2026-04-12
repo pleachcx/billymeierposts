@@ -10,3 +10,5 @@
 - Scope bundle rollups and exports to the same cohort used by the earlier ledger and scoring stages.
 - Only sweep unrelated repo dirt into a commit when the user explicitly asks for a full-repo commit.
 - Keep repo branch workflow linear: branch from `main`, merge back to `main`, delete merged branches, then start the next bundle from `main`.
+- Reconcile `.workflow` state against `git log` and export timestamps after an interrupted supervisor loop; landed pack commits can outpace the stale implementer report and run log.
+- Rerun aligned Stage `8` and `9` plus provenance, unscored, overview, and release exports after recovering a landed family replay so queue counts reflect the new family outcomes.

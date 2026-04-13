@@ -106,8 +106,9 @@ STOPWORDS = {
 META_FUTURE_PATTERN = re.compile(
     r"""
     \b(
-        contact\ report|conversation|greeting|greetings|interest\ you|letter|question|questions|
-        tell\ you|visit\ you|meet\ again|write|written|reading|reported
+        contact\ report|conversation|discuss|discussion|explain|explanations|greeting|greetings|
+        interest\ you|letter|question|questions|registry\ apparatus|talk\ about|telemeter\ disc|
+        tell\ you|transmission(?:s)?|visit\ you|meet\ again|write|written|reading|reported
     )\b
     """,
     re.IGNORECASE | re.VERBOSE,
@@ -150,12 +151,33 @@ GENERIC_DISASTER_PATTERN = re.compile(r"\b(catastrophe|disaster)\b", re.IGNORECA
 OUTSIDE_RULEBOOK_PATTERN = re.compile(
     r"""
     \b(
-        accident|collision|crash|dangerous\s+goods|explodes?|explosion|fire\s+inferno|
+        accident(?:s)?|collision|crash|dangerous\s+goods|explodes?|explosion|fire\s+inferno|
         inferno|petrol|railway\s+accident|vehicle
     )\b
     """,
     re.IGNORECASE | re.VERBOSE,
 )
+DEICTIC_NON_EVENT_PATTERN = re.compile(r"^(?:this|that)\s+will\b", re.IGNORECASE)
+INTERNAL_CONTACT_PROCESS_PATTERN = re.compile(
+    r"""
+    \b(
+        analysis|be\ back|decision|decalogue|group|hutter-verlag|move\ forward|paths?\s+will\s+open|
+        possible|quetzal|semjase|yanarara|zafenatpaneach|petale|arahat\ athersata|
+        registry\ apparatus|telemeter\ disc|transformation\ treatment
+    )\b
+    """,
+    re.IGNORECASE | re.VERBOSE,
+)
+PRIVATE_LIFE_EVENT_PATTERN = re.compile(
+    r"""
+    \b(
+        birth(?:\s+of\s+a\s+child)?|bring\s+a\s+son\s+into\s+the\s+world|daughter|departing\s+this\s+world|
+        give\s+birth|heart(?:\s+attack)?|hospitali[sz]ed|infarction|leave\ the\ group|mother|brother|sister
+    )\b
+    """,
+    re.IGNORECASE | re.VERBOSE,
+)
+PRESENT_TENSE_WORLD_COMMENTARY_PATTERN = re.compile(r"\b(happening\s+on\s+earth|is\s+happening)\b", re.IGNORECASE)
 LOCATION_GENERIC_VALUES = {
     "Earth",
     "world",
@@ -163,6 +185,20 @@ LOCATION_GENERIC_VALUES = {
     "Earth human",
     "Earth-human",
     "human beings",
+}
+GENERIC_ACTOR_VALUES = {
+    "also",
+    "earth",
+    "earth human",
+    "earth-human",
+    "human being of earth",
+    "human beings of earth",
+    "paths",
+    "that",
+    "the human being of earth",
+    "these",
+    "this",
+    "those",
 }
 MONTHS = {
     "january": 1,
@@ -517,9 +553,15 @@ def clean_actor(actor_text: str | None) -> str | None:
     if not actor_text:
         return None
     value = normalize_claim_text(actor_text).strip(",.")
-    if value.lower() in {"i", "we", "you", "they", "he", "she", "it", "what", "then"}:
+    lowered = value.lower()
+    if lowered.startswith("also "):
+        value = value[5:].strip()
+        lowered = value.lower()
+    if lowered in {"i", "we", "you", "they", "he", "she", "it", "what", "then"}:
         return None
-    if value.lower() in MONTH_NAMES:
+    if lowered in GENERIC_ACTOR_VALUES:
+        return None
+    if lowered in MONTH_NAMES:
         return None
     return value
 
@@ -534,6 +576,16 @@ def classify_family_resolution(
         return "resolved", None
     if COUNTERFACTUAL_WISH_PATTERN.search(claim):
         return "retire_nonprediction", "counterfactual_wish_or_preference"
+    if DEICTIC_NON_EVENT_PATTERN.search(claim):
+        return "retire_nonprediction", "deictic_future_without_observable_event"
+    if META_FUTURE_PATTERN.search(claim) and PRESENT_TENSE_WORLD_COMMENTARY_PATTERN.search(claim):
+        return "retire_nonprediction", "future_conversation_about_present_world_events"
+    if META_FUTURE_PATTERN.search(claim) and INTERNAL_CONTACT_PROCESS_PATTERN.search(claim):
+        return "retire_nonprediction", "internal_contact_process_or_admin_future"
+    if PRIVATE_LIFE_EVENT_PATTERN.search(claim):
+        return "outside_current_rulebook_scope", "private_life_or_contact_circle_event"
+    if INTERNAL_CONTACT_PROCESS_PATTERN.search(claim):
+        return "outside_current_rulebook_scope", "internal_contact_process_or_admin_future"
     if OUTSIDE_RULEBOOK_PATTERN.search(claim):
         return "outside_current_rulebook_scope", "unsupported_accident_or_industrial_incident"
     if conditionality != "none" and "armed conflict" in claim.lower():
@@ -683,6 +735,8 @@ def build_result(row: tuple) -> Stage2Result:
 
     if family_resolution_status == "retire_nonprediction":
         label = "not_a_prediction"
+    elif family_resolution_status == "outside_current_rulebook_scope":
+        label = "prediction_but_not_measurable"
     elif not future_claim_present and not FUTURE_MARKER_PATTERN.search(claim):
         label = "not_a_prediction"
     elif meaningfulness_score < 1 and measurability_score < 1:

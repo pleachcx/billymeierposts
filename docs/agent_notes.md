@@ -27,3 +27,7 @@
 - When `P5` content is locally complete but git writes fail, keep `P5` active and blocked, rewrite workflow files around the new baseline, and require commit recovery before any `P6` movement.
 - Recover blocked `P5` work by committing the Stage 2 classifier change first, then the re-anchored export bundle, then the handoff evidence once git writes return.
 - Reconcile stale `.workflow` blockers against `git log`, `git status`, and the implementer report before keeping a pack blocked; once coherent commits land, advance the workflow to branch handoff and retire still-blocked future packs explicitly.
+- Rebuild missing `.workflow` supervisor files from the live doc set, `.workflow/history/`, current implementer report, and landed commit chain before making a new branch decision.
+- When a pack creates a deliberate Stage `2` carry-forward rerun, rewrite the branch handoff state around that new `stage2_run_key` and retire blocked future packs explicitly instead of leaving the old baseline in place.
+- When the core supervisor files already show `branch_complete`, still reconcile `.workflow/state.json` and `.workflow/run_log.md`; stale `supervisor_running` metadata can survive an interrupted rerun and misstate the live branch status.
+- If a supervisor closeout only needs a note-only commit, still test git writability first; this sandbox can leave `.workflow` updates local while blocking tracked-note commits on `.git/index.lock`.

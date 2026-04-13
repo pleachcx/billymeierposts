@@ -18,3 +18,11 @@
 - Check git writability before pack closeout; this sandbox can block `git commit` by rejecting `.git/index.lock` even when normal workspace edits succeed.
 - When pack content is complete but `.git` is unwritable, mark the branch `blocked`, keep the active pack unchanged, and require coherent commits before advancing to the next pack.
 - Package recovered supervisor-loop diffs with family-batch commits, aligned export closeout, and a final implementer handoff commit once git writes are restored.
+- Recreate missing `.workflow` supervisor files from the live doc set, git history, implementer report, and export evidence before advancing the next pack in a recovered supervisor loop.
+- When caller pack guidance requires four-plus slices, split the active pack into larger internal row clusters without changing pack order or acceptance criteria.
+- If `.workflow` state is updated but `.git/index.lock` is blocked by the sandbox, report the refreshed local workflow files and the remaining tracked dirt instead of faking a clean handoff.
+- Use a targeted `review_prediction_candidates.py --prediction-key ... --carry-forward-stage2-run-key ...` rerun to clear unknown-family rows without forcing a full-corpus Stage 2 rewrite.
+- Re-anchor every family export summary to the new `stage2_run_key` before rerunning the release bundle; the release composer rejects mixed-baseline family summaries.
+- Retire deictic, internal-process, and contact-circle future claims at Stage 2 so they do not survive as eligible `unknown` backlog rows.
+- When `P5` content is locally complete but git writes fail, keep `P5` active and blocked, rewrite workflow files around the new baseline, and require commit recovery before any `P6` movement.
+- Recover blocked `P5` work by committing the Stage 2 classifier change first, then the re-anchored export bundle, then the handoff evidence once git writes return.

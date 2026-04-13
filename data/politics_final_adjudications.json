@@ -1,4 +1,39 @@
 {
+  "150:100": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_intrigue_assassination_claim",
+    "rationale": "Prediction is retired from the politics slice because it references another intrigue like Sadat's assassination without naming a bounded officeholder event, actor, or defensible window that the current politics catalog can score."
+  },
+  "150:103": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_hidden_conspiracy_claim",
+    "rationale": "Prediction is retired from the politics slice because covert tools acting on Begin's behalf is a hidden-conspiracy narrative, not one formal government-action event in the current catalog."
+  },
+  "150:107": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "contextless_death_cause_clause",
+    "rationale": "Prediction is retired from the politics slice because the isolated statement about a woman's brain hemorrhage lacks a self-contained officeholder, jurisdiction, and time window for objective scoring."
+  },
+  "223:9": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "broad_presidential_consequence_claim",
+    "rationale": "Prediction is retired from the politics slice because the claim that President Bush will bring sorrow, death, and disaster is broad consequence language, not one bounded government-action event."
+  },
+  "241:17": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "generic_policy_inaction_claim",
+    "rationale": "Prediction is retired from the politics slice because failing to recognize responsibility and act on destruction is a diffuse policy-inaction warning, not one scored officeholder or state-action event."
+  },
+  "251:111": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "misclassified_cosmology_claim",
+    "rationale": "Prediction is retired from the politics slice because the sun's eventual death and collapse of the solar system are cosmology claims, not government-action events."
+  },
+  "348:1": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "pope_end_question_lacks_defensible_window",
+    "rationale": "Prediction is retired from the politics slice because the question about the real end of Pope John Paul II never states a bounded time window and is fused to commentary about the earlier assassination attempt, so the current catalog will not invent chronology to score it."
+  },
   "79:15": {
     "final_status": "permanently_unresolved",
     "reason_code": "misclassified_spiritual_mortality_claim",

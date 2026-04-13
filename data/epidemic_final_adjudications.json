@@ -1,4 +1,29 @@
 {
+  "216:31": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "antibiotic_resistance_multi_illness_claim",
+    "rationale": "Prediction remains outside the current epidemic slice because antibiotic resistance, wound infections, blood poisoning, pneumonia, and diagnostic confusion are bundled into a broad health-systems warning rather than one bounded named-disease event."
+  },
+  "231:46": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "aids_origin_claim_not_bounded_event",
+    "rationale": "Prediction remains outside the current epidemic slice because it is an origin-story claim about green monkeys and AIDS transmission, not a measurable outbreak or disease event in the current catalog."
+  },
+  "238:190": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "aids_severity_recognition_claim",
+    "rationale": "Prediction remains outside the current epidemic slice because recognition that AIDS is more insidious than previously thought is a broad public-understanding claim, not one named-disease event with a defensible trigger."
+  },
+  "241:6": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "compound_aids_tuberculosis_trend_claim",
+    "rationale": "Prediction remains outside the current epidemic slice because it combines the AIDS epidemic with a renewed tuberculosis spread claim instead of isolating one bounded named-disease event in the current catalog."
+  },
+  "246:5": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "generic_aids_growth_claim",
+    "rationale": "Prediction remains outside the current epidemic slice because ever-greater growth of the AIDS epidemic is an open-ended trend claim rather than a scored outbreak event."
+  },
   "131:1": {
     "final_status": "permanently_unresolved",
     "reason_code": "generic_environmental_disease_claim",

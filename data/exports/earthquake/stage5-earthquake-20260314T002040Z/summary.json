@@ -20,7 +20,7 @@
     "included_in_statistics": 74,
     "permanently_unresolved": 4
   },
-  "generated_at": "2026-03-14T00:23:04.949854+00:00",
+  "generated_at": "2026-04-13T00:53:01.488963+00:00",
   "observed_event_before_publication_count": 52,
   "prediction_summary": {
     "combined_exact_hit_probability": {
@@ -90,62 +90,62 @@
     },
     "public_date_excluded": {
       "combined_exact_hit_probability": {
-        "count": 35,
-        "ln_sum": -188.948748,
-        "log10_sum": -82.059399,
-        "scientific_notation": "8.721707e-83"
+        "count": 36,
+        "ln_sum": -196.111894,
+        "log10_sum": -85.170314,
+        "scientific_notation": "6.755950e-86"
       },
       "combined_hit_probability": {
-        "count": 51,
-        "ln_sum": -237.536618,
-        "log10_sum": -103.160843,
-        "scientific_notation": "6.904900e-104"
+        "count": 52,
+        "ln_sum": -244.699765,
+        "log10_sum": -106.271758,
+        "scientific_notation": "5.348627e-107"
       },
       "combined_observed_probability": {
-        "count": 51,
-        "ln_sum": -237.536618,
-        "log10_sum": -103.160843,
-        "scientific_notation": "6.904900e-104"
+        "count": 52,
+        "ln_sum": -244.699765,
+        "log10_sum": -106.271758,
+        "scientific_notation": "5.348627e-107"
       },
-      "probability_ready_count": 51,
-      "scoped_prediction_count": 51,
+      "probability_ready_count": 52,
+      "scoped_prediction_count": 52,
       "stage2_label_counts": {
-        "eligible_prediction": 6,
+        "eligible_prediction": 7,
         "significant_prediction": 45
       },
       "status_counts": {
-        "exact_hit": 35,
+        "exact_hit": 36,
         "near_hit": 14,
         "similar_only": 2
       }
     },
     "public_date_not_disproven": {
       "combined_exact_hit_probability": {
-        "count": 9,
-        "ln_sum": -61.979419,
-        "log10_sum": -26.91732,
-        "scientific_notation": "1.209708e-27"
+        "count": 8,
+        "ln_sum": -54.816272,
+        "log10_sum": -23.806404,
+        "scientific_notation": "1.561693e-24"
       },
       "combined_hit_probability": {
-        "count": 13,
-        "ln_sum": -77.037472,
-        "log10_sum": -33.456949,
-        "scientific_notation": "3.491813e-34"
+        "count": 12,
+        "ln_sum": -69.874325,
+        "log10_sum": -30.346034,
+        "scientific_notation": "4.507814e-31"
       },
       "combined_observed_probability": {
-        "count": 23,
-        "ln_sum": -77.624701,
-        "log10_sum": -33.71198,
-        "scientific_notation": "1.940977e-34"
+        "count": 22,
+        "ln_sum": -70.461555,
+        "log10_sum": -30.601064,
+        "scientific_notation": "2.505737e-31"
       },
-      "probability_ready_count": 23,
-      "scoped_prediction_count": 23,
+      "probability_ready_count": 22,
+      "scoped_prediction_count": 22,
       "stage2_label_counts": {
-        "eligible_prediction": 7,
+        "eligible_prediction": 6,
         "significant_prediction": 16
       },
       "status_counts": {
-        "exact_hit": 9,
+        "exact_hit": 8,
         "miss": 10,
         "near_hit": 2,
         "similar_only": 2
@@ -182,13 +182,13 @@
     }
   },
   "public_date_status_counts": {
-    "event_precedes_publication": 51,
-    "no_public_date_evidence": 13,
-    "pending": 9,
+    "event_precedes_publication": 52,
+    "no_public_date_evidence": 15,
+    "pending": 6,
     "public_date_ok": 7
   },
   "run_keys": {
-    "stage2_run_key": "stage2-20260313T092015Z",
+    "stage2_run_key": "stage2-20260413T005136Z",
     "stage3_run_key": "stage3-earthquake-20260314T001911Z",
     "stage4_run_key": "stage4-earthquake-20260314T002035Z",
     "stage5_run_key": "stage5-earthquake-20260314T002040Z",

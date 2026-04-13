@@ -9,7 +9,7 @@
     "included_in_statistics": 20,
     "permanently_unresolved": 4
   },
-  "generated_at": "2026-04-12T23:26:39.445977+00:00",
+  "generated_at": "2026-04-13T00:53:01.526466+00:00",
   "match_status_counts": {
     "exact_hit": 14,
     "miss": 5,
@@ -95,7 +95,7 @@
     "public_date_ok": 2
   },
   "run_keys": {
-    "stage2_run_key": "stage2-20260313T092015Z",
+    "stage2_run_key": "stage2-20260413T005136Z",
     "stage3_run_key": "stage3-volcano-20260313T235723Z",
     "stage4_run_key": "stage4-volcano-20260313T235723Z",
     "stage5_run_key": "stage5-volcano-20260313T235723Z",

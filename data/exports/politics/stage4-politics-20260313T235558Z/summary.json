@@ -8,7 +8,7 @@
   "final_status_counts": {
     "included_in_statistics": 21
   },
-  "generated_at": "2026-04-12T23:26:38.900774+00:00",
+  "generated_at": "2026-04-13T00:53:01.328429+00:00",
   "match_status_counts": {
     "exact_hit": 20,
     "similar_only": 1
@@ -75,7 +75,7 @@
     "event_precedes_publication": 21
   },
   "run_keys": {
-    "stage2_run_key": "stage2-20260313T092015Z",
+    "stage2_run_key": "stage2-20260413T005136Z",
     "stage3_run_key": "stage3-politics-20260313T235558Z",
     "stage4_run_key": "stage4-politics-20260313T235558Z",
     "stage5_run_key": "stage5-politics-20260313T235558Z",

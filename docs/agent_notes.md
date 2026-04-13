@@ -26,3 +26,4 @@
 - Retire deictic, internal-process, and contact-circle future claims at Stage 2 so they do not survive as eligible `unknown` backlog rows.
 - When `P5` content is locally complete but git writes fail, keep `P5` active and blocked, rewrite workflow files around the new baseline, and require commit recovery before any `P6` movement.
 - Recover blocked `P5` work by committing the Stage 2 classifier change first, then the re-anchored export bundle, then the handoff evidence once git writes return.
+- Reconcile stale `.workflow` blockers against `git log`, `git status`, and the implementer report before keeping a pack blocked; once coherent commits land, advance the workflow to branch handoff and retire still-blocked future packs explicitly.

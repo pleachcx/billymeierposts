@@ -1,4 +1,24 @@
 {
+  "237:4": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_plane_crash_event_type",
+    "rationale": "Prediction is retired from the aviation-space slice because a plane crash in the Zurich lowlands is outside the current satellite-action catalog."
+  },
+  "364:29": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unsupported_plane_crash_event_type",
+    "rationale": "Prediction is retired from the aviation-space slice because a fatal plane crash in Venezuela, even with military victims, is not a scored event type in the current satellite-action rulebook."
+  },
+  "733:19": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "broad_satellite_network_harm_claim",
+    "rationale": "Prediction is retired from the aviation-space slice because an unspecified unpleasant result from a future satellite internet network is too broad for the current bounded satellite-action catalog."
+  },
+  "733:24": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unspecified_satellite_program_unpleasantness",
+    "rationale": "Prediction is retired from the aviation-space slice because the row explicitly withholds what unpleasant thing will happen in the satellite programme, leaving no measurable aerospace event to score."
+  },
   "52:1": {
     "final_status": "permanently_unresolved",
     "reason_code": "generic_space_catastrophe_claim",

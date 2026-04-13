@@ -1,4 +1,29 @@
 {
+  "136:93": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "multi_decade_global_flood_claim",
+    "rationale": "Prediction is retired from the storm slice because many decades of wild waters and worldwide flooding are a long-horizon global aggregate, not one defensible atomic storm event."
+  },
+  "150:132": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "global_monthwide_storm_aggregate",
+    "rationale": "Prediction is retired from the storm slice because storms moving around the Earth throughout December 1982 aggregate worldwide misery and death rather than naming one bounded weather catastrophe."
+  },
+  "150:158": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "countryless_flash_flood_claim",
+    "rationale": "Prediction is retired from the storm slice because enormous masses of water and flash floods are forecast for an unnamed country without one defensible storm target or event window."
+  },
+  "238:32": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "seasonal_storm_damage_claim",
+    "rationale": "Prediction is retired from the storm slice because enormous storm damage in the autumn is a seasonal generality without a named storm, place, or measurable event window."
+  },
+  "238:57": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "weather_control_capability_claim",
+    "rationale": "Prediction is retired from the storm slice because it comments on hypothetical human control over weather rather than forecasting a bounded storm event."
+  },
   "79:13": {
     "final_status": "permanently_unresolved",
     "reason_code": "metaphorical_storm_language",

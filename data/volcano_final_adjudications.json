@@ -1,4 +1,19 @@
 {
+  "238:202": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "outside_current_taal_catalog",
+    "rationale": "Prediction is retired from the volcano slice because the current baseline does not carry a defensible Taal eruption event set, and the row's blame narrative would still need new catalog work beyond the active pack."
+  },
+  "401:22": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "unnamed_galapagos_eruption_claim",
+    "rationale": "Prediction is retired from the volcano slice because a large eruption in a roughly 10-kilometre Galapagos crater does not name one defensible volcano target in the current rulebook."
+  },
+  "469:4": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "volcano_monitoring_method_claim",
+    "rationale": "Prediction is retired from the volcano slice because it is methodological guidance about using seismography to predict eruptions, not a future bounded eruption event."
+  },
   "136:29": {
     "final_status": "permanently_unresolved",
     "reason_code": "symbolic_volcano_omen",

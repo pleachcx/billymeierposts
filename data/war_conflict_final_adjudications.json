@@ -1,4 +1,64 @@
 {
+  "21:1": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "conditional_contextless_attack_threat",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because the first-person conditional threat about attacking 'iron reserves' names no defensible target, jurisdiction, or dated attack window that the current rulebook can score."
+  },
+  "45:10": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "world_war_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because a possible hellish war roaring over the Earth is broad world-war framing, not one public-record dated attack event."
+  },
+  "72:2": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "conditional_atomic_war_destruction_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because conditional atomic-fire destruction in northern Switzerland is a broad war-destruction scenario, not one atomic dated attack record."
+  },
+  "115:19": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "compound_regime_change_and_invasion_bundle_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because it bundles the Shah's overthrow, Tito's death, and the Soviet invasion of Afghanistan instead of isolating one scored dated attack event."
+  },
+  "115:24": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "world_war_commentary_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because claims that others will say a Third World War can no longer threaten are geopolitical commentary, not an attack event."
+  },
+  "115:27": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "contextless_war_incident_claim",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because the row only says unnamed actors will march somewhere and deny that it is an incident of war, without one bounded attack event to score."
+  },
+  "134:1": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "war_onset_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because the imminent outbreak of war between Iran and Iraq is a war-onset claim, not one atomic bombing or attack record."
+  },
+  "134:2": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "follow_on_gulf_war_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because another Persian Gulf war led by the United States is a broad follow-on war claim, not one dated attack event."
+  },
+  "134:3": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "second_us_released_war_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because a second war released by the U.S.A. is broad war framing, not one atomic dated attack."
+  },
+  "135:4": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "conflict_continuation_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because the claim that a war between brothers will continue with unabated violence describes ongoing conflict, not one dated attack event."
+  },
+  "135:6": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "conflict_consequences_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because no real winner and later murderous follow-on violence are consequence claims about a broader war, not the attack event itself."
+  },
+  "136:17": {
+    "final_status": "permanently_unresolved",
+    "reason_code": "world_war_preparation_claim_outside_dated_attack_rulebook",
+    "rationale": "Prediction is retired from the war_conflict dated-attack slice because preparations for a worldwide war are geopolitical escalation framing, not one atomic dated attack that the current rulebook can score."
+  },
   "136:196": {
     "final_status": "permanently_unresolved",
     "reason_code": "attack_clause_lacks_stored_window_for_slice",

@@ -4,14 +4,15 @@
     "ln_sum": -27.442424,
     "log10_sum": -11.918093
   },
-  "earliest_public_date_populated_count": 8,
+  "earliest_public_date_populated_count": 9,
   "final_status_counts": {
     "included_in_statistics": 7,
-    "permanently_unresolved": 39
+    "permanently_unresolved": 51
   },
-  "generated_at": "2026-03-13T23:38:47.340262+00:00",
+  "generated_at": "2026-04-12T23:26:38.463493+00:00",
   "match_status_counts": {
     "exact_hit": 7,
+    "excluded": 12,
     "similar_only": 1,
     "unreviewed": 38
   },
@@ -26,15 +27,16 @@
       },
       "match_status_counts": {
         "exact_hit": 7,
+        "excluded": 12,
         "similar_only": 1,
         "unreviewed": 38
       },
-      "prediction_count": 46,
+      "prediction_count": 58,
       "probability_ready_count": 8,
       "public_date_status_counts": {
         "event_precedes_publication": 2,
         "no_public_date_evidence": 5,
-        "pending": 39
+        "pending": 51
       }
     },
     "public_date_excluded": {
@@ -60,14 +62,15 @@
       },
       "match_status_counts": {
         "exact_hit": 5,
+        "excluded": 12,
         "similar_only": 1,
         "unreviewed": 38
       },
-      "prediction_count": 44,
+      "prediction_count": 56,
       "probability_ready_count": 6,
       "public_date_status_counts": {
         "no_public_date_evidence": 5,
-        "pending": 39
+        "pending": 51
       }
     },
     "public_date_strict_clean": {
@@ -85,15 +88,15 @@
   "public_date_status_counts": {
     "event_precedes_publication": 2,
     "no_public_date_evidence": 5,
-    "pending": 39
+    "pending": 51
   },
   "run_keys": {
     "stage2_run_key": "stage2-20260313T092015Z",
     "stage3_run_key": "stage3-war-conflict-20260313T233829Z",
     "stage4_run_key": "stage4-war-conflict-20260313T233834Z",
     "stage5_run_key": "stage5-war-conflict-20260313T233837Z",
-    "stage7_run_key": "stage7-war-conflict-final-20260313T233841Z"
+    "stage7_run_key": "stage7-war-conflict-final-20260412T232618Z"
   },
-  "scoped_prediction_count": 46,
+  "scoped_prediction_count": 58,
   "script_version": "war_conflict_export_v1"
 }
